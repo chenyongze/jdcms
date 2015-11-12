@@ -3,3 +3,7 @@
 .settings/*
 application/cache/*
 uploads/*
+App/Conf/*
+App/Runtime/*
+App/Runtime/~runtime.php
+Public/Install/*
