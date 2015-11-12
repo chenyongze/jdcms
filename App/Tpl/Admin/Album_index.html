@@ -1,0 +1,72 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	function status(id,type){
+	    $.get("{:U('Album/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<div class="pad-10" >
+    <form name="searchform" action="{:U('Album/index')}" method="get" >
+    <input name="a" type="hidden" value="index">
+    <input name="m" type="hidden" value="Album">
+    <input name="g" type="hidden" value="Admin">
+    <table width="100%" cellspacing="0" class="search-form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain-col">
+                <select name="status">
+            	<option value="-1">-是否审核-</option>
+                <option value="1" <if condition="$status eq 1">selected="selected"</if>>已审核</option>
+                <option value="0" <if condition="$status eq 0">selected="selected"</if>>未审核</option>
+                </select>
+                &nbsp;关键字 :
+                <input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+                <input type="submit" name="search" class="button" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+	 
+    <form id="myform" name="myform" action="{:u('Album/delete')}" method="post" onsubmit="return check();">
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="5%">序号</th>
+                <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                <th width=200>专辑名称</th>
+                <th width=200 align="left">专辑描述</th>
+                <th width=200>发布时间</th>
+                <th width=60>审核</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="list" id="val" >
+        <tr>
+        	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="center">{$val.title}</td>
+            <td align="left"><font color=red>{$val.info}</font></td>
+            <td align="center"><em style="color:green;">{:date("Y-n-j   H:i:s",$val["add_time"])}</em></td>
+            <td align="center" onclick="status({$val.id},'status')" id="status_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.status}.gif" /></td>            
+        </volist>
+    	</tbody>
+    </table>
+    <div class="btn">
+    	<label for="check_box" style="float:left;">全选/取消</label>
+    	<input type="submit" class="button" name="dosubmit" value="删除" style="float:left;margin:0 10px 0 10px;"/>
+    	<div id="pages">{$page}</div>
+    </div>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>

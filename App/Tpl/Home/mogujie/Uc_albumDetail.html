@@ -1,0 +1,34 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script>  
+<include file="Public:headerd"/>
+<div class="main">
+<include file="Public:ucInfo"/>
+<div class="clearfix" id="content_wrap">
+
+<div class="album_nav clearfix">
+	<h1 class="album_nav_h1 fl">{$album_info['title']}</h1>
+	<if condition="$oUid eq ''">
+	 <div class="edit_album fl">
+		<a href="{:get_url('albumDel',$album_info['id'],'user')}" class="delete" title="删除该专辑">删除</a>
+		<a href="{:get_url('albumInfo',$album_info['id'],'user')}" class="edit" title="编辑该专辑内容">编辑</a>
+	</div>
+   </if>
+</div>
+
+<if condition="$items_list">
+
+<include file="Public:ucItemsList"/>
+<else/>
+<div class="home_empty">
+	<img src="__TMPL__Public/img/dragon_icon_yaya.png">
+	<span class="des" style="left:200px">
+	该专辑下还没有商品哦~</span>
+</div>
+</if>
+</div>
+</div>
+<include file="Public:footer" />

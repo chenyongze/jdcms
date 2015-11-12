@@ -1,0 +1,55 @@
+<include file="Public:header" />	
+	<!--<input type="hidden" id="album_items_id" name="items_id" value="{$items_id}">
+		<select id="album_items_title" name="album_title">
+		<volist name="album_list" id="vo">
+		<option>{$vo.title}</option>
+		</volist>
+		</select>
+		<textarea id="album_items_remark" class="btn_txt fl rl5" name="remark"></textarea>
+		<input type="button" id="albumBtn" class="" value="确定"/>-->
+
+		<div class="box_user">
+<div class="creat_qd_tit"><b>加入专辑</b>　　</div>
+<div class="creat_qd">
+<input type="hidden" id="album_items_id" name="items_id" value="{$items_id}">
+<table cellspacing="0" cellpadding="0">
+	<tr>
+	<td></td>
+	<td><div id="createAlbumError"></div></td>
+	</tr>
+	<tbody>
+	<tr>
+	<td></td>
+	<td><div id="addAlbumItems"></div></td>
+	</tr>
+	<tr>
+	<td align="right">专辑名称：</td>
+	<td>
+		<select id="album_items_title" name="album_title">
+		<present name="album_list">
+		<volist name="album_list" id="vo">
+			<option class="btn_txt r5" style="width:100px" value="{$vo.id}">{$vo.title}</option>
+		</volist>
+		<else/>
+			<option class="btn_txt r5" style="width:100px" value="0">默认专辑</option>
+		</present>
+		</select>
+		<a class="creat" href="{:get_url('albumInfo','','user')}">创建新专辑</a>
+	</td>
+	</tr>
+	<tr>
+	<td align="right">描述：</td>
+	<td><textarea id="album_items_info" style="width:350px; height:100px;"></textarea></td>
+	</tr>
+	
+    <tr>
+	</tr>
+	<tr>
+	<td></td>
+	<td><input type="button" id="albumBtn" value="确定" style="cursor: pointer;" class="btn_up" albumBtn_post_action="{:get_url('addAlbumBtn','','album')}" albumBtn_post_location="{:get_url('album','','user')}">
+	<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div></td>
+	</tr>
+	</tbody></table>
+</div>
+</div>
+<include file="Public:footer" />

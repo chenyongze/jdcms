@@ -1,0 +1,48 @@
+<include file="Public:headeru" />
+<script src="__TMPL__Public/js/masonry.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd" />
+<div class="spinner topSpinner" style="display:none"></div>
+<include file="Public:ucInfo"/>
+	<volist name="album_list" id="voAlbum">
+		<div class="groupBox col">
+			<div class="groupCon">
+				<div class="gc_title">
+					<h4><a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}">{$voAlbum.title}</a></h4>
+					<p>{$voAlbum.items_count}</p>
+				</div>
+				<a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="imgBox">
+					<if condition="($voAlbum['cover']['img'] eq '') and ($voAlbum['cover'])"><img class="" src="__TMPL__Public/img/undefined.jpg"/><else/><img class="" src="{$voAlbum.cover.img|get_img=###,100}"/></if>
+					<volist name="voAlbum['items']" id="voItems" offset="0" length="8" key="key">
+						<img class="<if condition="($key+1)%3 eq '0'">r</if>" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+					</volist>
+					<div class="clear_f"></div>
+				</a>
+				<if condition="$oUid eq ''">
+				<div class="infoBox c_f">
+					<a href="{:get_url('albumDel',$voAlbum['id'],'user')}" class="delMyAlbum">删除</a>
+					<a target="_blank" href="{:get_url('albumInfo',$voAlbum['id'],'user')}" class="btn">设置</a>
+					<div class="clear_f"></div>
+				</div>
+				<else/>
+				<div class="lookBox"></div>
+				</if>
+			</div>
+		</div>
+	</volist>
+</div>
+	<div class="spinner botSpinner none_f"></div>
+	<div class="clear_f"></div>
+</div>
+<div class="paging_panel p_f">
+	<div class="pageNav bgcnt">
+	 	<div class="loading" style="width:32px;height:32px;margin:0 auto;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+		<div class="page" style="display: block; ">
+			{$page}
+		</div>
+	</div>
+</div>	
+
+<include file="Public:footer" />

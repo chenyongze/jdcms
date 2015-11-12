@@ -1,0 +1,174 @@
+.settings_box{margin:0 20px 0 55px;position:relative;zoom:1}
+.setting_box_promt{position:absolute;display:none}
+.setting_box_warnning{position:absolute;display:none}
+.setting_box_right{position:absolute;display:none}
+.setting_box_wrong{position:absolute;display:none}
+.settings_box_modify{width:920px;height:100%;float:left;margin:0 0 100px 100px}
+#ext_info_tab{line-height:40px;font-size:12px;width:845px}
+.ext_info_d1{font-size:14px;height:30px;text-align:right;white-space:nowrap;width:130px}
+.ext_info_d2{width:615px;padding-left:10px;font-size:12px}
+.ext_info_d2 #nickname{float:left}
+.ext_info_d2 #updateNotice{float:left; padding-left:10px; line-height:30px; color:#f69!important}
+.ext_info_d2 select{ color:#666}
+.ext_input{border:1px solid #cdcdcd;font-size:12px;line-height:22px;padding-left:4px;padding-right:5px;padding-top:3px;width:260px;height:23px;color:#666}
+.ext_submit_box{width:680px;height:70px; float:left; margin-left:20px}
+.ext_submit{background:transparent url(../img/save_btn.jpg) no-repeat;width:80px;height:30px;border:0;color:#ffffff;cursor:pointer}
+.invite_title{font-size:16px;font-weight:900;width:800px;margin-left:18px;line-height:30px;text-align:left}
+#invite_link{ height:21px;width:530px;background-color:#E7EDEB;border:1px solid #ddd}
+.ext_textarea{font-size:12px;background:transparent url(../img/text_area.jpg) repeat-y scroll 0 0;width:200px;cols="10";rows="45"}
+#invite_box1{clear:both;height:auto}
+#pass_mod_tab{margin:20px 20px 100px;font-size:12px;width:580px;height:100%;line-height:40px}
+#setting_header{clear:both}
+#settings_header_title{margin-left:25px;margin-top:18px;height:50px;width:90px}
+#settings_header_title p{font-size:20px;font-weight:900}
+#settings_header_nav{position:relative;clear:both;height:34px;margin:0 20px 0 25px}
+.setting_nav_button{float:left;height:100%;line-height:30px;width:120px;padding-right:10px;text-align:center}
+.config_title{height:40px;width:580px;margin:0 auto;border-bottom:1px dashed #999}
+.config_body{width:580px;height:30px;margin:0 auto;line-height:20px}
+#edit_hint{margin-top:25px;margin-left:25px;width:500px;height:100px; float:left;color:#CECECE}
+#upload_hint{margin:10px 0 0}
+.setting_fontsize{font-size:12px}
+#d_clip_container{height:30px;width:120px;margin-top:0px;float:left}
+#invite_link_div{width:880px;height:40px;}
+.copyInput{float:left}
+#copySuccess{display:none}
+.copySuccess{width:176px;height:28px;padding-left:20px;background-color:#ffffcd;font-size:14px;line-height:28px;float:left}
+#search_user_info{margin-top:20px;margin-left:30px;float:left;width:400px}
+.upload_avatar_button{border:0px;cursor:pointer;display:bolck;position:absolute;left:210px;top:10px;background:url(../img/upload.jpg) 0 0 no-repeat;height:28px;width:80px}
+#invite_friend_logo_msn{margin-left:25px;font-size:18px;color:#0066FF;font-weight:bold}
+.find_button{width:66px;height:24px;border:0px;background:transparent url(../img/find_button.png) no-repeat scroll 0 0}
+.errorMsg{color : red;margin-left:20px}
+#SettingNavBar{padding-left:20px}
+
+
+.update_realname{position:relative;width:350px;height:184px;margin:50px 0 0 300px;background:url(../img/realname_bg.jpg) no-repeat}
+.update_realname .realname{margin:78px 0 0 33px;border:1px solid #CDCDCD;font-size:14px;height:20px;line-height:20px;overflow:hidden;padding-left:5px;width:163px}
+.update_realname .hint{color:red}
+.update_realname .ok_btn, .update_realname .cancel_btn{position:absolute;width:70px;height:25px;left:100px;top:133px;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
+.update_realname .cancel_btn{left:179px}
+.sync_box{margin:5px 20px 20px 55px;font-size :14px}
+.sync_box #bind{width:100%;margin-top:40px}
+.sync_box .logo{display:block;width:125px;height:45px;margin-bottom:20px;position:absolute;left:50px;top:16px}
+.sync_box .logo_renren{background:url(../img/logo_renren.jpg) no-repeat}
+.sync_box .logo_kaixin001{background:url(../img/logo_kaixin001.jpg) no-repeat}
+.sync_box .logo_weibo{background:url(../img/logo_weibo.jpg) no-repeat}
+.sync_box .logo_qzone{background:url(../img/qq.gif) no-repeat}
+.sync_box .logo_taobao{background:url(../img/taobao.gif) no-repeat}
+.sync_box .logo_wrapper{position:relative}
+.sync_box .logo_wrapper .tools{position:absolute;top:0;right:0;padding-top:3px}
+.sync_box .logo_wrapper .tools a{display:block;font-size:12px;margin:3px}
+.sync_box .logo_wrapper .tools .unbind{color:gray}
+.bindsinarenren{cursor:pointer;position:absolute;left:66px;top:108px;width:80px;height:25px;border:0 none;background:url(../img/bindnow.jpg) no-repeat}
+.sina_left{position:relative;width:210px;height:165px;float:left;background-color:#F8F8F8;border:1px solid #F3F3F3}
+.renren_right{position:relative;margin-left:20px;width:210px;height:165px;float:left;background-color:#F8F8F8;border:1px solid #F3F3F3}
+.qzone_right{position:relative;margin-left:20px;width:210px;height:165px;float:left;background-color:#F8F8F8;border:1px solid #F3F3F3}
+.taobao_right{position:relative;margin-left:20px;width:210px;height:165px;float:left;background-color:#F8F8F8;border:1px solid #F3F3F3}
+.connect_map{position:absolute;height:20px;width:125px;top:83px;left:50px}
+#setting_panel{width:850px;height:160px;margin-left:36px;margin-top:22px;*margin-top:0px}
+#setting_panel .main{font-size:14px;float:left;padding:0px 10px 10px 20px}
+#setting_panel .main .title{font-weight:bold;font-size:14px;margin:5px 0 12px 0}
+#setting_panel .main .option{height:25px;line-height:25px}
+#setting_panel .main .submit{float:left}
+#setting_panel .main .cancel{display:block;float:left;width:65px;height:27px;margin-left:10px;background:url(../img/sync_cancel.jpg) no-repeat}
+.setting_sub_tab{margin:10px 0 0 55px}
+.setting_sub_tab a, .setting_sub_tab a:hover{float:left;_display:inline;margin-right:5px;padding:5px 15px;border:1px solid #c8c8c8;font-size:12px;color:black;text-decoration:none}
+.setting_sub_tab .current, .setting_sub_tab .current:hover{border-color:#b2012b;color:white;font-weight:bold;background:#f36}
+.settings_discount{padding:20px 0 0 0;width:580px;min-height:750px;_height:750px}
+.settings_discount .title{line-height:20px;border-bottom:1px solid #c8c8c8;font-size:16px;font-weight:bold}
+.settings_discount .title span{font-size:12px;font-weight:normal;color:#fd9a00}
+.discount_list .item{padding:20px 0;border-bottom:1px dotted #c8c8c8}
+.discount_list .item .goods_pic{float:left;width:120px;height:120px;margin-right:20px;border:1px solid #EAEAEA}
+.discount_list .item .info{line-height:20px;font-size:14px}
+.discount_list .item .info strong{color:#fe9900;font-weight:normal}
+.discount_list .item .info .status{font-size:12px}
+.discount_list .item .resubmit, .discount_list .item .update{font-size:12px;text-decoration:underline}
+.discount_list #twitter_show_list_foot_pageNum_black .btns{margin-left:50px}
+#pop_apply_content{width:320px;padding:20px}
+#pop_apply_content .pic{float:left;margin:0 15px 0 20px;_display:inline}
+#pop_apply_content .pic img{width:90px;height:90px;border:1px solid #EAEAEA}
+#pop_apply_content .goods_title{float:left;width:190px;font-size:12px}
+#pop_apply_content .submit{margin-top:10px;cursor:pointer}
+#benefit_basic{position:absolute;right:0;top:40px}
+#benefitForm{position:relative;width:277px;margin-bottom:20px;padding:20px 0;background:url(../img/form_bg.jpg) repeat-y}
+#benefitForm .top{position:absolute;top:0;width:277px;height:5px;background:url(../img/form_bg_top.jpg) no-repeat;overflow:hidden}
+#benefitForm .bottom{position:absolute;bottom:0;width:277px;height:5px;background:url(../img/form_bg_bottom.jpg) no-repeat;overflow:hidden}
+#benefitForm table{margin:auto}
+#benefitForm .ext_info_d1{font-size:12px}
+#benefitForm .input_hint{width:170px;color:#9a9a9a;padding:5px 0 10px}
+#discount_stat{line-height:20px;padding:0 10px;font-size:14px}
+#discount_stat table{display:block}
+#discount_stat a{font-size:12px}
+#discount_stat .balance{font-weight:bold;color:#66cc00}
+.settings_content{ float:left; padding:0 0 0 30px; width:640px}
+.settings_content .head{ position:relative}
+.settings_content .tips{ width:606px; height:39px; border:1px solid #ffed2e; background:#fffbcc; padding:12px 15px; margin:16px 0 20px; font-size:14px}
+.settings_content .tips p{ line-height:20px}
+.settings_content .account_info{ min-width:200px}
+.settings_content h2{ font-family: 黑体,宋体; font-size:28px}
+.settings_content .head .filter{ margin:10px 0 0;_display:inline}
+.settings_content .head .filter li{ float:left; font-size:14px; margin:0 5px 0 0; list-style:none}
+.settings_content .head .filter a{ color:#f69; padding:3px 7px; font-size:12px}
+.settings_content .head .filter .current a{ background:#f2f2f2; color:#f36; padding:3px 7px}
+.tuan_table{ width:100%; font-size:14px; margin-bottom:20px}
+.tuan_table th, .tuan_table td{ padding:10px 14px; background:#f7f7f7; text-align:left}
+.tuan_table .cash_draw{ background:#fff}
+.tuan_table td a{ color:#f69}
+.tuan_table .op a{font-size:12px;color:#f69}
+.settings_sidebar{width:220px;margin:50px 0 20px 0;_display:inline}
+.settings_sidebar .tip_panel{background:#fafafa;padding:12px}
+.settings_sidebar .tip_panel .title{padding:12px 0;font-weight:bold;font-size:14px}
+.settings_sidebar .tip_panel p{line-height:16px;padding:0 0 10px 0}
+.settings_sidebar .tip_panel p a{font-size:12px}
+.settings-page-wraper #follow-mls{}
+.follow-mls-wrapp{position:absolute;left:44px;top:75px;font-size:13px}
+.verify_pic{width:570px; margin:25px 190px auto auto}
+.verify_pic .picture{width:509px; height:315px; background:url(../img/third404.gif) 0 0; float:left;margin-left:30px;display:inline}
+.verify_pic h1{color:#000;float:left; font-size:20px; padding:10px 0 100px 20px}
+.verify_content{ width:620px; padding:20px 0 0 20px}
+.verify_content .title{ border-bottom:1px solid #ccc; font-size:20px; font-weight:bold; height:25px; line-height:25px; padding-bottom:5px}
+.verify_content .con_title{ font-size:16px; font-weight:bold; height:30px; line-height:30px; padding-top:8px}
+.verify_content .con_conOne{ font-size:13px; line-height:20px; padding:5px 10px 5px 0}
+.verify_content .breakDashedLIne{background:url(../img/breakline_dashed.gif) no-repeat; height:2px; margin:10px 0; overflow:hidden}
+.verify_content .theStep{ height:25px; line-height:25px; font-size:14px}
+.verify_content .con_conTwo{ padding:5px 0 10px 60px}
+.verify_content .con_conTwo .verify_password{ width:230px; height:22px; border:1px solid #ccc; line-height:22px; padding:0 5px}
+.verify_content .con_conTwo .submitOne{ width:185px; height:29px; background:url(../img/verify_iptTwo.gif) no-repeat; border:none; cursor:pointer;display:block}
+.verify_content .con_conTwo .submitTwo{ width:218px; height:29px; background:url(../img/verify_iptOne.gif) no-repeat; border:none; cursor:pointer}
+.verify_content .con_conTwo .submit_prompt{line-height:30px}
+.verify_content .con_conTwo .error_prompt{ width:460px; background:#F7F7F7; border:1px solid #CDCDCD; font-size:14px; line-height:23px; margin-top:15px; padding:5px 2px 5px 10px; position:relative}
+.verify_content .con_conTwo .error_prompt .error_prompt_icon{ width:14px; height:10px; background:url(../img/verify_icon.gif) no-repeat; position:absolute; left:8px; top: -10px}
+.verify_content .con_conTwo .error_prompt .err_t{ padding-bottom:10px}
+#verify{ display:none; padding:20px;color:#333}
+#verify .verify_con{ height:25px;font-size:14px; text-align:center; font-weight:bold; line-height:18px; _width:300px}
+#verify .verify_con_1{width:300px; line-height:20px;padding:5px 0}
+#verify .btn{height:30px; _width:300px }
+#verify .btn .verify_btn{ width:64px; height:23px; background:url(../img/verify_sure.gif) no-repeat; border:none; cursor:pointer}
+#register_form_box{width:968px;border:1px solid #eaeaea}
+#newRegForm .newRegFromMain{width:660px;position:relative}
+#newRegForm .newRegFromMain a{font-size:12px}
+#newRegForm .newRegFromMain .newRegFormTitle{border-bottom:1px solid #c8c8c8;font-size:16px;height:45px;line-height:50px;font-weight:bold}
+#newRegForm .newRegFromMain .newRegFromContent{border:1px solid #faf2c3;width:607px;height:136px;background:#fefbea;margin-top:20px;padding:20px 20px 20px 20px}
+#newRegForm .newRegFromMain .steps{ height:25px; line-height:25px; font-size:14px; color:#303030}
+#newRegForm .newRegFromMain .newRegFromContent2{width:607px;height:136px;margin-top:20px;padding:30px 30px 30px 30px;line-height:25px}
+#newRegForm .newRegFromMain .newRegFormComments{height:40px;line-height:18px;font-size:13px;margin-top:10px;margin-bottom:20px}
+#newRegForm .newRegFromRight .loginButtonBox{width:238px;height:42px;background:#f6f6f6;border:1px solid #f0f0f0;margin-top:25px;margin-left:15px;line-height:42px;text-align:center}
+#newRegForm .oneline{line-height:26px;height:26px;margin-top:12px}
+#newRegForm .oneline .titleBox{width:85px;text-align:left;font-size:14px;height:25px}
+#newRegForm .oneline .inputBox {height:25px;width:175px;border:1px solid #808080}
+#newRegForm .oneline .input1{border:0px solid #808080;padding-left:5px;padding-right:5px;width:160px;margin:2px 0 0 0;height:20px;font-size:12px;background:#ffffff}
+#newRegForm .oneline .input2{border:1px solid #808080;padding-left:5px;padding-right:5px;width:40px;margin-top:3px;height:20px;font-size:14px;background:#ffffff}
+#newRegForm .breakDashedLine{border-bottom:1px dashed #c8c8c8;width:600px;height:10px;margin-top:20px;margin-bottom:20px}
+#newRegForm .newRegFromRight{width:292px;margin-left:10px}
+#newRegForm .newRegFromRight .loginButtonBox a{font-size:12px}
+#newRegForm .oneline .red_star{font-size:14px;color:red}
+#newRegForm .right_title{margin-left:15px;font-size:16px;height:45px;line-height:50px;font-weight:bold}
+.normal-reg #newRegister_submit{background:url(../img/register-button.gif) no-repeat scroll 0 0}
+#newRegisterExtInfo_submit{background:url(../img/next_btn.gif) no-repeat scroll 0 0;width:176px;height:48px;border:0px solid black;color:#ffffff;font-size:12px;cursor:pointer}
+
+.c_sub_tab{ height:28px}
+.c_sub_tab_btn,.c_sub_tab_btn:hover,.c_sub_tab_btn_current,.c_sub_tab_btn_current:hover{ float:left; font-size:12px; color:#666; text-decoration:none}
+.c_sub_tab_btn_current, .c_sub_tab_btn_current:hover{ color:#f69}
+.c_sub_tab .separator{ float:left; margin:0 15px; color:#ccc; font-size:12px}
+
+#pwdNotice,#newPwdNotice,#newPwdSureNotice{padding-left:10px}
+#img_checkcode{ margin-left:10px; line-height:30px; vertical-align:middle}

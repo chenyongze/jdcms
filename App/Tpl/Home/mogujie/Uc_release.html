@@ -1,0 +1,190 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/newalbum.css" type="text/css" rel="stylesheet"/>
+<script language="javascript">
+$(document).ready(function(){
+	$("#collect_item").click(function(){
+	$("#error_msg").hide();
+	$("#error_msg1").hide();
+	$("#existedItem").hide();
+		var url = $("#collect_url").val();
+	    $.post("{:get_url('release','','user')}", { url: url }, function(data){
+	    	if(data.data == false){
+	    		$("#error_msg").show();
+	    	}else if(data.info=="itemExist"){
+				var html="<a href="+data.data+">[点击查看]</a>"
+				$("#error_msg1").show();
+				$("#existedItem").html(html).show();
+			}else if(data.info=="itemCheck"){
+				$("#error_msg1").show();
+			}else{
+				$("#seller_id").val(data.data.seller_id);
+	    		$("#title").val(data.data.title);
+				$("#url").val(data.data.url);
+				$("#tags").val(data.data.tags);
+				$("#price").val(data.data.price);
+				$("#item_key").val(data.data.item_key);
+				$("#img").val(data.data.img);
+				$("#author").val(data.data.alias);
+				$("#sid option[alias='"+data.data.alias+"']").attr('selected',true);
+				$("#img_show").attr('src', data.data.img).show();
+	    	}			
+	    },"json");
+	});	
+	$("#submit").click(function(){
+		if($("#title").val()==0){
+			$("#title_err").show();
+		   	return false;
+		}else{
+			$("#title_err").hide();
+		}
+		
+		if($("#cid").val()==0){
+			$("#cid_err").show();
+		   	return false;
+		}
+		else{
+			$("#cid_err").hide();
+		}
+		
+		if($("#url").val()==0){
+			$("#url_err").show();
+		   	return false;
+		}else{
+			$("#url_err").hide();
+		}	
+		
+		if($("#price").val()==0){
+			$("#price_err").show();
+		   	return false;
+		}else{
+			$("#price_err").hide();
+		}
+		
+		if ($("#info").val().length > 140) {
+			$("#info_err").show();
+		   	return false;
+		}else{
+			$("#info_err").hide();
+		}
+	});	
+	
+	$("#loading").ajaxStart(function(){
+		$(this).show();
+		$("#collect_item").hide();
+		$("#submit").hide();
+	});
+
+	$("#loading").ajaxStop(function(){
+		$(this).hide();
+		$("#collect_item").show();
+		$("#submit").show();
+	});
+	
+	$("#collect_url").change(function(){
+		var url = $(this).val();
+		$("#url").val(url);
+	});
+
+});
+</script>
+<include file="Public:headerd" />
+<div class="main">
+<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+		<div class="piece_bd">
+                <div id="content">
+                    <div class="album_create">
+	<h1>分享商品</h1>
+	<p class="ps">注：只需输入商品的详细链接地址即可,如：http://detail.tmall.com/item.htm?id=13045523063</p>
+	<div class="album_box">
+	<form method="post" action="{:get_url('add','','user')}" name="myform" id="myform"  enctype="multipart/form-data">
+		<dl class="pl30">
+			<dt>商品地址：</dt>
+			<dd>
+				<input class="album_title r3" style="float:left;" value="{$url}" id="collect_url" type="text" name="collect_url"/>
+				<input type="button" name="collect_item" value="获取" id="collect_item"/>
+				<div id="loading" style="display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+				<span  id="error_msg" class="error_icon">该商品不存在</span>
+				<span  id="error_msg1" class="error_icon">该商品已存在</span>
+				<span  id="existedItem"></span>
+			</dd>
+			<dt>商品名称：</dt>
+			<dd>
+				<input class="album_title r3"  id="title" maxlength="140" type="text" value="" name="title"/>
+				<span class="error_icon" id="title_err">请填写商品名称</span>
+			</dd>
+			<dt>所属分类：</dt>
+			<dd>
+				<select name="cid" id="cid"/>
+					<option value="0">--选择分类--</option>
+					<volist name="cate_list['parent']" id="val">
+					<option value="{$val.id}" pid="0" >{$val.name}</option>
+					</volist>
+				</select>
+				<span class="error_icon" id="cid_err">请选择所属分类</span>
+			</dd>
+			<dt>商品图片：</dt>
+			<dd id="upload_img">
+				<img id="img_show" src="" width="210px" height="210px"/>
+				<p style="position:relative">
+				<input type="text" id="viewAvartar" readonly="readonly" class="gray_text">
+				<input type="button" class="gray_button" value="浏览...">
+				<input type="file" class="tfile" onchange="document.getElementById('viewAvartar').value=this.value;"  name="upload_img" size="42" style="position:absolute; left:0;top:1px; cursor:pointer">
+				</p>
+			</dd>
+			<dt>来源：</dt>
+			<dd>
+				<select name="sid" id="sid">
+					<option value="0" selected="selected">--选择来源--</option>
+					<volist name="site_list" id="val">
+	                <option value="{$val.id}" alias="{$val.alias}">{$val.name}</option>
+	                </volist>
+				</select>
+			</dd>
+			<dt>链接地址：</dt>
+			<dd>
+				<input class="album_title r3" value="{$url}" id="url" type="text" name="url">
+				<span class="error_icon" id="url_err">请填写链接地址</span>
+			</dd>
+		<dt>标签：</dt>
+		<dd>
+			<input class="album_title r3" value="{$url}" id="tags" type="text"  name="tags">
+		</dd>
+		<dt>价格：</dt>
+		<dd>
+			<input class="album_title r3" name="price" value="{$url}" id="price" type="text" style="width:70px;"/>
+			<span class="error_icon" id="price_err">请填写商品价格</span>
+		</dd>
+				<dt style="clear:both;">分享介绍：</dt>
+		<dd>
+			<div class="content">
+				<div class="album_s r3">
+					<textarea class="album_all r3" id="info" type="text" name="info"></textarea>
+					<span class="fl text_count error_icon" id="info_err">长度不得大于140个字符</span>
+				</div>
+			</div>
+		</dd> 
+	</dl>
+	<input type="hidden" name="shop_id" id="shop_id" value="" />
+	<input type="hidden" name="item_key" id="item_key" value="" />
+	<input type="hidden" name="img" id="img" value="" />
+	<input type="hidden" name="alias" id="alias" value="" />
+	<div class="next_btn">
+		<!--<a class="next_button r3" href="javascript:void(0)" id="creat_btn" AlbumInfoBtn_post_action="{:get_url('albumInfoAction','','user')}" AlbumInfoBtn_post_location="{:get_url('album','','user')}">完成</a>-->
+		<input class="btn_up" id="submit" name="submit" type="submit" value="提交">
+	</div>
+</form>
+</div>
+</div>
+
+                </div>
+            </div>	
+<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+<include file="Public:footer" />

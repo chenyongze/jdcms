@@ -1,0 +1,58 @@
+<div class="footer n_foot">
+<div class="foot_con">
+
+<div class="f_list">
+	<h4>发现美丽</h4>
+	<ul>
+	<volist name="p_cate_list" id="cval">
+		<li><a href="{:get_url('index',$cval['id'],'cate')}" target="_blank">挑{$cval.name}</a></li>
+	</volist>
+	</ul>
+</div>
+<div class="f_list">
+	<h4>网站相关</h4>
+	<ul>
+		<li><a href="__PUBLIC__/statics/sitemap.html" target="_blank">网站地图</a></li>
+    	<li><a href="__PUBLIC__/statics/sitemap.xml" target="_blank">sitemap</a></li>
+		<li><php>echo strclean(C('site_icp'));</php></li>
+		<li><php>echo strclean(C('statistics_code'));</php></li>
+	</ul>
+</div>
+
+<div class="f_list">
+	<div class="weixin_code"> <img src="__PUBLIC__/statics/images/jdcmserweima.png" alt="简单CMS二维码" width="100"><div>简单CMS二维码 </div></div>
+</div>
+
+<div class="f_list">
+	<h4>关注我们</h4>
+	<ul>
+		<li><php>echo strclean(C('follow_us'));</php></li>
+		<li><php>echo strclean(C('follow_us2'));</php></li>
+		<li><php>echo strclean(C('follow_us3'));</php></li>
+		<li><php>echo strclean(C('follow_us4'));</php></li>
+		<li><php>echo strclean(C('follow_us5'));</php></li>
+		<li><php>echo strclean(C('follow_us6'));</php></li>
+	</ul>
+</div>
+<div class="f_list">
+	<h4>友情链接</h4>
+	<ul id="link_slide">
+		<volist name="linkList" id="val">
+		<li>
+			<a href="{$val.url}" target="_blank">{$val.name}</a>
+		</li>
+		</volist>
+	</ul>
+</div>
+
+<div class="clear_f"></div>
+</div>
+<if condition="C('record') neq ''">
+<div class="record" style="line-height:20px;">
+<php>echo strclean(C('record'));</php>
+</div>
+</if>
+</div>
+<div id="goTop" class="none_f" style="display:none; "><a id="go_top" href="javascript:;"></a></div>
+</body>
+</html>

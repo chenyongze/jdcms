@@ -1,0 +1,34 @@
+#ur_follow_warp{float:left; min-height:900px; height:auto!important; height:900px; zoom:1;display:inline;border:0px solid;clear:both}
+#follow_name{margin:8px;font-size:20px;line-height:20px;font-weight:bold;text-decoration:underline}
+.user_list{min-height:70px;width:620px; height:auto!important; height:70px;float:left;font-size:12px;border-top:1px solid #d7d7d7;padding-top:10px;padding-bottom:10px;margin:0px 2px 6px 0px}
+.follow_avatar{width:64px;height:64px;float:left}
+#user_info{margin:0px 10px 0px 20px;width:440px;min-height:60px; height:auto!important; height:60px;float:left;font-size:12px}
+.follow_user_name{margin:0px}
+.follow_user_name a{color:#f69;font-size:14px}
+.follow_user_info{margin-top:2px;font-size:12px}
+.follow_user_info span{ padding-right:5px; }
+.follow_user_info span a{ font-size:12px; padding-right:5px; }
+#user_action{margin:0px;font-size:12px;float:right;clear:right}
+.user_action_b{font-size:12px;color:#f69}
+#follow_user_action_each{font-size:12px;padding:0px 4px 4px 20px;border-bottom:1px solid #999999;background-image:url(../img/each.gif);background-repeat:no-repeat;background-position:left center}
+.follow_user_action_lock{font-size:12px;padding:6px 4px 6px 20px;background-image:url(../img/n.gif);background-repeat:no-repeat;background-position:2px center;color:#f69;cursor:pointer}
+.follow_user_action_fire{font-size:12px;padding:6px 4px 6px 20px;background-image:url(../img/x.gif);background-repeat:no-repeat;background-position:2px center;color:#f69;cursor:pointer}
+#follow_user_action_sent_message{background-image:url(http://stc-tx.meiliworks.com/css/images/user/message.gif);background-repeat:no-repeat;background-position:left 7px;padding:4px 4px 0px 20px;border-top:1px solid #999999;cursor:pointer}
+.sidebar_friend_find{margin:12px 0px 0px 30px}
+.heart_pic{ width:16px; height:15px; background:url(http://stc-tx.meiliworks.com/css/images/twitter/ILikeit.gif) no-repeat center; padding-left:15px; }
+.i_suc, .btn_view, .btn_view span{ background:url(../img/btn_200.gif) no-repeat 0 0; display:inline-block; }
+.i_suc{ height:38px; background-position:0 -50px; font-size:20px; line-height:38px; padding-left:46px; margin:90px 0 40px; *display:inline; }
+.btn_view{ color:#FFF; cursor:pointer; height:40px; line-height:40px; padding-left:20px; }
+.btn_view span{ background-position:right 0; padding-right:20px; }
+.btn_view:hover{ color:#FFF; }
+.l_dsh{ border-bottom:1px dashed #CCC; }
+.txt14{ font-size:14px; }
+.noEmail{ width:340px; margin:40px auto 0; padding-bottom:40px; text-align:left; overflow:hidden; }
+.mb30{ margin-bottom:30px; }
+.mt40{ margin-top:40px; }
+#pageNav{ margin:30px auto 10px;text-align:center}
+#main .bgcnt{ background:url(../img/pagecnt1.gif) no-repeat right top; display:inline-block; *display:inline; padding:35px 120px 20px 100px; zoom:1; position:relative}
+#pageNav a{display:inline-block; font-weight:bold; font-size:14px; height:22px; line-height:22px; margin:0 1px; min-width:12px; padding:0 4px; text-align:center; white-space:nowrap; background-color:#ffe1ea; color:#ff6799; border:1px solid #fcc8d9}
+#pageNav .currentpage{color:#000; border:1px solid #ddd; background-color:#fff; }
+#pageNav .pagePrev,#pageNav .pageNext{width:50px; height:22px;font-size:14px;font-weight:normal}
+.pageNextico{ height:58px; width:55px; position:absolute; right:0; top:0; }

@@ -1,0 +1,75 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+$(document).ready(function(){	
+	$(".item").click(function(){
+		var seller_id=$(this).attr('id');
+		$(this).hide();
+		$("#load_"+seller_id).show();
+	});	
+});
+</script>
+
+</head>
+<body>
+<div class="pad-10" >
+    <form name="searchform" action="{:U('Shop/index')}" method="get" >
+    <input name="a" type="hidden" value="index">
+    <input name="m" type="hidden" value="Shop">
+    <input name="g" type="hidden" value="Admin">
+    <table width="100%" cellspacing="0" class="search-form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain-col">
+                &nbsp;关键字 :
+                <input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+                <input type="submit" name="search" class="button" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+    <form id="myform" name="myform" action="{:u('Shop/delete')}" method="post">
+    <div class="table-list">
+    <table width="100%" cellspacing="0" style="word-break:break-all">
+        <thead>
+            <tr>
+                <th width="5%">序号</th>
+                <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>	
+                <th width=50>店铺图片</th>	
+                <th width=150 align="left">店铺名称</th>
+                <th width=150 align="left">店铺网址</th>		
+               	<th width=50>排序值</th>
+                <th width=60>操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="list" id="val" >
+        <tr>
+        	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>          
+            <td align="center"><img src="{$val.img}" width="40px" height="40px" class="preview" bimg="{$val.img|get_img=###,200}" /></td>
+            <td align="left"><a href="{:u('Shop/edit', array('id'=>$val['id']))}">{$val.name}</a></td>
+            <td align="left"><a href="{$val.url}" target="_blank"><font color="red">{$val.url}</font></a></td>
+            <td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]"  id="listorders[{$val.id}]" /></td>
+            <td align="center"><a class="blue" href="{:u('Shop/edit',array('id'=>$val['id']))}">编辑</a>|<a class="blue item" id="{$val.seller_id}" href="{:u('Shop/item',array('seller_id'=>$val['seller_id']))}">采集</a><img id="load_{$val.seller_id}" src="__PUBLIC__/statics/images/ajax_loading.gif" style="display:none;" /></td>
+		</tr>
+        </volist>
+    	</tbody>
+    </table>
+
+    <div class="btn">
+    	<label for="check_box" style="float:left;">全选/取消</label>
+    	<input type="submit" class="button" name="submit" value="删除" style="float:left;margin:0 10px 0 10px;" onclick="return check();"/>
+    	<input type="submit" class="button" name="order" onclick="document.myform.action='{:U('Shop/order')}'" value="排序" style="float:left;margin:0 10px 0 0px;"/>
+    	<div id="pages">{$page}</div>
+    </div>
+
+    </div>
+    </form>
+</div>
+</body>
+</html>

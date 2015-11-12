@@ -1,0 +1,126 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/register.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/myTickets.css"/>	
+
+<include file="Public:headerdn"/>
+<div class="clear"></div>
+<div class="main" class="container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="hp_tab">
+				<ul class="hp_lt">
+					<li class="active red">个人设置</li>
+				</ul>
+			</div>
+			<div class="c_sub_tab" style="margin: 28px 0px 0px 30px;">
+				<a href="javascript:void(0);" class="c_sub_tab_btn_current">个人信息</a>
+			</div>
+
+
+				<div class="settings-page-wraper">
+				<div class="settings_box">
+					<div id="setting_box_promtrealname" class="setting_box_promt" ></div>
+
+					<div id="setting_box_warnningrealname" class="setting_box_warnning"><img src="http://imgtest.meiliworks.com/css/images/settings/yellow.gif"/></div>
+
+					<div id="setting_box_rightrealname" class="setting_box_right"><img src="http://imgtest.meiliworks.com/css/images/settings/green.gif"/></div>
+
+					<div id="setting_box_wrongrealname" class="setting_box_wrong"><img src="http://imgtest.meiliworks.com/css/images/settings/red.gif"/></div>
+
+					<div id="setting_box_promtnickname" class="setting_box_promt"></div>
+
+					<div id="setting_box_warnningnickname" class="setting_box_warnning"><img src="http://imgtest.meiliworks.com/css/images/settings/yellow.gif"/></div>
+
+					<div id="setting_box_rightnickname" class="setting_box_right"><img src="http://imgtest.meiliworks.com/css/images/settings/green.gif"/></div>
+
+					<div id="setting_box_wrongnickname" class="setting_box_wrong"><img src="http://imgtest.meiliworks.com/css/images/settings/red.gif"/></div>
+					<form id="personalForm" name="form" action="{:get_url('sign','','user')}" onsubmit="return checkPersonalForm();" method="post" id="form" style="padding: 20px 0;">
+						<table id="ext_info_tab">
+							<input type="hidden" id="hdProvince" value="{$province}">
+							<input type="hidden" id="hdCity" value="{$city}">
+							<input type="hidden" id="hdCounty" value="{$county}">
+							<input type="hidden" name='id' id="hiddenId" value="{$user_info.id}">
+							<tr class="ext_info_r">
+								<td class="ext_info_d1"></td>
+								<td class="ext_info_d2">
+								<div id="updateNotice"> <div>
+								</td>
+							</tr>
+							<tr class="ext_info_r">
+								<td class="ext_info_d1">用户名：</td>
+								<td class="ext_info_d2">
+									<input class="ext_input" type="text" name="name" id="nickname" value="{$user_info.name}"/>
+								</td>
+							</tr>
+							<tr class="ext_info_r">
+								<td colspan="2">
+									<div class="askPage_breakDashedLIne"></div>
+								</td>
+							</tr>
+								<tr class="ext_info_r">
+								<td class="ext_info_d1">性别：</td>
+								<td class="ext_info_d2">
+								<input name="sex" type="radio" value="0" class="info_radio01" <if condition="$user_info['sex'] eq 0">checked</if>/><label>女</label>
+								<input name="sex" type="radio" value="1" class="info_radio01" <if condition="$user_info['sex'] eq 1">checked</if>/><label>男</label>
+								</td>
+							</tr>
+							</tr>
+								<tr class="ext_info_r">
+								<td class="ext_info_d1">年龄：</td>
+								<td class="ext_info_d2">
+								<input name="age" type="radio" value="80" class="info_radio01" <if condition="$user_info['age'] eq '80'">checked</if>/><label>80</label>
+								<input name="age" type="radio" value="90" class="info_radio01" <if condition="$user_info['age'] eq '90'">checked</if>/><label>90</label>
+								<input name="age" type="radio" value="70" class="info_radio01" <if condition="$user_info['age'] eq '70'">checked</if>/><label>70</label>
+								</td>
+							</tr>
+							<tr class="ext_info_r">
+								<td class="ext_info_d1">所在地：</td>
+								<td class="ext_info_d2">
+								<select name="provinceid" id="s_province" onBlur="blurAddressInput();" onFocus='focusAddressInput();'>
+								</select >
+								<select name="provinceid" id="s_city" onBlur="blurAddressInput();" onFocus='focusAddressInput();'>
+								</select >
+								<select name="provinceid" id="s_county" onBlur="blurAddressInput();" onFocus='focusAddressInput();'>
+								</select >	
+								</td>
+								<script type="text/javascript" src="__TMPL__Public/js/area.js?1"></script>
+								<script type="text/javascript">_init_area();</script>	
+						</tr>
+							<tr class="ext_info_r">
+								<td colspan="2">
+									<div class="askPage_breakDashedLIne"></div>
+								</td>
+							</tr>
+							<tr class="ext_info_r">
+								<td class="ext_info_d1">美丽宣言：</td>
+								<td class="ext_info_d2"><textarea class="ext_input" name="about_me" id="about_me" style='height:100px;width:300px;overflow:auto;'>{$user_info.info}</textarea></td>
+							</tr>
+						
+							<tr class="ext_info_r">
+								<td class="ext_info_d1"></td>
+								<td class="ext_info_d2">
+									<div id="setting_hint" style="display:none;color:#999999; float:left;"></div>
+									<div id="setting_succ_hint" style="display:none;color: green; float:left;"></div>
+								</td>
+							</tr>
+						
+							<tr>
+								<td></td>
+								<td class="ext_info_d2">
+									<input type="submit" value="" id="btn_sign_up" class="ext_submit" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>

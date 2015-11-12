@@ -1,0 +1,89 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_style.css'>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		<if condition="C('home.url_html') eq '0'">close();</if>
+	});
+	
+	function close(){
+		$(".bginput").attr('disabled','disabled');
+	}
+</script>
+
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<form action="{:U('Html/index')}" method="post" id="gxform" name="gxform">
+
+<tr class="table_title"><td colspan="13">静态网页生成选项</td></tr>
+
+<tr class="tr"><td colspan="2" ><input type="button" value="生成首页" class="bginput" onClick="window.location='{:U('Html/index')}';" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="生成店铺页" class="bginput" onClick="window.location='{:U('Html/shop')}';" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="生成文章页" class="bginput" onClick="window.location='{:U('Html/article')}';" /></td></tr>
+
+<tr class="tr"><td colspan="2" >生成专辑列表：
+<select name="acid">
+	<option value="0">全部分类</option>
+    <volist name="albumCate_list" id="val">
+    <option value="{$val.id}">{$val.title}</option>
+    </volist>
+</select> 
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/albumCate')}';" /></td></tr>
+
+<tr class="tr"><td colspan="2" >生成专辑详情：
+<select name="aid">
+	<option value="0">全部分类</option>
+    <volist name="albumCate_list" id="val">
+    <option value="{$val.id}">{$val.title}</option>
+    </volist>
+</select> 
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/album')}';" /></td></tr>
+
+<tr class="tr"><td colspan="2" >生成分类列表：
+<select name="pid">
+	<option value="0">全部分类</option>
+    <volist name="cate_list" id="val">
+    <option value="{$val.id}">{$val.name}</option>
+    </volist>
+</select> 
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/cate')}';" /></td></tr>
+
+<tr class="tr"><td colspan="2" >生成标签列表：
+<select name="tid">
+	<option value="0">全部分类</option>
+    <volist name="cate_list" id="val">
+    <option value="{$val.id}">{$val.name}</option>
+    </volist>
+</select> 
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/tag')}';" /></td></tr>
+
+<input type="hidden" name="start" value="0"/> 
+
+<tr class="tr"><td>生成商品详情：
+<select name="cid">
+	<option value="0">全部商品</option>
+    <volist name="cate_list" id="val">
+    <option value="{$val.id}">{$val.name}</option>
+    </volist>
+</select>
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/itemcate')}';" /></td></tr>
+
+<tr class="tr"><td>生成商品按时间：
+<select name="day"><option value="0">当天</option>
+	<option value="1">1天内</option>
+	<option value="2">2天内</option>
+	<option value="3">3天内</option>
+	<option value="4">4天内</option>
+	<option value="5">5天内</option>
+	<option value="6">6天内</option>
+	<option value="7">7天内</option>
+	<option value="15">15天内</option>
+	<option value="30">30天内</option>
+</select>
+<input type="submit" value="开始生成" class="bginput" onClick="gxform.action='{:U('Html/itemday')}';" /></td></tr> 
+
+</form>
+</table>
+<include file="footer" />
+</body>
+</html>

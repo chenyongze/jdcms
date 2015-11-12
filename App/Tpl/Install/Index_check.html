@@ -1,0 +1,31 @@
+<include file="Public:header" />
+
+</head>
+<body >
+<form id=gxform action="{:U('Index/check')}" method="post">
+<input name="setup" type="hidden" value="{^setup}">
+<div id='installbox'>
+<div class='msgtitle'>{:C('cms_name')} 安装向导</div>
+<table width="573" height="23" border="0" cellpadding="0" cellspacing="0" class="intable2">
+  <tr>
+    <td style="color:#666; text-align:center"><span style="display:block; float:left; width:20%; font-size:12px;">1. 许可协议</span><span style="display:block; float:left; width:25%; font-size:12px; color: #FFF;">2. 环境检测</span><span style="display:block;float:left;width:25%;font-size:12px;">3. 数据库设置</span><span style="display:block;float:left;width:25%;font-size:12px;">4. 安装完成</span></td>
+  </tr>
+</table>
+<h3>服务器环境检测：</h3>
+<table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" class="tableoutline" style="text-align:left;font-size:12px; color:#666;">        
+<volist name='error_msg' id='vo' key="k" mod="2">
+<eq name="mod" value="1">
+<tr bgcolor="#FFF">
+<else/>		
+<tr bgcolor="#f4faff">
+</eq>
+<td >&nbsp;&nbsp;{$k}&nbsp;&nbsp;{$vo}</td>
+</tr>
+</volist>
+<tr><td style="text-align:center"><input style="width:120px; height:30px;" type="button" class="btn"  value="重试" onClick="location.reload();"/></td></tr>
+</table>
+<div id='msgbottom'>Powered By {:C('cms_name')}</div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<include file="Public:header" />
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+		<div class="tit_share tit_share_uc"> <strong><em>专辑</em><i class="num">({$count})</i></strong></div>
+		<if condition="get_ad(5) neq ''">
+		<center> <div style="width:650px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(5)}</div></center>
+		</if>
+<volist name="album_list" id="voA">
+       <div class="iqingdan">
+          <div class="demol_qk r5">
+            <h3>{$voA.title}<em>（<if condition="$voA['items_count'] eq ''">0<else/>{$voA.items_count}</if>个收藏）</em>&nbsp;
+			<em>时间：{$voA.add_time|date='Y-m-d H:i:s',###}</em><em style="float:right"><a href="{:get_url('albumDetail',$voA['id'],'user')}">点击进入</a></em></h3>
+            <div class="meta"><span class="time"></span>&nbsp;&nbsp;
+              <p>{$voA.info}</p>
+            </div>
+            <dl>
+              <dt>
+			  <!-- <volist name="voA['items']" id="voItems"  offset="0" length='1'>
+			  <a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img id="album_item_bimg" src="{$voItems.img|get_img=###,210}" width="200"><else/><img src="__TMPL__Public/img/undefined.jpg" width="200"/></if></a>
+			  </volist>-->
+
+			  <a href="{:get_url('index',$voA['cover']['id'],'item')}"><if condition="$voA['cover']['img'] neq ''"><img id="album_item_bimg" src="{$voA.cover.img|get_img=###,210}" width="200"><else/><img src="__TMPL__Public/img/undefined.jpg" width="200"/></if></a>
+			  <span>元素：
+			  <volist name="voA['tags']" id="voTags">
+			  <a href="{:get_url('tag',$voTags['id'],'cate')}">{$voTags.name}</a>
+			  </volist>
+			  </span></dt>
+              <dd> 
+			  <volist name="voA['items']" id="voItems"  offset="0" length='8'>
+			  <a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img src="{$voItems.img|get_img=###,100}" width="100"><else/><img src="__TMPL__Public/img/undefined.jpg" width="100"/></if></a>
+			  </volist>
+                <div class="op"><span class="like"></span></div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+</volist>
+ <div class="page">{$page}</div>
+ <if condition="get_ad(6) neq ''">
+	<center> <div style="width:650px;height:90px;overflow:hidden;">{:get_ad(6)}</div></center>
+</if>
+    </div>
+    <div class="ihome_sub">
+
+		  <div class="uc_nav">
+			  <ul>
+			  <volist name="album_cate_list" id="voAlbumCate">
+			  <li class=<if condition="$voAlbumCate['id'] eq $albumCid"> cur</if>><a class="s1" href="{:get_url('index',$voAlbumCate['id'],'album')}">{$voAlbumCate.title}</a></li>
+			  </volist>
+			  </ul>
+		  </div>
+		  <div class="hr"></div>
+		  <include file="Public:paiHang" />
+      </div>
+  </div>
+</div>
+<include file="Public:footer" />

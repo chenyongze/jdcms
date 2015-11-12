@@ -1,0 +1,130 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/myTickets.css"/>	
+
+<include file="Public:headerdn"/>
+<div class="clear"></div>
+<div class="main container_12">
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="hp_tab">
+				<ul class="hp_lt">
+					<li class="active red"><a href="/settings/setPersonal">个人设置</a></li>
+				</ul>
+			</div>
+			<div class="c_sub_tab" style="margin: 28px 0px 0px 30px;">
+				<a href="{:get_url('account','','user')}" class="c_sub_tab_btn">个人信息</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('img','','user')}" class="c_sub_tab_btn_current">修改头像</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('pwd','','user')}" class="c_sub_tab_btn">修改密码</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('sns','','user')}" class="c_sub_tab_btn">同步绑定</a>
+			</div>
+			<div class="settings-page-wraper">
+				<div class="settings_box_modify">
+					<div id="upload-section">
+						<div id="avatar_upload_tool">
+							<div style="margin-top:8px;">选一张您喜欢的照片做头像吧(建议图片尺寸不小于200*200)。支持jpg, gif, png格式，大小不超过2M。</div><br>
+							<div>
+								<form enctype="multipart/form-data" method="post" name="upform" target="upload_target" action="{:get_url('upload','','user')}" id="avartarForm">
+									<p id="upload_img">
+									<input type="file" name="Filedata" id="Filedata" class="tfile" size="42"/>
+									<input type="text" id="viewAvartar" readonly="readonly" class="gray_text">
+									<input type="button" class="gray_button" value="上传形象照">
+									</p>
+									<span style="visibility:hidden;" id="loading_gif"><img src="__PUBLIC__/statics/avatar/loading.gif" align="absmiddle" />上传中，请稍侯......</span>
+								</form>
+								<iframe src="about:blank" name="upload_target" style="display:none;"></iframe>
+							</div>
+							<div id="upload_hint" style="display:none;float: none;color:gray;margin:5px 0 !important;"></div>
+						</div>
+						<div id="avatar_a">
+							<img width="180" onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src="<present name='user_img'>{:C('web_path')}Uploads/avatar_big/{$user_img}<else />__PUBLIC__/statics/images/avatar.png</present>" class="img_big"/>
+							<img width="32" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src="<present name='user_img'>{:C('web_path')}Uploads/avatar_small/{$user_img}<else />__PUBLIC__/statics/images/avatar-60.png</present>" class="img_small"/>
+						</div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>
+<script type="text/javascript">
+		//允许上传的图片类型
+		var extensions = 'jpg,jpeg,gif,png';
+		//保存缩略图的地址.
+		//var saveUrl = "__PUBLIC__/statics/avatar/save_avatar.php";
+		//var saveUrl = "/index.php?a=saveAvatar&m=Uc&g=Home";//
+		var saveUrl="{:C('web_path')}index.php?m=Uc%26a=saveAvatar%26g=Home";
+		//保存摄象头白摄图片的地址.
+		//头像编辑器flash的地址.
+		var editorFlaPath = '__PUBLIC__/statics/avatar/AvatarEditor.swf';
+		//Download by http://www.codefans.net
+		function buildAvatarEditor(pic_id,pic_path,post_type)
+		{
+			var content = '<embed height="464" width="514"'; 
+			content+='flashvars="type='+post_type;
+			content+='&photoUrl='+pic_path;
+			content+='&photoId='+pic_id;
+			content+='&saveUrl='+saveUrl+'&radom=1"';
+			content+=' pluginspage="http://www.macromedia.com/go/getflashplayer"';
+			content+=' type="application/x-shockwave-flash"';
+			content+=' allowscriptaccess="always" quality="high" src="'+editorFlaPath+'"/>';
+			document.getElementById('avatar_a').innerHTML = content;
+		}
+			/**
+			 * 提供给FLASH的接口：编辑头像保存成功后的回调方法
+			 */
+			function avatarSaved(){
+				//alert('保存成功，哈哈');
+				window.location.href = "{:get_url('img','','user')}";
+
+			}
+			
+			 /**
+			  * 提供给FLASH的接口：编辑头像保存失败的回调方法, msg 是失败信息，可以不返回给用户, 仅作调试使用.
+			  */
+			 function avatarError(msg){
+				 alert(msg);
+				 alert("上传失败了呀，哈哈");
+			 }
+
+			 function checkFile()
+			 {
+				 var path = document.getElementById('Filedata').value;
+				 var ext = getExt(path);
+				 var re = new RegExp("(^|\\s|,)" + ext + "($|\\s|,)", "ig");
+				  if(extensions != '' && (re.exec(extensions) == null || ext == '')) {
+				 alert('对不起，只能上传jpg, gif, png类型的图片');
+				 return false;
+				 }
+				 showLoading();
+				 return true;
+			 }
+
+			 function getExt(path) {
+				return path.lastIndexOf('.') == -1 ? '' : path.substr(path.lastIndexOf('.') + 1, path.length).toLowerCase();
+			}
+              function	showLoading()
+			  {
+				  document.getElementById('loading_gif').style.visibility = 'visible';
+			  }
+			  function hideLoading()
+			  {
+				document.getElementById('loading_gif').style.visibility = 'hidden';
+			  }
+$(function(){
+	$("#Filedata").change(function(){
+		checkFile();
+		$("#viewAvartar").val($(this).val());
+		$("#avartarForm").submit();
+	});
+})
+		</script>

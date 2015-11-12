@@ -1,0 +1,54 @@
+<include file="Public:header" />
+
+<div class="wrap">
+  <div class="sortA clearfix">
+    <div class="sortl">
+	  <volist name="p_cate_list" id="vop">
+        <if condition="$vop['id'] eq  $id"> <img src="<php>echo C('web_path').ltrim($vop['img'],'/');</php>" width="85" alt="{$vop.name}"></if>
+	  </volist>
+ </div>
+    <div class="sortr">
+      <ul>
+	    <volist name="snav" id="vsn">
+        <li>
+          <dl>
+            <dt>{$vsn.name}</dt>
+            <dd>
+				<volist name="vsn['tags']" id="vsnt"  offset="0" length='12'>
+					<a class="<if condition="$vsnt['id'] eq $tag_id">cur</if>" href="{:get_url('tag',$vsnt['id'],'cate')}">{$vsnt.name}</a>
+				</volist>
+			</dd>
+          </dl>
+        </li>
+		</volist>
+      </ul>
+    </div>
+  </div>
+  <if condition="get_ad(3) neq ''">
+  <center> <div style="width:970px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(3)}</div></center>
+  </if>
+<div class="boxA">
+<div id="cate_name" style="display:none;">{$cate_name}</div>
+<div id="tag_name" style="display:none;">{$tag_name}</div>
+<div class="imagewall_sort">
+  <div class="fl t_sortby">
+  	<span title="最新"><a name="new" href="{:get_url(ACTION_NAME,$id,'cate','new',$price)}" class=<if condition="$sortby eq 'new'">"cur"</if>>最新</a></span> | 
+  	<span title="最热"><a name="hot" href="{:get_url(ACTION_NAME,$id,'cate','hot',$price)}" class=<if condition="$sortby eq 'hot'">"cur"</if>>最热</a></span>
+  </div>
+  <div class="fl t_price">
+  	<span title="全部"><a name="0" href="{:get_url(ACTION_NAME,$id,'cate',$sortby,'0')}" class=<if condition="$price eq '0'">"cur"</if>>价格</a></span> | 
+  	<span  title="100元以下"><a name="100" href="{:get_url(ACTION_NAME,$id,'cate',$sortby,'100')}" class=<if condition="$price eq '100'">"cur"</if>>100</a></span> | 
+  	<span title="101-200元"><a name="200" href="{:get_url(ACTION_NAME,$id,'cate',$sortby,'200')}"  class=<if condition="$price eq '200'">"cur"</if>>200</a></span> | 
+  	<span title="201-500元"><a name="500" href="{:get_url(ACTION_NAME,$id,'cate',$sortby,'500')}"  class=<if condition="$price eq '500'">"cur"</if>>500</a></span> | 
+  	<span title="500元以上"><a name="501" href="{:get_url(ACTION_NAME,$id,'cate',$sortby,'501')}"  class=<if condition="$price eq '501'">"cur"</if>>更高</a></span>
+  </div>
+</div>
+ <include file="Public:itemsList"/>
+</div>
+ <if condition="get_ad(4) neq ''"><br>
+  <center> <div style="width:970px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(4)}</div></center>
+ </if>
+<div id='url' style="display:none;">{:C('web_path')}index.php?a={:ACTION_NAME}&m=Public&g=Home</div>
+<div id='id' style="display:none;">{$Think.get.id}</div>
+  </div>
+<include file="Public:footer" />

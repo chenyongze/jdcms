@@ -1,0 +1,33 @@
+<include file="Public:header"/>
+
+<div class="box_user">
+<div class="creat_qd_tit"><b>推送选项</b></div>
+<div class="creat_qd">
+<table cellspacing="0" cellpadding="0">
+<tbody>		
+		<tr>
+			<td>所需分类</td>
+			<td><input type="text" name="cate" value="{$push.cate}" id="cate" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+		<tr>
+			<td>佣金比例</td>
+			<td><input type="text" name="cps" value="{$push.cps}" id="cps" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+		<tr>
+			<td>价格区间</td>
+			<td><input type="text" name="from_price" value="{$push.from_price}" id="from_price" class="btn_txt r5" style="width:162px;"> 至 <input type="text" name="to_price" value="{$push.to_price}" id="to_price" class="btn_txt r5" style="width:162px;"></td>
+		</tr>
+		<tr>
+			<td>商品数量</td>
+			<td><input type="text" name="nums" value="{$push.nums}" id="nums" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+		<tr>
+			<td>是否自动推送</td>
+			<td><input type="text" name="auto_push" value="{$push.auto_push}" id="auto_push" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+</tbody>
+</table>		
+</div>
+</div>
+</div>
+<include file="Public:footer"/>

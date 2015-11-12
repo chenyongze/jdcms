@@ -1,0 +1,68 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script> 
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/album.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+<div id="body" class="fm960 clearfix"></div>
+<div id="content_body">
+	<if condition="get_ad(21) neq ''">
+		<center><div style="width:960px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(21)}</div></center>
+	</if>
+	<present name="nokey">
+		<div class="content_fluid" style="text-align:center;padding-top:14px;">
+			暂无搜索结果！
+		</div>
+	<else/>
+<notpresent name="keywords">
+<ul class="album_category_nav r5" >
+	
+	<li><a href="{:get_url('index','','album')}" title="全部" class=<if condition="$albumCid eq ''">"c"</if>>全部</a></li>
+	
+	<volist name="album_cate_list" id="voAlbumCate">
+    <li><a href="{:get_url('index',$voAlbumCate['id'],'album')}" title="{$voAlbumCate.title}" class=<if condition="$voAlbumCate['id'] eq $albumCid">"c"</if> >{$voAlbumCate.title}</a></li>
+	</volist>
+</ul>
+</notpresent>
+<div class="album_category">
+<div class="album_category_top clear_in" >     
+</div>
+<div class="album_list_box" >
+<div class="content">
+<volist name="album_list" id="voAlbum">
+<div class="album_item col">
+    <div class="album_item_bd">
+        <ul>
+            <li class="big" >
+				<img class="big item_img" <if condition="$voAlbum['cover']['img'] neq ''">src="{$voAlbum.cover.img|get_img=###,210}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> width="225" />
+			</li>
+			<li class="small">
+			<volist name="voAlbum['items']" id="voItems" offset="0" length='4'>
+				<img class="item_img" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+			</volist>
+			</li> 
+      	</ul>  	      
+        <div class="album_author" >
+        	<a title="{$voAlbum.title}" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_title" target="_blank">{$voAlbum.title}</a>
+        </div>
+        <b class="mask" ></b>
+        <a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_link" ></a>
+    </div>
+    <div class="album_item_ft"></div>
+</div>
+</volist>
+</div>
+</div>
+<div class="page">{$page}</div>
+</div>
+	</present>
+	<if condition="get_ad(22) neq ''">
+		<center><div style="width:960px;height:90px;overflow:hidden;">{:get_ad(22)}</div></center>
+	</if>
+</div>
+</div>
+
+<include file="Public:footer" />

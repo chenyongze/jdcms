@@ -1,0 +1,105 @@
+<include file="Public:header" />
+
+<script type="text/javascript" src="__PUBLIC__/statics/js/common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){		
+			if($("#title").val()==0){
+			   alert('请填写资讯标题');
+			   return false;
+			}
+			if($("#cate_id").val()==0){
+			   alert('请选择资讯分类');
+			   return false;
+			}
+		});
+		//编辑器
+KE.show({
+	id : 'text',
+	imageUploadJson : '__PUBLIC__/statics/js/kindeditor/php/upload_json.php',
+	fileManagerJson : '__PUBLIC__/statics/js/kindeditor/php/file_manager_json.php',
+	allowFileManager : true,
+	afterCreate : function(id) {
+		KE.event.ctrl(document, 13, function() {
+			KE.util.setData(id);
+			document.forms['myform'].submit();
+		});
+		KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+			KE.util.setData(id);
+			document.forms['myform'].submit();
+		});
+	}
+});
+	});
+</script>
+
+</head>
+<form action="{:U('Article/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+  <div class="col-tab">
+  <ul class="tabBut cu-li">
+    <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+    <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+  </ul>
+  <div id="div_setting_1" class="contentList pad-10">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">标题名称 :</th>
+        <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$article.title}"></td>
+      </tr>
+	  <tr>
+        <th width="100">链接地址 :</th>
+        <td><input type="text" name="url" id="url" class="input-text" size="60" value="{$article.url}"></td>
+      </tr>
+      <tr>
+        <th>所属分类 :</th>
+        <td><select name="cate_id" id="cate_id" style="width:200px;">
+        	<option value="0">--请选择分类--</option>
+			<volist name="cate_list" id="val">
+			<option value="{$val.id}" <if condition="$article['cate_id'] eq $val['id']"> selected="selected" </if>>{$val.name}</option>
+			</volist>
+          
+          </select></td>
+      </tr>
+      <tr>
+        <th>详细内容 :</th>
+        <td><textarea name="info" id="text" style="width:70%;height:350px;visibility:hidden;">{$article.info}</textarea></td>
+      </tr>
+    
+		<tr>
+	        <th>是否删除 :</th>
+	        <td>
+	            <input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$article['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+	        	<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="$article['is_del'] neq '1'">checked="checked"</if>> &nbsp;否
+	        </td>
+	    </tr>
+      <tr><td><input type="hidden" name="id" value="{$article.id}" id="article_id"/></td></tr>
+    </table>
+  </div>
+
+  <div id="div_setting_2" class="contentList pad-10 hidden">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">Title :</th>
+        <td><input type="text" name="seo_title" id="seo_title" class="input-text" size="60" value="{$article.seo_title}"></td>
+      </tr>
+      <tr>
+        <th>Keywords :</th>
+        <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" size="60" value="{$article.seo_keys}"></td>
+      </tr>
+      <tr>
+        <th>Description :</th>
+        <td><textarea name="seo_desc" id="seo_desc" cols="80" rows="8">{$article.seo_desc}</textarea></td>
+      </tr>
+    </table>
+  </div>
+  <div class="bk15"></div>
+  <div class="btn">
+    <input type="submit" value="提交" name="submit" class="button" id="submit">
+  </div>
+
+</div>
+</div>
+</form>
+</body>
+</html>

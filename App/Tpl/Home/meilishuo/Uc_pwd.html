@@ -1,0 +1,125 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/register.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/myTickets.css"/>	
+
+<include file="Public:headerdn"/>
+<div class="clear"></div>
+<div class="main" class="container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="hp_tab">
+				<ul class="hp_lt">
+					<li class="active red">个人设置</li>
+				</ul>
+			</div>
+			<div class="c_sub_tab" style="margin: 28px 0px 0px 30px;">
+				<a href="{:get_url('account','','user')}" class="c_sub_tab_btn">个人信息</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('img','','user')}" class="c_sub_tab_btn">修改头像</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('pwd','','user')}" class="c_sub_tab_btn_current">修改密码</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('sns','','user')}" class="c_sub_tab_btn">同步绑定</a>
+			</div>
+		
+<div class="settings-page-wraper">
+				<div class="settings_box">
+					<!--<div style="margin-top:20px">为方便以后找回密码，请设置你在美丽说的邮箱与密码</div>-->
+					<div id="regWarning" style="z-index:100;">
+						<div class="bottom-left-w">
+							<div class="bottom-right-w">
+								<div class="top-left-w">
+									<p class="top-right-w messageBox"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="regNotice" style="z-index:100;">
+							<div class="bottom-left-t">
+								<div class="bottom-right-t">
+									<div class="top-left-t">
+										<p class="top-right-t messageBox"></p>
+									</div>
+								</div>
+							</div>
+					</div>
+					<form action="/usersecurity/ajaxmodifypwd" method="post" id="newRegForm">
+						<div class="oneline">
+							<div class="titleBox left">当前密码</div>
+							<div class="inputBox left">
+								<input type="text" class="input1 left" id="oldPwd" name="oldPwd">			
+							</div>
+							<span id="pwdNotice" class="tip" style="color:#ff89a7"></span>
+							<div class="hints left"></div>
+							<div style="clear:both"></div>					
+						</div>
+						
+						<div class="oneline">
+							<div class="titleBox left">新密码</div>
+							<div class="inputBox left">
+								<input type="password" class="input1" name="newPwd" id="password">
+		                      	<!--<div class="level" style="display:none">
+		                             <div class="l01 li"><span class="ls current">弱</span></div>
+		                             <div class="l02 li"><span class="ls">中</span></div>
+		                             <div class="l03 li"><span class="ls">强</span></div>
+		                        </div>-->
+							</div>
+							<span id="newPwdNotice" class="tip" style="color:#ff89a7"></span>
+							<div class="hints left"></div>
+							<div style="clear:both"></div>					
+						</div>
+						
+						<div class="oneline">
+							<div class="titleBox left">确认密码</div>
+							<div class="inputBox left">
+								<input type="password" class="input1" name="newPwd2" id="newPwdSure">
+							</div>
+							<span id="newPwdSureNotice" class="tip" style="color:#ff89a7"></span>
+							<div class="hints left"></div>
+							<div style="clear:both"></div>					
+						</div>
+						
+						<div class="oneline">
+							<div class="titleBox left">验证码</div>
+							<div class="inputBox left">
+								<input type="txt" class="input1" name="validCode" id="verification_changepwd">
+							</div>
+							<img src="{:get_url('verify','','user')}" url_model="{:C(url_model)}" id="img_checkcode" alt="验证码">
+		                    <a href="javascript:void(0);" onclick="changeVerify()" id="checkcode_change">换一张</a>
+							<span id="verifyNotice" class="tip" style="color:#ff89a7"></span>
+							<div class="hints left"></div>
+							<div style="clear:both"></div>					
+						</div>
+						
+						<div id="pass_mod_tab">
+							<div class="ext_info_d2">
+								<input type="button" id="pwdBtn" value="" class="ext_submit submit r3"  pwdBtn_post_action="{:get_url('pwdAction','','user')}" verify_post_action="{:get_url('verify_test','','user')}">
+							</div>
+						</div>
+					</form>
+			</div>
+			<div style="clear:both"></div>
+	</div>
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#img_checkcode").attr("src");
+		var url_model=$("#img_checkcode").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		$("#img_checkcode").attr("src",src+nowTime);
+	}
+</script>

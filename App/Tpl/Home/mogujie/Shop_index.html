@@ -1,0 +1,40 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd" />
+<div class="main">
+	<if condition="get_ad(19) neq ''">
+		<center><div style="width:960px;height:90px;overflow:hidden;margin-top:15px;">{:get_ad(19)}</div></center>
+	</if>
+	<div id="shop_name" style="display:none;">{$shop.name}</div>
+	<div class="cate_tit">
+        <h1>{$shop.name}</h1>
+         <ul>
+		 	<li class="sort">
+                <span>排序：</span> 
+				<p  class="t_sortby">
+					<a name="new" class="l <if condition="$sortby eq 'new'">curr</if>" href="{:get_url('index',$shop['id'],'shop','new',$price)}" rel="nofollow">最新</a>
+					<a name="hot" class="r <if condition="$sortby eq 'hot'">curr</if>" href="{:get_url('index',$shop['id'],'shop','hot',$price)}" rel="nofollow">最热</a>
+				</p>
+            </li>
+            <li class="sort">
+				<span>价格：</span>
+				<p  class="t_price">
+					<a name="0" class="l <if condition="$price eq '0'">curr</if>" rel="nofollow" href="{:get_url('index',$shop['id'],'shop',$sortby,'0')}">全部</a>
+					<a name="100" class="m <if condition="$price eq '100'">curr</if>" rel="nofollow" href="{:get_url('index',$shop['id'],'shop',$sortby,'100')}" title="100一下">100元</a>
+					<a name="200" class="m <if condition="$price eq '200'">curr</if>" rel="nofollow" href="{:get_url('index',$shop['id'],'shop',$sortby,'200')}" title="101-200元">200元</a>
+					<a name="500" class="m <if condition="$price eq '500'">curr</if>" rel="nofollow" href="{:get_url('index',$shop['id'],'shop',$sortby,'500')}" title="201-500元">500元</a>
+					<a name="501" class="r <if condition="$price eq '501'">curr</if>" rel="nofollow" href="{:get_url('index',$shop['id'],'shop',$sortby,'501')}" title="500以上">更高</a>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<include file="Public:itemsList"/>
+	</div>
+	<if condition="get_ad(20) neq ''"><br>
+	  <center> <div style="width:960px;height:90px;overflow:hidden;">{:get_ad(20)}</div></center>
+	</if>
+	<div id='url' style="display:none;">{:C('web_path')}index.php?a=shop&m=Public&g=Home</div>
+	<div id='id' style="display:none;">{$Think.get.id}</div>
+</div>
+<include file="Public:footer" />

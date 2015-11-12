@@ -1,0 +1,66 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#down").click(function(){
+			if(confirm('消耗资源较多，请在网络环境良好时进行该操作!')){
+				$("#down").hide();
+				$("#loading").show();
+			}else{
+				return false;
+			}
+		});
+	});
+</script>
+	
+</head>
+<form id="myform" name="myform" action="{:U('User/add')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">批量注册用户</li>
+
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="100">会员昵称: <br><b style="color:red;">注：以逗号隔开,如：xx,xx</b></th>
+              <td><textarea rows="3" cols="50" name="name"></textarea></td>
+            </tr>
+            <tr>
+              <th width="100">密码: </th>
+              <td><input type="text" name="passwd" class="input-text" size="20" value=""></td>
+            </tr>
+            <tr>
+              <th width="100">性别 :</th>
+              <td>
+                <input type="radio"  onclick="" value="1" name="sex" checked="checked"> 男 &nbsp;&nbsp;
+                <input type="radio"  onclick="" value="0" name="sex"> 女 &nbsp;&nbsp;
+                <input type="radio"  onclick="" value="2" name="sex"> 随机 &nbsp;&nbsp;
+              </td>
+            </tr>            
+            <tr>
+              <th width="100">是否马甲 :</th>
+              <td>
+                <input type="radio"  onclick="" value="1" name="is_sys" checked="checked"> 是 &nbsp;&nbsp;
+                <input type="radio"  onclick="" value="0" name="is_sys"> 否 &nbsp;&nbsp;
+              </td>
+            </tr>
+        </table>
+      </div>
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+
+    </div>
+
+  </div>
+
+</form>
+</body>
+</html>

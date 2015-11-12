@@ -1,0 +1,66 @@
+<include file="Public:header" />
+
+<style type="text/css">
+	#ad_image img{ 
+		width:300px;
+	}
+</style>
+
+</head>
+<div class="pad_10">
+<form action="{:U('Ad/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+<table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+	<tr> 
+      <th width="80">广告名称 :</th>
+      <td><input type="text" name="name" id="name" class="input-text" size="40" value="{$ad_info.name}"></td>
+    </tr>
+    <tr> 
+      <th>广告尺寸 :</th>
+      <td><input type="text" name="size" id="size" class="input-text" size="40" value="{$ad_info.size}"></td>
+    </tr>
+    <tr id="ad_code" class="bill_media"> 
+      <th>广告代码 :</th>
+      <td><textarea rows="7" cols="65" name="code" id="code">{$ad_info.code}</textarea></td>
+    </tr>
+    <tr> 
+      <th>开始时间 :</th>
+      <td>
+      	<input type="text" name="start_time" id="start_time" class="date" size="22" value="{$ad_info.start_time|date="Y-m-d H:i:s",###}">
+      	<script language="javascript" type="text/javascript">
+			Calendar.setup({
+				inputField     :    "start_time",
+				ifFormat       :    "%Y-%m-%d %H:%M:%S",
+				showsTime      :    'true',
+				timeFormat     :    "24"
+			});
+		</script>
+      </td>
+    </tr>
+    <tr> 
+      <th>结束时间 :</th>
+      <td>
+      	<input type="text" name="end_time" id="end_time" class="date" size="22" value="{$ad_info.end_time|date="Y-m-d H:i:s",###}">
+        <script language="javascript" type="text/javascript">
+			Calendar.setup({
+				inputField     :    "end_time",
+				ifFormat       :    "%Y-%m-%d %H:%M:%S",
+				showsTime      :    'true',
+				timeFormat     :    "24"
+			});
+		</script>
+      </td>
+    </tr>
+	<tr>
+        <th>是否删除 :</th>
+        <td>
+            <input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$ad_info['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        	<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="$ad_info['is_del'] eq '0' OR $ad_info['is_del'] eq ''">checked="checked"</if>> &nbsp;否
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="id" id="id" value="{$ad_info.id}" />
+<input type="submit" name="submit" id="submit" class="button" value="提交">
+</form>
+</div>
+</body>
+</html>

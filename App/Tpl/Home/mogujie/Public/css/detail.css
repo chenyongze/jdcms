@@ -1,0 +1,233 @@
+﻿.piece_hd{background:url(../img/note-piece-bg.png) no-repeat;width:960px;height:5px;overflow:hidden}
+.piece_ft{background:url(../img/note-piece-bg.png) 0 -5px no-repeat;width:960px;height:8px;overflow:hidden}
+.piece_bd{background:url(../img/note-piece-bd-bg.png) repeat-y;width:960px;overflow:hidden}
+
+#content_body{width:500px;padding:15px 0 0 21px;overflow:hidden;float:left}
+#right_side{width:391px;padding:15px 30px 0 0;float:right}
+.ese_t{border-top:1px solid #eaeaea}
+.clrg{color:#87b32e}
+.clr333{color:#333}
+.clrccc{color:#ccc}
+.note_box{padding:20px;width:468px}
+.show_body{padding:0 0 10px 0;border-bottom:1px solid #f1f1f1;margin:0 0 20px 0;position:relative}
+a.img_show{width:468px;margin-bottom:25px;background:url(../img/node_jia_img_bg.png);display:block}
+a.img_show img{display:block;margin:0 auto}
+.add_to_album_btn{position:absolute;display:none;background:url(../img/add_to_album_v4.png) no-repeat;width:77px;height:22px;text-indent:-9999em;overflow:hidden;right:8px;top:7px;z-index:888;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/add_to_album_v4.png',sizingMethod='scale');cursor:pointer}
+.list_item img{width:80px;height:80px;border-radius:3px}
+.show_more{position:relative;height:90px;padding:20px 0 30px}
+.show_list_warp{height:90px;overflow:hidden;width:300px;padding:0 0 0 8px;margin:0 auto;position:relative}
+.show_list{height:90px;text-align:center}
+.show_list li{width:80px;height:80px;padding:1px;background:none;border:3px solid #fbfbfb;margin:0 8px 0 0;display:inline-block}
+.show_list .active,.show_list li:hover{background:#e0e1e3;border:3px solid #ffa589;border-radius:5px}
+.show_more .next,.show_more .prev{height:22px;width:20px;text-indent:-999em;overflow:hidden;position:absolute;background-position:-295px -300px;top:50px}
+.show_more .prev{left:68px}
+.show_more .prev:hover{background-position:-345px -300px}
+.show_more .next{background-position:-395px -300px;right:70px}
+.show_more .next:hover{background-position:-445px -300px}
+.slide_show{padding: 10px 0 25px; overflow:hidden}
+.slide_show h3{color:#87b32e;font-size:14px;line-height:22px;height:22px; margin:0}
+.slide_show .more{float:right;font-size:12px;color:#87b32e;line-height:22px;margin: 0 37px 0 0}
+.slide_show ul{width:480px}
+.slide_show li{width:100px;height:100px;overflow:hidden;float:left;margin:8px 10px 0 0;background:url(../img/node_jia_img_bg.png)}
+.slide_show a.show_img{display:table-cell;vertical-align:middle;text-align:center;width:100px;height:100px}
+.slide_show .show_img img{vertical-align:middle}
+.album_show h3{color:#87b32e;font-size:14px;line-height:22px;height:22px;margin-bottom:10px}
+.album_list{width:490px}
+.album_item{height:283px;width:223px;background:#fdfdfc;margin:0 18px 20px 0;display:inline;float:left;position:relative;border:1px solid #e7e7e7}
+.album_item ul{overflow:hidden;zoom:1;height:207px;width:223px}
+.album_item li{height:55px;width:55px;margin:1px 0 0 1px;float:left;display:inline;background:#e9e9e9;overflow:hidden}
+.album_item .big{height:150px;width:223px;margin:0}
+.album_item .left{margin:1px 0 0}
+.album_item li img{vertical-align:top}
+.album_item .small img{height:55px;width:55px}
+.album_item h4{padding:10px 10px 0;margin:0 0 4px;color:#666;font-size:14px;line-height:20px;height:20px;overflow:hidden}
+.album_item .num{padding:0;color:#999;line-height:20px;height:20px;float:right;font-size:12px;font-weight:normal}
+.album_item h4 a{color:#666}
+.album_item h4 a:hover,.album_item .num a:hover{color:#8fc63b;text-decoration:underline}
+.album_item .album_link{position:absolute;height:207px;width:223px;display:block;top:1px;left:1px;background:url(about:blank)}
+.album_list .c .album_link{background:url(../img/zone_jia_album_c.png) no-repeat;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/zone_jia_album_c.png',sizingMethod="crop")}
+.album_item .album_author{padding:8px 10px}
+.album_item .album_author img{height:20px;width:20px;vertical-align:top;border-radius:3px}
+.album_item .album_author a{height:20px;line-height:20px;color:#ff89a7}
+
+.goods_link{height:68px;overflow:hidden}
+.goods_link, .goods_tuan_link {padding:5px 10px 10px 12px;position:relative;overflow:hidden;border-radius:5px}
+.goods_link, .goods_link .buy_link, .tuan_info .buy_link, .get_tuan_btn, .get_tuan_btn .s, .tuan_div .tuan_account, .tuan_div i, .same_tip_box .same_tip, .same_tip_box i {background:url(../img/icon-note-v5.png) no-repeat}
+.goods_link .shop_link_box {width:265px;height:25px;line-height:25px;overflow:hidden}
+.goods_link .shop_link, .goods_tuan_link .shop_link {height:22px;line-height:22px;font-size:14px;color:#666;text-decoration:underline}
+.goods_link  p{color:#444;font-size:24px;font-weight:bold;font-family:'MicroSoft Yahei';line-height:45px;height:45px; margin:0}
+.goods_link p span{color:#444}
+.goods_link .buy_link, .tuan_info .buy_link {height:41px;line-height:41px;background-position:0 -200px;width:101px;font-size:14px;font-weight:bold;color:white;text-align:center;position:absolute;top:20px;left:280px;_left:270px}
+
+#right_side .album_info{border:1px solid #e7e7e7;padding:11px 5px 9px 13px;margin-bottom:28px}
+#right_side .album_info .title{color:#444;position:relative}
+#right_side .album_info .album_name{color:#87b32e;font-size:14px}
+#right_side .album_info .pic_num{position:absolute;color:#999;right:10px;top:0}
+#right_side .album_info .pic_list{margin-top:8px}
+#right_side .album_info .pic_list li{float:left;display:inline;margin-right:3px;width:70px;height:70px}
+#right_side .album_info .pic_list img{width:70px;height:70px}
+#right_side .album_info .pic_list li:first-child img{border-radius:3px 0 0 3px}
+#right_side .album_info .pic_list li:last-child img{border-radius:0 3px 3px 0}
+#right_side .fav_wrap_content .favorite .favaImg,.fav_wrap_content .favorite .favCount,.fav_wrap_content .favorite i{background:url(../img/icon-big-v4.png) no-repeat}
+#right_side .fav_wrap_content{margin-top:17px;padding-bottom:17px}
+#right_side .fav_wrap_content .favorite{height:25px;float:left}
+#right_side .fav_wrap_content .favorite .favaImg{height:26px;width:65px;float:left;display:block;text-indent:-9999em;overflow:hidden}
+#right_side .fav_wrap_content .favorite .favored{background-position:0 -226px}
+#right_side .fav_wrap_content .favorite .favCount{background-position:-80px 0;line-height:26px;height:26px;width:auto;float:left;margin-left:2px;color:#ff76ab;padding-left:4px;font-size:12px;display:block;font-weight:bold}
+#right_side .fav_wrap_content .favorite i{background-position:-146px 0;display:block;float:left;height:26px;width:5px}
+#right_side .add_to_album{background:url(../img/icon-big-v4.png) 0 -40px;padding-left:26px;width:55px;height:26px;line-height:26px;display:block;float:left;margin-left:25px;color:#444}
+.get_self_tuan{margin-top:5px;width:340px}
+.wd360{width:360px}
+.get_self_tuan .icon_tip{background:url(../img/icon-note-v4.png) no-repeat 0 -90px;width:15px;height:14px;margin-left:30px}
+.get_self_tuan .step_one{height:15px;padding:10px;background:#f6f6f6;line-height:15px}
+.get_self_tuan .two{background-position:0 -60px;width:11px;height:10px}
+.get_self_tuan .step_one span{color:#aaa}
+.get_self_tuan .step_one a{text-decoration:underline;color:#ff83a2}
+.get_self_tuan .step_two{background:#fff9e9;padding:15px}
+.get_self_tuan .step_two .s_t_p{color:#333;margin-bottom:10px;padding-right:5px}
+.get_self_tuan .step_two .mobile_a{color:#ff66a1}
+.tuan_btn,.tuan_btn .tuan_div{overflow:hidden;float:left}
+.tuan_div .tuan_account{background:url(../img/icon-big-v4.png) no-repeat -200px 0;display:block;float:left;height:26px;line-height:26px;margin-left:2px;padding-left:7px;width:auto;color:#ff9321;font-weight:bold}
+.tuan_div i{background:url(../img/icon-big-v4.png) no-repeat -300px 0;display:block;height:26px;float:left;width:6px}
+.s_t_d{margin:10px 0 0;line-height:28px}
+.s_t_d .tuan_detail{color:#f78231;text-decoration:underline}
+.s_t_d .entrance{width:84px}
+.s_t_d .entrance .s{font-size:12px;font-weight:normal}
+.s_t_d .history{color:#999}
+.s_t_d .history:hover{color:#ff66a1}
+.s_t_d .history b{background:url(../img/icon-note-v4.png?v=20120904) no-repeat -20px -129px;width:9px;height:11px;display:inline-block;margin-left:3px}
+.s_t_d .history b.hover{background-position:-20px -149px}
+.tuan_shart{background:#f5f5f5;display:inline-block;height:27px;padding:0 14px;line-height:27px;margin-bottom:8px;]}
+.tuan_shart del{color:#666;font-size:14px}
+.tuan_shart span{background:url(../img/icon-note-v4.png) no-repeat -20px -60px;padding:1px 0 2px 23px;margin-left:13px;color:#8cb736;font-weight:bold}
+.get_self_tuan .step_two .tuan_price{color:#ff64a9;font-size:36px;font-family:arial,tahoma;font-weight:bold;float:left;line-height:32px;margin:0 5px 0 0}
+.get_self_tuan .step_two .tuan_elegant_price{color:#fb8302;font-size:28px;font-family:arial,tahoma;font-weight:bold;float:left;line-height:32px;margin:0 5px 0 0}
+.get_self_tuan .elegant_zhe{color:#fff;float:left;margin:5px 0 0 5px;padding:0 6px;height:22px;line-height:22px;background:#8ec30b;font-size:14px;font-weight:bold}
+.goods_link .buy_link b.elegant_btn{padding:0 13px 0 33px}
+.get_self_tuan .zhe,.get_self_tuan .baoyou,.get_self_tuan .no_baoyou{color:#fff;float:left;margin:3px 0 0 5px;padding:0 2px;height:16px;line-height:14px}
+.get_self_tuan .zhe{background:#ff67ab}
+.get_self_tuan .baoyou{background:#8ec30b}
+.get_self_tuan .no_baoyou{background:#b9b9b9}
+.get_self_tuan .buy_btn{width:88px}
+.get_self_tuan .freetuan_btn{margin-top:18px}
+.freetuan_btn .time{padding-left:18px;background:url(../img/icon-note-v4.png) -20px -89px no-repeat;margin:5px 0 0 15px}
+.freetuan_btn .time span{color:#999;display:block;float:left}
+.freetuan_btn .time i{font-style:normal;display:block;float:left;color:#999}
+.freetuan_btn .hot{padding-left:18px;background:url(../img/icon-note-v4.png) -20px -106px no-repeat;margin:5px 0 0 15px;color:#999}
+.get_self_tuan .elegant_wrap{margin-top:0}
+.get_self_tuan .elegant_wrap .hot{margin-top:22px}
+.show_seller_info{display:none}
+.show_seller_info img{vertical-align:-5px;margin-left:5px}
+#lb_seller_tip{display:none;position:absolute}
+#lb_seller_tip .content .arrows{background:url(../img/icon-note-v4.png?v=20120827) no-repeat 0 -150px}
+#lb_seller_tip .title{font-size:14px;font-weight:bold;color:#ff89a7}
+#lb_seller_tip .lb_hd{height:22px;border:none;padding:0}
+#lb_seller_tip .lb_bd{padding:0}
+#lb_seller_tip .content{padding:4px 6px 2px 12px;border-color:#d0d0d0}
+#lb_seller_tip .words_tip{color:#666}
+#lb_seller_tip .word_paste{color:#aaa;width:220px;padding:3px;line-height:18px;border:1px solid #ddd;overflow:hidden;height:55px;margin-bottom:2px;overflow-y:scroll}
+.first_share{margin:40px 0}
+.first_share .title{font-size:14px;color:#444;font-weight:bold;margin-bottom:12px}
+.share_user_info .pic{margin-right:8px; height:48px!important; width:48px; overflow:hidden}
+.share_user_info .content{overflow:hidden;zoom:1;min-height:50px;_height:50px}
+.share_user_info .name .uname{font-size:14px;color:#ff89a7;font-weight:bold;margin-right:8px}
+.share_user_info .name .get_fav{color:#999}
+.share_user_info .share_content{color:#666;line-height:20px;margin-top:5px}
+.share_user_info .share_content .t{color:#ccc;margin-left:10px}
+.friends_show{padding-bottom:35px}
+.friends_show .title{color:#333}
+.user_list{margin-top:10px}
+.user_list li{height:49px;position:relative}
+.user_list .avatar{width:32px;height:32px;margin:3px 8px 0 0}
+.user_list .content .uname{color:#ff89a7}
+.user_list .share_content{color:#666}
+.user_list .share_content .t{color:#ccc;margin-left:10px}
+.pub_area{padding-top:30px}
+.pub_area .pub_txt{width:380px;height:60px;border:1px solid #bbb;line-height:16px;padding:5px;resize:none;overflow:hidden;border-radius:3px;color:#ccc;background:#fff}
+.pub_area_ft{overflow:hidden;zoom:1;margin-top:3px}
+.pub_area .pub_out{padding:2px 0}
+.pub_area .pub_opt a{display:block;float:left;padding-left:20px;background:url(../img/publish_box_icon_v3.png) no-repeat;height:20px;margin-right:10px;color:#666;_margin-right:3px}
+.pub_area .pub_opt .add_face_new{background-position:1px -97px}
+.pub_area .pub_out input{vertical-align:-2px;line-height:12px;margin-right:3px;*margin-right:0;*vertical-align:-3px}
+.pub_area .pub_out label{color:#6a6f5e}
+.note_comment{margin:20px 0 40px;width:371px;overflow:auto;clear:both background:red}
+.note_comment .c_l{background-color:#fff;padding-bottom:20px;overflow:hidden;margin-left:-10px}
+.note_comment .c_l li{padding:10px 10px 10px 0;min-height:40px;_height:40px;position:relative;overflow:hidden}
+.note_comment .c_l li.hover,.note_comment .c_l li:hover{background:#f8f8f8}
+.note_comment .c_l li.hover div{visibility:visible}
+.note_comment .c_l .avt{width:36px;height:36px;float:left;border-radius:3px;margin:3px 10px 0 10px}
+.note_comment .c_l .sms{padding:0 45px 0 58px;font-size:12px;line-height:18px;color:#666;margin:0}
+.note_comment .c_l .sms .v{margin-left:2px}
+.note_comment .c_l .sms span{color:#b3b3b3;font-size:12px}
+.note_comment .c_l .sms a{color:#ff89a7}
+.note_comment .c_l .sms .n{font-size:12px}
+.note_comment .c_l div{position:absolute;line-height:120%;text-align:right;bottom:10px;right:10px;visibility:hidden}
+.note_comment .c_l div a{color:#87bd34;margin-left:10px;text-decoration:underline}
+.note_comment .c_l .rpl_report{color:#999;display:none}
+.note_comment .pagination{color:#ff83b4;padding:22px;border-top:1px solid #eaeaea;text-align:center}
+.pagination span {color:#FF74A9;background-color:transparent}
+.pagination a, .pagination i {display:inline-block;margin:0 1px;white-space:nowrap;min-width:12px;_width:12px;height:22px;
+line-height:22px;color:white;background-color:#FF74A9;text-align:center;-moz-border-radius:3px;-khtml-border-radius:3px;
+-webkit-border-radius:3px;border-radius:3px;font-weight:bold;padding:0 5px}
+.comment_empty{color:#690;font-size:14px;text-align:center;padding-top:40px}
+#lb_freetuan .lb_bd,#lb_freetuan_go .lb_bd,#lb_entrance .lb_bd{width:420px}
+.freetun_light_box{text-align:center;padding:40px 0}
+.freetun_light_box p{color:#666;font-size:14px;margin-bottom:25px;line-height:25px}
+.freetun_light_box .go_taobao_login{width:115px;margin:0 auto}
+.freetuan_link{text-align:center;padding:20px 0}
+.freetuan_link p{color:#666;margin-bottom:15px;line-height:25px}
+.freetuan_link p .success{display:block;background:url(../img/freetuan_icon.png) no-repeat left -354px;width:87px;height:18px;line-height:18px;font-size:16px;color:#8cb736;margin:0 auto 10px;padding-left:10px;font-weight:bold}
+.freetuan_link a{display:block;background:url(../img/freetuan_btn.png) no-repeat;width:87px;height:30px;color:#fff;line-height:30px;font-family:'\5FAE\8F6F\96C5\9ED1';font-size:16px;margin:0 auto}
+#tuan_tip{position:absolute}
+.freetuan_success_bg{background:url(../img/tuan-ok-v4.png) no-repeat;width:148px;height:56px;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/tuan-ok-v4.png',sizingMethod="scale")}
+.freetuan_box_bg{background:url(../img/freetuan_box_bg2.png) no-repeat;width:134px;height:40px;color:#999;padding-top:28px;padding-left:10px;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/freetuan_box_bg2.png',sizingMethod="scale")}
+.edit_num{margin-top:3px}
+.input_num_e{overflow:hidden;display:none;margin-top:5px}
+.input_num_e .e_m{width:120px;height:19px;border:1px solid #ffd4ba;float:left;padding:1px 0 0;margin-right:3px}
+.input_num_e .edit_num{width:40px;text-align:center;display:block;float:left}
+.share_weibo{clear:both;line-height:27px;margin-top:16px;overflow:hidden}
+.share_weibo span{color:#999;float:left;padding-right:5px}
+.share_weibo a{background:url(../img/freetuan_btn.png) no-repeat scroll left -324px transparent;color:#FF73A8;display:block;float:left;font-weight:bold;height:27px;text-align:center;width:111px}
+#lb_freetuan_go .lb_bd{width:380px}
+.mobile_again input{border:1px #cfcfcf solid;width:189px;height:24px;padding:1px 3px;float:left;color:#999}
+.mobile_again{padding:15px 15px;overflow:hidden}
+.mobile_again p{color:#666;margin-bottom:8px}
+.mobile_again a{background:url(../img/event_go_btn.png);width:77px;height:28px;color:#fff;display:block;text-align:center;font-size:14px;font-weight:bold;line-height:28px;float:left;margin-left:5px}
+#lb_jion_btn .lb_bd{width:385px}
+#lb_jion_btn .t_anhao{border-bottom:1px solid #ccc;margin:0 10px;padding-bottom:25px}
+#lb_jion_btn .buy_tuan{background:url(../img/welfare_btn_all.png) no-repeat left -362px;width:109px;height:28px;display:block;margin:20px auto 0;color:#fff;line-height:28px;text-align:center}
+#lb_jion_btn h1{font-size:14px;color:#999;text-align:center;margin-top:15px;font-weight:normal}
+#lb_jion_btn h1 span{color:#ff70a7;font-weight:bold}
+#lb_jion_btn .prompt{display:block;font-size:14px;font-weight:bold;margin:5px auto 15px;text-align:center;width:330px}
+#lb_jion_btn .follow_mj{background:url(../img/follow_mj.png) no-repeat;width:136px;height:30px;display:block;float:left;margin:0 20px 0 100px;_margin-left:50px}
+#lb_jion_btn .buy_btn{width:102px;margin:15px auto 0}
+#lb_jion_btn .use_limit{color:#333;font-size:12px;position:relative;top:-3px}
+#lb_jion_btn .tuan_help{margin:0 auto 5px}
+#lb_jion_btn .tuan_help .what_for{margin-top:16px;margin-left:10px;*line-height:20px;font-size:14px;color:#333}
+#lb_jion_btn .for_help{float:left;margin-left:15px}
+.th_c{position:relative;padding:3px 0 3px 25px;min-height:20px;_height:20px;color:#333}
+.th_step{position:absolute;color:#fff;display:block;font-size:14px;background:url(../img/spot_14x14.png) no-repeat;width:14px;height:14px;left:0;line-height:14px;text-align:center;*margin-top:-5px;top:6px}
+.download_iphone{width:50px;position:fixed;height:72px;top:320px;_position:absolute;_top:expression((document.compatMode && document.compatMode=='CSS1Compat' ? documentElement.scrollTop+180:document.body.scrollTop+180)-4)}
+.download_iphone a{height:72px;text-indent:-9999px;display:block}
+.download_iphone .j_d_h{background:url(http://s6.mogujie.cn/pic/120829/2r6z_kqytk43yl5bgos2ugfjeg5sckzsew_78x79.png) no-repeat;width:78px;height:79px;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img//2r6z_kqytk43yl5bgos2ugfjeg5sckzsew_78x79.png',sizingMethod="scale")}
+.download_iphone .j_d_a{background:url(http://s6.mogujie.cn/pic/120829/2r6z_kqyxo4lil5bgev2ugfjeg5sckzsew_291x140.png) no-repeat;width:291px;height:140px;margin:-78px 0 0 -291px;);_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/2r6z_kqyxo4lil5bgev2ugfjeg5sckzsew_291x140.png',sizingMethod="scale")}
+.qqphoto-getim-btn{display:inline;float:right;margin-right:3px}
+
+.body_info,.note_comment{ width:391px;overflow:hidden}
+.body_info {margin:0 0 20px;border:1px solid #FFF1CD;border-radius:5px;background-color:#FFFDF7}
+.get_self_tuan .buy_btn {width:88px}
+.orange_btn {background:url(../img/icon-button-bg-v4.png) no-repeat right -25px;display:block;width:65px;height:26px;padding-right:2px}
+.orange_btn .s {background:url(/img/icon-button-bg-v4.png) no-repeat left -25px;line-height:26px;font-weight:600;display:block;color:white;height:26px;text-align:center;padding-left:2px;font-size:14px;cursor:pointer}
+.freetuan_btn .time {padding-left:18px;background:url(../img/icon-note-v4.png) -20px -89px no-repeat;margin:5px 0 0 15px;height:19px;line-height:19px}
+.freetuan_btn .time span {color:#999;display:block;float:left}
+.freetuan_btn .time i {font-style:normal;display:block;float:left;color:#999}
+
+.main #bdshare {_overflow-x:hidden;z-index:999999;padding-bottom:2px;margin-top:0;font-size:12px;text-align:left!important;zoom:1;float:right!important}
+.pub_area .pub_txt {width:380px;height:60px;border:1px solid #BBB;line-height:16px;padding:5px;resize:none;overflow:hidden;border-radius:3px;color:#CCC}
+textarea, input[type="text"], input[type="password"] {background:white url(../img/input_bg_sd.png) 0 0 no-repeat!important}
+.gray_btn {background:url(../img/icon-button-bg-v4.png) no-repeat right 0;display:block;width:46px;height:24px;margin:0 0 0 5px;padding-right:2px}
+.gray_btn .s {background:url(../img/icon-button-bg-v4.png) no-repeat;line-height:24px;font-weight:600;display:block;color:#333;height:24px;text-align:center;padding-left:2px;cursor:pointer}
+
+.contentWrap h2{font-size:30px;color:#690;font-weight:bold;margin:25px auto 20px;width:960px;color:#690}
+.content .ad_2{ float:left;margin:0 0 15px 5px}
+.comments_loading{	width:32px;height:32px;background:url(../img/loading_d.gif) no-repeat 50% 50%;position:absolute;display:none}

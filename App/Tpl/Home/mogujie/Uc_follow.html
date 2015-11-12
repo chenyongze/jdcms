@@ -1,0 +1,75 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/fans.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+
+<div class="main">
+<include file="Public:ucInfo"/>
+<div class="clearfix" id="content_wrap">
+<div class="content">
+<div id="content_body" class="fl">
+	<div class="radius-top">
+				<span class="hl"></span>
+				<span class="hr"></span>
+			</div>
+	<div class="piece_bd">
+		<h1>她的关注</h1> 
+		<ul class="zone_tab clearfix">
+			<li class="zt_f c"><a href="{:get_url('follow',$oUid,'user')}">她的关注</a></li>
+			<li class="zt_f"><a href="{:get_url('fans',$oUid,'user')}">她的粉丝</a></li>
+		</ul>
+		<ul class="people_list clearfix">
+<volist name="user_list" id="vo">
+		<li class="clearfix" id="people_id_1129piu" issendpm="0">
+	  <a href="{:get_url('index',$vo['id'],'user')}"><img class="avt icard " onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src=<if condition="$vo['img'] eq ''">__PUBLIC__/statics/images/avatar.png<else/>{:C('web_path')}Uploads/avatar_small/{$vo.img}</if> alt="{$vo.name}"></a>
+			  <div class="people_info">
+				<a class="n icard gc" href="{:get_url('index',$vo['id'],'user')}">{$vo.name}</a><br>
+						<p>
+						<span>{$vo.address}</span>						
+						<span>粉丝{$vo.fans_num}人</span></p>  
+			  </div>
+						<!--<div class="people_toolbar">											
+								<a href="javascript:void(0);" class="addfo_t fr">关注</a>
+								<span class="unfo fr"><span class="add_ok">已关注</span></span>
+						</div>-->
+	  </li>
+</volist>
+		  </ul>
+	
+		<div class="pagebox"> 
+			 {$page}
+		</div>    
+	</div>
+	<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+
+
+<div id="right_side" class="fr">
+	<div class="radius-top">
+		<span class="hl"></span>
+		<span class="hr"></span>
+	</div>
+
+<div class="hot_group">
+   <h3>周排行榜</h3><!--<a href="/group?f=grp20121029groupwd" target="_blank" class="more_group">更多小组</a>-->
+	<ul class="hot_group_list clearin">
+	 <volist name="items_by_likes" id="voByL" offset="0" length='6'>
+    		<li>
+        <a target="_blank" href="{:get_url('index',$voByL['id'],'item')}"><img title="{$voByL.title}" class="tg_cover" src=<if condition="$voByL['img'] neq ''">{$voByL.img|get_img=###,100}<else/>__TMPL__Public/images/undefined.jpg</if> ></a>
+        <a title="{$voByL.title}" target="_blank" href="{:get_url('index',$voByL['id'],'item')}">{$voByL.title|msubstr=0,5,'utf-8',false}</a>		</li>
+	</volist>
+    	</ul>
+</div>
+
+	<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+</div>
+</div>
+</div>
+<include file="Public:footer" />

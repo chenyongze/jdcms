@@ -1,0 +1,145 @@
+<include file="Public:header" />
+<style>
+.contentList div {margin:10px auto;}
+span {display:block;margin:0 10px;float:left;}
+</style>
+<script>
+$(document).ready(function(){
+	$('.title_trim').click(function(){
+		var okstr = '';
+		var tmpvalue = '';
+		var totalbox = 12;
+		for(var i=0;i<totalbox;i++){
+			if($('.title_trim:eq('+i+')').attr('checked')){
+		    	tmpvalue = $('.title_trim:eq('+i+')').val();
+				tmpvalue = tmpvalue.replace(/&lt;/,'<');
+				tmpvalue = tmpvalue.replace(/&gt;/,'>');
+		    	okstr += (okstr=='' ? tmpvalue : "\r\n"+tmpvalue);
+			}
+		}
+		$('#title_filter').val(okstr);
+	})
+	
+	$('.content_trim').click(function(){
+		var okstr = '';
+		var tmpvalue = '';
+		var totalbox = 12;
+		for(var i=0;i<totalbox;i++){
+			if($('.content_trim:eq('+i+')').attr('checked')){
+		    	tmpvalue = $('.content_trim:eq('+i+')').val();
+				tmpvalue = tmpvalue.replace(/&lt;/,'<');
+				tmpvalue = tmpvalue.replace(/&gt;/,'>');
+		    	okstr += (okstr=='' ? tmpvalue : "\r\n"+tmpvalue);
+			}
+		}
+		$('#content_filter').val(okstr);
+	})
+})
+</script>
+</head>
+<form id="myform" name="myform" action="{:U('ArticleCollect/edit')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">新增采集节点：第二步设置内容字段获取规则</li>
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="15%">预览网址 :</th>
+              <td width="35%" colspan="3"><input type="text" id="test_article_url" name="test_article_url" class="input-text" size="50" value="{$test_article_url}"></td>
+            </tr>
+            <tr>
+              <th width="15%">内容分页导航所在的区域匹配规则 :</th>
+              <td width="35%">
+				<textarea id="page_rule" name="page_rule" rows="3" cols="60">{$info.page_rule}</textarea>
+              </td>
+              <td width="50%" colspan="2">
+              	<div><input type="radio" id="all" name="s_page" <if condition="$info.s_page eq 'all'">checked="checked"</if> value="all" checked="checked">&nbsp;&nbsp;全部列出的分页列表</div>
+              	<div><input type="radio" id="next" name="s_page" <if condition="$info.s_page eq 'next'">checked="checked"</if> value="next">&nbsp;&nbsp;上下页形式或不完整的分页列表</div>
+              </td>
+             </tr>
+             
+             <tr>
+              <th width="15%">文章标题 :</th>
+              <td width="65%">
+				<div style="float:left"><span>匹配规则 : </span><textarea id="title_rule" name="title_rule" rows="3" cols="30">{$info.title_rule}</textarea><p>(如：start(*)end，会对(*)进行匹配)</p></div>
+				<div><span>过滤规则 : </span><textarea id="title_filter" name="title_filter" rows="3" cols="30">{$info.title_filter}</textarea><p>其他自定义过滤条件请在右侧勾选后填写，每行一个匹配规则，必须符合正则语法</p></div>
+              </td>
+              <td width="20%" colspan="2">
+              	<div>
+              		<table>
+              		<tr>
+						<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;a([^&gt;]*)&gt;(.*)&lt;/a&gt;">超链接</td>
+						<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;img([^&gt;]*)&gt;">img</td>
+	                	<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;script([^&gt;]*)&gt;(.*)&lt;/script&gt;">javascript</td>
+	      			</tr>
+	                <tr>	
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;embed([^&gt;]*)&gt;(.*)&lt;/embed&gt;">embed</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;!--(.*)--&gt;">&lt;!--()--&gt;</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;iframe([^&gt;]*)&gt;(.*)&lt;/iframe&gt;">iframe</td>
+	      			</tr>
+	      			<tr>	
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;table([^&gt;]*)&gt;(.*)&lt;/table&gt;">table</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;param([^&gt;]*)&gt;(.*)&lt;/param&gt;">param</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;style([^&gt;]*)&gt;(.*)&lt;/style&gt;">style</td>
+	      			</tr>
+	      			<tr>	
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;div([^.]*)&gt;">&lt;div([^.]*)&gt;</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;/div&gt;">&lt;/div&gt;</td>
+	      				<td><input type="checkbox" name="title_trim" class="title_trim" value="&lt;object([^&gt;]*)&gt;(.*)&lt;/object&gt;">Object</td>	
+					</tr>
+					</table>
+				</div>	
+              </td>
+             </tr>
+             
+             <tr>
+              <th width="15%">文章内容 :</th>
+              <td width="65%">
+				<div style="float:left"><span>匹配规则 : </span><textarea id="content_rule" name="content_rule" rows="3" cols="30">{$info.content_rule}</textarea><p>(如：start(*)end，会对(*)进行匹配)</p></div>
+				<div><span>过滤规则 : </span><textarea id="content_filter" name="content_filter" rows="3" cols="30">{$info.content_filter}</textarea><p>其他自定义过滤条件请在右侧勾选后填写，每行一个匹配规则，必须符合正则语法</p></div>	
+              </td>
+              <td width="20%" colspan="2">
+              	<div>
+              		<table>
+              		<tr>
+						<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;a([^&gt;]*)&gt;(.*)&lt;/a&gt;">超链接</td>
+						<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;img([^&gt;]*)&gt;">img</td>
+	                	<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;script([^&gt;]*)&gt;(.*)&lt;/script&gt;">javascript</td>
+	      			</tr>
+	                <tr>	
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;embed([^&gt;]*)&gt;(.*)&lt;/embed&gt;">embed</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;!--(.*)--&gt;">&lt;!--()--&gt;</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;iframe([^&gt;]*)&gt;(.*)&lt;/iframe&gt;">iframe</td>
+	      			</tr>
+	      			<tr>	
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;table([^&gt;]*)&gt;(.*)&lt;/table&gt;">table</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;param([^&gt;]*)&gt;(.*)&lt;/param&gt;">param</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;style([^&gt;]*)&gt;(.*)&lt;/style&gt;">style</td>
+	      			</tr>
+	      			<tr>	
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;div([^.]*)&gt;">&lt;div([^.]*)&gt;</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;/div&gt;">&lt;/div&gt;</td>
+	      				<td><input type="checkbox" name="content_trim" class="content_trim" value="&lt;object([^&gt;]*)&gt;(.*)&lt;/object&gt;">Object</td>	
+					</tr>
+					</table>
+				</div>	
+              </td>
+             </tr>
+            
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+	  <input type="hidden" name="id" id="id" value="{$info.id}" />
+	  <input type="hidden" name="step" id="step" value="{$step}" />
+      <div class="btn"><input type="submit" value="保存配置并预览" name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+
+</form>
+</body>
+</html>

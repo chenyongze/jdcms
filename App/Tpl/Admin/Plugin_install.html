@@ -1,0 +1,95 @@
+<include file="Public:header" />
+<style>
+.containertitle {
+    background-position: left 3px;
+    color: #666666;
+    font-size: 14px;
+    margin: 10px 0 30px 20px;
+}
+#recommend_plugin {
+}
+#recommend_plugin ul {
+    float: left;
+    margin: 10px 30px;
+    padding: 0;
+    text-align: center;
+    width: 120px;
+}
+#recommend_plugin img {
+    border: 1px solid #CCCCCC;
+	width:100px;
+	height:100px;
+}
+#recommend_plugin p {
+    padding: 0 40px;
+}
+a.guan:link{color:blue;}
+a.guan:visited{color:#0000ff}
+a.guan:hover{color:#ffcc00}
+
+</style>
+
+</head>
+<body>
+<div class=containertitle><h2>安装插件</h2><div id="msg"></div><br>
+<em style="color:red">注：如果两种方法均不能安装成功,请到<a class="guan" href='http://www.jdcms.com/plugin.html' target='_blank'>简单CMS官方网站</a>手动下载安装包，解压之后上传到./Public/Plugins目录即可</em>
+<form action="{:U('Plugin/uploadPluginZip')}" method="post" enctype="multipart/form-data" >
+<div style="margin:30px 0px 20px 20px;">
+	<li>
+	<input name="pluzip" type="file" />
+	<input type="submit" value="上传安装" class="submit" /> （上传一个zip压缩格式的插件安装包）
+	</li>
+</div>
+</form>
+
+<div class="pad-10">
+	<form name="searchform" action="{:U('Plugin/install')}" method="get" >
+		<input name="a" type="hidden" value="install">
+		<input name="m" type="hidden" value="Plugin">
+		<input name="g" type="hidden" value="Admin">
+		<table width="100%" cellspacing="0" class="search-form">
+			<tbody>
+				<tr>
+				<td>
+				<div class="explain-col">
+					关键字 :
+					<input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+					<input type="submit" name="search" class="button" value="搜索" />
+				</div>
+				</td>
+				</tr>
+			</tbody>
+		</table>
+    </form>
+	<div class="col-tab">
+		<ul class="tabBut cu-li">
+			<li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">官方插件</li>
+		</ul>
+		<div id="div_setting_1" class="contentList pad-10">
+			<div id="recommend_plugin">
+				<div style="overflow: hidden;text-align: center;" id="recommend_plugin_list">
+				<!--正在读取......-->
+					<volist name='plugins_list' id='vo'>
+					<ul>
+						<li><a href="http://www.jdcms.com/plugin/detail/{$vo.id}.html" target="_blank"><img width="100" height="100" src=<if condition="$vo['logo']">{:C('official_website')}Uploads/Plugins/{$vo.logo}<else/>{:C('official_website')}Uploads/Plugins/default_plugin.png</if>></a></li>
+						<li> </li>
+						<li><a href="http://www.jdcms.com/plugin/detail/{$vo.id}.html" target="_blank" title='{$vo.name}'><b>{$vo.name|msubstr=0,20,'utf-8',false}</b></a></li>
+						<li>作者：jdcms</li>
+						<li><a href="{:U('Plugin/downloadPlugin',array('down_url'=>$vo['download_url']))}"><h4>安装</h4></a></li>
+					</ul>
+					</volist>
+				</div>
+			</div>
+		</div>
+		<div class="bk15"></div>
+	</div>
+</div>
+<div class="pad-10">
+	<div class="table-list">
+		<div class="btn">
+			<em style="float:left;margin:0px 10px;"><a href='http://www.jdcms.com/plugin.html' target='_blank'>更多插件</a></em>
+			<div id="pages"> {$count} 条记录 {$currentPage}/<span class="totalPages">{$pageCount}</span> 页  {$page_string}</div>
+		</div>
+	</div>
+</div>
+</body>

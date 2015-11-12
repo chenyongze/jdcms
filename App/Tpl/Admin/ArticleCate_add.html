@@ -1,0 +1,68 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			if($("#name").val()==0){
+			   alert('请填写资讯分类');
+			   return false;
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+<div class="pad_10">
+<form action="{:U('ArticleCate/add')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+  <div class="col-tab">
+  <ul class="tabBut cu-li">
+    <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+    <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+  </ul>
+  <div id="div_setting_1" class="contentList pad-10">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+    <tr> 
+      <th width="100">资讯分类 :</th>
+      <td><input type="text" name="name" id="name" class="input-text"></td>
+    </tr>
+	<tr>
+      <th width="100">排序值 :</th>
+      <td><input type="text" name="ord" id="sort_order" class="input-text" size="4" onkeyup="value=value.replace(/[^\d]/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></td>
+    </tr>
+	<tr>
+      <th>审核状态 :</th>
+      <td><input type="radio" name="status" value="1" checked>&nbsp;已审核&nbsp;&nbsp;&nbsp;
+      	  <input type="radio" name="status" value="0">&nbsp;未审核</td>
+    </tr>
+</table>
+  </div>
+
+  <div id="div_setting_2" class="contentList pad-10 hidden">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+     <tr>
+      <th width="100">Title :</th>
+      <td><input type="text" name="seo_title" id="seo_title" class="input-text" value="{$article_cate_info.seo_title}" size="50"></td>
+    </tr>
+    <tr>
+      <th width="100">Keywords :</th>
+      <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" value="{$article_cate_info.seo_keys}" size="50"></td>
+    </tr>
+    <tr>
+      <th width="100">Description :</th>
+      <td><textarea name="seo_desc" cols="47" rows="4">{$article_cate_info.seo_desc}</textarea></td>
+    </tr>
+    </table>
+  </div>
+  <div class="bk15"></div>
+  <div class="btn">
+    <input type="submit" value="提交" name="submit" class="button" id="submit">
+  </div>
+
+</div>
+</div>
+</form>
+</div>
+</body>
+</html>

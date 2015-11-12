@@ -1,0 +1,61 @@
+<volist name="items_list" id="voItems">
+        <dl>
+          <dt><a href="{:get_url('index',$voItems['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['userimg'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.userimg}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> width="64"/> </a></dt>
+          <dd>
+            <div class="box">
+              <div class="t"><a href="{:get_url('index',$voItems['uid'],'user')}"><em class="au">{$voItems.username}</em></a> <span class="time">{$voItems.add_time|date='Y-m-d H:i:s',###}</span>
+			   <if condition="($curPage eq uc_album) AND ($oUid eq '')">
+			  <em style="float:right"><a href="javascript:void(0);" class='cover <if condition="$voItems['is_cover'] eq 0">setCover<elseif condition="$voItems['is_cover'] eq 1"/>clearCover</if>'  setCover_post_action="{:get_url('setAlbumCover','','user')}" id="cover_{$voItems.id}" items_id="{$voItems.id}" aid="{$voItems.aid}"><if condition="$voItems['is_cover'] eq 0">设为封面<elseif condition="$voItems['is_cover'] eq 1"/>专辑封面</if></a></em>
+			  </if>
+			  <if condition="($oUid neq '') OR ($curpage eq album)"><else/><em style="float:right"><a href=<if condition="$curPage eq uc_album">"{:get_url('albumItemsDel',$voItems['id'],'user',$voItems['aid'])}"<elseif condition="$curPage eq uc_like"/>"{:get_url('likeItemsDel',$voItems['id'],'user')}"</if> class="uc_items_del">删除&nbsp;&nbsp;</a></em></if>
+			 
+			  </div>
+              <h3><a href="{:get_url('index',$voItems['id'],'item')}">{$voItems.title}</a></h3>
+              <div class="photo"><a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img src="{$voItems.img|get_img=###,210}" width="170"/><else/><img src="__TMPL__Public/img/undefined.jpg" width="170"/></if></a></div>
+              <p>{$voItems.remark}</p>
+              <div class="meta">
+                <div class="fl tag">标签：
+				<volist name="voItems['tags']" id="voT">
+				<a href="{:get_url('tag',$voT['id'],'cate')}">{$voT.name}</a>
+				</volist>
+				</div>
+                <div class="fr"><a style="text-decoration:none;" href="{:get_url('index',$voItems['id'],'item')}#comm">评论({$voItems.comments})</a><a href="javascript:void(0);" class="likeit likeItems" item_id="{$voItems.id}" style="text-decoration:none;"><if condition="$likes[$voItems['id']] eq 1"><em>已喜欢</em><else/><em>喜欢一下</em></if></a></div>
+                <input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+              </div>
+            </div>
+          </dd>
+        </dl>
+	   </volist>
+<script>
+	$(function(){
+	
+		   //点击喜欢
+		   $(".likeItems").bind('click',function() {
+		   var like_post_location=$("#like_post_location").val();
+		   var like_post_action=$("#like_post_action").val();
+			   var logurl = like_post_location  ;
+			   var uid = $.cookie('id');
+			   var tt = $(this);
+			   var val = $(this).html();
+			   if(uid){
+				   item_id = $(this).attr("item_id");
+				   if(item_id!=0){
+					    $.post(like_post_action, { items_id: item_id, val: val}, function(data){
+							if(data.status==-2){
+								location.href=logurl;			
+							}else if(data.status==1){
+								tt.html("<em>已喜欢</em>");
+							}else if(data.status==-1){
+								tt.html("<em>喜欢一下</em>");
+							}else{
+								alert(data.info);
+							}
+						},"json"); 
+				   }
+			   }else{
+					location.href=logurl;	   
+			   }
+			   return false;
+			 });
+	})
+</script>

@@ -1,0 +1,73 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/personal.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+	<div class="piece_hd"></div>
+	<div id="content">
+		<div class="fl " id="setting_bar">
+			<h1>帐号设置</h1>
+			<div class="base_info">
+				<a href="{:get_url('account','','user')}" class="c">基本信息</a><br>
+				<a href="{:get_url('img','','user')}" class="">修改头像</a><br>
+				<a href="{:get_url('pwd','','user')}" class="">修改密码</a><br>
+				<a href="{:get_url('sns','','user')}" class="">帐号绑定</a><br>
+			</div>
+		</div>
+		<div id="setting_box" class="fl">
+		<!-- 设置基本信息 -->
+			<div id="setting_form" class="setting_basic">
+				<form action="" method="post">
+				<input type="hidden" id="hdProvince" value="{$province}">
+				<input type="hidden" id="hdCity" value="{$city}">
+				<input type="hidden" id="hdCounty" value="{$county}">
+				<input type="hidden" id="hiddenId" value="{$user_info.id}">
+					<div class="settings_title">
+						<span>基本资料</span>
+					</div>
+					<dl>
+						<dd>用户名：</dd>
+						
+							<dt class="unick">
+								<input class="r3" type="text" name="unick" id="basicName" value="{$user_info.name}"  disabled="disabled">
+							</dt>
+								
+						<dd>性别：</dd>
+						<dt class="sex" style="line-height: 30px;">
+							<input <if condition="$user_info['sex'] eq 0">checked</if> name="sex" value="0" type="radio" id="" style="margin:0"> 女
+							<input <if condition="$user_info['sex'] eq 1">checked</if> name="sex" type="radio" value="1" id=""> 男
+						</dt>
+						<dd>个人介绍：</dd>
+						<dt class="weibo"><input class="r3" id="selfInfo" name="weibo" type="text" value="{$user_info.info}"></dt>
+						
+						<dd>所在地：</dd>
+						<dt class="location">
+							<select id="s_province" name="s_province"></select>&nbsp;&nbsp;
+							<select id="s_city" name="s_city" ></select>&nbsp;&nbsp;
+							<select id="s_county" name="s_county"></select>
+							<script type="text/javascript" src="__TMPL__Public/js/area.js?1"></script>
+							<script type="text/javascript">_init_area();</script>
+						</dt>
+						<dd>年龄：</dd>
+						<dt class="">
+							<input type="radio" name="age" value="80" <if condition="$user_info['age'] eq '80'">checked</if>/>
+							80后　
+							<input type="radio" name="age" value="90" <if condition="$user_info['age'] eq '90'">checked</if> />
+							90后　
+							<input type="radio" name="age" value="70" <if condition="$user_info['age'] eq '70'">checked</if> />
+							70后
+							
+						</dt>
+						<dd>&nbsp;</dd>
+						 <dt class="clearfix subbox" style="float:left"><input btn_up_post_action="{:get_url('accountAction','','user')}" id="btn_up" class="submit r3" type="button" value="确认修改"/></dt><dd style="float:left;margin-top:10px"><p id="updateNotice"></p></dd>
+					</dl>
+				</form>
+			</div>
+		</div>
+
+    </div>	
+	<div class="piece_ft"></div>
+</div>
+</div>
+
+<include file="Public:footer"/>

@@ -1,0 +1,25 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script>  
+<include file="Public:headerd"/>
+<div class="main">
+<include file="Public:ucInfo"/>
+<div class="clearfix" id="content_wrap">
+<if condition="$items_list">
+<include file="Public:ucItemsList"/>
+<else/>
+<div class="home_empty">
+	<img src="__TMPL__Public/img/dragon_icon_yaya.png">
+	<if condition="$oUid"><span class="des">
+	该用户还没有喜欢的宝贝哦！</span><else/><span class="des">
+	你还没有喜欢过宝贝哦~去”首页“搜寻你喜欢的吧~	</span>
+	<a class="new_btn" target="_blank" href="{:C('site_domain')}">去首页看看</a>
+	</if>
+</div>
+</if>
+</div>
+</div>
+<include file="Public:footer" />

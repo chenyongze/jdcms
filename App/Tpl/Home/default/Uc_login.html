@@ -1,0 +1,63 @@
+<include file="Public:header"/>
+<div class="sign_box r5">
+  <div class="block_sign clearfix">
+    <h2>加入进来，一起寻找你的{:C("site_name")}！</h2>
+    <div class="fl">
+	<div class="sign_info" id="loginError"></div>
+      <div class="sign_info">
+        <dl>
+          <dt>用户名：</dt>
+          <dd>
+            <input type="text" class="btn_txt r5" id="uname" value="输入用户名"/>
+          </dd>
+        </dl>
+        <dl>
+          <dt>密码：</dt>
+          <dd>
+            <input type="password" class="btn_txt r5" id='pwd'/>
+          </dd>
+        </dl>
+		 <dl>
+          <dt>验证码：</dt>
+          <dd>
+            <input type="text" class="btn_txt r5" verify_post_action="{:get_url('verify_test','','user')}" id='verification_login'/>&nbsp;<img src="{:get_url('verify','','user')}"  verify_action="{:get_url('verify','','user')}" url_model="{:C(url_model)}" id="img_checkcode" alt="验证码" width="100" height="35"/><a href="javascript:void(0);" onclick="changeVerify();return false;" id="checkcode_change">&nbsp;换一张</a>
+          </dd>
+        </dl>
+        <p>
+          <input type="checkbox" id="autologin_checkBox" value="2"/>
+          下次自动登录 </p>
+        <p class="op_dl">
+          <input type="hidden" name="referer" value="{$referer}" id="referer">
+          <input type="button" id="loginBtn" class="but" value="登录" style="cursor: pointer;" loginBtn_post_action="{:get_url('loginAction','','user')}" loginBtn_post_location="{:get_url('index','','user')}"/>
+          <div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+        </p>
+        <div class="other"> <span>您也可以通过以下方式登陆：</span>
+          <div><a href="{:get_url('sinalogin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_sina.jpg" /></a>		  
+          <a href="{:get_url('qqlogin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_qq.jpg" /></a>
+		  <a href="{:get_url('taobaologin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_taobao.jpg" /></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fr">
+      <div class="login">
+        <span>还没{:C("site_name")}帐号？</span>
+        <div class="op"><input type="button" value="注册" style="cursor: pointer;" onclick="javascript:location.href='{:get_url('register','','user')}';"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#img_checkcode").attr("verify_action");
+		var url_model=$("#img_checkcode").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		
+		$("#img_checkcode").attr("src",src+nowTime);
+	}
+</script>

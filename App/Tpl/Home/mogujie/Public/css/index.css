@@ -1,0 +1,181 @@
+﻿/*index*/
+#index .main .con_bannerWrap{border-radius:10px}
+#index .main .con_banner{padding:0 20px 0 185px;background:#fff;clear:both;overflow:hidden}
+#index .main .con_banner #slide_img{width:441px;float:left}
+#index .main .con_banner #slide_img ul{width:440px;height:250px;overflow:hidden}
+#index .main .con_banner #slide_img ul li{display:none}
+#index .main .con_banner #slide_img ul li img{width:440px}
+#index .main .con_banner #slide_img ol{background:url(../img/slide_img_ol_bg.png) 0 6px repeat-x;height:36px}
+#index .main .con_banner #slide_img ol li{width:100px;height:24px;padding:6px 3px 0 7px;border-top:3px solid white;cursor:pointer;overflow:hidden;float:left}
+#index .main .con_banner #slide_img ol li.cur{border-top:3px solid #FF93bE}
+#index .main .con_banner #slide_img ol li.cur a span{color:#ff85b4}
+#index .main .con_banner #slide_img ol li a{display:block;width:100px;height:24px;overflow:hidden;zoom:1;cursor:pointer}
+#index .main .con_banner #slide_img ol li:hover a span{color:#ff85b4}
+#index .main .con_banner #slide_img ol li a img{height:24px;width:24px;float:left;display:inline}
+#index .main .con_banner #slide_img ol li a span{float:left;margin:0 0 0 5px;width:70px;overflow:hidden;line-height:24px;height:24px;font-family:'Microsoft Yahei';color:#333}
+
+#index #user_active{width:290px;height:288px;float:right}
+#index #user_active .user_login{height:74px;margin:3px 0 0 0;padding:0 0 10px;background-position:0 -880px;position:relative;background:url(../img/welcome_bg_v3.png) no-repeat 0 -880px}
+#index #user_active .user_login a{position:absolute;text-indent:-999em;display:block;overflow:hidden}
+#index #user_active .user_login .register_btn{height:72px;width:152px;top:0;left:0}
+#index #user_active .user_login .login_sina_btn, .user_login .login_qq_btn, .user_login .login_taobao_btn{width:16px;height:16px;top:37px}
+#index #user_active .user_login .login_sina_btn{left:169px}
+#index #user_active .user_login .login_qq_btn{left:194px}
+#index #user_active .user_login .login_taobao_btn{left:216px}
+
+#index #user_active #index_login{padding:5px 0 20px;overflow:hidden; margin:0}
+#index #user_active #index_login fieldset.l{float:left; width:192px}
+#index #user_active #index_login fieldset.r{float:right; width:81px}
+#index #user_active #index_login fieldset.r label{color:#666}
+#index #user_active #index_login .txt{width:180px;height:20px;border: 1px solid #BBB;line-height:20px;padding: 5px; margin-bottom:10px;overflow: hidden;border-radius: 3px;color: #CCC;background: white url(../img/input_bg_sd.png) 0 1px no-repeat;color:#666}
+#index #user_active #index_login p.tips{margin-left: 4px; clear:both;margin:0; padding-top:10px;color:#ff89a7;font-family:'Microsoft Yahei'; font-weight:500; font-size:18px; line-height:20px}
+
+#index #user_active #index_login .sub{margin:0 0 10px}
+#index #user_active #index_login .sub input{background:url(../img/login_reg_icon.png) no-repeat right -150px; width:81px; height:30px; border:none;cursor: pointer}
+
+#index #user_active .user_info {height:67px;padding:0 0 15px; overflow:hidden}
+#index #user_active .user_info .avatar, .user_info .avatar img {height:48px;width:48px;display:block;float:left;margin:5px 0 0 0}
+.user_info .avatar img{border-radius:3px}
+#index #user_active .user_info p{ float:right;margin:0;width:230px}
+#index #user_active .user_info .username {color:#FF85B4;font-size:18px;height:28px;line-height:28px;font-weight:bold;display:block}
+#index #user_active .user_info span.feed_link {color:#666;line-height:20px;display:block}
+#index #user_active .user_info span.feed_link a {color:#0EB8FF;text-decoration:underline}
+#index #user_active .pr5 {padding-right:5px!important}
+
+#index #user_active ul.user_record li{height:27px;line-height:27px;border-top:1px solid #FFEaF2;padding:5px 0 5px 20px}
+#index #user_active ul.user_record li .top_active_btn{width:59px;height:27px;background:#fff url(../img/welcome_bg_v3.png) -185px -1135px no-repeat;display:block;padding:0 35px;position:relative;float:left}
+#index #user_active ul.user_record li .top_active_btn em{background:#fff url(../img/welcome_bg_v3.png) right -1135px no-repeat;text-align:center;color:#FF85b4;font-size:14px;position:absolute;right:0;font-style:normal;display:inline-block;padding-right:35px;cursor:pointer; width:56px}
+
+#index .showWrap{border-radius:10px;margin-top:15px}
+#index #show{padding:0 20px;background:#fff;overflow:hidden;clear:both}
+#index #show h2{margin:0 0 8px 0;clear:both;overflow:hidden}
+#index #show h2 strong{color:#444;font-size:18px;font-family:'Microsoft Yahei';font-weight:normal;float:left;display:block;height:36px;line-height:36px}
+#index #show h2 span{margin:0 10px;overflow:hidden;width:300px;display:block;float:left}
+#index #show h2 span a{font-weight:normal;padding:0 8px;margin:12px 0 10px -1px;display:block;display:block;float:left;border-left:1px solid #D9D9D9;height:14px;line-height:14px;font-size:12px;color:#FF85b4;;overflow:hidden}
+#index #show ul{clear:both;overflow:hidden}
+#index #show ul li.comm{width:306px;float:left;overflow:hidden}
+#index #show ul li.comm p{position:relative;margin:0 3px 4px 0;float:left;height:170px;width:150px;display:block;overflow:hidden}
+#index #show ul li.comm p span{position:absolute;display:block;height:24px;width:150px;bottom:0;left:0;text-indent:1em;background-color:rgba(255,255,255,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#8Effffff,endcolorstr=#8Effffff);font-weight:bold;_background:#E3E3E3}
+#index #show ul li.comm p span a{color:#FF70a7;font-weight:bold;line-height:24px}
+
+#index #show ul li.big{width:303px;float:left;overflow:hidden}
+#index #show ul li.big p{position:relative;margin:0 3px 4px 0;float:left;height:344px;width:300px;display:block;overflow:hidden}
+#index #show ul li.big img{width:300px;height:344px;overflow:hidden}
+#index #show ul li.big span{position:absolute;bottom:0;left:0;height:25px;width:280px;padding:5px 10px;color:#333;float:left;font-size:16px;background-color:rgba(255,255,255,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#8Effffff,endcolorstr=#8Effffff);font-weight:bold;_background:#E3E3E3}
+#index #show ul li.big span a{color:#FF70a7}
+#index #show ul li.big span strong{display:block;font-weight:normal;color:#666;width:280px;height:19px;overflow:hidden;font-size:12px;margin-top:5px}
+#ad_290x46{ width:290px;height:46px;display:block;margin-top:5px}
+
+#index .piece_bdWrap{border-radius:10px;margin-top:15px}
+#index .piece_bd{padding:0 20px;background:#fff;overflow:hidden}
+#index .piece_bd h2 {font-size:16px;color:#444;height:40px;line-height:40px;font-family:'Microsoft Yahei';font-weight:normal;clear:both}
+#index .piece_bd h2 a {font-size:20px;color:#FF70a7}
+#index .piece_bd h2 .new_tip {display:inline-block;height:24px;margin-left:5px;white-space:nowrap}
+#index .piece_bd h2 .new_tip span{background:url(../img/welcome_new_tip.png) no-repeat right 0;padding-right:16px;float:left;color:#FF5c9b;white-space:nowrap;display:block}
+#index .piece_bd h2 .new_tip em{background:url(../img/welcome_new_tip.png) no-repeat;padding-left:16px;font-style:normal;font-size:12px;height:24px;line-height:22px;float:left;color:#FF5c9b;white-space:nowrap;display:block}
+
+#index .piece_bd .goods_list{ clear:both;overflow:hidden}
+#index .piece_bd .goods_list li{float:left;position:relative;margin-right:3px}
+#index .piece_bd .goods_list li, .piece_bd .goods_list li a{height:170px;width:150px;display:block}
+#index .piece_bd .goods_list span{position:absolute;display:block;height:27px;width:150px;bottom:0;left:0;line-height:27px;color:#FF70a7;font-weight:bold;font-size:16px;text-align:center;background-color:rgba(255,255,255,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#8Effffff,endcolorstr=#8Effffff);_background:#E3E3E3}
+
+#index .piece_bd .more_goods{height:40px;margin:20px 0 10px;position:relative;clear:both;overflow:hidden}
+#index .more_goods dl{height:40px;margin:0 20px 0 0;float:left;display:inline}
+#index .more_goods dt{width:45px;height:39px;background:url(../img/welcome_bg_v3.png) -253px -980px;line-height:39px;text-align:center;font-size:14px;float:left;margin:0 5px 0 0}
+#index .more_goods dt a{display:block;color:#70a700;font-weight:bold}
+#index .more_goods dd{float:left;width:115px;margin:0;height:39px;overflow:hidden}
+#index .more_goods dd a{color:#555;display:inline-block;white-space:nowrap;float:left;margin-right:10px;line-height:19px}
+#index .more_goods dd .l, .more_goods dd a:hover{color:#FF85b4}
+
+#index .more_goods_all{position:absolute;right:8px;top:0;width:55px;height:37px;background:url(../img/welcome_bg_v3.png) right -1030px;line-height:37px;text-align:center;font-size:14px;color:white;font-weight:bold}
+#index .more_goods_all:hover{color:#fff}
+#index .brand_list {
+    overflow: hidden;
+    width: 926px;
+}
+#index .brand_list .brands_wrap {
+    height: 80px;
+    padding: 0;
+    width: 927px;
+}
+#index .brand_list .brands_wrap li {
+    display: inline;
+    float: left;
+    height: 50px;
+    width: 50px;
+	overflow:hidden;
+	border:1px solid #FFD8E7;
+	padding:2px;
+	margin:0 5px;
+}
+#index .brand_list .brands_wrap li img{
+	width: 50px;
+}
+
+p.article {
+    clear: both;
+    color: #FF89A7;
+    font-family: 'Microsoft Yahei';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0;
+    padding-top: 10px;
+}
+#index #user_active ul.article li {
+    border-top: 1px solid #FFEAF2;
+    height: 24px;
+    line-height: 24px;
+    padding: 5px 0;
+}
+#index #user_active ul.article li img {
+    height: 22px;
+    margin: 1px 5px 0 0;
+    vertical-align: middle;
+    width: 32px;
+}
+#index #user_active ul.article li a.img {
+    float: left;
+    line-height: 24px;
+    margin: 0 5px;
+}
+#index #user_active ul.article li .top_active_btn {
+    color: #FF85B4;
+    float: right;
+    height: 24px;
+    text-align: center;
+    width: 90px;
+}
+#content_body {
+    background-color: #FFFFFF;
+    padding: 20px 0 20px 20px;
+    width: 610px;
+	line-height:20px;
+
+}
+#right_side {
+    background-color: #FFFFFF;
+    padding-right: 30px;
+    width: 200px;
+}
+.gr_left_del_box h3 {
+    color: #FF89A7;
+}
+
+.other_topic_list li {
+    background: url("../img/welcome_bg_v3.png") no-repeat scroll -290px -42px transparent;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    padding: 0 0 2px 14px;
+    width: 180px;
+}
+.other_topic_list a {
+    color: #666666;
+}
+.gr_detail .article_path {
+    color: #FF69A2 !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 3px;
+}

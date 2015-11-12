@@ -1,0 +1,294 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#cid").die('change').live('change', function(){
+			$(this).nextAll('.c_tag').hide();
+			var cid = $("#cid").val();
+			$("#"+cid).show();
+			var kwd = $(this).find('option:selected').attr("key");
+			$("#keyword").val(kwd);
+		});
+		$('.c_tag').die('change').live('change', function(){
+			var kwd = $(this).find('option:selected').attr("key");
+			$("#keyword").val(kwd);
+		})
+		$("#submit").click(function(){
+			$("#nums").text('0');
+			$("#per").text('0');
+			$("#tips").show();
+			if($("#cid").val()==0){
+			  	alert('请选择商品分类');
+			   	return false;
+			}
+			if($("#sid").val()==0){
+			  	alert('请选择商品来源');
+			   	return false;
+			}
+			if($("#keyword").val()==0){
+			  	alert('请填写关键词');
+			   	return false;
+			}
+			if($("#page_no").val()==0){
+			  	alert('请选择页数');
+			   	return false;
+			}
+			
+			var sid = $("#sid").val();
+			var cid = $("#cid").val();
+			var tid = $("#tid").val();
+			var keyword = $("#keyword").val();
+			var start_price = $("#start_price").val();
+			var end_price = $("#end_price").val();
+			var start_credit = $("#start_credit").val();
+			var end_credit = $("#end_credit").val();
+			var sort = $("#sort").val();
+			var guarantee = $("#guarantee:checked").val();
+			var start_commissionRate = $("#start_commissionRate").val();
+			var end_commissionRate = $("#end_commissionRate").val();
+			var start_commissionNum = $("#start_commissionNum").val();
+			var end_commissionNum = $("#end_commissionNum").val();
+			var start_totalnum = $("#start_totalnum").val();
+			var end_totalnum = $("#end_totalnum").val();
+			var cash_coupon = $("#cash_coupon:checked").val();
+			var sevendays_return = $("#sevendays_return:checked").val();
+			var real_describe = $("#real_describe:checked").val();
+			var cash_ondelivery = $("#cash_ondelivery:checked").val();
+			var mall_item = $("#mall_item:checked").val();	
+			var page_no = $("#page_no").val();
+			
+			var i=1;
+			var nums=0;
+			var per=0;
+			$("#loading").show();
+			$("#submit").hide();
+			$('#error').hide();
+			addBykey();
+		    function addBykey(){
+		    	 $.post("{:u('Items/addbykey')}", { sid: sid, cid: cid, tid: tid, keyword:keyword, start_price:start_price, end_price:end_price, start_credit:start_credit, end_credit:end_credit, sort:sort, guarantee:guarantee, start_commissionRate:start_commissionRate, end_commissionRate:end_commissionRate, start_commissionNum:start_commissionNum, end_commissionNum:end_commissionNum, start_totalnum:start_totalnum, end_totalnum:end_totalnum, cash_coupon:cash_coupon, sevendays_return:sevendays_return, real_describe:real_describe, cash_ondelivery:cash_ondelivery, mall_item:mall_item, page_no:i }, function(data){
+		    		if(data.data){
+			    		nums =nums+data.data;
+			    	}
+					$("#nums").text(nums);
+					$("#per").text(i);
+			    	i++;
+				    if(i<=page_no){
+				    	addBykey();
+				    }else{
+						$("#loading").hide();
+						$("#submit").show();
+				    }
+				    if($("#nums").text() == 0){
+				    	$('#error').show();
+				    }
+			    },"json");
+		    }
+		});		
+
+	});	
+</script>
+
+</head>
+<body>
+<form action="{:U('Items/addbykey')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on">收集选项</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+
+          <tbody id="item_body">
+          <tr>
+          	<th width='100'>来源 :</th>
+            <td>
+            <select name="sid" id="sid" style="width:100px;">
+            	<volist name="site_list" id="val">
+                	<option value="{$val.id}" alias="{$val.alias}" >{$val.name}</option>
+                </volist>
+            </select>
+            <b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+         <tr>
+            <th>所属分类 :</th>
+            <td><select name="cid" id="cid" style="width:100px;">
+            	<option value="0" selected="selected">--选择分类--</option>
+                <volist name="cate_list['parent']" id="val">
+                  <option value="{$val.id}" key="{$val.name}">{$val.name}</option>               
+                </volist>
+               </select>
+                  <volist name="cate_list['parent']" id="val">
+	          		  <select id="{$val.id}" class="c_tag" style="width:100px;display:none;">
+	          		  <option key="{$val.name}" selected="selected">--所有--</option>
+	                  <volist name="tag_list[$val['id']]" id="tval">
+	                  	<option key="{$val.name}&nbsp;&nbsp;{$tval.name}">{$tval.name}</option>
+	                  </volist>
+	                  </select>
+                  </volist> 
+               <b style="padding-left:10px;color:red;">*</b>
+            </td>
+          </tr>	  
+
+          
+          <tr>
+            <th>淘宝分类 :</th>
+            <td>
+            	<select name="tid" id="tid" class="taobao_cate" style="width:200px;">
+	            	<option value="0">--所有--</option>
+	                <volist name="taobao_cate_info" id="val">
+	                  <option value="{$val.cid}">{$val.name}</option>              
+	                </volist>
+                </select>
+            </td>
+          </tr>
+          <tr>
+          	<th>关键字 :</th>
+            <td><input type="text" name="keyword" id="keyword" class="input-text" size="40" /><b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+          <tr>
+		  	<th>排序 :</th>
+			<td>
+				<select name="sort" id="sort" style="width:100px;">
+					<option value="default">默认排序</option>
+					<option value="price_desc">价格从高到低</option>
+					<option value="price_asc">价格从低到高</option>
+					<option value="credit_desc">信用等级从高到低</option>
+					<option value="commissionRate_desc">佣金比率从高到低</option>
+					<option value="commissionRate_asc">佣金比率从低到高</option>
+					<option value="commissionNum_desc">成交量从高到低</option>
+					<option value="commissionNum_asc">成交量从低到高</option>
+					<option value="commissionVolume_desc">总支出佣金从高到低</option>
+					<option value="commissionVolume_asc">总支出佣金从低到高</option>
+					<option value="delistTime_desc">商品下架时间从高到低</option>
+					<option value="delistTime_asc">商品下架时间从低到高</option>
+				</select>
+			</td>
+		 </tr> 
+          <tr>
+          	<th>商品价格 :</th>
+            <td><input type="text" name="start_price" id="start_price" class="input-text" size="10" />- <input type="text" name="end_price" id="end_price" class="input-text" size="10" /><span style="padding-left:10px;">可不填，最低价格和最高价格一起设置才有效</span></td>
+          </tr>
+          <tr>
+          	<th>佣金比率 :</th>
+            <td><input type="text" name="start_commissionRate" id="start_commissionRate" class="input-text" size="8" />%- <input type="text" name="end_commissionRate" id="end_commissionRate" class="input-text" size="8" />%<span style="padding-left:10px;">可不填，最低佣金比率和最高佣金比率一起设置才有效</span></td>
+          </tr>
+          <tr>
+          	<th>30天推广量 :</th>
+            <td><input type="text" name="start_commissionNum" id="start_commissionNum" class="input-text" size="10" />- <input type="text" name="end_commissionNum" id="end_commissionNum" class="input-text" size="10" /><span style="padding-left:10px;">可不填，最低推广量和最高推广量一起设置才有效</span></td>
+          </tr>
+          <tr>
+          	<th>30天成交量 :</th>
+            <td><input type="text" name="start_totalnum" id="start_totalnum" class="input-text" size="10" />- <input type="text" name="end_totalnum" id="end_totalnum" class="input-text" size="10" /><span style="padding-left:10px;">可不填，最低成交量和最高成交量一起设置才有效</span></td>
+          </tr>         
+		  <tr>
+		  	<th>卖家信用 :</th>
+			<td>
+				<select name="start_credit " id="start_credit " style="width:100px;">
+					<option value="">--选择信用--</option>
+					<option value="1heart">一心</option>
+					<option value="2heart">两心</option>
+					<option value="3heart">三心</option>
+					<option value="4heart">四心</option>
+					<option value="5heart">五心</option>
+					<option value="1diamond">&nbsp;&nbsp;一钻</option>
+					<option value="2diamond">&nbsp;&nbsp;两钻</option>
+					<option value="3diamond">&nbsp;&nbsp;三钻</option>
+					<option value="4diamond">&nbsp;&nbsp;四钻</option>
+					<option value="5diamond">&nbsp;&nbsp;五钻</option>
+					<option value="1crown">&nbsp;&nbsp;&nbsp;&nbsp;一冠</option>
+					<option value="2crown">&nbsp;&nbsp;&nbsp;&nbsp;两冠</option>
+					<option value="3crown">&nbsp;&nbsp;&nbsp;&nbsp;三冠</option>
+					<option value="4crown">&nbsp;&nbsp;&nbsp;&nbsp;四冠</option>
+					<option value="5crown">&nbsp;&nbsp;&nbsp;&nbsp;五冠</option>
+					<option value="1goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一黄冠</option>
+					<option value="2goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;两黄冠</option>
+					<option value="3goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三黄冠</option>
+					<option value="4goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四黄冠</option>
+					<option value="5goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五黄冠</option>
+				</select>
+				-
+				<select name="end_credit " id="end_credit " style="width:100px;">
+					<option value="">--选择信用--</option>
+					<option value="1heart">一心</option>
+					<option value="2heart">两心</option>
+					<option value="3heart">三心</option>
+					<option value="4heart">四心</option>
+					<option value="5heart">五心</option>
+					<option value="1diamond">&nbsp;&nbsp;一钻</option>
+					<option value="2diamond">&nbsp;&nbsp;两钻</option>
+					<option value="3diamond">&nbsp;&nbsp;三钻</option>
+					<option value="4diamond">&nbsp;&nbsp;四钻</option>
+					<option value="5diamond">&nbsp;&nbsp;五钻</option>
+					<option value="1crown">&nbsp;&nbsp;&nbsp;&nbsp;一冠</option>
+					<option value="2crown">&nbsp;&nbsp;&nbsp;&nbsp;两冠</option>
+					<option value="3crown">&nbsp;&nbsp;&nbsp;&nbsp;三冠</option>
+					<option value="4crown">&nbsp;&nbsp;&nbsp;&nbsp;四冠</option>
+					<option value="5crown">&nbsp;&nbsp;&nbsp;&nbsp;五冠</option>
+					<option value="1goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一黄冠</option>
+					<option value="2goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;两黄冠</option>
+					<option value="3goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三黄冠</option>
+					<option value="4goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四黄冠</option>
+					<option value="5goldencrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五黄冠</option>
+				</select>
+			</td>
+		 </tr>
+		 <tr>
+          	<th>更多条件 :</th>
+            <td>
+            	<input type="checkbox" name="guarantee" id="guarantee" value="true" > 仅消保卖家 &nbsp;&nbsp;
+            	<input type="checkbox" name="cash_coupon" id="cash_coupon" value="true" > 支持抵价券 &nbsp;&nbsp;
+            	<input type="checkbox" name="sevendays_return" id="sevendays_return" value="true" > 支持7天退换 &nbsp;&nbsp;
+            	<input type="checkbox" name="real_describe" id="real_describe" value="true" > 支持先行赔付 &nbsp;&nbsp;
+            	<input type="checkbox" name="cash_ondelivery" id="cash_ondelivery" value="true" > 支持货到付款 &nbsp;&nbsp;
+            	<input type="checkbox" name="mall_item" id="mall_item" value="true" > 仅商城商品 &nbsp;&nbsp;
+            </td>
+          </tr>
+		  <tr>
+		  	<th>页数 :</th>
+			<td>
+				<select name="page_no" id="page_no" style="width:100px;">
+					<option value="1">1页</option>
+					<option value="2">2页</option>
+					<option value="3">3页</option>
+					<option value="4">4页</option>
+					<option value="5">5页</option>
+					<option value="6">6页</option>
+					<option value="7">7页</option>
+					<option value="8">8页</option>
+					<option value="9">9页</option>
+					<option value="10">10页</option>
+				</select>
+			</td>
+		 </tr> 
+                </table>
+            </div>
+            <div class="btn">
+                <input type="button" name="submit" id="submit" value="提交"  class="button" />
+                 <span id="loading" style="display:none;">正在采集，请稍后！<img src="__PUBLIC__/statics/images/ajax_loading.gif"/></span>
+                <span id="tips" style="display:none;"> <b id="per" style="color:red;">0</b> 页已完成，共 <b id="nums" style="color:red;">0</b> 件商品添加到数据库！<span id="error" style="display:none;">错误：再试1次，若添加商品仍为0件，请检查淘宝Appkey是否可用！</span></span>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+$(function(){
+	 $('.taobao_cate').die('change').live('change', function(){
+	        var _this=$(this);
+	        _this.nextAll('.taobao_cate').remove();
+	        _this.attr('id','tid').siblings().attr('id','');
+	        var tid=$("#tid").val();
+	        $.post("{:u('Items/get_taobao_cate')}", { tid: tid }, function(data){
+	       		if(data.data != false){
+		        	var str = $('<select name="tid" id="" class="taobao_cate" style="width:200px;"><option value="'+tid+'">--所有--</option></select>');
+		            for(var i=0; i<data.data.length; i++){
+		            	$('<option value="'+data.data[i]['cid']+'">'+data.data[i]['name']+'</option>').appendTo(str);
+		            }
+		            str.insertAfter(_this);
+	       		}
+	        },"json");
+	});		
+});
+</script>
+</body>
+</html>

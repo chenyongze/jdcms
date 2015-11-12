@@ -1,0 +1,60 @@
+<include file="Public:header" />
+
+</head>
+<div class="pad-lr-10">
+	<form name="searchform" action="" method="get" >
+	<input name="a" type="hidden" value="index">
+    <input name="m" type="hidden" value="Link">
+    <input name="g" type="hidden" value="Admin">
+    <table width="100%" cellspacing="0" class="search-form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain-col">
+            	关键字 :
+                <input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+                <input type="submit" name="search" class="button" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+	<form id="myform" name="myform" action="{:U('Link/delete')}" method="post">
+
+    <div class="table-list">
+      <table width="100%" cellspacing="0" style="word-break:break-all">
+        <thead>
+        <tr>
+			<th width="5%">序号</th>
+            <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+            <th width=300 align="left" style="padding-left:100px;">链接名称</th>
+			<th width=300 align=left>链接地址</th>
+			<th width=80>排序值</th>
+            <th width=80>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+          <volist name="links" id="val" >
+          <tr>
+            <td align="center" width=100>{$val.key}</td>
+            <td align="center" width=100><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="left" width=100 style="padding-left:100px;"><a href="{:U('Link/edit',array('id'=>$val['id']))}">{$val.name}</a></td>
+            <td align="left"><a href="{$val.url}" target="_blank"><font color="red">{$val.url}</font></a></td>
+            <td align="center" width=100><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]" /></td>
+            <td align="center" width=100><a href="{:U('Link/edit',array('id'=>$val['id']))}"><em class="blue">编辑</em></a></td>
+          </tr>
+          </volist>
+        </tbody>
+      </table>
+	  <div class="btn">
+		<label for="check_box" style="float:left;">全选/取消</label>
+		<input type="submit" class="button" name="delete" value="删除" style="float:left;margin:0 10px 0 10px;" onclick="return check();"/>
+		<input type="submit" class="button" name="order" onclick="document.myform.action='{:U('Link/order')}'" value="排序" style="float:left;margin:0 10px 0 0;"/>
+		<div id="pages">{$page}</div>
+      </div>
+	</div>
+  </form>
+</div>
+</body>
+</html>

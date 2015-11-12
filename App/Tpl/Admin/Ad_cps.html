@@ -1,0 +1,45 @@
+<include file="Public:header" />
+
+</head>
+<body>
+<div class="pad-10" >
+
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th width=60>确认时间</th>
+                <th width=60>下单时间</th>
+                <th width=60>订单编号</th>
+                <th width=60>商品类别</th>
+                <th width=60>商品编号</th>
+                <th width=60>订单金额</th>
+                <th width=60>商家佣金</th>
+                <th width=60>下一件补助</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="cps_list" id="val" >
+        <tr>
+        	<td align="center">{$val.back_pt|date='Y-m-d H:i:s',###}</td>
+        	<td align="center">{$val.back_ot|date='Y-m-d H:i:s',###}</td>
+        	<td align="center">{$val.back_oid}</td>
+        	<td align="center">{$val.back_cate}</td>
+        	<td align="center">{$val.back_sid}</td>
+        	<td align="center">{$val.back_om}</td>
+        	<td align="center">{$val.back_co}</td>
+        	<td align="center">{$val.back_ss}</td>
+		 </tr>
+        </volist>
+    	</tbody>
+    </table>
+
+    <div class="btn">
+    	查看全部cps业务信息，请点击访问<a href="http://cps.xiayijian.com/" target="_blank">下一件广告联盟</a>
+    </div>
+
+    </div>
+
+</div>
+</body>
+</html>

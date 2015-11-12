@@ -1,0 +1,35 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_login.css'>
+
+</head>
+<body>
+<div class="main">
+  <div class="title">&nbsp;</div>
+  <div class="login">
+    <form action="{:U('Login/index')}" method="post" name="cms" >
+      <div class="inputbox">
+        <dl>
+          <dd>用户名：</dd>
+          <dd>
+            <input type="text" name="user_name" value="" id="login_name" size="25" onfocus="this.style.borderColor='#fc9938'" onblur="this.style.borderColor='#dcdcdc'" />
+          </dd>
+          <dd>密码：</dd>
+          <dd>
+            <input type="password" name="password" value="" id="login_pwd" size="25" onfocus="this.style.borderColor='#fc9938'" onblur="this.style.borderColor='#dcdcdc'" />
+          </dd>
+          <dd>
+            <input type="submit"  name="login" value=" " class="input" />
+          </dd>
+        </dl>
+      </div>
+      <div style="clear:both"></div>
+    </form>
+  </div>
+</div>
+<div class="copyright"> 
+	Powered by <a href="{:C('site_domain')}" target="_blank">{:C('site_name')}</a> Copyright &copy;2012 
+</div>
+
+</body>
+</html>

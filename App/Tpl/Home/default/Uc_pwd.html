@@ -1,0 +1,39 @@
+<include file="Public:header"/>
+<div class="managebox">
+  <h3 class="title_m">账户设置</h3>
+  <div class="managecontent clearfix">
+    <div class="fl">
+      <ul>
+		<li><a href="{:get_url('account','','user')}">基本信息</a></li>
+        <li><a href="{:get_url('img','','user')}">修改头像</a></li>
+        <li class="cur"><a href="{:get_url('pwd','','user')}">修改密码</a></li>
+        <li><a href="{:get_url('sns','','user')}">帐号绑定</a></li>
+      </ul>
+    </div>
+    <div class="fr">
+      <table cellpadding="0" cellspacing="0" width="100%">
+		 <tr>
+          <td align="right"></td>
+          <td><div id="pwdErrorNotice"></div></td>
+        </tr>
+        <tr>
+          <td align="right">当前密码:</td>
+          <td><input class="btn_txt" id="oldPwd" type="password" /></td>
+        </tr>
+        <tr>
+          <td align="right">新密码:</td>
+          <td><input class="btn_txt" id="newPwd" type="password" /></td>
+        </tr>
+        <tr>
+          <td align="right">确认密码:</td>
+          <td><input class="btn_txt" id="newPwdSure" type="password" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="button" class="btn_up" id="pwdBtn" value="确认提交" pwdBtn_post_action="{:get_url('pwdAction','','user')}"/></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

@@ -1,0 +1,29 @@
+<include file="Public:header"/>
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+	<present name="cookieId">
+     <include file="Public:share"/>
+	 </present>
+      <div class="tit_share tit_share_uc"> <strong><em><present name="oUid">{$user_info.name}<else/>我</present>的关注</em><i class="num">({$count})</i></strong></div>
+      <div class="uc_like">
+	<volist name="user_list" id="vo">
+		 <dl>
+          <dt><a href="{:get_url('index',$vo['id'],'user')}"><img width="64" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$vo['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$vo.img}</if> /></a></dt>
+          <dd>
+            <div class="box">
+				<em class="type"></em>
+				<div class="t"><a href="{:get_url('index',$vo['id'],'user')}"><em class="au">{$vo.name}</em></a>{$vo.address}</div>
+				<p class="num">关注 <a href="{:get_url('follow',$vo['id'],'user')}">{$vo.follow_num}</a><i class="W_vline">|</i>粉丝 <a href="{:get_url('fans',$vo['id'],'user')}">{$vo.fans_num}</a><i class="W_vline">|</i>喜欢 <a href="{:get_url('like',$vo['id'],'user')}">{$vo.likes_num}</a></p>
+				<p class="info">个人介绍：{$vo.info}</p>
+            </div>
+          </dd>
+        </dl>
+	</volist>
+      </div>
+	  <div class="page">{$page}</div>
+    </div>
+<include file="Public:ucRight"/>
+  </div>
+</div>
+<include file="Public:footer"/>

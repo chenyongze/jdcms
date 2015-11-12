@@ -1,0 +1,99 @@
+<include file="Public:header"/>
+
+<div class="sign_box r5">
+  <div class="block_sign clearfix">
+    <h2>加入进来，一起寻找你的{:C("site_name")}！</h2>
+    <div class="fl">
+      <div class="login_tbl">
+        <table cellpadding="0" cellspacing="0">
+		<form id="form1">
+		<input type="hidden" id="check_post_action" value="{:get_url('check_uname_email','','user')}">
+		 <tr>
+            <td align="right" width="80"><div id="error"></div></td>
+            <td><strong></strong></td>
+          </tr>
+          <tr>
+            <td align="right" width="80"><label>用户名：</label></td>
+            <td><input type="text" class="btn_txt r5" id="uname" value=""/><em class="word" id="unameNotice">请输入用户名</em><br>
+              <strong>4-20位字符,可以是中英文或数字</strong></td>
+          </tr>
+          <tr>
+            <td align="right"><label>密码：</label></td>
+            <td><input type="password" class="btn_txt r5" id="pwd"/><em class="word" id="pwdNotice">输入密码</em><br>
+              <strong>6-16位字符，可以由英文和数字组成</strong></td>
+          </tr>
+          <tr>
+            <td align="right"><label>确认密码：</label></td>
+            <td><input type="password" class="btn_txt r5" id="pwdSure"/>
+              <em class="word" id="pwdSureNotice">请重复输入一次密码！</em></td>
+          </tr>
+          <tr>
+            <td align="right"><label>邮箱：</label></td>
+            <td><input type="text" class="btn_txt r5" id="email"/><em class="word" id="emailNotice">输入邮箱</em><br>
+              <strong>用于接收通知、最新活动、找回密码，填写后不能修改</strong></td>
+          </tr>
+          <tr>
+            <td align="right"><label>年龄：</label></td>
+            <td><input type="radio" name="age" checked="checked" value="80"/>
+              80后
+              <input type="radio" name="age" value="90"/>
+              90后
+              <input type="radio" name="age" value="70"/>
+              70后</td>
+          </tr>
+          <tr>
+            <td align="right"><label>性别：</label></td>
+            <td><input type="radio" name="sex" checked="checked" value='0'/>
+              女
+              <input type="radio" name="sex" value='1' />
+              男</td>
+          </tr>
+		  <tr>
+            <td align="right"><label>验证码：</label></td>
+            <td><input type="text" class="btn_txt r5" style="width:100px" id="verification" value="" verify_post_action="{:get_url('verify_test','','user')}"/><a href="javascript:void(0);" onclick="changeVerify();return false;" id="checkcode_change">&nbsp;<img src="{:get_url('verify','','user')}" url_model="{:C(url_model)}" verify_action="{:get_url('verify','','user')}" id="img_checkcode" alt="验证码" />&nbsp;换一张</a><em class="word" id="verifyNotice">输入验证码</em><br></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="checkbox" id="checkbox"/>
+              我已看过并同意<a href="{:get_url('protocol','','user')}" target="_blank">{:C("site_name")}《{:C("site_name")}通行证协议》</a></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input class="but" style="cursor: pointer;" id="registerbtn" type="button" value="立即注册" registerbtn_post_action="{:get_url('registerAction','','user')}" registerbtn_post_location="{:get_url('index','','user')}" />
+			<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div></td>
+          </tr>
+		  </form>
+        </table>
+      </div>
+    </div>
+    <div class="fr">
+      <div class="login"> <strong>已有{:C("site_name")}帐号？请直接登录</strong>
+        <div class="op">
+          <input type="button" class="but" value="登 录" style="cursor: pointer;" onclick="javascript:location.href='{:get_url('login','','user')}';"/>
+        </div>
+      </div>
+      <div class="other_way"> <strong>您也可以通过以下方式登陆：</strong>
+        <ul>
+          <li><a href="{:get_url('sinalogin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_sina.jpg"></a></li>
+          <li><a href="{:get_url('qqlogin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_qq.jpg"></a></li>
+		  <li><a href="{:get_url('taobaologin','','user')}" target="_blank"><img src="__TMPL__Public/img/t_taobao.jpg"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>
+
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#img_checkcode").attr("verify_action");
+		var url_model=$("#img_checkcode").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		$("#img_checkcode").attr("src",src+nowTime);
+	}
+</script>

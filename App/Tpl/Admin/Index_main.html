@@ -1,0 +1,72 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_style.css'>
+
+<style>
+td{ height:22px; line-height:22px}
+</style>
+
+
+
+</head>
+<body>
+<div style="float:left;width:49%;">
+<div  class="cms_info" style="padding:10px 10px;">
+<table border="0" width="100%" cellpadding="4" cellspacing="1" class="table">
+  <tr class="table_title ver">
+  </tr>
+  <volist name="server_info" id="vo">
+  <tr class="ji">
+    <td width="200">{$key}：</td>
+    <td >{$vo}</td>
+  </tr>
+  </volist>
+</table>
+</div>
+</div>
+<div style="float:left;width:49%;">
+<div class="cms_info" style="padding:10px 10px;">
+<table border="0" width="100%" cellpadding="4" cellspacing="1" class="table" id="union_info">
+  <tr class="table_title">
+	<td colspan="2">推广联盟个人信息</td>
+  </tr>
+
+</table>
+</div>
+</div>
+</div>
+<div style="float:left;width:49%;">
+<div class="news" style="padding:2px 2px;height:300px;">
+  <iframe src="http://www.jdcms.com/push/outsms?&ver={:C('cms_versions')}&site={:C('cms_domain')}" frameborder="0" scrolling="no"  style="border:none" width="100%" height="100%" ></iframe>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.post("{:u('Ad/sinfo')}",function(jsondata){
+		var user = jsondata.data.name;
+		var site = jsondata.data.domain;
+		var versions = jsondata.data.versions;
+
+		$.getJSON("{:C('official_website')}push/index?union=1&user="+user+"&site="+site+"&ver="+versions+"&callback=?");
+		
+		$.getJSON("{:C('official_website')}push/cmsversion?&callback=?",function(data){
+			var u = '<td colspan="2">系统环境检测：检测到有最新版本'+data+'，可进行升级&nbsp;&nbsp;<a href="{:U('Index/upgrade')}">现在升级</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Index/update_database')}">执行jdcmsV1.3.sql文件</a></td>';
+			var d = '<td colspan="2">系统环境检测：您现在使用的是最新版本！<a href="{:U('Index/update_database')}">执行jdcmsV1.3.sql文件</a></td>';
+			if(versions == data){			
+				$("body tr.ver").append(d);
+			}else{
+				$("body tr.ver").append(u);
+			}
+		},"json");
+		
+		$.getJSON("{:C('official_website')}push/union?&callback=?",{user:user,site:site},function(data){
+			$.each(data,function(k,v){
+				var infoHTML='<tr class="ji"><td width="200">'+k+'：</td><td>'+v+'</td></tr>';			
+				$("#union_info").append(infoHTML);
+			});
+		},"json");
+	},"json");
+});
+</script>
+</body>
+</html>

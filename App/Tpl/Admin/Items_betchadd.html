@@ -1,0 +1,105 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			$("#nums").text('0');
+			$("#per").text('0%');
+			$("#tips").show();
+			if($("#cid").val()==0){
+			  	alert('请选择商品分类');
+			   	return false;
+			}
+			if($("#urls").val()==0){
+			  	alert('请填写商品连接');
+			   	return false;
+			}
+			var seller_id=$("#seller_id").text();
+			var cid=$("#cid").val();
+			var urls=$("#urls").val().split("\n");
+			var i=0;
+			var nums=0;
+			var per='0%';
+			var len=urls.length;
+			bench();
+		    function bench(){
+			    $.post("{:u('Items/betchadd')}", { seller_id:seller_id, cid: cid, urls: urls[i] }, function(data){
+			    	if(data.data){
+			    		nums++;
+			    	}
+					$("#nums").text(nums);
+			    	i++;
+			    	per=Math.floor(i/len*1000)/10+'%';
+					$("#per").text(per);
+				    if(i<len){
+					    bench();
+				    }
+			    },"json");
+		    }
+		});	
+	
+		$("#loading").ajaxStart(function(){
+			$(this).show();
+			$("#submit").hide();
+		});
+	
+		$("#loading").ajaxStop(function(){
+			$(this).hide();
+			$("#submit").show();
+		});
+	});
+</script>
+
+</head>
+<body>
+<form action="{:U('Items/betchadd')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+    <div class="pad-10">
+        <div class="col-tab">
+            <ul class="tabBut cu-li">
+                <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">基本信息</li>
+            </ul>
+            <div id="div_setting_1" class="contentList pad-10">
+            <div class="explain-col">
+					&nbsp;&nbsp;&nbsp;&nbsp;注：一行一个商品的详细链接地址,如：<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<b style="color:red;">http://detail.tmall.com/item.htm?spm=a1z10.1.3-17827210533.2.nVbrh7&id=13045523063&</b><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:red;">http://detail.tmall.com/item.htm?spm=a1z10.1.3-17827210533.2.nVbrh7&id=13045523063&</b><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:red;">......</b><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:red;">http://detail.tmall.com/item.htm?spm=a1z10.1.3-17827210533.2.nVbrh7&id=13045523063&</b><br/>
+					
+				</div>
+                <table>
+                    <tr>
+                        <th width="120">商品归类 :</th>
+                        <td><select name="cid" id="cid">
+                                <option value="0">--选择分类--</option>
+                                <volist name="cate_list['parent']" id="val"> 
+                                	<option pid="0" value="{$val.id}" <if condition="$items['cid'] eq $val['id']"> selected="selected"</if>>{$val['name']}</option>
+                                <!--<notempty name="cate_list['sub'][$val['id']]">
+                                        <volist name="cate_list['sub'][$val['id']]" id="sval"> <option value="{$sval.id}" disabled="disabled"<if condition="$items['cid'] eq $sval['id']"> selected="selected" </if>>&nbsp;&nbsp;&nbsp;&nbsp;{:trim($sval['name'])}</option>
+                                        	<volist name="cate_list['sub'][$sval['id']]" id="ssval">
+                     							<option value="{$ssval.id}" <if condition="$cate_id eq $ssval['id']"> selected="selected" </if>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$ssval.name}</option>
+                    						</volist>
+                                        </volist>
+                                    </notempty>-->
+                                </volist>
+                            </select></td>
+                    </tr>
+                    <tr>
+                    	<th>网址URL：</th>
+                        <td>
+                			<textarea name="urls" id="urls" style="height:200px;width:600px;">{$urls}</textarea>        
+                        </td>
+                    </tr>                   
+                </table>
+                <div id="seller_id" style="display:none;">{$seller_id}</div>
+            </div>
+            <div class="btn">
+                <input type="button" name="submit" id="submit" value="提交"  class="button" />
+                <span id="loading" style="display:none;">正在采集，请稍后！<img src="__PUBLIC__/statics/images/ajax_loading.gif"/></span>
+                <span id="tips" style="display:none;">共 <b id="nums" style="color:red;">0</b> 件商品添加到数据库，完成进度 <b id="per" style="color:red;">0%</b> ！</span>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

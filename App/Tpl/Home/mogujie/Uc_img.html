@@ -1,0 +1,124 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/personal.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+	<div class="piece_hd"></div>
+	<div id="content">
+		<div class="fl " id="setting_bar">
+			<h1>帐号设置</h1>
+			<div class="base_info">
+				<a href="{:get_url('account','','user')}" class="">基本信息</a><br>
+				<a href="{:get_url('img','','user')}" class="c">修改头像</a><br>
+				<a href="{:get_url('pwd','','user')}" class="">修改密码</a><br>
+				<a href="{:get_url('sns','','user')}" class="">帐号绑定</a><br>
+			</div>
+		</div>
+		<div id="setting_box" class="fl">
+	<!--上传头像-->
+	<div id="setting_form" class="setting_avartar">	
+	选一张您喜欢的照片做头像吧(建议图片尺寸不小于200*200)。支持jpg, gif, png格式，大小不超过2M。
+	<div style="width:600px;margin:0 auto;padding-top:50px;">
+	<div>
+		<form enctype="multipart/form-data" method="post" name="upform" target="upload_target" action="{:get_url('upload','','user')}" id="avartarForm">
+			<p style="position:relative;margin:0; clear:both; height:28px">
+				<input type="text" id="viewAvartar" readonly="readonly" class="gray_text">
+				<input type="button" class="gray_button" value="上传...">
+				<input type="file" name="Filedata" id="Filedata" class="tfile"  size="41"/>
+			</p>
+			<span style="visibility:hidden;" id="loading_gif"><img src="__PUBLIC__/statics/avatar/loading.gif" align="absmiddle" />上传中，请稍侯......</span>
+		</form>
+		<iframe src="about:blank" name="upload_target" style="display:none;"></iframe>
+		<div id="avatar_editor" style="margin-top:20px">
+		<div style="width:150px;height:150px;overflow:hidden; margin-right:20px; display:inline"><img onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src=<if condition="$user_info['img'] eq ''">__PUBLIC__/statics/images/avatar.png<else/>{:C('web_path')}Uploads/avatar_big/{$user_info.img}</if> width="150"/>
+		</div>
+		
+		<div style="display:inline">
+		<img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$user_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$user_info.img}</if> width="32"/>
+		</div>
+		</div>
+	
+	</div>
+</div>
+	</div>
+
+		</div>
+
+    </div>	
+	<div class="piece_ft"></div>
+</div>
+</div>
+
+<include file="Public:footer"/>
+<script type="text/javascript">
+	//允许上传的图片类型
+	var extensions = 'jpg,jpeg,gif,png';
+	//保存缩略图的地址.
+	//var saveUrl = "__PUBLIC__/statics/avatar/save_avatar.php";
+	//var saveUrl = "/index.php?a=saveAvatar&m=Uc&g=Home";//
+	var saveUrl="{:C('web_path')}index.php?m=Uc%26a=saveAvatar%26g=Home";
+	//保存摄象头白摄图片的地址.
+	//头像编辑器flash的地址.
+	var editorFlaPath = '__PUBLIC__/statics/avatar/AvatarEditor.swf';
+	//Download by http://www.codefans.net
+	function buildAvatarEditor(pic_id,pic_path,post_type)
+	{
+		var content = '<embed height="464" width="514"'; 
+		content+='flashvars="type='+post_type;
+		content+='&photoUrl='+pic_path;
+		content+='&photoId='+pic_id;
+		content+='&saveUrl='+saveUrl+'&radom=1"';
+		content+=' pluginspage="http://www.macromedia.com/go/getflashplayer"';
+		content+=' type="application/x-shockwave-flash"';
+		content+=' allowscriptaccess="always" quality="high" src="'+editorFlaPath+'"/>';
+		document.getElementById('avatar_editor').innerHTML = content;
+	}
+	/**
+	 * 提供给FLASH的接口：编辑头像保存成功后的回调方法
+	 */
+	function avatarSaved(){
+		//alert('保存成功，哈哈');
+		window.location.href = "{:get_url('img','','user')}";
+
+	}
+	
+	 /**
+	  * 提供给FLASH的接口：编辑头像保存失败的回调方法, msg 是失败信息，可以不返回给用户, 仅作调试使用.
+	  */
+	 function avatarError(msg){
+		 alert(msg);
+		 alert("上传失败了呀，哈哈");
+	 }
+
+	 function checkFile()
+	 {
+		 var path = document.getElementById('Filedata').value;
+		 var ext = getExt(path);
+		 var re = new RegExp("(^|\\s|,)" + ext + "($|\\s|,)", "ig");
+		  if(extensions != '' && (re.exec(extensions) == null || ext == '')) {
+		 alert('对不起，只能上传jpg, gif, png类型的图片');
+		 return false;
+		 }
+		 showLoading();
+		// return true;
+	 }
+
+	 function getExt(path) {
+		return path.lastIndexOf('.') == -1 ? '' : path.substr(path.lastIndexOf('.') + 1, path.length).toLowerCase();
+	}
+	  function	showLoading()
+	  {
+		  document.getElementById('loading_gif').style.visibility = 'visible';
+	  }
+	  function hideLoading()
+	  {
+		document.getElementById('loading_gif').style.visibility = 'hidden';
+	  }
+$(function(){
+	$("#Filedata").change(function(){
+		checkFile();
+		$("#viewAvartar").val($(this).val());
+		$("#avartarForm").submit();
+	});
+})
+</script>

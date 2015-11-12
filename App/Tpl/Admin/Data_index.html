@@ -1,0 +1,29 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_style.css'>
+
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+  <form action="{:U('Data/back')}" method="post">
+    <tr class="table_title">
+      <td>数据库分卷备份 (请选择需要备份的数据库表)</td>
+    </tr>
+    <volist name="list_table" id="vo">
+      <tr class="tr">
+        <td ><input type="checkbox" name="id[]" value="{$vo}" class="noborder">{$vo}</td>
+      </tr>
+    </volist>
+	<tr class="tr">
+      <td>每个分卷文件大小：<input type="text" name="filesize" value="2048" size="5" class="ct"> Kb</td>
+    </tr>    
+    <tr class="tr">
+      <td>
+	      <input type="button" class="bginput" id="checkall" value="全选/取消"> 
+	      <input type="submit" name="submit" value="开始备份" class="bginput">
+      </td>
+    </tr>
+  </form>
+</table>
+</body>
+</html>

@@ -1,0 +1,208 @@
+</head>
+<script>
+$(document).ready(function(){
+	//登录
+	var id = $.cookie('id');
+	var username =$.cookie('name');
+	if(id > 0){
+		$(".op .info_show").show();
+		$(".op .login").hide();
+		if(username != ''){
+			$('#username').text(username);
+		}
+	}else{
+		$(".op .info_show").hide();
+		$(".op .login").show();
+	}
+	//搜索
+	var web_path=$('#web_path').text();
+	<present name="album">
+		$('#album').addClass('cur').siblings().removeClass('cur');
+		$(".selectbox .selected").text('搜专辑');
+		$(".selectbox .selected").append('<em></em>');
+		$("#search_form").attr('action',web_path+'index.php?a=album&m=Search&g=Home');
+		$('#a').val('album');
+	</present>
+	
+	$(".selectbox").hover(
+		function(){
+			$(this).find(".selected").addClass('hover');
+			$(".selectbox ol").show();
+		},
+		function(){
+			$(this).find(".selected").removeClass('hover');
+			$(".selectbox ol").hide();
+		}
+	)
+	
+	$(".se").click(function(){
+		$(this).addClass('cur').siblings().removeClass('cur');
+		var v = $(this).find("a").text();
+		$(".selectbox .selected").text('搜'+v);
+		$(".selectbox .selected").append('<em></em>');
+		$(".selectbox ol").hide();
+		var a = $(this).attr('id');
+		$("#search_form").attr('action',web_path+'index.php?a='+a+'&m=Search&g=Home');
+		$('#a').val(a);
+	})
+	
+	$(".se").hover(function(){
+		$(this).addClass('cur').siblings().removeClass('cur');
+	})
+	var key = $(".txt").attr('placeholder');
+	
+	$(".txt").focus(function(){
+		if($(".txt").val() == key){
+			$(this).val('');
+		}
+	});
+	
+	$(".txt").blur(function(){
+		if($(".txt").val() == ''){
+			$(this).val(key);
+		}
+	});
+});
+$(function(){
+		var nav_top = $('.nav_offsetTop').offset().top; 
+		$show_nav = function() {
+		var st = $(document).scrollTop();
+		if(st > nav_top){
+			$("#header_fixed").show();
+		}else{
+			$("#header_fixed").hide();
+		}
+	};
+	$(window).bind("scroll", $show_nav);
+})
+$(function(){
+	var nav_top = $('.nav_offsetTop').offset().top; 
+	var st = $(document).scrollTop();
+	if(st > nav_top){
+		$("#header_fixed").show();
+	}else{
+		$("#header_fixed").hide();
+	}
+})
+</script>
+
+<body id="index">
+<div id="web_path" style="display:none;">{:C('web_path')}</div>
+<div id="header_fixed">
+<div class="navWrap clearfix">
+	<div id="nav">
+		<ul class="nav_list clearfix">
+			<li class="shopping"><a href="javascript:;">逛街啦</a></li>
+			<li><a class=<if condition="'index' eq $curpage">cur<else/>split </if> href="{:C('site_domain')}">首页</a></li>
+			<li class=<if condition="'album' eq $curpage">cur<else/>split </if>><a href="{:get_url('index','','album')}">专辑</a></li>
+			<volist name="p_cate_list" id="vop">
+			<li class=<if condition="$vop['id'] eq $id">cur<else/>split</if>><a href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a></li>
+			</volist>
+		</ul>
+		
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_b"><img src="__TMPL__Public/img/bdshare.png" width="96"/>
+		<a class="shareCount"></a>	</div>
+<script type="text/javascript" id="bdshare_js" data="type=button" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+		</div>
+		</div>
+</div>
+<div id="header">
+	<div class="toolsBar clearfix op">
+			<ul class="info_show" style="display:none">
+				<li class="uname">
+						<a href="{:get_url('index','','user')}" class="item"><img class="mb_avt r3" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$nav_user_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$nav_user_info.img}</if> /><b id="username">{$nav_user_info.name}</b></a>
+						<span></span>
+						<p>
+							<a href="{:get_url('account','','user')}">个人设置</a>
+							<a href="{:get_url('sns','','user')}">账号绑定</a>
+							<a href="{:get_url('logout','','user')}">退出</a></p>
+				</li>
+				<li class="globe_publish"><a class="item" href="{:get_url('release','','user')}">发表</a></li>
+				<li class="myalbum" ><a class="item" href="{:get_url('album','','user')}">专辑</a></li>
+				<li class="myfavs"><a class="item" href="{:get_url('like','','user')}">喜欢</a></li>
+			</ul>                    
+		<ul class="login clearfix">
+			<li class="ways">
+				<a href="{:get_url('register','','user')}" class="mr5"><span>注册</span></a>
+				<a href="{:get_url('login','','user')}"><span>登录</span></a>
+			</li>
+			<li class="other_ways">
+				<a href="{:get_url('sinalogin','','user')}" class="weibo_login">微博登录</a>
+				<a href="{:get_url('qqlogin','','user')}" class="qq_login">QQ登录</a>
+				<a href="{:get_url('taobaologin','','user')}" class="tb_login">淘宝登录</a>
+			</li>
+		</ul>
+</div>
+	<div class="logo-search  clearfix">
+		<h1 class="logo"><a href="{:C('site_domain')}" class="logo" ><img src="__TMPL__Public/img/logo.png" width="146" height="47" class="png_bg"/></a></h1>
+		<div id="searchBar">
+			<div class="selectbox">
+				<span class="selected">搜宝贝<em></em></span>
+				<ol>
+					<li class="se cur" id="index"><a href="javascript:;">宝贝</a></li>
+					<li class="se" id="album"><a href="javascript:;">专辑</a></li>
+					<li class="lastli"></li>
+				</ol>
+			</div>
+			<form target="_blank" action="{:get_url('index','','search')}" id="search_form">
+				<input id="a" name="a" type="hidden" value="index">
+				<input name="m" type="hidden" value="Search">
+				<input name="g" type="hidden" value="Home">
+				<input id="keywd" class="txt" name="keywords" type="text" value="<present name='keywords'>{$keywords}<else/>{:C('default_kw')}</present>" placeholder="{:C('default_kw')}" autoComplete= "Off"/>
+				<input class="btn" type="submit" value=""/>
+			</form>
+		</div>
+	</div>
+	<div class="navWrap clearfix">
+	<div id="nav" class="nav_offsetTop">
+		<ul class="nav_list clearfix">
+			<li class="shopping"><a href="javascript:;">逛街啦</a></li>
+			<li><a class=<if condition="'index' eq $curpage">cur<else/>split </if> href="{:C('site_domain')}">首页</a></li>
+			<li class=<if condition="'album' eq $curpage">cur<else/>split </if>><a href="{:get_url('index','','album')}">专辑</a></li>
+			<volist name="p_cate_list" id="vop">
+			<li class=<if condition="$vop['id'] eq $id">cur<else/>split</if>><a href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a></li>
+			</volist>
+		</ul>
+		
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_b"><img src="__TMPL__Public/img/bdshare.png" width="96"/>
+		<a class="shareCount"></a>	</div>
+<script type="text/javascript" id="bdshare_js" data="type=button" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+<if condition="('index' eq $curpage) OR ($cate_name neq '')"><!-- OR ('album' eq $curpage)-->
+<div id="nav_sub">
+		<ul class="album_new">
+			<li><a class="clearfix" href="{:get_url('index','','album')}"><strong>最新专辑</strong><span></span></a></li>
+		</ul>
+        <ul class="items_num">
+			<li><a class="clearfix" href="javascript:;"><strong>单品：{$itemCount}</strong><em></em></a></li>			
+		</ul>
+		
+		<ul class="cate_show">
+		<volist name="p_cate_list" id="vop">
+			<li class="<if condition="$vop['id'] eq $id">curr</if>">
+				<a class="clearfix" href="{:get_url('index',$vop['id'],'cate')}"><strong><img src="<php>echo C('web_path').ltrim($vop['img'],'/');</php>" width="20" height="20">{$vop.name}</strong><span></span></a>    
+                <!-- <p>
+				<volist name="vop['tags']" id="voTag">
+					<a href="{:get_url('tag',$voTag['id'],'cate')}" class="cate_word">{$voTag.name}</a>
+				</volist>
+				</p>-->
+            </li>	
+		</volist>
+		</ul>
+		</div>
+</if>
+		</div>
+		</div>
+</div>
+<div id="head_bottom"></div>

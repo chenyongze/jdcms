@@ -1,0 +1,77 @@
+<include file="Public:headeru"/>
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/register.css"/>
+<script src="__TMPL__Public/js/register.js?1"></script>
+<include file="Public:headerdn"/>
+<div class="registerForm">
+	<h2>新用户注册</h2>
+	<div class="register_mls">
+		<fieldset>
+		<form id="registerForm" method="post" onsubmit="return false" action="">
+		<input type="hidden" id="check_post_action" value="{:get_url('check_uname_email','','user')}">
+			<legend>新用户注册表单</legend>
+			<p><input class="r_ipt" id="mlsName" type="text" name="nickname" value="用户名" placeholder="用户名"/><strong id="err_nameml"></strong>
+			</p>
+			<p>
+			<input class="r_ipt" id="vmPass" name="" type="password" value="" placeholder="密码" style="display:none"/>
+			<input id="mlsPass" class="r_ipt" type="text" placeholder="密码" value="密码" name="" style="display: inline;">
+			<strong id="err_passwordml"></strong>
+			</p>
+			<p>
+			<input class="r_ipt" id="vmPassSure" name="" type="password" value="" placeholder="确认密码"  style="display:none"/>
+			<input id="vmConfirmPass" class="r_ipt" type="text" placeholder="确认密码" value="确认密码" name="" style="display: inline;">
+			<strong id="err_rstpasswordml"></strong>
+			</p>
+			<p><input class="r_ipt" id="mlsEmail" type="text" name="email" value="电子邮箱" placeholder="电子邮箱"/><strong id="err_emailml"></strong>
+			</p>
+			<!--<p class="none_f" style="display"><input class="r_ipt none_f" id="mlsConfirmPass" name="confirm_password" type="password" value="" placeholder="确认密码"/><input class="r_ipt" style="display:block" id="vmConfirmPass" name="" type="text" value="" placeholder="确认密码"/><strong></strong></p>-->
+			<p class="genderBox">
+			<input name="age" id="" type="radio" value="80" checked="checked"><label class="mr14_f" for="genderF">80</label>
+			<input name="age" id="" type="radio" value="90"><label class="mr14_f" for="genderM">90</label>
+			<input name="age" id="" type="radio" value="70"><label for="genderM">70</label>
+			<span class="registerInfoMessage" style="display:none;"></span></span></span></p>
+
+			<p class="genderBox">
+			<input name="sex" id="" type="radio" value="0" checked="checked"><label class="mr14_f" for="genderF">女</label>
+			<input name="sex" id="" type="radio" value="1"><label for="genderM">男</label>
+			<span class="registerInfoMessage" style="display:none;"><span></span></span></p>
+
+			<div class="checkBox"><!--默认隐藏，密码区onfocus触发显示确认密码和验证码-->
+				<input type="text" class="r_ipt" name="checkcode" id="checkcode" value="验证码" placeholder="验证码" maxlength="4" verify_post_action="{:get_url('verify_test','','user')}">
+				<div class="checkImage"><span id="checkcodeImage"><img width="90" height="36" isblank="true" src="{:get_url('verify','','user')}" verify_action="{:get_url('verify','','user')}" url_model="{:C(url_model)}"></span><span  onclick="changeVerify()" class="red_f">换一张</span></div>
+				<strong id="err_checkml"></strong>
+			</div>
+			<span class="big_btn registerBtn"><em class="big_btnr"></em><input type="button" id="registerbtn" value="立即注册" registerbtn_post_action="{:get_url('registerAction','','user')}" registerbtn_post_location="{:get_url('index','','user')}"/>
+			</span>
+			<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+			<p><input type="checkbox" name="agreement" id="agreement" value="agreement" checked="checked"><label for="agreement">同意</label><a href="{:get_url('protocol','','user')}" target="_blank">{:C("site_name")}注册条款</a><strong></strong></p>
+		</form>
+		</fieldset>
+	</div>
+	<div class="register_other">
+		<p class="f14_f">用{:C('site_name')}账号登陆&nbsp;<a class="red_f" href="{:get_url('login','','user')}" target="_BLANK">登录</a></p>
+		<p class="f16_f">你还可以用以下方式直接登录：</p>
+		<div>
+			<a class="l_sinaweibo" href="{:get_url('sinalogin','','user')}" target="_blank"></a>
+			<a class="l_qq" href="{:get_url('qqlogin','','user')}" target="_blank"></a>
+			<a class="l_taobao" href="{:get_url('taobaologin','','user')}" target="_blank"></a>
+		</div>
+	</div>
+	<div class="clear_f"></div>
+</div>
+<include file="Public:footern"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#checkcodeImage img").attr("verify_action");
+		var url_model=$("#checkcodeImage img").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		
+		$("#checkcodeImage img").attr("src",src+nowTime);
+	}
+</script>

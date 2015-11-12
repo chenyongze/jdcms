@@ -1,0 +1,164 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script> 
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/detail.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<style>
+.title {
+    color: #444444;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+</style>
+<include file="Public:headerd"/>
+<present name="status">
+	<center>
+	<div>审核中。。。请稍后再试！</div>
+	</center>
+   <br>
+<else />
+<div class="main">
+	<div class="piece_hd"></div>
+	<div class="piece_bd">
+		<div id="content_body">
+			<div class="show_body">
+				<a class="img_show" rel="nofollow" href="{:get_url('buy',$item['id'],'item')}"><img title="{$item.title}" width='500' src=<if condition="$item['img'] neq ''">"{$item.img|get_img=###,500}"<else/>__TMPL__Public/img/undefined.jpg</if>/></a>
+				<!--<a href="javascript:;" class="add_to_album_btn"></a>-->
+				
+			</div>
+			<if condition="$item['info']">
+			<div class="show_body">
+				<h2 class="title">宝贝详情</h2>{$item.info}
+			</div>
+			</if>
+<volist name="likes_list" id="voItems">
+            <div class="slide_show ">
+				<h3><a href="{:get_url('tag',$voItems['tagid'],'cate')}" rel="nofollow" target="_blank" class="more" title="查看更多...">查看更多...</a>{$voItems.tagname}</h3>
+				<ul class="clear_in">
+				 <volist name="voItems['tagitem']" id="voItem"  offset="0" length="4">
+					<li><a class="show_img" href="{:get_url('index',$voItem['item_id'],'item')}"><img style="width:100px" title="{$voItem.title}" alt="{$voItem.title}" src=<if condition="$voItem['img'] neq ''">{$voItem.img|get_img=###,100}<else/>__TMPL__Public/img/undefined.jpg</if> /></a></li>
+				</volist>
+             </ul>
+        </div>
+</volist>
+		</div>
+		<div id="right_side">
+		
+<div class="ese_b fav_wrap_content clearfix">
+    <div class="favorite ">
+    <a class="favaImg s1 <if condition="$like eq 1">favored</if>" item_id="{$item['id']}" href="javascript:;"><if condition="$like eq 1">已喜欢<else/>喜欢一下</if></a>
+    <input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+        <div class="favDiv fl">
+            <a target="_blank" class="favCount" id="{$item['id']}">{$item.likes}</a>
+                <i></i>
+        </div>
+    </div>
+    <a href="{:get_url('addAlbum',$item['id'],'album')}" class="add_to_album" type="goods" target="_blank">加入专辑</a>
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="float:right;">
+                            <span class="bds_more"></span>
+                            <a class="bds_tsina" title="分享到新浪微博"></a>
+                            <a class="bds_qzone" title="分享到QQ空间"></a>
+    </div>
+</div>
+
+<div class="body_info">
+<div class="goods_link">
+        <div class="shop_link_box">
+			<a href="{:get_url('buy',$item['id'],'item')}" title="{$item.title}" class="shop_link" rel="nofollow">{$item.title}</a>
+		</div>
+		<p>
+			<span class="price">￥{$item.price}</span>
+			<a href="{:get_url('buy',$item['id'],'item')}" class="buy_link" rel="nofollow"><if condition="$item['status'] eq 2">已下架<else/>去购买</if></a>
+		</p>
+</div>
+
+</div>
+    
+
+<!-- 纯图片时显示用户信息 begin-->
+        <div class="first_share">
+            <h2 class="title">第一个分享的菇凉</h2> 
+            <div class="share_user_info clearfix">
+                <div class="pic fl">
+                    <a target="_blank"  href="{:get_url('index',$user_share_info['id'],'user')}" >
+                        <img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" style="width:48px" src=<if condition="$user_share_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$user_share_info.img}</if> alt="{$user_share_info.name}" class="icard avt fl r3" />
+                    </a>
+                </div>
+                <div class="name">
+                <a  target="_blank"  href="{:get_url('index',$user_share_info['id'],'user')}" class="icard avt uname">{$user_share_info.name}</a>
+				<!--<a href="/settings/buyerverifier" class="v" target="_blank"><img class="v" src="img/buyer_s.png" title="买家认证" alt=""/></a>-->
+                <p class="tweet_from">
+                    <span></span>
+                </p>
+                <p class="share_content"><span class="t">{$item.add_time|date='Y年m月d日 H:i:s',###}</span></p>
+                </div>
+            </div>
+        </div>
+            <!-- 第一个分享的人 end -->
+        <!-- 第一个分享的人 begin -->
+
+<!-- 我的朋友们 begin -->
+<!-- 评论框 begin -->
+<a name="comm"></a>
+<div class="note_comment_wrap note_content" id="note_17ekm94">
+    <div class="pub_area">
+		<div id="commentsErrorNotice" style="color:red"></div>
+        <div class="pub_area_bd">
+			<input type="hidden" name="" id="pager_post_action" value="{:get_url('index',$item['id'],'item',1)}">
+			<input type="hidden" name="items_id" id="items_id" value="{$item.id}">
+            <textarea id="pub_content" class="pub_txt">你也可以顺便说点什么 O(∩_∩)O</textarea>
+        </div>
+        <div class="pub_area_ft">
+            <!--<div class="pub_opt fl">
+                <a onclick="return false;" href="javascript:void(0);" class="add_face_new"></a>
+            </div>-->
+            <a href="javascript:void(0);" class="gray_btn submit r3 fr" id="pub_submit" commentbtn_post_action="{:get_url('add_comments','','item')}" commentbtn_post_locaction="{:get_url('login','','user')}"><span class="s" id="commentbtn">确定</span></a>
+        </div>
+    </div>
+    <!-- 评论框 end -->
+
+<!-- 评论列表 begin -->
+<div class='comments_loading' style="position:absolute;z-index:1"></div>
+<div class="note_comment">
+  <include file="comments"/>
+</div>
+<!-- 评论列表 end -->
+<if condition="($article_list) AND (C('article_show') eq '1')">
+<a href="{:get_url('index','','article')}" target="_blank"><h2 class="title">{:C(site_name)}资讯</h2> </a>
+<ul>
+<volist name="article_list" id="voArt">
+	<li><p><span style="float:right;color: #B3B3B3;font-size:12px;">[{$voArt.add_time|date='Y-m-d',###}]</span><a href=<if condition="$voArt['url']">{$voArt.url}<else/>"{:get_url('detail',$voArt['id'],'article')}"</if> target="_blank">{$voArt.title}</a></p></li>
+</volist>
+</ul><br>
+</if>
+</div>
+</div>
+	</div>
+	<div class="piece_ft"></div>
+</div>
+
+<div class="contentWrap">
+<if condition="$items_list">
+<h2 class="tit">你可能还喜欢</h2>
+<div class="content">
+<include file="Public:ucItemsList"/>
+</div>
+</if>
+	<if condition="get_ad(23) neq ''">
+		<center><div style="width:960px;height:90px;overflow:hidden;">{:get_ad(23)}</div></center>
+	</if>
+</div>
+</present>
+<script type="text/javascript">
+$(document).ready(function(){
+	var imgl = new Image();
+	imgl.src = 	$(".img_show img").attr('src');
+	
+	if(imgl.width > 0 && imgl.width < 500){
+		$(".img_show img").attr('width',imgl.width);
+	}
+})
+</script>
+<include file="Public:footer"/>

@@ -1,0 +1,83 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	function status(id,type){
+	    $.get("{:u('User/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<div class="pad-10" >
+    <form name="searchform" action="" method="get" >
+    <input name="a" type="hidden" value="index">
+    <input name="m" type="hidden" value="User">
+    <input name="g" type="hidden" value="Admin">
+    <table width="100%" cellspacing="0" class="search-form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain-col">
+				关键字 :
+                <input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+                <input type="submit" name="search" class="button" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+    <form id="myform" name="myform" action="{:u('User/delete')}" method="post" onsubmit="return check();">
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="5%">序号</th>
+                <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                <th width=80>头像</th>                
+                <th width=80>昵称</th>
+				<th width=80>Email</th>
+				<th width=40>性别</th>
+                <th width=80>生日</th>
+                <th width=80>地址</th>
+                <th width=120>注册时间</th>
+                <th width=120>最后登录</th>
+                <th width=30>审核</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="list" id="val" >
+        <tr>
+        	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+           <td align="center">
+            <if condition="$val.img eq ''">
+                <img src="__PUBLIC__/statics/images/avatar-60.png" width="40px" height="40px"/>
+            <else/>
+                <img src="Uploads/avatar_small/{$val.img}" width="40px" height="40px"/>                        
+            </if>
+           </td>
+           <td align="center"><a href="{:U('User/edit',array('id'=>$val['id']))}"><em style="color:black;">{$val.name}</em></a></td>
+           <td  align="center">{$val.email}</td>
+           <td align="center">
+           <if condition="$val.sex eq '1'"> 男<elseif condition="$val.sex eq '0'"/>女<else/>保密</if>
+           </td>
+           <td align="center">{$val.brithday}</td>
+           <td align="center">{$val.address}</td>
+           <td align="center">{:date("Y-n-j   H:i:s",$val["add_time"])}<br><font color=green>({$val.ip})</font></td>
+		   <td align="center">{:date("Y-n-j   H:i:s",$val["last_time"])}<br><font color=green>({$val.last_ip})</font></td>
+           <td align="center" onclick="status({$val.id},'status')" id="status_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.status}.gif" /></td>
+        </volist>
+    	</tbody>
+    </table>
+    <div class="btn">
+    	<label for="check_box" style="float:left;">全选/取消</label>
+    	<input type="submit" class="button" name="submit" value="删除" style="float:left;margin:0 10px 0 10px;"/>
+    	<div id="pages">{$page}</div>
+    </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>

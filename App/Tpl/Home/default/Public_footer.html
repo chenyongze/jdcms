@@ -1,0 +1,57 @@
+<div class="sitemap">
+  <dl>
+    <dt>网站地图</dt>
+    <volist name="p_cate_list" id="cval">
+	  <dd><a href="{:get_url('index',$cval['id'],'cate')}">发现{$cval.name}</a></dd>
+	  </volist>
+  </dl>
+  <dl>
+    <dt>关注我们</dt>
+    <dd><php>echo strclean(C('follow_us'));</php></dd>
+    <dd><php>echo strclean(C('follow_us2'));</php></dd>
+    <dd><php>echo strclean(C('follow_us3'));</php></dd>
+    <dd><php>echo strclean(C('follow_us4'));</php></dd>
+    <dd><php>echo strclean(C('follow_us5'));</php></dd>
+    <dd><php>echo strclean(C('follow_us6'));</php></dd>
+  </dl>
+  <dl>
+    <dt></dt>
+    <dd><a href="{:C('site_domain')}"><img src="__PUBLIC__/statics/images/logo_bot.gif" width="120"></a></dd>
+  </dl>
+  <dl>
+    <dt>网站相关</dt>
+    <dd><a href="__PUBLIC__/statics/sitemap.html" target="_blank">网站地图</a></dd>
+    <dd><a href="__PUBLIC__/statics/sitemap.xml" target="_blank">sitemap</a></dd>
+    <dd><php>echo strclean(C('site_icp'));</php></dd>
+    <dd><php>echo strclean(C('statistics_code'));</php></dd>
+  </dl>
+  <dl>
+    <dt>友情链接</dt>
+	  <volist name="linkList" id="val">
+	  	<dd><a href="{$val.url}" target="_blank">{$val.name}</a></dd>
+	  </volist>
+  </dl>
+</div>
+<div style="display:none;" id="gotopbtn" class="back2top"><a href="javascript:void(0);"></a></div>
+<script type="text/javascript">
+$(function() {
+		$(".back2top").click(function() {
+			$("html, body").animate({ scrollTop: 0 }, 120);
+	}), $backToTopFun = function() {
+		var st = $(document).scrollTop(), winh = $(window).height();
+		(st > 0)? $(".back2top").show(): $(".back2top").hide();    
+		//IE6下的定位
+		if (!window.XMLHttpRequest) {
+			$(".back2top").css("top", st + winh - 166);    
+		}
+	};
+	$(window).bind("scroll", $backToTopFun);
+	$(function() { $backToTopFun(); });
+});
+</script>
+<!--[if lte IE 6]>
+<script src="__TMPL__Public/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>DD_belatedPNG.fix('div.au span,div.au i,span.au span,span.au i,h1.logo');</script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,53 @@
+/*index*/
+#index .main{margin-top:15px}
+#index .con_banner{clear:both;overflow:hidden;padding:10px; height:252px;background:#F5F5F1;border-radius:5px;margin-bottom:15px;border:1px solid #DFDFDF}
+#index .con_banner .l{ width:348px; height:252px; float:left; margin-right:10px; position:relative; overflow:hidden}
+#index .con_banner .l h3{position:absolute; padding:2px 5px; height:34px; line-height:17px;width: 100%;left:0;bottom:0;background-color:rgba(0,0,0,0.56);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#8E000000,endcolorstr=#8E000000);color:white;_background-color:#333}
+#index .con_banner .l h3 strong{color:#5FAA92}
+#index .con_banner .l h3 a{display:block; text-decoration:none; white-space:nowrap; overflow:hidden; height:17px; text-overflow:ellipsis; margin-right:5px}
+#index .con_banner .l h3 a:link,#index .con_banner .l h2 a:visited,#index .con_banner .l h2 a:hover,#index .con_banner .l h2 a:active{ color:#fff}
+
+#index .con_banner .m{width:262px; height:232px; padding:10px; float:left; margin-right:25px; background:#fff; overflow:hidden}
+#index .con_banner .m li{border-bottom:1px dashed #dfdfdf;padding:0 0 8px; height:41px; overflow:hidden;margin-bottom:10px; clear:both}
+#index .con_banner .m h3{width:30px; height:30px; margin:6px 10px 0 0; float:left}
+#index .con_banner .m h3 img{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+#index .con_banner .m blockquote{color:#666;float:right; width:222px;line-height:22px}
+#index .con_banner .m blockquote cite{float:left;}
+#index .con_banner .m blockquote cite a{color:#5FAA92;margin-right:3px;font-family: Arial, Helvetica, sans-serif}
+#index .con_banner .m blockquote p{float:left}
+#index .con_banner .m blockquote p a{color:#999; width:222px; display:block; line-height:18px;height:18px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+#index .con_banner .r{width:260px; float:left; position:relative}
+#index .con_banner .r h3{padding-top:42px;height:83px;width:260px; background:url(/App/Tpl/Home/default/Public/images/icon_1.png) 0 0 no-repeat; line-height:20px;color:#444; position:absolute;left:0;top:-3px}
+#index .con_banner .r h3 em{display:block;color: #CB383B; text-align:right;font-size:34px;font-weight:bold;line-height:140%;text-align:right;font-family:'microsoft yahei';font-style:normal;text-shadow:0 1px 1px white}
+#index .con_banner .r h3 span{display:block;color:#999; text-align:right}
+#index .con_banner .r form.form_login{ position:absolute; left:0; top:145px;display:block;padding:6px;background:#fff;border:solid 1px #DBDCDA;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+#index .con_banner .r form.form_login h4.login_error_tip{color:red; line-height:20px}
+#index .con_banner .r .form_login_txt{float:left;width:186px}
+#index .con_banner .r .form_login_btn{float:right;width:50px}
+#index .con_banner .r form.form_login input.userName,#index .con_banner .r form.form_login input.passWord{border:solid 1px #DBDCDA;padding:0 10px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;width:164px;height:30px;line-height:30px;margin:2px 0;color:#666}
+#index .con_banner .r .form_login_btn p{background:#EE8F00;-webkit-border-radius: 3px;-moz-border-radius:3px;border-radius:3px; margin:3px 0 7px}
+#index .con_banner .r .form_login_btn input.loginBtn{color:white;font-weight:bold;font-size:14px;background:none;width:50px;border:none; height:43px; text-align:center}
+#index .con_banner .r .form_login_btn input#autologin_checkBox{float:left;padding:0;width:13px; height:13px; overflow:hidden}
+#index .con_banner .r .form_login_btn label{float:right; cursor:pointer}
+
+#index .con_main{background:white;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;padding:0 0 20px;overflow:hidden;zoom:1;border:1px solid #DFDFDF}
+#index .con_main .floor{padding:15px 30px;border-bottom:solid 1px #DFDFDF;width:904px;overflow:hidden;margin:0 auto}
+
+#index .con_main h2{height:30px;margin:10px 0;font:14px Microsoft YaHei;clear:both;overflow:hidden;height:40px}
+#index .con_main h2 span{float:left;display:inline-block;line-height:40px; font-weight:bold; padding-right:10px}
+#index .con_main h2 span strong{font-size:24px;color:#5FAA92; padding-left:2px}
+#index .con_main h2 a{float:left;display:block;padding-right:9px;margin-top:15px} 
+#index .con_main h2 a:link,#index .con_main h2 a:visited,#index .con_main h2 a:hover,#index .con_main h2 a:active{color:#666}
+
+#index .con_main ul.share_items{height:302px; overflow:hidden; position:relative}
+#index .con_main ul.share_items li{position:absolute; overflow:hidden}
+#index .con_main ul.share_items li a:link,#index .con_main ul.share_items li a:visited,#index .con_main ul.share_items li a:hover,#index .con_main ul.share_items li a:active{ text-decoration:none; color:#fff}
+#index .con_main ul.share_items li.t1{width:100px; height:100px}
+#index .con_main ul.share_items li.t2{width:200px; height:200px}
+#index .con_main ul.share_items li span{position:absolute;right:5px;bottom:5px;height:20px;line-height: 20px; padding-right:10px;display: inline-block;color: white; background:url(/App/Tpl/Home/default/Public/images/btn_round_bg.png) right -20px no-repeat; z-index:999; cursor:pointer}
+#index .con_main ul.share_items li span strong{ font-weight:normal;background:url(/App/Tpl/Home/default/Public/images/btn_round_bg.png) 0 0 no-repeat; display:block;_display:inline-block; height:20px;line-height: 20px;padding-left:10px}
+
+#index .con_main .share_h3{ float:left;font-size:14px; line-height:45px; margin:15px 10px 0 0}
+#index .con_main ol.share_who{margin-top:15px; overflow:hidden; float:left}
+#index .con_main ol.share_who li{ float:left;margin-right:4px}
+#index .con_main ol.share_who li img{-webkit-border-radius: 3px;-moz-border-radius:3px;border-radius:3px}

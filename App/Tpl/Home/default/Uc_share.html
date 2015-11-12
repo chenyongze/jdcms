@@ -1,0 +1,39 @@
+<include file="Public:header" />
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+	<present name="cookieId">
+     <include file="Public:share"/>
+	 </present>
+        <div class="tit_share tit_share_uc"> <strong><present name="oUid">{$user_info.name}<else/>我</present>的<em>宝贝</em><i class="num">({$count})</i></strong><span class="right"><a class="alink" href="{:get_url('release','','user')}"><i>分享宝贝</i></a></span></div>
+        <div class="blockB" style="border:none; padding-top:0;">
+         <div class="list_tuijian">
+          <ul>
+		  <volist name="items_list" id="voItems">
+            <li><div class='bgload'><a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img src="{$voItems.img|get_img=###,100}" width="100"/><else/><img src="__TMPL__Public/img/undefined.jpg" width="100"/></if></a></div>
+              <p><span class="s2">{$voItems.likes}</span><span>￥{$voItems.price}</span><notpresent name="oUid"><a href="{:get_url('shareItemsDel',$voItems['id'],'user')}" class="delete" title="删除">删除</a></notpresent></p>
+            </li>
+		  </volist>
+          </ul>
+        </div>
+        </div>
+        <div class="page">{$page}</div>
+      
+    </div>
+    <include file="Public:ucRight"/>
+  </div>
+</div>
+<include file="Public:footer" />
+<script>
+$(function(){
+	//判断是否确认删除
+	$(".delete").click(function(){
+		var t=confirm("确认要删除吗？");
+		if(t){
+			return true;
+		}else{
+			return false;
+		}
+	});
+})
+</script>

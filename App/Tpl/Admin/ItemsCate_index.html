@@ -1,0 +1,78 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	function status(id,type){
+	    $.get("{:U('ItemsCate/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<div class="pad-10" >
+    <form id="myform" name="myform" action="{:U('ItemsCate/delete')}" method="post">
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr class="one">
+                <th width="5%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+              	<th width=200>分类名称</th>
+                <th width=100>图片</th>
+                <th width=100>商品数</th>  
+                <th>SEO Title</th>  
+                <th width=80>排序值</th>
+                <th width=80>首页显示</th>                        
+              	<th width=80>操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="cates_list['parent']" id='val'>
+        <tr>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td><img src="__PUBLIC__/statics/images/tv-collapsable.gif" class="expandable" id="{$val.id}" style="margin-left:80px"/>&nbsp;&nbsp;{$val.name}</td>
+            <td align="center"><if condition="$val['img'] neq ''"><img src="<php>echo C('web_path').ltrim($val['img'],'/');</php>" height="25px;"/></if></td>
+            <td align="center"><em style="color:red;">{$val.item_nums}</em></td>
+            <td align="left">{$val.seo_title}</td>
+            <td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]"  id="listorders[{$val.id}]" /></td>
+            <td align="center" onclick="status({$val.id},'is_index')" id="is_index_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.is_index}.gif" /></td>
+            <td align="center"><a class="blue" href="{:U('ItemsCate/edit',array('id'=>$val['id']))}">编辑</a></td>
+        </tr>
+        	<volist name="cates_list['sub'][$val['id']]" id='sval'>
+        	<tr class="sub_{$val.id}">
+                <td align="center"><input type="checkbox" value="{$sval.id}" name="id[]"></td>
+                <td><img src="__PUBLIC__/statics/images/tv-collapsable.gif" class="expandable" id="{$sval.id}" style="margin-left:100px" />&nbsp;&nbsp;{$sval.name}</td>
+	            <td align="center"><if condition="$sval['img'] neq ''"><img src="<php>echo C('web_path').ltrim($sval['img'],'/');</php>" height="25px;"/></if></td>
+                <td align="center"></td>
+                <td align="left">{$sval.seo_title}</td>
+				<td align="center"><input type="text" class="input-text-c input-text" value="{$sval.ord}" size="4" name="orders[{$sval.id}]" /></td>
+                <td align="center"></td>
+                <td align="center"><a class="blue" href="{:U('ItemsCate/edit',array('id'=>$sval['id']))}">编辑</a></td>
+            </tr>
+                <volist name="cates_list['sub'][$sval['id']]" id='ssval'>
+	        	<tr class="sub_{$val.id} sub_{$sval.id}">
+	                <td align="center"><input type="checkbox" value="{$ssval.id}" name="id[]"></td>
+	                <td><img src="__PUBLIC__/statics/images/tv-collapsable.gif" style="margin-left:120px"/>&nbsp;&nbsp;{$ssval.name}</td>
+		            <td align="center"><if condition="$ssval['img'] neq ''"><img src="<php>echo C('web_path').ltrim($ssval['img'],'/');</php>" height="25px;"/></if></td>
+	                <td align="center"></td>
+	                <td align="left">{$ssval.seo_title}</td>
+					<td align="center"><input type="text" class="input-text-c input-text" value="{$ssval.ord}" size="4" name="orders[{$ssval.id}]" /></td>
+	                <td align="center" onclick="status({$ssval.id},'is_index')" id="is_index_{$ssval.id}"><img src="__PUBLIC__/statics/images/status_{$ssval.is_index}.gif" /></td>
+	                <td align="center"><a class="blue" href="{:U('ItemsCate/edit',array('id'=>$ssval['id']))}">编辑</a></td>
+	            </tr>
+	        	</volist>
+        	</volist>
+        </volist>
+    	</tbody>
+    </table>
+    
+    <div class="btn">
+    <label for="check_box">全选/取消</label>
+    <input type="submit" class="button" name="delete" value="删除" onclick="return check();"/>
+    <input type="submit" class="button" name="order" onclick="document.myform.action='{:U('ItemsCate/order')}'" value="排序"/>
+    <div id="pages">{$page}</div>
+    </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>

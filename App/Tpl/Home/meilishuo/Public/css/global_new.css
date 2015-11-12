@@ -1,0 +1,812 @@
+container_12{margin-left:auto;margin-right:auto;width:960px}
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12{display:inline;float:left;margin-left:6px;margin-right:6px}
+.alpha{ margin-left:0}
+.omega{ margin-right:0}
+.container_12 .grid_1{width:68px}
+.container_12 .grid_2{width:148px}
+.container_12 .grid_3{width:228px}
+.container_12 .grid_4{width:308px}
+.container_12 .grid_5{width:388px}
+.container_12 .grid_6{width:468px}
+.container_12 .grid_7{width:548px}
+.container_12 .grid_8{width:628px}
+.container_12 .grid_9{width:708px}
+.container_12 .grid_10{ width:788px}
+.container_12 .grid_11{ width:868px}
+.container_12 .grid_12{ width:948px}
+.clear, .clear-fix{ clear:both;display:block;overflow:hidden;width:0;height:0}
+.clearfix:before, .clearfix:after{ content: '\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0}
+.clearfix:after{ clear:both}
+.zoom{ zoom:1}
+.auto{ margin:0 auto}
+.l22{ line-height:22px}
+.l20{ line-height:20px}
+.l18{ line-height:18px}
+.l16{ line-height:16px}
+.l30{ line-height:30px}
+.f12{ font-size:12px;font-weight:normal}
+.f14{ font-size:14px;font-weight:bold}
+.f14n{ font-size:14px}
+.f16{ font-size:16px;font-weight:bold}
+.f16n{ font-size:16px}
+.f18{ font-size:18px}
+.f20{ font-size:20px}
+.f24{ font-size:24px}
+.f30{ font-size:30px}
+.fb{ font-weight:bold}
+.faums{ font-family:Arial Unicode MS}
+.pr{ position:relative}
+.pa{ position:absolute}
+.cursor{ cursor:pointer}
+.right, .r{ float:right;_display:inline}
+.break-word{ word-wrap:break-word}
+.white-space{ white-space:nowrap}
+.left{ float:left;_display:inline}
+.overflow{ overflow:hidden}
+.mt5{ margin-top:5px}
+.mt8{ margin-top:8px}
+.mt10{ margin-top:10px}
+.mt14{ margin-top:14px}
+.mt20{ margin-top:20px}
+.mt25{ margin-top:25px}
+.mt30{ margin-top:30px}
+.mb14{ margin-bottom:14px}
+.mr14{ margin-right:14px}
+.ml4{ margin-left:4px}
+.ml7{ margin-left:7px}
+.ml10{ margin-left:10px}
+.ml14{ margin-left:14px}
+.ml40{ margin-left:40px}
+.ml72{ margin-left:72px}
+.ml74{ margin-left:74px}
+.m2{margin:2px}
+.m3{margin:0 3px}
+.pw{width:208px;*width:206px}
+.pt10{ padding-top:10px}
+.pb15{ padding-bottom:15px}
+.p2{ padding:2px 5px}
+.p5{ padding:5px}
+.p20{ padding:20px}
+.pt5{ padding-top:5px}
+.p2_8{ padding:2px 8px}
+.p5_10{ padding:5px 10px}
+.p0_13{ padding:0 12px}
+.p10{ padding:10px}
+.pr10{ padding-right:10px}
+.pr14{ padding-right:14px}
+.pl90{ padding-left:90px}
+.c{ text-align:center}
+.tl{ text-align:left}
+.tr{ text-align:right}
+.w40{ width:40px}
+.w47{ width:47px}
+.w90{ width:90px}
+.h18{ height:18px}
+.h20{ height:20px}
+.h22{ height:22px}
+.h30{ height:30px}
+.h48{ height:48px}
+.h90{ height:90px}
+.h170{ height:170px}
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, map{ margin:0;padding:0}
+* html,* html body{background-image:url(about:blank);background-attachment:fixed}
+ul, ol, dl, li{ list-style:none}
+h3{ _zoom:1}
+textarea, input{ outline:none}
+textarea{ resize:none}
+fieldset, img{ border:0}
+a{ color:#666;text-decoration:none}
+a:hover{ color:#f69}
+a:focus{ outline:none}
+em{ font-style:normal}
+html{ overflow-x:hidden}
+body{ background:#f2f0f0;color:#666;font-size:12px;font-family:Arial}
+#main{ padding:0 0 10px}
+.p13{ padding:13px}
+.box_shadow{ background:#fff;border:1px solid #ddd\9;box-shadow:0 1px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 1px 3px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;*overflow:hidden}
+.red_round, .gray_round, .pink_round{ border-radius:4px;-webkit-border-radius:4px}
+.red_round{ background:#f69}
+.pink_round{ background:#FFDCE7}
+.gray_round{ background:#f0f0f0;-moz-box-shadow:0px 0px 10px #fff inset;-webkit-box-shadow:0px 0px 10px #fff inset;box-shadow:0px 0px 10px #fff inset}
+.gray_round:hover{ color:#999;text-decoration:none}
+.p2{padding:2px 0px;*padding:4px 0px 2px 0px}
+.i_sina, .g_sina, .i_ren, .g_ren, .i_tx, .i_qzone, .g_qzone, .i_dban, .i_renren, .i_QQ, .i_baidu, .i_wangyi, .i_taobao, .i_house,.i_buyer, .i_diamond, .i_special, .i_zv, .i_lv, .i_editor{ background:url(../img/head_ico4.png) no-repeat;padding:1px 8px}
+.i_sina{background-position:0 -21px}
+.g_sina{background-position: -62px -45px}
+.i_ren{background-position: -24px -21px}
+.g_ren{background-position: -111px -45px}
+.i_tx{background-position: -49px -21px}
+.i_qzone{background-position: -73px -21px}
+.g_qzone{background-position: -87px -45px}
+.i_dban{background-position: -97px -21px}
+.i_renren{background-position:0 -45px;.h16;padding:1px 12px}
+.i_QQ{background-position: -185px -21px}
+.i_baidu{background-position: -168px -21px}
+.i_wangyi{background-position: -121px -21px}
+.i_taobao{background-position: -145px -20px}
+.i_buyer{background-position: -43px 0}
+.i_diamond{background-position: -21px 1px}
+.i_special{background-position:0 0}
+.i_zv{background-position: -65px 0}
+.i_lv{background-position: -86px 0}
+.i_editor{background-position: -109px 0}
+.message_icon{ height:15px;margin:9px -7px 0 4px;width:15px}
+.hw62{ width:62px}
+.hw76{ width:76px}
+.hw120{ width:120px}
+.w50{width:50px}
+#h_banner a{ height:94px;display:block}
+.none{ display:none}
+.block{ display:block}
+#goTop{ width:40px;position:fixed;z-index:800}
+#go_top, #go_top:hover, .collect{ background:#fff url(http://stc-tx.meiliworks.com/css/images/icons/collect.png) no-repeat;float:left;overflow:hidden;padding:5px}
+.collect{ width:34px;height:109px;background-position:4px 5px;margin-top:10px}
+#go_top{ width:34px;height:30px;background-position: -47px -44px}
+#go_top:hover{ background-position: -47px 7px}
+#grey_div{ position:absolute;left:0px;top:0px;background-color:#999;opacity:0.5;filter:alpha(opacity = 50)}
+#xs,#xs2,#xs3,#xs4{ background:url(../img/bg.png) repeat transparent;position:absolute;display:none}
+.red, .red a:link, .red a:visited, .red:active{ color:#f69;text-decoration:none}
+.red a:hover{ color:#f69;text-decoration:underline}
+.white, .white a:link, .white a:visited, .white:active{ color:#fff;text-decoration:none}
+.white a:hover, .white:hover{ color:#fff;text-decoration:none}
+.ured, .ured a:link, .ured a:visited, .ured:active{ color:#f69;text-decoration:underline}
+.gray, .gray a:link, .gray a:visited, .gray:active{ color:#999;text-decoration:none}
+.gray a:hover{ color:#f69}
+.nickname_buyer{ background:url(../img/v_new.gif) no-repeat center right;padding-right:17px}
+.nickname_diamond{background:url(../img/diamond_new.gif) no-repeat center right;padding-right:17px}
+.user_special{ background:url(../img/float_certify.gif) no-repeat 0 0;padding:0 6px;margin-left:3px}
+.dr_v, .dr_d, .dr_special, .mls_approve, .dr_editor{ background:url(../img/person_icon2.gif) no-repeat;width:15px;height:15px;margin-left:2px;padding:6px 10px}
+.dr_v{ background-position:0 3px}
+.dr_d{ background-position:0 -25px}
+.dr_special{ background-position:0 -108px}
+.mls_approve{ background-position:0 -141px}
+.dr_editor{ background-position:0 -170px}
+.online{ background:url(../img/person_icon2.gif) no-repeat 0 -81px}
+.notonline{ background:url(../img/person_icon2.gif) no-repeat 0 -57px}
+.avatar32,.avatar32 img{ width:32px;height:32px;float:left}
+.avatar48,.avatar48 img{ width:48px;height:48px;float:left}
+.avatar64,.avatar64 img{ width:64px;height:64px;float:left}
+.avatar128,.avatar128 img{ width:128px;height:128px;float:left}
+.avatar90,.avatar90 img{ width:90px;height:90px;float:left}
+.new_follow{ width:64px;height:20px;background:url(../img/p_follow3.gif) 0 0 no-repeat;float:left;*line-height:20px;line-height:19px;overflow:hidden;text-align:center;color:#fff}
+.new_notfollow{ width:64px;height:20px;background:url(../img/header_float.gif) 0 0 no-repeat;float:left;*line-height:20px;line-height:19px;overflow:hidden;text-align:center;color:#f69}
+.ex_follow{ width:101px;height:32px;background:url(http://stc-tx.meiliworks.com/css/images/person/en_follow.png) 0 0 no-repeat;display:block;*line-height:32px;line-height:31px;overflow:hidden;text-align:center;color:#fff}
+.ex_notfollow{ width:101px;height:32px;background:url(http://stc-tx.meiliworks.com/css/images/person/en_follow.png) -102px 0 no-repeat;display:block;*line-height:32px;line-height:31px;overflow:hidden;text-align:center;color:#f69}
+.ex_message{ padding-left:16px;background:url(http://stc-tx.meiliworks.com/css/images/person/en_follow.png) 0 -83px no-repeat;float:left;line-height:14px;*line-height:18px}
+.hp_tab{ height:27px;background:url(http://stc-tx.meiliworks.com/css/images/findfs/line.gif) repeat-x bottom;line-height:26px;padding-top:5px}
+.hp_tab .hp_lt{ height:27px;float:left}
+.hp_tab .hp_lt li{ height:26px;cursor:pointer;font-size:14px;float:left;padding:0 10px;margin-left:5px;display:inline}
+.hp_tab .active{ background:#f0f2f2;border:1px solid #ddd;border-bottom:none;color:#f69;font-weight:bold}
+.hp_tab .hp_rt{ padding-right:10px}
+.c_tab{ height:28px;background:url(http://stc-tx.meiliworks.com/css/images/controls/tab_bg.jpg) repeat-x;margin-bottom:15px}
+.c_tab_btn,.c_tab_btn:hover,.c_tab_btn_current,.c_tab_btn_current:hover{ float:left;height:19px;margin-left:7px;padding:7px 10px 0;border:1px solid #C8C8C8;text-align:center;text-decoration:none;background-image:url(http://stc-tx.meiliworks.com/css/images/controls/new_tab_bg.jpg);cursor:pointer}
+.c_tab_btn_current, .c_tab_btn_current:hover{ border-bottom:1px solid white;color:#f36;background:white}
+.bookdiscuss{ background:url(http://stc-tx.meiliworks.com/css/images/twitter/likebg.gif) no-repeat 0 -45px;padding-left:18px;*padding-top:1px}
+.notloveit, .loveit{height:10px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/like.gif) no-repeat;cursor:pointer;overflow:hidden}
+.notloveit{ background-position:0 0;padding:0px 0 14px 60px}
+.loveit{ background-position:0 -24px;padding:0px 0 10px 60px}
+.spinner{ height:32px;width:100%;background:url(http://stc-tx.meiliworks.com/css/images/indicator_medium.gif) no-repeat scroll 50% 0 transparent;margin:20px 0;text-align:center}
+.big_btn, .big_btnr, .small_btn, .small_btnr{ background:url(../img/btn_pic.png) no-repeat}
+.big_btn{ background-position:0 0;height:40px;line-height:38px;padding-left:6px}
+.big_btnr{ background-position: -394px 0;height:40px;width:6px;right: -6px;top:0}
+.small_btn{ background-position:0 -43px;height:32px;line-height:30px;padding-left:6px}
+.small_btnr{ background-position: -194px -43px;height:32px;width:6px;right: -6px;top:0}
+.HomeAd{ margin:0 auto;overflow:hidden;position:relative}
+.adType1, .adType3{position:absolute;z-index:3}
+.adType1{bottom:5px;right:3px}
+.adType3{bottom:20px;right:20px}
+.adType1 a{padding:2px 6px;border-radius:10px;color:#f69;font-weight:bold;text-align:center;white-space:nowrap}
+.adType2{margin-top:14px;text-align:center}
+.adType2 a, .adType3 a{height:8px;width:8px;border-radius:4px}
+.adType1 a, .adType2 a, .adType3 a{display:inline-block;cursor:pointer;background-color:#FFE1EA;margin:0px 4px}
+.adType1 .current, .adType2 .current, .adType3 .current{ background-color:#f69;color:#fff}
+.yellow{ background:#ffc;box-shadow:1px 1px 2px rgba(51, 51, 51, 0.2);border:1px solid #FFE67F}
+.browse{ position:absolute;height:16px;line-height:16px;bottom:0px;padding:5px 8px;width:700px;z-index:400}
+.browse .jisu{ background:url(../img/icons_browser_s2.png) no-repeat 0 -180px;padding:2px 0 2px 18px}
+.browse .close_z{ margin-top:3px}
+.sheet{background-color:#FFECEF;*overflow:hidden;position:absolute;padding:0px 20px}
+.sheet3{z-index:863;height:65px;width:646px;border:1px solid rgba(34, 25, 25, 0.2);*border:1px solid #ddd;border-top:0px;box-shadow:0 1px 1px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 1px 1px}
+.sheet2{z-index:862;height:68px;width:638px;margin-left:4px;border:1px solid rgba(34, 25, 25, 0.2);*border:1px solid #ddd;border-top:0px;box-shadow:0 3px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 3px 3px}
+.sheet1{z-index:861;height:70px;width:630px;margin-left:8px;border:1px solid rgba(34, 25, 25, 0.2);*border:1px solid #ddd;border-top:0px;box-shadow:0 3px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 3px 3px}
+.nagPo{top:0px;z-index:860;left:50%;margin-left:-345px;position:relative;height:70px;width:600px}
+.nagFromNone .btn{margin-top:12px;width:360px}
+.nagFromNone .textBox{width:260px}
+.nagFromNone .textQQ, .nagFromWeibo .textQQ{display:none}
+.nagFromNone .lgn_QQ,.nagFromNone .lgn_weibo, .nagFromRenren .lgn_rr, .nagFromQQ .lgn_QQ,.nagFromQQ .lgn_weibo, .nagFromWeibo .lgn_QQ, .nagFromWeibo .lgn_weibo{ background:url(../img/lgn_icons.gif) no-repeat}
+.nagFromNone .lgn_QQ,.nagFromNone .lgn_weibo, .nagFromWeibo .lgn_weibo, .nagFromRenren .lgn_rr, .nagFromQQ .lgn_QQ{ display:inline-block;height:41px;line-height:34px;padding-left:30px;width:144px;text-align:left;margin-right:6px}
+.nagFromNone .lgn_QQ, .nagFromQQ .lgn_QQ{background-position:0 -111px}
+.nagFromNone .lgn_weibo, .nagFromWeibo .lgn_weibo{background-position:0 -156px}
+.nagFromRenren .lgn_rr{background-position:0 -201px}
+.nagFromQQ .lgn_weibo, .nagFromWeibo .lgn_QQ{ width:214px;height:53px;margin:0 auto}
+.nagFromRenren .btn, .nagFromQQ .btn, .nagFromWeibo .btn{margin-top:12px;margin-left:10px;width:280px}
+.nagFromQQ .textBox, .nagFromWeibo .textBox, .nagFromRenren .textBox{width:260px}
+.nagFromQQ .text{display:none}
+.nagFromWeibo .lgn_QQ { background-position:0 0}
+.nagFromQQ .lgn_weibo{ background-position:0 -55px}
+.nagFromQQ .lgn_weibo,.nagFromQQ .lgn_QQ2{display:none}
+.nagFromWeibo .lgn_QQ,.nagFromWeibo .lgn_weibo2{display:none}
+.nagFromNone .lgn_QQ1,.nagFromNone .lgn_weibo1{display:none}
+.nagFromQQ .denglu2,.nagFromQQ .denglu3{display:none}
+.nagFromWeibo .denglu1,.nagFromWeibo .denglu3{display:none}
+.nagFromNone .denglu1,.nagFromNone .denglu2{display:none}
+.reg_sinaweibo, .reg_qq, .reg_taobao, .reg_renren, .reg_wangyi, .reg_txweibo, .reg_douban, .reg_baidu{ background:url(../img/regIcon0.png) no-repeat;float:left;height:44px;margin-right:8px;width:44px;margin-top:6px}
+.reg_sinaweibo{ background-position:0 0}
+.reg_qq{ background-position: -47px 0}
+.reg_taobao{ background-position: -94px 0}
+.reg_renren{ background-position: -141px 0}
+.reg_wangyi{ background-position: -188px 0}
+.reg_txweibo{ background-position:0px -51px}
+.reg_douban{ background-position: -47px -51px}
+.reg_baidu{ background-position: -94px -51px}
+.nagFromiPad .qqWeibo, .nagFromiPad .qqRr, .nagFromiPad .textBox{display:none}
+.nagFromiPad .foriPad{ background:url(../img/foripad.png) no-repeat;height:50px;margin:7px auto 0;width:527px}
+.nagFromiPad .foriPad a{ height:50px;display:block}
+.nav_right{ float:right;width:166px;line-height:20px;margin:4px 6px 0 0;padding:0 3px;color:#ff8eb3;border:1px solid #ff784a;background-color:#fff2f6;box-shadow:inset 1px 1px 1px rgba(255,78, 135,0.5)}
+.pink_pop{ background:url(../img/pink_pop.png) no-repeat;padding:1px 4px 1px 6px}
+.nav_down{ width:120px;height:80px;padding:10px;position:absolute;right:7px;top:27px;background-color:white;overflow:hidden;border:1px solid #f69\9;box-shadow:0 1px 3px rgba(255, 2, 84, 0.8);-webkit-box-shadow:0 1px 3px rgba(255, 2, 84, 0.8)}
+.popup_div_window{ width:500px;padding:7px;overflow:hiddeen;position:absolute;z-index:1000}
+.register_Input{ width:260px;border:1px solid #C7C7C5;color:#000000;height:19px;line-height:19px;padding:3px 5px 0}
+.verifycode{width:160px;border-color:#DDD}
+.titleBox{ width:60px;margin:3px 0 0}
+#modal_shadow{display:none;position:fixed;_position:absolute;left:0;top:0;height:10000px;width:100%;background:#fff;filter:alpha(opacity=80);opacity:0.8;z-index:998}
+#alertdiv{ position:absolute;z-index:99999;display:none;padding:7px;font-size:12px;display:none}
+.send_pmsg_box{ width:450px;background:#fff;display:inline;padding:10px 25px;float:left}
+.send_pmsg_box .send_pmsg_box_line{margin-top:10px;float:left;line-height:22px}
+.send_pmsg_box .send_pmsg_box_line_title{width:66px;height:16px}
+.send_pmsg_box .send_pmsg_box_line_inputarea{ width:180px;height:16px;border:1px solid #CCC;background:#fff;color:#666;font-size:12px;padding:3px;margin-right:8px}
+.send_pmsg_box .send_pmsg_box_textarea{width:373px;height:88px;border:1px solid #CCC;color:#666;font-size:12px}
+.send_pmsg_box .register_row{width:340px;height:38px;margin:10px auto auto 63px;float:left;_display:inline}
+.send_pmsg_box .register_row .validate_tips{width:52px;height:16px;line-height:16px;margin-top:12px;float:left;display:inline}
+.send_pmsg_box .register_row .validate_code{width:280px;height:38px;float:left}
+.send_pmsg_box .register_row .validate_code span{float:left;margin-right:5px}
+.send_pmsg_box .register_row .validate_code .validate_input{width:70px;height:22px;border:1px solid #CCC;margin-top:8px;float:left}
+.send_pmsg_box #checkCodeImage{width:127px;height:38px;border:0px}
+.send_pmsg_box .send_pmsg_box_button{padding:15px 0 10px 65px;float:left}
+.send_pmsg_box .send_pmsg_box_submit{background:url('http://stc-tx.meiliworks.com/css/images/survey/confirm1.gif') no-repeat 0 0;width:97px;height:28px;line-height:28px;cursor:pointer;text-align:center;color:#FFF;font-size:14px;font-weight:bold}
+.send_pmsg_box_msgBox{color:#e23d02;margin-top:4px;background:url('http://stc-tx.meiliworks.com/css/images/error.png') no-repeat 0 0;padding-left:16px;height:14px;line-height:14px;display:none}
+.pmsg_list_wrap{margin-top:10px;width:625px;min-height:800px;height:auto!important;height:800px}
+.pmsg_list_title{height:30px;line-height:30px;padding-left:25px;width:100%;font-size:16px;font-weight:bold}
+.pmsg_list_sendPmsg_button{margin-top:9px;width:68px;height:19px;float:right;background:url('http://stc-tx.meiliworks.com/css/images/sendPmsgButton.gif') no-repeat 0 0;cursor:pointer}
+.pmsg_list_goBack_button{height:26px;line-height:40px;margin-left:25px}
+.pmsg_list_goBack_button a{font-size:12px;font-style:arial;color:#f69}
+.pmsg_one_msg_info{width:605px;margin:5px auto;margin-left:25px;height:auto;border-top:1px #CCC solid;font-size:12px}
+.pmsg_one_msg_info_0{font-size:12px;height:auto;margin:5px auto 5px 25px;width:605px}
+.pmsg_list_goBack_button , .pmsg_one_msg_info a{font-size:12px;color:#0066FF}
+.pmsg_one_msg_info_avatar{margin-top:20px;width:70px;float:left;height:auto;clear:both}
+.pmsg_one_msg_info_content{margin-top:16px;margin-left:10px;border:0px solid;height:auto;width:500px;line-height:20px;font-size:12px;color:#666666}
+.pmsg_one_msg_info_content a{color:#f69;font-size:12px}
+.pmsg_one_msg_info_toolbar{margin-right:0px;height:16px;width:600px;text-align:right;color:#f69;clear:both}
+.pmsg_one_msg_info_toolbar_1{height:16px;width:400px;clear:both}
+.pmsg_one_msg_info_toolbar a{ color:#f69}
+.pmsg_one_msg_info_delete{width:20px;text-align:top;float:right;display:none}
+.pmsg_one_msg_info_delete a{font-size:16px;color:#f69}
+#pop_login_box{width:390px;padding:2px 0px;background:transparent url(http://stc-tx.meiliworks.com/css/images/reg/pop_login_bg.gif) repeat 0 0}
+ #pop_login_box .pop_login_table{ width:370px;height:250px;margin:10px;background-color:#FFF}
+ #pop_login_box .pop_login_table .pop_login_header{ height:30px;color:#F36;font-size:15px;background-color:#CCC;font-weight:bold}
+ #pop_login_box .pop_login_table .pop_login_hint{ color:#930;padding-left:10px}
+ #pop_login_box .pop_login_table .pop_login_headertext{ padding-left:10px}
+ #pop_login_box .pop_login_table .pop_login_close{ padding-left:50px}
+ #pop_login_box .pop_login_table .pop_login_close a{ color:#F36}
+ #pop_login_box .pop_login_table .pop_login_content{ height:60px;padding:0px 20px;line-height:19px}
+ #pop_login_box .pop_login_table .pop_login_bodytext{ padding-left:20px}
+ .pop_login_bodytext a{ font-size:12px}
+ #pop_login_box .pop_login_table .pop_login_Input{ width:200px;border-top:1px solid #C7C7C5;border-left:1px solid #D4D4D2;border-bottom:1px solid #F3F3F3;border-right:1px solid #F0F0F0;margin-top:10px;margin-bottom:5px;height:22px}
+ #pop_login_box .pop_login_table .pop_login_submit{ background:transparent url(http://stc-tx.meiliworks.com/css/images/reg/pop_login_submit.jpg) no-repeat 0 0;width:70px;height:25px;border:0px;color:#FFF;font-size:14px;margin:15px 5px;cursor:pointer}
+ #pop_login_box .pop_login_table .pop_login_register{ background:transparent url(http://stc-tx.meiliworks.com/css/images/reg/pop_login_register.jpg) no-repeat 0 0;width:90px;height:25px;border:0px;color:#FFF;font-size:14px;margin-top:15px;margin-bottom:15px;cursor:pointer}
+ .pop_login_register_n{ background:transparent url(http://stc-tx.meiliworks.com/css/images/apply_innertest_ico_xs.jpg) no-repeat 0 0;width:121px;height:28px;border:0px;color:#FFF;font-size:14px;cursor:pointer}
+.for_comm_zf{ border:1px solid #ccc;margin-top:6px;font-size:12px;height:92px;overflow:auto;width:325px;padding:5px}
+.apply_innertest_utterance{border:1px solid #eaeaea;width:580px}
+.shadow{ float:left}
+.shadow .shadowbox{ display:block;background:url(http://stc-tx.meiliworks.com/css/images/log_in/4.gif) no-repeat bottom right;background-color:#fff;width:627px;height:915px!important;height:925px;margin-left:20px}
+*+html .shadow .shadowbox{ height�?915px;margin-top:10px}
+.apply_innertest_guild{text-align:center;margin-top:20px;margin-left:150px;width:322px;height:23px;padding-top:25px}
+*+html .apply_innertest_guild{margin-top:0px;padding-top:20px;width:322px;height:23px}
+.apply_innertest_guild h2{font-size:23px}
+.return_to_home_page{float:left;font-size:12px;padding-top:5px}
+.return_to_home_page a{font-size:12px}
+.apply_introduce{margin-top:20px;color:#343434;font-size:12px;line-height:250%}
+.the_details_of_user{margin-left:1px}
+.the_sex_of_user{padding-top:10px;padding-bottom:20px;padding-left:10px}
+.the_fav_web_of_user{padding-top:20px}
+.the_fav_web_of_user_detail{padding-left:10px}
+.test_apply_img{background:transparent url(http://stc-tx.meiliworks.com/css/images/applay_test.png) no-repeat 0 0;width:297px;height:208px;margin-right:20px}
+.submit_apply_innnertest{ background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/apply_innner_test_submit.png) no-repeat 0 0}
+.submit_alert_chose_yes{ background:transparent url(http://stc-tx.meiliworks.com/css/images/search/s_btn.gif) no-repeat 0 0}
+.submit_alert_chose_yes_tab{ background:transparent url(http://stc-tx.meiliworks.com/css/images/confirm_ok.jpg) no-repeat 0 0}
+.submit_alert_trans_yes{ background:transparent url(http://stc-tx.meiliworks.com/css/images/search/s_btn.gif) no-repeat 0 0}
+.submit_alert_chose_no{ background:transparent url(http://stc-tx.meiliworks.com/css/images/search/s_cel.gif) no-repeat 0 0}
+.submit_apply_innnertest_suc{ background:transparent url(http://stc-tx.meiliworks.com/css/images/reg/pop_login_bg.gif) repeat 0 0;top:100px;left:500px;width:351px;height:160px;z-index:99;zoom:1;padding-top:10px;padding-left:10px;display:none;position:absolute}
+.submit_apply_innnertest_suc span{position:absolute;right:3px;top:3px;display:block;cursor:pointer;color:#fff;font-weight:bold}
+.submit_apply_innnertest_suc p{padding:5px}
+.del_conform{display:none;padding-left:10px;position:absolute;z-index:9999}
+.sina_renren_outer{width:355px;height:auto;background:transparent url(http://stc-tx.meiliworks.com/css/images/alert/background.png) repeat 0 0}
+.sina_renren_inner{margin:5px}
+.submit_apply_innnertest_alert{ top:0px;left:300px;;width:370px;z-index:11;zoom:1;padding:7px;position:relative}
+.submit_apply_innnertest_alert_css_change{ background:transparent url(http://stc-tx.meiliworks.com/css/images/alert/background.png) repeat 0 0;top:0px;left:300px;;width:355px;height:178px;z-index:11;zoom:1;padding-top:10px;padding-left:10px;position:relative}
+.submit_apply_innnertest_alert_css_change__no_fasten{ background:transparent url(http://stc-tx.meiliworks.com/css/images/alert/background.png) repeat 0 0;top:0px;left:300px;;width:355px;z-index:11;zoom:1;padding-top:10px;padding-left:10px;position:relative}
+.submit_apply_innnertest_trans{ top:0px;left:300px;;z-index:11;zoom:1;padding:7px;position:relative}
+.submit_apply_innertest_prompt{ background-color:#eaeceb;color:#666;font-size:14px;font-weight:bold;height:36px;line-height:36px;padding:0 10px;width:350px}
+.submit_apply_innertest_gobackhp{background:#ffffff;width:350px;font-size:14px;padding:0 10px 20px 10px;z-index:100}
+.submit_apply_innertest_gobackhp_css_change{background:#ffffff;color:#333333;width:336px;height:141px;font-size:14px;padding-left:10px;z-index:100}
+.submit_apply_innertest_gobackhp_css_change_no_fasten{background:#ffffff;color:#333333;width:336px;font-size:14px;padding-left:10px;z-index:100}
+.submit_apply_innertest_gobackhp span{color:#000000;font-weight:bold;position:relative;cursor:point}
+.juc_confirm_mark{width:20px;height:20px;text-align:center;padding:0 10px 0 40px}
+.green_confirm_context{width:240px;height:50px;text-align:center;line-height:26px}
+.interest_promt{width:240px;height:50px;text-align:center;padding-left:40px;line-height:26px;color:#333333;font-size:12px;font-weight:lighter}
+.interest_promt_1{width:240px;text-align:center;padding-left:40px;line-height:26px;color:#333333;font-size:12px;font-weight:lighter}
+.interest_promt_3{width:260px;line-height:16px;color:#333333;font-size:12px}
+.interest_promt_3 a{font-size:12px}
+.interest_promt_2{width:240px;text-align:center;padding-left:40px;line-height:26px;color:#333333;font-size:12px}
+.interest_promt_2 a, .interest_promt_2 a:hover{font-size:12px;color:#eb85a9;text-decoration:underline}
+.green_alert_right_context{font-weight:bold;width:240px;height:50px;text-align:center;padding-left:30px;line-height:20px}
+.submit_apply_innnertest_tab1{ width:150px;height:32px;border:0px;color:#FFF;font-size:14px;margin:5px 0px 5px 4px;cursor:pointer;margin-left:30px}
+.submit_apply_innnertest_tab2{ width:64px;height:25px;line-height:24px;border:0px;color:#FFF;font-size:14px;cursor:pointer;margin:16px 3px 0}
+.submit_bg_box{background:#000000;left:0;opacity:0.5;filter:alpha(opacity=50);opacity:0.5;position:absolute;top:0;z-index:10}
+.confirm_bg_box{background:#FFFFFF;left:0;opacity:0.1;filter:alpha(opacity=10);position:absolute;top:0;z-index:-1}
+.share_with_friends{width:641px;height:30px;line-height:29px;border:1px solid #eaeaea;background:transparent url(http://stc-tx.meiliworks.com/css/images/share/sharebackground.gif) repeat;margin-top: -5px}
+.share_on_sina{margin-left:10px;line-height:29px;width:80px;height:30px;color:#0199ca;float:left;font-size:12px;font-style:宋体;padding-top:1px;padding-left:10px}
+.share_tofsby_web{width:79px;height:20px;line-height:20px;float:left;overflow:hidden;cursor:pointer;margin-top:5px}
+.share_tofsby_web_font{color:#000000;font-size:12px;float:left;padding-left:4px;padding-top:0px!important;padding-top:2px;cursor:pointer}
+*+html .share_tofsby_web_font{margin-top:1px;float:left;cursor:pointer}
+.share_tofsby_web_font_ico{padding-top:2px!important;padding-top:3px;float:left;cursor:pointer}
+*+html .share_tofsby_web_font_ico{float:left;cursor:pointer}
+.share_on_the_web{width:75px;height:26px;position:absolute;display:none}
+.click_to_show_backgound{height:18px;width:61px;padding-left:6px;float:right;padding-top:2px!important;padding-top:3px;background:#FFFFFF}
+*+html .click_to_show_backgound{height:18px;margin-top:1px}
+.click_to_show_backgound a{font-size:12px}
+.user_base_data{height:30px;width:596px;background:#E8E8E8;font-size:14px;font-weight:bold}
+.same_prompt{padding-left:50px;padding-top:10px}
+.sidebarApply{background:#FFFFFF;width:300px;position:absolute;left:620px}
+.sidebarApply h2{font-size:20px;font-weight:bold;margin-top:20px}
+.sidebarApply h3{font-size:16px;font-weight:bold;margin-top:20px}
+.pic_communicate{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/2.gif) no-repeat;width:106px;height:97px;float:left;margin-top:10px}
+.pic_communicate_r{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/3.gif) no-repeat;width:110px;height:97px;float:right;margin-top:10px}
+.pic_communicate_l{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/4.gif) no-repeat;width:106px;height:97px;float:left;margin-top:40px}
+.input_box{width:280px;height:25px;border:1px solid #879cb1 }
+.pic_communicate_t{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/5.gif) no-repeat;width:966px;height:158px}
+.apply_frame{width:968px;position:relative}
+.whyneedus{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/7.gif) no-repeat;width:191px;height:20px;margin-top:20px}
+.why_vip_must_apply{background:transparent url(http://stc-tx.meiliworks.com/css/images/apply/8.gif) no-repeat;width:231px;height:20px;margin-top:20px}
+.user_addr{width:150px;height:30px;float:left}
+.make_friend_with_HQ_table{display:none;position:absolute;z-index:999}
+.make_friends_with_HQ{width:443px;height:296px;background:url("http://stc-tx.meiliworks.com/css/images/reg/pop_login_bg.gif") repeat scroll 0 0 transparent;opacity:0.9;filter:alpha(opacity=90);opacity:0.9;position:absolute;left:0px;top:0px}
+.make_friends_with_HQ_top{width:427px;height:31px;background:#c8c8c8;margin-left:8px;margin-top:10px}
+.make_friends_with_HQ_promt{font-size:14px;font-weight:bold;line-height:30px;margin-left:16px!important;margin-left:8px;float:left}
+.make_friends_with_HQ_close{float:right;margin:8px!important;margin:4px;width:10px;height:9px;cursor:pointer}
+.make_friends_with_HQ_content{width:427px;height:245px;background:#ffffff;margin-left:8px}
+.make_friends_with_HQ_font_1{font-size:14px;width:305px;height:18px;float:left}
+.make_friends_with_HQ_font_2{font-size:14px;width:305px;height:37px;float:left;margin-top:10px}
+.checkbox_for_user{}
+.make_friends_with_HQ_font_3{font-size:14px;width:305px;height:37px;float:left;margin-top:20px}
+.make_friends_with_HQ_fv{width:64px;height:64px;float:left;margin-left:16px!important;margin-left:8px;margin-top:20px}
+.make_friends_with_HQ_blank{width:312px;height:189px;float:left;margin-top:20px;margin-left:30px!important;margin-left:15px}
+.make_friends_with_HQ_cancel{float:left;line-height:30px;margin-left:20px!important;margin-left:10px}
+.apply_wait{width:895px;height:128px;border:1px solid #b5b5b4;margin:30px;background-color:#fffecb}
+ .apply_wait .apply_title{ color:#ff3366;font-size:20px;font-weight:bold;margin:20px}
+ .apply_wait .apply_content{ margin-left:20px;color:#333;line-height:20px}
+.apply_beatifulweek{margin:20px 30px 30px 30px;color:#333}
+.apply_tips{border-top:1px dashed #999;border-bottom:1px dashed #999;margin:20px;width:925px}
+ .apply_tips .tips{ font-weight:bold;font-size:15px;color:#ff9900;margin:20px}
+ .apply_tips .apply_tips_title{ margin:10px 20px;font-weight:bold}
+ .apply_tips .apply_tips_content{ margin:5px 20px 35px 20px;color:#666}
+.apply_backbutton{cursor:pointer;margin:30px 400px;background:url("http://stc-tx.meiliworks.com/css/images/apply/apply_back.gif") repeat scroll 0 0 transparent;height:30px;width:200px;border:0px}
+.twitter_tools_button_face{float:left;width:65px;height:24px;cursor:pointer;background:url(http://stc-tx.meiliworks.com/css/images/editor/2nd/express_btn2.gif) no-repeat}
+.twitter_tools_button_goods{width:94px;height:25px;position:absolute;cursor:pointer;left:185px;top:0px}
+.twitter_tools_faces_table_reply{padding-top:30px;height:25px;width:45px;cursor:pointer}
+.twitter_tools_faces_table_div{position:absolute;z-index:995;left:0px;top:24px}
+.facetableSetxy{width:24px;height:24px}
+.twitter_tools_faces_reply_table_div{position:absolute;left:-57px;z-index:999}
+.border_top_tools_faces_table{background-image:url('http://stc-tx.meiliworks.com/css/images/face/border_top.gif');width:350px;height:15px;display:none}
+.twitter_tools_faces_table{display:none;width:350px;height:178px;background:#7f7f7f;filter:alpha(opacity=90);opacity:0.9}
+.twitter_tools_faces_table_0{display:none;width:350px;height:188px;background:url('http://stc-tx.meiliworks.com/css/images/face/face_table.gif') no-repeat}
+.twitter_tolls_faces_table_1{width:340px;height:166px;margin-left:2px;background:#ffffff;top:12px;position:relative}
+#twitter_tools_emotion{}
+.face_list{width:296px;heigth:140px;float:left;overflow:hidden;margin-top:10px;margin-left:8px;border:1px solid #cccccc;font-size:0;display:inline}
+.returnBack{float:right;cursor:pointer;margin:10px!important;margin:5px}
+.returnBack_reply{float:right;cursor:pointer;margin:6px!important;margin:3px}
+.twitter_tools_faces_table_0 .face_list li{border:1px solid #cecece;cursor:pointer;float:left;height:35px;width:35px;margin:0px;display:inline}
+.face img{border:1px solid silver;width:64px;height:64px}
+.fm_sdb_content .nickname{font-size:12px}
+#userMsg{}
+#userMsg a{color:#000;font-size:12px}
+.userMsg_middle{width:187px;background-color:#ffffcc;border:1px solid #ffe67f;position:relative;z-index:999}
+.userMsg_middle .click_close{width:10px;height:9px;cursor:pointer;position:absolute;background:url("http://stc-tx.meiliworks.com/css/images/icons/close.gif") no-repeat;top:9px;right:10px}
+.userMsg_oneline{width:169px !important;width:169px;padding:2px 10px;line-height:20px}
+.userMsg_oneline .red_heart{ width:16px;height:15px;background:url("http://stc-tx.meiliworks.com/css/images/twitter/ILikeit.gif") no-repeat;padding:1px 0 0 16px;*padding-top:0;vertical-align:middle}
+.userMsg_oneline span{ font-weight:bold}
+.dialog, .submit_apply_innnertest_trans, .popup_div_window, #label-popwin, .beaty-declaration, .submit_apply_innnertest_alert, .medal_alert,#person-style-edit,#pop_ask_box{ background-color:rgba(102,102,102,0.5);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#70666666,endcolorstr=#70666666)}
+.dialog{ min-width:300px;_height:150px;min-height:150px;position:fixed;_position:absolute;padding:7px;z-index:999}
+.dialog .wrapper{ position:relative}
+.dialog .wrapper .title, .popup_div_window_title, #label-popwin .label_top, .beaty-declaration .beaty_wrapper, #person-style-edit .style-title, #dialogTitle{ background:#eaeceb;font-size:14px;font-weight:bold;height:36px;line-height:36px;padding:0 10px}
+.dialog .wrapper .content{ min-height:130px;_height:130px;background:#FFF}
+.close_z, .close_q_o{ width:11px;height:11px;background:url(http://stc-tx.meiliworks.com/css/images/person/close.gif) no-repeat;cursor:pointer;display:block;margin-top:12px}
+.close_w{ width:12px;height:12px;background:url(http://stc-tx.meiliworks.com/css/images/home/close_w.gif) no-repeat;cursor:pointer;display:block}
+.dialog .dialog_ok_btn{ width:64px;height:23px;background:url("http://stc-tx.meiliworks.com/css/images/settings/verify_sure.gif") no-repeat;border:none;cursor:pointer}
+.from_otherweb{ width:271px;height:66px;background:url("http://stc-tx.meiliworks.com/css/images/dialog/from_360.gif") no-repeat;padding:14px 0 14px 100px;margin-left:52px;_margin-left:26px;display:inline}
+.from_otherweb .wel_tips{ line-height:25px}
+.poster_pop{ line-height:20px;padding:20px 50px;width:300px}
+.poster_pop .p_info{ border:1px dashed #ddd;line-height:18px;overflow:hidden;padding:12px}
+.poster_pop .p_info p{ margin-left:40px}
+.poster_pop .p_info p span{ padding:0 8px 0 5px}
+.poster_pop .p_info .heart{ background:url(http://stc-tx.meiliworks.com/css/images/twitter/ILikeit.gif) no-repeat;padding-left:18px}
+.poster_pop .btnBox{ height:25px;margin:14px auto 0;width:150px}
+.poster_pop .btnBox .next_say{ padding-left:15px}
+#pop_login_content{ width:450px;padding:20px 25px;background-color:#fff;overflow:hidden}
+#popLoginForm .dashed{ border-bottom:1px dashed #CCC}
+#popLoginForm .area{ margin-top:15px;white-space:nowrap}
+#popLoginForm .area input{ padding:0 5px}
+#popLoginForm .c_textbox{ width:168px;border:1px solid #ccc;height:22px}
+#popLoginForm .login{ width:178px;height:30px;margin:10px auto 0;text-align:left}
+#popLoginForm .login_btn{ width:62px;height:30px;border:0;background:url("http://stc-tx.meiliworks.com/css/images/submit_QQ.gif") no-repeat 0 -22px;margin-right:10px}
+#popLoginForm .login a{ display:block;height:30px}
+#pop_login_content .mt50{ margin-top:50px}
+#logon_hint_logon span{ display:block;margin-top:10px}
+#popLoginForm .lgn_QQ, #popLoginForm .lgn_weibo, #fromGoogle .lgn_QQ, #fromGoogle .lgn_weibo, #fromRenren .lgn_rr, #fromQQ .lgn_QQ, #fromWeibo .lgn_weibo{ width:174px;height:42px;background:url(../img/lgn_icons.gif) no-repeat 0 0;display:block;margin:0 5px;text-indent:-999em}
+#popLoginForm .lgn_QQ, #fromGoogle .lgn_QQ{ background-position:0 -111px;margin-left:45px;_display:inline}
+#popLoginForm .lgn_weibo, #fromGoogle .lgn_weibo{ background-position:0 -156px}
+#fromQQ .lgn_QQ, #fromWeibo .lgn_weibo, #fromRenren .lgn_rr{ width:214px;height:53px;margin:0 auto}
+#fromQQ .lgn_QQ{ background-position:0 0}
+#fromWeibo .lgn_weibo{ background-position:0 -55px}
+#fromRenren .lgn_rr{ background-position:-237px 0}
+.login_Q{ background:url("http://stc-tx.meiliworks.com/css/images/submit_QQ.gif") no-repeat 0 -1px;padding:1px 6px 3px}
+.login_sina{ background:url("../img/h_sou.png") no-repeat 0 -55px;padding:3px 6px}
+#logon-pop-wrap{ width:918px;z-index:999;background-color:rgba(255,236,240,0.8);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#ccFFECF0,endcolorstr=#ccFFECF0);color:#666;padding:10px 24px 15px;position:fixed;_position:absolute;top:0px}
+.f960 #logon-pop-wrap{ width:900px}
+#logon-pop-wrap .click_close{position:absolute;cursor:pointer;right:10px;top:10px;width:10px;height:10px;background:url("http://stc-tx.meiliworks.com/css/images/icons/close.gif") no-repeat scroll 0 0 transparent}
+.logon-pop-desc{ height:30px;font-family: "Microsoft Yahei","微软雅黑","黑体"}
+.pop_login2{ width:100%;color:#666;font-size:14px;line-height:30px;overflow:hidden}
+.pop_login2 span{ float:left;padding-right:10px}
+.pop_login2 span label{ font-size:18px;font-family: "Microsoft Yahei","微软雅黑","黑体";font-weight:bold;*position:relative;*top: -5px}
+.pop_login2 .pop-qq{ margin-left:8px}
+.pop_login2 .btn{ height:31px;background:url(http://stc-tx.meiliworks.com/css/images/dialog/popup1.png) no-repeat;border:none;cursor:pointer;float:left}
+.pop_login2 .l_login,.pop_login2 .l_reg{ width:84px;height:34px;background:url(http://stc-tx.meiliworks.com/css/images/wlc_new/wlc_ico.png) no-repeat;border:none}
+.pop_login2 .l_login{ background-position:0 -46px}
+.pop_login2 .l_reg{ background-position: -112px -46px}
+.pop_login2 .logon-input{ width:160px;height:28px;background:#fff;border:1px solid #f69;color:#999;line-height:28px;padding:0 2px}
+.dl_weibo{ width:750px;margin:0 auto}
+.dl_weibo dd{ width:670px;height:25px;font-size:16px;line-height:25px;padding:20px 0 0 12px}
+.dl_weibo .s_w{ width:126px;height:24px;background:url(http://stc-tx.meiliworks.com/css/images/connect/linksina.png) no-repeat;display:inline-block;margin:0 5px;position:relative;top:5px;*top:3px}
+.pop_face{ width:36px;height:32px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/pop_nface.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://stc-tx.meiliworks.com/css/images/twitter/pop_nface.png', sizingMethod='scale');_background-image:none;display:none}
+.pop_heart{ width:78px;height:56px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/pop_heart.png) no-repeat;padding:28px 15px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://stc-tx.meiliworks.com/css/images/twitter/pop_heart.png', sizingMethod='scale');_background-image:none;display:none}
+.pop_heartd{ width:90px;height:56px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/pop_heart.png) no-repeat;padding:32px 8px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://stc-tx.meiliworks.com/css/images/twitter/pop_heart.png', sizingMethod='scale');_background-image:none;display:none}
+.pop_qin{ width:32px;height:20px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/pop_qin.png) no-repeat;margin:5px 0 0 15px;*margin-top:2px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://stc-tx.meiliworks.com/css/images/twitter/pop_qin.png', sizingMethod='scale');_background-image:none}
+.pop_qind{ margin:0px}
+.pop_heart a, .pop_heart a:hover{ line-height:16px;text-decoration:underline}
+.pop_heartd .pop_liked{ line-height:20px;white-space:nowrap}
+.pop_heartd .pop_det{ line-height:22px;text-decoration:underline;white-space:nowrap;padding-left:26px}
+.pop_heartd .pop_det:hover{ color:#666;text-decoration:underline}
+#header_float{ width:306px;height:147px;z-index:999}
+.header_con{ width:304px;height:145px;border:1px solid #DDD;background-color:#fff;position:relative;z-index:99}
+.header_corner{ width:17px;height:9px;background:url(http://stc-tx.meiliworks.com/css/images/dialog/header_float.gif) -66px 0 no-repeat;position:absolute;bottom: -8px;_bottom: -15px;z-index:100}
+.header_cornertop{ width:15px;height:9px;background:url(http://stc-tx.meiliworks.com/css/images/catalog/i.gif) no-repeat;position:absolute;top: -8px;z-index:100}
+#header_float .header_info{ width:284px;height:64px;padding:0 10px}
+#header_float .header_labels{ width:284px;height:16px;line-height:16px;padding:0 10px;overflow:hidden}
+#header_float .header_follow{ width:304px;height:35px;background-color:#F7F7F7}
+.header_follow span{ margin:9px 10px}
+.header_info .user_info{ width:214px}
+.user_info .user_data,.user_info .user_name{ height:22px;line-height:22px;overflow:hidden}
+.user_info .user_name{ font-weight:bold}
+.user_info .user_data{ width:100%}
+.user_info .user_online{ padding-left:20px}
+.user_data .h_number{ height:15px;background:url(http://stc-tx.meiliworks.com/css/images/twitter/likebg.gif) 0 -24px no-repeat;padding-left:17px}
+.user_data span{ padding-right:5px}
+.header_labels a{ padding-right:10px;white-space:nowrap}
+.loadding{ margin:45px 0 10px 135px}
+.zero_follow{ background:#fff;height:525px;width:605px}
+.zero_follow .zero_t{ height:65px;padding:20px 14px 0}
+.zero_follow .zero_t .nick{ font-size:16px;line-height:25px}
+.zero_follow .zero_t .close_z{ right:14px;top:2px}
+.leben{ background:url(../img/leben.gif) no-repeat;height:65px;width:55px}
+.zero_follow .zero_c{ overflow:hidden}
+.zero_follow .zero_c li{ background: -moz-linear-gradient(#FFFCFC, #F1EFEF);background: -webkit-linear-gradient(#FFFCFC, #F1EFEF);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFFCFC,endcolorstr=#F1EFEF);border:1px solid #ddd;float:left;height:64px;margin:12px 0 0 14px;_display:inline;padding:8px;width:263px}
+.zero_follow .zero_c li p{ height:21px;line-height:21px;overflow:hidden}
+.zero_follow .zero_c li p a{ margin-left:1px}
+.zero_follow .zero_c li .sel_box{ right: -2px}
+.likeit{ background:url(http://stc-tx.meiliworks.com/css/images/twitter/likebg.gif) no-repeat 0 -24px;padding-left:17px}
+.zero_fsuc{ background:#fff}
+.qbi-first, .qbi-second, .qbi-third, .qbi-failed{ height:230px;padding:20px 20px 5px}
+.qbi-failed{height:110px}
+.qbi_ico1, .qbi_ico2, .qbi_ico3{ background:url(http://stc-tx.meiliworks.com/css/images/dialog/qqb.gif) no-repeat;display:inline-block}
+.qbi_ico1{ background-position:0 -75px;height:85px;width:112px}
+.qbi_ico2{ background-position:0 -36px;height:35px;width:160px}
+.qbi_ico3{ background-position:0 0;height:35px;margin-left:8px;width:240px}
+.qbi_bg{ background:url("http://stc-tx.meiliworks.com/css/images/dialog/from_360.gif") no-repeat -81px -5px;font-size:16px;height:51px;line-height:26px;padding:8px 15px;width:270px}
+.m30{ margin:30px 0}
+.qbi_border{ border:1px solid #ddd;height:18px}
+.qbi_sure{ background:url("http://stc-tx.meiliworks.com/css/images/search/s_btn.gif") no-repeat;color:#FFFFFF;display:inline-block;height:25px;line-height:25px;text-align:center;width:61px}
+.qbi_sure:hover{ color:#fff}
+.qq_jf{ background:url(http://stc-tx.meiliworks.com/css/images/collect/qq_bg.gif) no-repeat;height:81px;padding-top:15px;margin:0 auto 5px;width:271px}
+.qq_jf p{ font-size:16px}
+.lgn_QQ{ height:25px;margin:0 auto;width:65px;overflow:hidden}
+.selectPanel{ width:250px}
+.select{ background: -moz-linear-gradient(#ffffff, #FFF1F5);background: -webkit-linear-gradient(#ffffff, #FFF1F5);*filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#ffffff,endcolorstr=#FFF1F5);box-shadow:1px 1px 4px rgba(255, 215, 228, 0.9);border:1px solid #FFD7E4;cursor:pointer;height:30px;line-height:30px;width:288px}
+.selectbg{ background: -moz-linear-gradient(#FFF7FB, #FFEAF1);background: -webkit-linear-gradient(#FFF7FB, #FFEAF1);*filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFF7FB,endcolorstr=#FFEAF1)}
+.options{ cursor:pointer;width:288px;border:1px solid #ccc;position:absolute;z-index:1000;display:none;background:#fff;box-shadow:0 1px 5px rgba(34, 25, 25, 0.5);-webkit-box-shadow:rgba(34, 25, 25, 0.5) 0px 1px 5px;margin-top: -32px}
+.options ul{ overflow-y:scroll;height:140px\9;max-height:224px}
+.options ul li{ font-size:16px;height:28px;line-height:28px;overflow:hidden;padding:0 5px;word-wrap:break-word}
+.selectBtn{ background:url(http://stc-tx.meiliworks.com/css/images/home/maga_zf.gif) no-repeat 0 -50px;width:20px;height:25px;float:right}
+.selectText{ float:left;font-size:16px;height:30px;overflow:hidden;padding-left:5px;width:250px}
+.maga_con{ background:#fff;height:180px;padding:20px;_overflow:hidden}
+.maga_img{ height:180px;width:180px}
+.maga_cr{ padding-left:10px;width:290px}
+.maga_cr .maga_area{ border:1px solid #ccc;font-size:14px;height:90px;padding:4px;width:280px}
+.maga_cr .maga_zf{ height:28px;line-height:28px}
+.top_ipt{ top:2px}
+.maga_crb{ background:#F2F0F0;border-top:1px solid #ccc;padding:6px;widht:150px}
+.mc_ipt{ border:1px solid #ccc;font-size:16px;height:19px;padding:5px;width:198px}
+.maga_suc{ background:#fff;padding:40px 0;width:370px}
+.maga_suc .ms_ico{ background:url(http://stc-tx.meiliworks.com/css/images/home/maga_zf.gif) no-repeat 0 0;padding:2px 0 2px 25px}
+.message{ height:25px;background-color:#f69;color:#fff;line-height:25px;position:absolute;filter:alpha(opacity = 70);opacity:0.7;padding:0 5px;white-space:nowrap}
+.sj_btn{ background:url(http://stc-tx.meiliworks.com/css/images/group/tc_btn.png) no-repeat;height:32px;line-height:30px;width:62px}
+.pickup{ background:#ffc;border:1px solid #FFE67F;font-size:14px;overflow:hidden;padding:9px;width:500px}
+.add_share{ background:#fff;width:520px}
+.share_goods, .share_pic, .new_magazine{ background:url(http://stc-tx.meiliworks.com/css/images/editor/4rd/share_ico.png) no-repeat;border-right:1px solid #ccc;color:#f69;float:left;font-size:20px;font-weight:bold;height:55px;padding-top:135px;width:172px}
+.share_goods{ background-position:50px 28px}
+.share_pic{ background-position: -110px 28px}
+.new_magazine{ background-position: -270px 28px;border-right:none}
+.share_goods:hover, .share_pic:hover, .new_magazine:hover{ background-color:#F8F8F8}
+.add_share_goods, .addGoodsShare{ background:#fff;padding:20px;width:480px}
+.add_share_goods ul{ _margin-top:4px}
+.add_goods_url{ width:400px;height:20px;background:#fff;border:1px solid #ddd;color:#666;float:left}
+.add_goods_btn{ width:60px;border:none;float:left;margin-left:10px;_display:inline;padding:3px 0;*padding:3px 0 2px}
+.up_photos, .up_photosing{ background:url(http://stc-tx.meiliworks.com/css/images/editor/4rd/share_pic.png) no-repeat;height:34px;line-height:33px;width:109px}
+.up_photosing{ background-position:0 -36px}
+.maga_title{ border:1px solid #ccc;height:18px;padding:5px 0 5px 2px;width:215px}
+.popup{ position:absolute;z-index:101}
+.smileys{ width:420px;background:#fff;border:1px solid #ddd;display:none;padding:8px}
+.smileys ul .smiley{ width:35px;height:32px;border:1px solid #EDEDED;cursor:pointer;float:left;margin:1px 0 0 1px;_display:inline;padding:1px 0;text-align:center}
+.shadow{ box-shadow:2px 2px 3px #CAC8C8;filter:progid:DXImageTransform.Microsoft.Shadow( color="#dddddd",Direction=135,Strength=3)}
+.share_smileys{ background:url(http://stc-tx.meiliworks.com/css/images/editor/4rd/icon.gif) no-repeat -50px 0;padding:1px 0 1px 25px}
+.smileys_active{ background-position: -50px 3px;border:1px solid #ddd;border-bottom:none;padding:3px 3px 3px 25px;position:relative;z-index:100000}
+#maskLayer{top:0;left:0;background:#fff;filter:alpha(opacity=80);opacity:0.8;position:absolute;z-index:9999}
+#dialogLayer{padding:7px;position:absolute;background-color:rgba(102,102,102,0.5);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#70666666,endcolorstr=#70666666);z-index:10000}
+#dialogTitle{ width:500px}
+#dialogContent{width:520px;background:#fff;overflow:hidden}
+#magaTyepList li{ float:left;padding-right:12px;white-space:nowrap}
+.ac_results{padding:0px;border:1px solid #FD5C86;background-color:white;overflow:hidden;z-index:99999}
+.ac_results ul{width:100%;list-style-position:outside;list-style:none;padding:0;margin:20px 0 0 0}
+.ac_results li{margin:0px;padding:2px 5px;cursor:default;display:block;font:menu;font-size:12px;line-height:16px;overflow:hidden}
+.ac_loading{background:white url('indicator.gif') right center no-repeat}
+.ac_odd{background-color:#eee}
+.ac_over{background-color:#FD5C86;color:white}
+.twitter_navigation{border-bottom:1px solid #eee;line-height:31px;float:left;width:100%;background-color:#f9f9f9;position:relative;height:31px}
+.collect_twitter_Feed_header{width:680px;border-bottom:1px solid #eeeeee}
+.collect_twitter_Feed_header a{font-size:12px}
+.collect_twitter_Feed_header .twitter_Feed_header_text{width:660px !important;width:680px;font-size:15px;padding-left:20px;font-weight:bold;margin:10px 0px}
+.collect_twitter_Feed_header .twitter_Feed_header_content{width:640px !important;width:680px;font-size:12px;padding-right:40px;padding-bottom:7px;text-align:right}
+.twitter_Feed_header_content .current{color:gray}
+.no_fs_twitter .tip{padding:20px 10px;border:1px solid #fcf0bf;background-color:#fffbea;font-size:14px;letter-spacing:1px}
+.no_fs_twitter .tip a{text-decoration:underline}
+.no_fs_twitter .title{font-size:18px;color:#ff3366;margin:20px 0 10px 0}
+.no_fs_twitter .info{margin:0 0 10px 0;color:gray}
+.no_fs_twitter .action_panel{height:33px;line-height:33px;margin:20px 0}
+.no_fs_twitter .follow_all_btn{float:left}
+.no_fs_twitter .more{float:right;margin-right:10px;font-size:12px;text-decoration:underline}
+.no_fs_twitter .user_list{display:block;list-style:none}
+.no_fs_twitter .user_list .user_item{display:block;float:left;position:relative;width:280px;height:115px;padding-right:20px;border-bottom:1px dotted silver}
+.followDefault{height:30px;width:98px;background:url(http://stc-tx.meiliworks.com/css/images/activity/topbanner/focus.jpg) no-repeat 0 0;border:none;margin:10px 0 0 260px;cursor:pointer}
+.no_fs_twitter .user_list .user_item .chk{position:absolute;left:8px;top:92px}
+.no_fs_twitter .user_list .user_item .focus{position:absolute;left:24px;top:92px;*+left:27px ;*+top:97px;color:gray}
+.no_fs_twitter .allfocus{margin-left:8px;margin-top:10px;color:gray}
+.no_fs_twitter .user_list .user_item .avatar{position:absolute;top:20px;margin:0 !important}
+.no_fs_twitter .user_list .user_item .avatar img{width:64px;height:64px;border:1px solid silver}
+.no_fs_twitter .user_list .user_item .nickname{position:absolute;top:25px;left:75px;margin:0 !important;font-size:12px;color:#009ACA}
+.no_fs_twitter .user_list .user_item .desc{position:absolute;top:50px;left:75px;margin-right:5px;font-size:12px;color:gray}
+.no_fs_twitter .user_list .user_item .stat{position:absolute;top:70px;left:75px;font-size:12px;color:#666}
+.no_fs_twitter .user_list .user_item .follow_btn{position:absolute;top:20px;right:5px;display:block;width:55px;height:20px;padding:0 0 0 5px;border:1px solid #ffd6e3;line-height:20px;background-color:#fff1f6;font-size:12px;cursor:pointer}
+.no_fs_twitter .user_list .user_item .follow_btn:hover{text-decoration:none}
+.no_fs_twitter .user_list .user_item .follow_btn_followed{width:40px;padding-left:20px;border:1px solid #d7d7d7;background:#eaeaea url(http://stc-tx.meiliworks.com/css/images/findfs/followed.png) no-repeat 10% 50%;color:#666666}
+#twitter_show_top{clear:both;float:none;margin:0px 16px;width:650px}
+#twitter_show_top_tools{float:left;margin:20px 0px 10px 0px;height:20px}
+.twitter_show_top_tools_bar{position:absolute;height:30px;width:200px;top:0px;left:475px;border:0px solid}
+.pageFliper_bar{position:absolute;height:30px;width:200px;top:27px;left:445px}
+#twitter_show_top_tools label{cursor:pointer}
+#twitter_show_Refresh{margin:20px;padding-left:2px;text-align:center}
+.twitter-list-tabs{ background:url(../img/line.gif) repeat-x bottom;height:30px;line-height:30px;margin:14px 0 0;display:block;padding-left:10px}
+.twitter_show_Refresh_bar{position:absolute;height:30px;width:200px;top:24px;left:250px;border:0px solid}
+.twitter_show_subTab{position:absolute;height:30px;width:200px;top:26px;left:10px;border:0px solid;line-height:30px}
+#twitter_show_auto_switch{margin-left:10px;padding-left:2px}
+#twitter_show_page_prompt{font-size:12px;font-weight:bold;color:#FFF;text-align:left;padding:4px 10px;margin:0px;width:100%;position:fixed;left:0px;top:0px;background-color:#c2c2c2}
+#twitter_show_loading{margin:0px;padding:4px auto;font-size:18px;font-weight:bold;color:#FFF;background-color:#c2c2c2;text-align:center;height:60px;width:100%}
+#twitter_show_loading img{margin:4px}
+#twitter_prompt_num, .load_new_poster{ width:705px;height:30px;line-height:30px;margin:20px 0;text-align:right}
+#twitter_prompt_num a, .load_new_poster a{ background:#FFF0F4;color:#f69;display:block;font-size:14px;padding-right:10px;*padding-top:7px;position:relative}
+#twitter_prompt_num .tn_ico, .load_new_poster .tn_ico{ width:42px;height:52px;background:url(../img/gx_ico.gif) no-repeat;display:block}
+#twitter_prompt_num .tn_ico1{ position:absolute;top: -10px;right: -42px}
+.load_new_poster{ _overflow:hidden}
+.load_new_poster .tn_ico2{ position:relative;left:664px;*left:40px;top: -40px}
+#pageSkip{width:35px;height:20px;float:left;background:url(../img/skinpage2.gif);cursor:pointer;_margin-top:1px}
+.pageSkipNum{font-size:12px;margin:0px;color:#999999;font-size:12px;width:38px;height:18px;line-height:18px;border:1px solid #C7C7C7;padding:0 2px}
+.twitter_concern{width:664px;background-color:#FFF9F9;border:1px solid #FFE6E6;margin:20px 9px auto 9px;font-size:12px;float:left;display:inline;padding-bottom:10px}
+.twitter_concern ul li{overflow:hidden}
+.twitter_concern h4{font-size:12px;margin:10px auto 0px 7px;height:16px;line-height:16px}
+.twitter_concern .user_list{width:664px;display:block;list-style:none outside none}
+.twitter_concern .user_list .user_item{width:160px;height:76px;border:0px;margin:12px 0px 0px 5px;float:left;display:inline}
+.twitter_concern .user_list .user_item .chk{float:left;margin:0;padding:0;*position:relative;*top: -4px}
+.twitter_concern .user_list .user_item .avatar_wrapper{float:left;height:64px;margin-left:3px;*margin-left:0;width:64px}
+.twitter_concern .user_list .user_item .avatar_wrapper img{width:64px;height:64px}
+.twitter_concern .user_list .user_item .u_item_r{float:left;margin-left:5px;display:inline;width:70px;display:inline;text-align:left}
+.twitter_concern .user_list .user_item .u_item_r .user_nickname a{ font-size:12px;color:#FF3366}
+.twitter_concern .user_list .user_item .u_item_r .user_description{ line-height:15px;overflow:hidden}
+#twitter_show_list_header_pageNum{float:right;clear:right;margin:10px 0px 4px 0px;display:inline}
+#twitter_show_list_header_pageNum a{margin:2px 8px 0px 0px}
+#twitter_show_list_header_pageNum span{float:left;font-family: "Courier New", Courier, monospace;margin:0px 16px 0px 0px;color:#999999;text-decoration:none;font-size:16px;font-weight:bolder;line-height:22px;text-align:center}
+#twitter_show_list_foot_pageNum{margin:30px 0px 0 130px;overflow:hidden}
+#twitter_show_list_foot_pageNum a{ }
+#twitter_show_list_foot_pageNum span{margin:0px 10px 0px;font-family: "Courier New", Courier, monospace;color:#999999;font-size:24px;line-height:32px;font-weight:bolder;vertical-align:top}
+div#jumpdiv{font-size:12px !important;vertical-align:baseline;margin:6px 10px 0 0;_display:inline}
+#twitter_show_list_header_pageNum_black{float:right;height:26px;margin:10px 10px 10px 0px;line-height:26px}
+#twitter_show_list_header_pageNum_black a{float:left}
+#twitter_show_list_header_pageNum_black span{float:left;margin:0 20px;font-size:14px}
+#twitter_show_list_foot_pageNum_black{margin:20px;text-align:center}
+#twitter_show_list_foot_pageNum_black .btns{float:left;margin-left:60px;_display:inline}
+#twitter_show_list_foot_pageNum_black .btns span,#twitter_show_list_foot_pageNum_black .btns a{float:left;line-height:36px}
+#twitter_show_list_foot_pageNum_black span{font-weight:bold;font-size:20px;margin:0 30px}
+#twitter_show_list{clear:both;width:650px}
+#twitter_show_list .goods_title a{ color:#f69}
+#twitter_show_list_a{clear:both;width:650px;border-bottom:1px solid #ebebeb;margin-left:18px;;padding-top:5px}
+#twitter_show_list_topic{clear:both;width:650px;border-bottom:1px solid #ebebeb;margin-left:18px;;padding-top:5px}
+.a1{margin-right:5px}
+.good_show{background:url(../img/goto-arrow.jpg);background-position:6px right}
+.good_show a{color:#0033CC;text-decoration:none}
+#twitter_show_list_header_pageNum a,#twitter_show_list_foot_pageNum a{text-decoration:none;width:630px;font-size:12px;color:#000000}
+.twitter_note_list{clear:both;margin:4px 0 4px 72px;width:513px;position:relative;padding:10px 0 0}
+.twitter_note_list_t{margin:0px;width:511px;height:5px;overflow:hidden;background:url(../img/bg_r_top.jpg) no-repeat}
+.twitter_note_list .arrow_top{width:12px;height:10px;background:url(../img/arrow_top.gif) no-repeat 0 0;position:absolute;right:91px;top:1px}
+.twitter_note_list_c{overflow:hidden;margin:0px;padding:2px 10px;width:489px;background-color:#f5f5f5;border-right-width:1px;border-left-width:1px;border-right-style:solid;border-left-style:solid;border-right-color:#c2c2c2;border-left-color:#c2c2c2}
+.twitter_note_list_b{margin:0px;width:511px;height:16px;background:url(../img/twitter_reply_bottom.gif) no-repeat 0 0}
+.twitter_note{clear:both;margin:2px 0px 10px 5px;border-bottom-width:1px;border-bottom-style:dashed;border-bottom-color:#CCCCCC;padding-bottom:3px}
+.note_face{float:left}
+.note_face img{height:32px;width:32px}
+.note_content{float:left;padding-top:4px;margin-left:10px;width:400px;color:#666666;font-size:12px}
+.note_content .reply_style a{color:#f69}
+.note_content a{font-size:12px}
+.twitter_note_edit{position:relative;margin:4px 0;clear:both;height:75px}
+.twitter_note_edit .answer_text{position:absolute;top:8px;left:50px;width:333px;height:47px;padding:2px;border:1px solid #7f9db9;border-color:#c4c7bd #efefef #efefef #c4c7bd;font-weight:normal;font-size:12px;overflow:auto}
+.twitter_note_edit .answer_button{position:absolute;right:10px;top:9px;width:80px;height:23px;border:none;-webkit-border-radius:4px;border-radius:4px;background:#f69;color:#fff;cursor:pointer;font-weight:bold;line-height:24px;padding-bottom:3px}
+.twitter_note_edit .tip{color:gray;font-size:12px;left:50px;position:absolute;top:62px}
+.twitter_note_edit .note_limit{color:gray;font-size:12px;position:absolute;top:62px;right:100px}
+.twitter_note_edit .show_on_index{margin:8px 0px 0px 60px;height:20px;font-size:12px;color:#666;line-height:20px}
+.twitter_note_edit a{font-size:12px;text-decoration:none}
+.twitter_broadcast{margin:0px auto;background:#FBFCFC;width:630px;height:30px;color:#6F8D83;text-align:center}
+.broardcast_txt{margin-top:5px;line-height:28px;font-size:14px}
+#twitter_topic_botton{clear:both;width:650px;margin:0px 0px 30px 20px;height:20px}
+#topicTxt{float:left;margin:4px;font-size:14px;font-weight:bold;color:#000}
+#topicTxt span{color:#ED145B}
+#new_guide{color:#8E8E8E;clear:both;width:606px;height:200px;margin-left:28px;border:1px solid;border-color:#FFFFFF #CCCCCC #FFFFFF #CCCCCC}
+#new_guide_left{float:left;width:76px;height:195px;border-right:1px solid #B1B1B1}
+#new_guide_content{background:#F5F5F5;line-height:25px;float:left;width:520px;height:160px}
+#new_guide_content p{margin-left:20px}
+#new_guide_content p a{color:#0066FF}
+#new_guide_header{margin-left:28px;height:8px;width:608px;background:url(../img/new_guide_top.jpg) no-repeat 0 0}
+#new_guide_footer{margin-left:28px;height:8px;width:608px;background:url(../img/new_guide_bottom.jpg) no-repeat 0 0}
+#new_guide_cancle{width:35px;height:35px;float:right}
+#twitter_user_title{margin:20px 20px;padding:10px 6px;border:1px solid #F4759E;text-align:left;color:#F4759E;font-size:13px}
+#twitter_source_text{margin:20px 10px 30px 20px;clear:both}
+#twitter_source_text_source{float:left;color:#999999;font-size:12px}
+#twitter_about_title{}
+#twitter_about_list{font-size:14px}
+.list_feed{float:left;min-height:60px;height:auto !important;width:650px;height:60px;border-bottom:1px dashed #cccccc;margin-bottom:10px}
+.list_feed_list{position:relative;padding-bottom:5px;border-bottom:1px dashed #CCC;padding-right:10px;_zoom:1}
+.list_feed_list a{font-size:14px}
+.list_feed_list .note_face{float:left;margin:10px 0px 5px 5px}
+.list_feed_list .note_face img{width:32px;height:32px;border:1px solid rgb(204, 204, 204)}
+.list_feed_list .twitter_note_list{width:auto;margin:0}
+.list_feed_list .twitter_note_list .twitter_note_list_t{float:right;height:8px;background:url(../img/twitter_reply_top2.gif) no-repeat}
+.list_feed_list .twitter_note_list .twitter_note_list_c{position:relative;float:right;border-color:#e4e4e4}
+.list_feed_list .twitter_note_list .twitter_note_list_b{float:right;height:0;overflow:hidden;border-bottom:1px solid #e4e4e4;margin-bottom:5px}
+.twitter_person{margin:5px 0px 0px 5px}
+.twitter_button{float:right;margin:5px 5px 0px 0px}
+.twitter_reply{float:left;margin:10px 2px 0px 20px;font-size:12px;width:510px;min-height:50px;_height:50px}
+.twitter_reply .time{font-size:12px;color:rgb(204, 204, 204)}
+.twitter_reply .a a1{font-size:14px}
+.twitter_list{clear:right;width:545px;padding:8px;margin:5px 20px}
+.twitter_reply_content{font-size:14px;margin-top:3px;line-height:18px;width:540px;word-wrap:break-word}
+#alert_tools em{width:56px;height:20px;cursor:pointer;margin:0px 4px;font-size:14px;font-weight:bold;font-variant:normal;color:#0033FF;text-decoration:none}
+#twitter_publish_forward{ border:1px solid #ccc;font-size:12px;width:316px;height:100px;margin:20px 10px 0;overflow:auto;padding:5px}
+#friends_options{margin-left:90px;margin-bottom:10px;width:400px}
+#friends_options p{line-height:20px;color:#999999}
+.showTwitterTags_1{display:block;margin:10px 0px;color:#999999;font-size:12px}
+#twitter_avatar_type{font-size:12px;margin-left:2px}
+.showTwitterTagsNoIcon{clear:both;color:#666666;font-size:12px}
+.showTwitterTagsNoIcon a{color:#f69;font-size:12px}
+.showTwitterTags a{font-size:12px;color:#f69}
+.showTwitterTags .edit_btn{margin-left:10px;color:gray;text-decoration:underline}
+.twitter_avatar_page{float:left;width:70px;border:0px solid;margin:0px}
+#twitter_page{width:685px !important;overflow:hidden}
+.user_nick_name_a{float:left}
+#twitter_txt_page{padding:0px;margin-left:30px !important;margin-left:15px;font-size:14px;float:left;word-wrap:break-word}
+#twitter_txt_page a{color:#f69;font-size:14px}
+#twitter_txt_page h2{font-size:14px;font-weight:lighter}
+#twitter_source_text_source_page{clear:left;float:left;color:#999999;font-size:12px;margin-left:90px !important;margin-left:45px}
+#goods_info_page{margin-top:10px;float:left}
+#goods_info_page img{float:left}
+#goods_info_list_page{list-style-type:none;padding:0px;width:300px;float:left;margin-left:10px;clear:right}
+.goods_term{font-size:14px;text-decoration:none;margin-top:10px}
+.about_goods{width:260px;height:auto;margin-bottom:5px;margin-left:8px}
+.about_goods .item{float:left;width:118px;height:180px;padding:8px 4px;color:black}
+.about_goods img{border:0px}
+.about_goods a.goods_title{display:block;width:118px;height:48px;margin:5px 0 0 0;padding:0;font-size:12px;color:black;line-height:16px;overflow:hidden;cursor:pointer;color:black}
+.about_goods a.goods_title:hover{text-decoration:underline}
+.twitter_avatar_page a img{width:64px;height:64px}
+.goodsInfoLine{height:30px;line-height:24px}
+.goodsInfoLine a{font-size:12px}
+#note_div{clear:both;height:100px;width:645px;margin:10px 0px 10px 20px}
+#note_edit{float:left;margin:0px 2px 0px 2px;width:520px;height:80px}
+#note_alter{font-size:12px;line-height:14px;font-weight:bold;color:#000000;text-decoration:none;height:20px}
+#note_alter a{font-size:12px;cursor:pointer;margin-left:20px}
+.twitter_list_button{position:absolute;top:35px;right:0;width:29px;cursor:pointer;padding-left:16px;font-size:12px !important;padding-top:2px;background:url(../img/reply_ico.gif) no-repeat;color:#676767}
+.twitter_list_button:hover{color:#f69;background:url(../img/reply_ico_blue.jpg) no-repeat;text-decoration:none}
+.twitter_list_button_home{width:30px;margin-right:10px;margin-bottom:6px;float:right;cursor:pointer;padding-left:16px;font-size:12px;padding-top:2px;background:url(../img/reply_ico_twitter.gif) no-repeat;color:#676767}
+.twitter_list_button_home:hover{color:##69;background:url(../img/reply_ico_blue_twitter.jpg) no-repeat;text-decoration:none}
+#note_publish{}
+.note_publish_editor{width:500px;height:50px;font-size:12px}
+.note_action{margin-top:20px;padding:18px 0px;width:46px;float:left;cursor:pointer;background-color:#999999;border:2px solid #333333;text-align:center}
+.forwardGray{color:#999999;font-style:normal}
+.quoteuser{margin-left:16px}
+#autoWho{position:absolute;display:block;border:1px solid silver;list-style:none;z-index:2000}
+#activity_panel{margin:10px;clear:both;margin-bottom:0px}
+.showVoteNum{padding:10px 0px 0px 0px;font-weight:bold;text-decoration:none;font-family:Comic Sans MS;color:#f69;font-size:24px;text-decoration:none;text-align:center;vertical-align:middle;background-color:#FFFF99}
+.twitter_pic_type{display:inline-block;height:20px;line-height:20px;margin-right:5px;background-color:#f0dce3;padding:0px 7px;text-align:center;font-size:12px;color:#E14A7F;cursor:pointer}
+.twitter_pic_type_checked{color:white;height:20px;line-height:20px;background-color:#e14a7f}
+.goodsTag .showTwitterTags{position:relative}
+.goodsTag .edit_panel{position:relative;width:305px;height:105px;padding:5px 0 10px 10px;border:1px solid black;font-size:12px;color:#010101}
+.goodsTag .edit_panel .arrow{position:absolute;width:13px;height:7px;margin-top: -12px;background:url(../img/pic_type_arrow.jpg) no-repeat}
+.goodsTag .edit_panel .title{display:block;padding:5px 0}
+.goodsTag .edit_panel .keywords{position:absolute;left:10px;top:85px;width:240px;height:20px;line-height:20px;border:1px solid black}
+.goodsTag .edit_panel .edit_btn{position:absolute;left:260px;top:86px;width:40px;height:20px;border:0;background:url(../img/pic_type_edit_btn.jpg) no-repeat;cursor:pointer}
+.nick_name_user{float:left}
+.checkmore{font-size:12px;margin-right:10px;clear:both;margin-left:340px}
+.checkmore a{font-size:12px}
+.clickd_wanttobuy a{color:#ffffff;font-size:12px}
+#vote_face_bd{display:none}
+#txt_like{color:#c12058;font-size:12px}
+#txt_bought{color:#666666;font-size:12px}
+a.picshow{width:150px;height:150px;border:1px #ccc solid;float:left;margin:5px 0 5px 9px}
+a.picshow img{width:150px;height:150px}
+.page_wrapper_title{height:25px;font-weight:bold;font-size:18px}
+.page_wrapper_content{margin:20px 0px 0px 20px}
+.page_wrapper_title h1{ height:25px;line-height:25px;font-size:18px;font-weight:bold}
+.f12b{font-size:12px;font-weight:bold}
+.data_content{ width:440px;padding:15px 14px;overflow:hidden;display:none}
+.data_content .invite_pic{ width:116px}
+.invite_face{width:112px;height:98px;background:url(../img/face_smile.gif) no-repeat bottom}
+.invite_pic .invite_rim{ width:116px;height:60px;background:url(../img/red_rim.gif) no-repeat -1px -1px}
+.invite_rim div{ padding:5px 0 0 8px}
+.data_content .choices{ width:290px;padding:5px 0px}
+.right_btn,.wrong_btn{ width:65px;height:16px;background:url(../img/round_icon.gif) no-repeat;padding:3px 0 3px 28px}
+.right_btn{ background-position: -3px -2px}
+.wrong_btn{ background-position: -3px -27px;line-height:16px}
+#birthyear,#constellation, #provinceid, #cityid{ width:85px;height:23px;line-height:23px;border:1px solid #9B9B9B;color:#666;text-align:left;margin:0 6px 15px 6px}
+.choices select{ float:left}
+.choices .career{ width:270px;padding-left:6px}
+.choices .in_form{ margin-left:30px}
+.choices .school{ padding:14px 0 0 6px}
+.choices .text_form{ width:124px;height:15px;line-height:15px;border:1px solid #ccc;color:#999;padding:3px;margin-right:6px}
+.choices .sub_btn{ width:100%;padding:14px 0 0 5px}
+.choices .sub_btn .homeBtn{ width:69px}
+.homeBtn{ height:24px;background:url(../img/icon1.png) no-repeat 0 -68px;float:left;line-height:24px;text-align:center;padding-left:8px;overflow:hidden}
+.homeBtn .btn_r{ width:5px;height:24px;background:url(../img/icon1.png) no-repeat -95px -68px}
+.choices .sub_btn span a,.choices .sub_btn span a:hover{ color:#fff}
+.choices .sub_btn .later{ padding-left:10px;color:#f69;line-height:24px;cursor:pointer}
+.data_content .suc_pop{ padding:0 85px}
+.suc_pop .invite_rim{ width:276px;height:61px;line-height:55px;background:url(../img/red_rim.gif) no-repeat -1px -61px;margin:0 auto}
+.group_news_con{ padding:15px 14px;overflow:hidden;display:none}
+.group_news_con_top{background:url(../img/group_news.png) no-repeat;height:97px;padding:12px 120px 0px 140px}
+.group_news_con_g{background:url(../img/group_news_bg.gif) no-repeat right top #f7f7f7;height:130px;padding:14px;overflow:hidden}
+.group_news_page{ margin:10px 0}
+.n_g_p_btn:hover{ color:#f69}
+.group_news_page .pagePrev,.group_news_page .pageNext{width:50px;height:22px;font-size:14px;font-weight:normal;display:inline-block;line-height:22px;margin:0 1px;min-width:12px;padding:0 4px;text-align:center;white-space:nowrap;background-color:#ffe1ea;color:#ff6799;border:1px solid #fcc8d9}
+.n_g_img{height:128px;width:128px;background:#ddd}
+.n_g_box{margin:4px 14px 0px 14px;height:128px;width:380px}
+.n_g_bbtn{height:28px;width:64px;background:#FF6699;margin:40px 0px;color:#fff;padding:14px;-webkit-border-radius:10px;-moz-border-radius:10px}
+.n_g_bbtn a{color:#fff}
+.n_g_bbtn a:hover{color:#fff}
+.n_g_box_con{}
+.n_g_box_con_left{width:162px;border-right:1px solid #ccc;padding-right:14px}
+.n_g_box_con_right{padding-left:14px}
+.n_g_box_con_right span{padding-top:9px}
+.n_g_box_con_right .avatar32{margin:0px 10px}
+.n_g_fb{font-weight:bold}
+.n_g_text{margin-right:2px;*line-height:18px}
+.n_g_btn{ color:#fff;min-width:42px;*width:42px;font-weight:bold;height:18px;line-height:17px;margin-left:1px;background:url(../img/top_btn2.gif) no-repeat right bottom;overflow:hidden;text-align:center}

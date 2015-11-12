@@ -1,0 +1,37 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/page_guang.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/catalog.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd" />
+<if condition="get_ad(11) neq ''">
+	<center><div style="width:950px;height:90px;overflow:hidden;margin-top:15px;">{:get_ad(11)}</div></center>
+</if>
+<div id="shop_name" style="display:none;">{$shop.name}</div>
+<div class="spinner topSpinner" style="display:none"></div>
+  <div id="spread_status" style="display:none;">{:C('spread_status')}</div>
+  <div id="spread_position" style="display:none;">{:C('spread_position')}</div>
+<div class="content_fluid" style="min-width:960px;"><!--width随瀑布流宽度变化-->
+	<div class="cata_title">
+		<h2>{$shop.name}</h2>
+		<span class="left_f f14_f">价格：</span>
+		<ul class="category left_f">
+			<li><a name="0" class="<if condition="$price eq '0'">active</if>" href="{:get_url('index',$shop['id'],'shop',$sortby,'0')}">全部</a></li>
+			<li><a name="100" class="<if condition="$price eq '100'">active</if>" href="{:get_url('index',$shop['id'],'shop',$sortby,'100')}">100元</a></li>
+			<li><a name="200" class="<if condition="$price eq '200'">active</if>" href="{:get_url('index',$shop['id'],'shop',$sortby,'200')}">200元</a></li>
+			<li><a name="500" class="<if condition="$price eq '500'">active</if>" href="{:get_url('index',$shop['id'],'shop',$sortby,'500')}">500元</a></li>
+			<li><a name="501" class="<if condition="$price eq '501'">active</if>" href="{:get_url('index',$shop['id'],'shop',$sortby,'501')}">更高</a></li>
+		</ul>
+		<ul class="category right_f">
+			<li><a name="new" class="<if condition="$sortby eq 'new'">active</if>" href="{:get_url('index',$shop['id'],'shop','new',$price)}">最新</a></li>
+			<li><a name="hot" class="<if condition="$sortby eq 'hot'">active</if>" href="{:get_url('index',$shop['id'],'shop','hot',$price)}">最热</a></li>
+		</ul>
+		<span class="right_f f14_f">排序：</span>
+	</div>
+<include file="Public:itemsList"/>
+</div>
+<if condition="get_ad(12) neq ''"><br>
+	<center> <div style="width:950px;height:90px;overflow:hidden;">{:get_ad(12)}</div></center>
+</if>
+	<div id='url' style="display:none;">{:C('web_path')}index.php?a=shop&m=Public&g=Home</div>
+	<div id='id' style="display:none;">{$Think.get.id}</div>
+<include file="Public:footer" />

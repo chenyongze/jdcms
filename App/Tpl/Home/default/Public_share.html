@@ -1,0 +1,22 @@
+ <script language="javascript">
+</script>
+ <div class="pub_box_fb" style="width:652px; margin:0 auto 20px;">
+  <div class="tab">
+    <ul>
+      <li class="cur"><span>商品链接</span></li>
+    </ul>
+    <a class="creat" href="{:get_url('albumInfo','','user')}">创建新专辑</a> </div>
+  <div class="info">
+    <div class="info_inner">
+      <div class="blk1">
+        <div class="op">
+          <form action="{:get_url('release','','user')}" method="post">
+          <input type="text" name="collect_url" id="collect_url" class="btn_txt" value="http://" style="width:523px;"/>
+          <input type="submit" class="btn_up" style="cursor: pointer;" value="获 取" />
+          </form>
+		  <span><em>请输入您要分享的商品链接。</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

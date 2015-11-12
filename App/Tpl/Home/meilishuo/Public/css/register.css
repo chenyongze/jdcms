@@ -1,0 +1,87 @@
+*html{background-color:#f2f0f0;}
+.header{margin-left:auto;margin-right:auto;margin-top:4px;margin-bottom:4px;width:948px;}
+.logo_new{width:114px;height:44px;background:url(../img/logo_n2.png);_filter:progid:dximagetransform.microsoft.alphaimageloader(src='img/logo_n2.png', sizingMethod='scale');_background-image:none;cursor:pointer;overflow:hidden;display:block;}
+.l_sinaweibo,.l_qq,.l_taobao,.l_renren,.l_wangyi,.l_txweibo,.l_douban,.l_baidu{background:url(../img/regIcon0.png) no-repeat;height:44px;width:44px;margin-right:8px;margin-top:6px;float:left;}
+.l_sinaweibo{background-position:0 0;}
+.l_qq{background-position:-47px 0;}
+.l_taobao{background-position:-94px 0;}
+.l_renren{background-position:-141px 0;}
+.l_wangyi{background-position:-188px 0;}
+.l_txweibo{background-position:0 -51px;}
+.l_douban{background-position:-47px -51px;}
+.l_baidu{background-position:-94px -51px;}
+.r_oumei,.r_tianmei,.r_fugu,.r_rixi,.r_gexing,.r_jiepai,.r_hanxi,.r_chongwu,.r_jiaju{width:200px;height:220px;background:url(../img/regLike.jpg) no-repeat;}
+.r_oumei{background-position:0px 0px;}
+.r_tianmei{background-position:-200px 0px;}
+.r_fugu{background-position:-400px 0px;}
+.r_rixi{background-position:0px -219px;}
+.r_gexing{background-position:-200px -219px;}
+.r_jiepai{background-position:-400px -219px;}
+.r_hanxi{background-position:0px -438px;}
+.r_chongwu{background-position:-200px -438px;}
+.r_jiaju{background-position:-400px -438px;}
+.r_qita{width:124px;height:72px;margin-left:auto;margin-right:auto;color:#f69;padding:34px 0px 34px 16px;border:3px dashed #ccc;}
+.r_ipt{outline:none;border:2px solid #ddd;color:#666;padding:2px 5px;-webkit-border-radius:8px;border-radius:8px;height:34px;line-height:34px;font-size:14px; float:left}
+.big_btn,.big_btnr,.small_btn,.small_btnr{background:url(../img/btn_pic.png) no-repeat;display:inline-block;position:relative;}
+.red_follow,.pink_follow{background:url(../img/en_follow.png) no-repeat;text-align:center;display:inline-block;line-height:30px;cursor:pointer;font-size:14px;font-weight:bold;height:32px;width:100px;}
+.big_btn{background-position:0 0;height:40px;line-height:38px;text-align:center;cursor:pointer;color:#fff;font-size:16px;font-weight:bold;padding-left:6px;}.big_btn:hover{color:#fff;}
+.big_btn .big_btnr{background-position:-394px 0;height:40px;right:-6px;top:0;width:6px;position:absolute;}
+.red_follow{background-position:0 0;color:#fff;}.red_follow:hover{color:#fff;}
+.pink_follow{background-position:-102px 0;color:#f69;}
+.good,.bad{width:22px;height:22px;background:url(../img/form3.png) no-repeat; padding-left:24px; height:42px; height:42px}
+.good{background-position:0 10px}
+.bad{background-position:0 -68px}
+.groupBox{display:inline;margin-right:6px;margin-left:6px;word-wrap:break-word;*overflow:hidden;float:left;width:228px;cursor:pointer;position:relative;-webkit-user-select:none;}.groupBox .btn,.groupBox .followed{position:absolute;right:15px;_right:14px;bottom:13px;height:20px;line-height:19px;width:64px;}
+.groupCon{background-color:#fff;box-shadow:0 1px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 1px 3px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #ddd\9;margin-top:14px;width:226px;position:relative;}.groupCon .gc_title{height:18px;line-height:18px;overflow:hidden;padding:10px 13px 0;}.groupCon .gc_title h4{font-size:14px;float:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:140px;}
+.groupCon .gc_title p{font-size:14px;color:#999;float:right;}
+.groupCon .btn,.groupCon .followed{float:right;height:20px;line-height:20px;width:64px;}
+.groupCon .imgBox{margin-top:5px;display:block;width:200px;margin-left:auto;margin-right:auto;height:204px;background:url(../img/pg_bg1.png) no-repeat bottom;}.groupCon .imgBox .minpic,.groupCon .imgBox span{width:64px;height:64px;float:left;margin-right:4px;margin-top:4px;}
+.groupCon .imgBox .maxpic{margin-top:4px;height:200px;width:200px;}
+.groupCon .infoBox{background:#FFECEF;margin-top:8px;overflow:hidden;padding:8px 13px;}
+.groupCon .lookBox{height:20px;padding:13px;}.groupCon .lookBox .tex{color:#999;line-height:20px;}
+.groupCon .oldBox{height:24px;padding:11px 13px;}.groupCon .oldBox .tex{line-height:24px;margin-left:6px;}
+.groupCon .oldBox .btn,.groupCon .oldBox .followed{float:right;line-height:20px;}
+.groupCon .oldBox img{float:left;}
+.registerStep{float:right;color:#999;margin-right:10px;_display:inline;}.registerStep li{float:left;padding:0px 6px 3px 6px;margin:0px 2px;border-bottom:3px solid #ccc;}.registerStep li a{color:#999;}
+.registerStep .this{color:#f69;border-color:#f69;}
+.registerForm,.registerSuccess,.registerLike,.registerGroup{background-color:#fff;box-shadow:0 1px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 1px 3px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #ddd\9;margin-left:auto;margin-right:auto;margin-bottom:30px;}
+.registerForm{width:724px;padding:20px 112px 60px 112px;margin-top:14px;margin-bottom:0px}.registerForm h2{font-size:24px;line-height:54px;}
+.registerForm .registerErrorMessage,.registerForm .registerInfoMessage{background-color:#fff;box-shadow:0 1px 3px rgba(34, 25, 25, 0.2);-webkit-box-shadow:rgba(34, 25, 25, 0.2) 0px 1px 3px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #ddd\9;margin-left:44px;position:absolute;line-height:18px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #ccc;display:inline;padding:10px 8px;background-color:#ffffcd;}.registerForm .registerErrorMessage span,.registerForm .registerInfoMessage span{width:9px;height:17px;position:absolute;top:10px;left:-9px;background:url(../img/form2.png) no-repeat -46px 0px;}
+.registerForm .registerErrorMessage{margin-left:44px;width:132px;}
+.registerForm .registerInfoMessage{margin-left:22px;}
+.registerForm .register_mls{position:relative;border-right:1px dashed #ccc;padding-right:20px;width:400px;float:left;}.registerForm .register_mls fieldset form p{margin-bottom:14px;}.registerForm .register_mls fieldset form p .r_ipt{width:240px;}
+.registerForm .register_mls fieldset form p label{margin-left:4px;line-height:42px;display:inline-block;}
+.registerForm .register_mls fieldset form .checkBox{margin-bottom:20px;height:42px;}.registerForm .register_mls fieldset form .checkBox .r_ipt{width:100px;float:left;}
+.registerForm .register_mls fieldset form .checkImage{float:left;width:140px;}.registerForm .register_mls fieldset form .checkImage img{margin-top:3px;}
+.registerForm .register_mls fieldset form .checkImage span{float:left;line-height:42px;height:42px;margin-left:4px;cursor:pointer;}
+.registerForm .register_mls .big_btn{width:140px;margin-bottom:14px;}.registerForm .register_mls .big_btn input{outline:none;color:#fff;font-size:16px;font-weight:bold;height:34px;line-height:38px;width:140px;padding:0px;margin:0px;cursor:pointer;background:none;border:none;}.registerForm .register_mls .big_btn input:hover{color:#fff;}
+.registerForm .register_other{float:left;padding-left:40px;width:260px;height:260px;}.registerForm .register_other p{font-size:16px;line-height:48px;}
+.registerForm .register_other div span{margin-top:34px;float:left;cursor:pointer;}
+.registerSuccess{width:922px;padding:80px 13px;}.registerSuccess h3{margin-left:auto;margin-right:auto;padding-left:46px;height:38px;line-height:38px;font-size:24px;width:380px;margin-bottom:40px;background:url(../img/btn_200.gif) no-repeat 0 -50px;}
+.registerSuccess div{border-bottom:1px dashed #ccc;padding-bottom:40px;margin-bottom:26px;line-height:22px;font-size:14px;text-align:center;}.registerSuccess div a{margin-top:32px;display:block;font-size:16px;line-height:40px;height:40px;width:140px;margin-left:auto;margin-right:auto;-webkit-border-radius:4px;border-radius:4px;cursor:pointer;background-color:#f69;color:#fff;}.registerSuccess div a:hover{color:#fff;}
+.registerSuccess p,.registerSuccess ul{margin-left:auto;margin-right:auto;width:290px;}
+.registerSuccess p{font-size:14px;line-height:44px;font-weight:bold;}
+.registerSuccess ul{padding-left:4px;}.registerSuccess ul a{color:#f69;}
+.registerSuccess ul,.registerSuccess li{line-height:22px;list-style:disc inside;}
+.registerSuccess .sendemail{color:#f69;cursor:pointer;}
+.registerLike{text-align:center;position:relative;width:1000px;padding-top:13px;margin-top:14px;}.registerLike p{font-size:24px;line-height:42px;}
+.registerLike h3{font-size:30px;line-height:42px;}
+.registerLike h4{font-size:16px;line-height:20px;font-weight:bold;}
+.registerLikeBackBtn{color:#f69;line-height:42px;margin-top:10px;font-size:14px;position:absolute;left:26px;}
+.registerLikeStyle{height:600px;}.registerLikeStyle li{position:relative;margin-top:30px;float:left;width:200px;height:250px;cursor:pointer;}.registerLikeStyle li p{margin-top:10px;}
+.registerLikeStyle li span,.registerLikeStyle li a{position:absolute;top:110px;left:67px;height:67px;width:67px;background:url(../img/regLikeTrue2.png) no-repeat;_filter:progid:dximagetransform.microsoft.alphaimageloader(src='img/regLikeTrue2.png', sizingMethod='scale');_background-image:none;-webkit-user-select:none;}
+.registerLikeStyle li span{display:none;}
+.registerLikeStyle .r_qita{margin-top:44px;}
+.registerLikeGroup{height:640px;text-align:left;padding:10px 20px;}
+.registerLike .big_btn{width:172px;margin-top:10px;font-size:20px;}
+.registerLikeInfoWin{font-size:14px;line-height:22px;text-align:center;padding:20px;}.registerLikeInfoWin .btn{display:inline-block;margin-top:14px;width:60px;}
+.noBoyWin{font-size:14px;line-height:22px;padding:20px;}.noBoyWin .medal{margin-left:auto;margin-right:auto;width:58px;height:58px;margin-top:14px;background:url(../img/xyns.png) no-repeat;}
+.noBoyWin .toshare{display:none;color:#f69;margin-top:14px;cursor:pointer;}
+
+
+#avatar_upload_tool {margin: 15px 0 15px 100px;width: 550px}
+#avatar_a {width: 150px;height: 150px;float: left;margin-left: 100px;color: #646464;display: inline;}
+
+#registerForm p{ clear:both; margin-bottom:15px;overflow:hidden; height:42px; display:block}
+#registerForm .genderBox label{ line-height:20px}
+#registerForm strong{ display:block; float:left; width:120px; float:right; line-height:42px; font-weight:normal; color:#f69}

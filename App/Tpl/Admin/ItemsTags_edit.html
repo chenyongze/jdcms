@@ -1,0 +1,83 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			if($("#name").val()==0){
+			   alert('请填写标签名称');
+			   return false;
+			}
+		});
+	});
+</script>
+
+</head>
+<form action="{:U('ItemsTags/edit')}" method="post" name="myform" id="myform"  style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+        <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th></th>
+            <td><input type="hidden" name="id" class="input-text" value="{$tags.id}"></td>
+          </tr>
+          <tr>
+            <th width="100">标签名称 :</th>
+            <td><input type="text" name="name" id="name" class="input-text" value="{$tags.name}"></td>
+          </tr>
+          <tr>
+            <th>分类：</th>
+            <td>
+            <select name="pid" style="width:150px;">
+        	<volist name="cates_list['parent']" id='val'>
+        		<option <if condition="$tags.pid eq $val['id']"> selected="selected" </if> value="{$val.id}">{$val.name}</option>
+        		<volist name="cates_list['sub'][$val['id']]" id='sval'>
+        			<option <if condition="$tags.sid eq $sval['id']"> selected="selected" </if> value="{$val.id},{$sval.id}">&nbsp;&nbsp;&nbsp;&nbsp;{$sval.name}</option>
+        		</volist>
+        	</volist>            
+            </select>
+            </td>
+          </tr>                      
+          <tr>
+            <th>首页显示 :</th>
+             <td>
+             	<input type="radio" name="is_index" id="is_index" class="radio_style" value="1" <if condition="$tags['is_index'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_index" id="is_index" class="radio_style" value="0" <if condition="($tags['is_index'] eq '0') OR ($tags['is_index'] eq '')">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+		  <tr>
+            <th>是否删除 :</th>
+             <td>
+             	<input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$tags['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="($tags['is_del'] eq '0') OR ($tags['is_del'] eq '')">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+        </table>
+      </div>
+      <div id="div_setting_2" class="contentList pad-10 hidden">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th width="100">名称 :</th>
+            <td><input type="text" name="seo_title" id="seo_title" class="input-text" value="{$tags.seo_title}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">关键字 :</th>
+            <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" value="{$tags.seo_keys}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">描述 :</th>
+            <td><textarea name="seo_desc" cols="47" rows="4">{$tags.seo_desc}</textarea></td>
+          </tr>
+        </table>
+      </div>
+      <div class="bk15"></div>
+      <div class="btn"><input type="submit" value="提交"  name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+</form>
+</body>
+</html>

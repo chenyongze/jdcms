@@ -1,0 +1,57 @@
+<include file="Public:headeru"/>
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/login.css"/>
+<script src="__TMPL__Public/js/login.js?1"></script>
+<include file="Public:headerdn"/>
+<div class="login">
+	<div class="login_mls">
+		<h2>登录{:C('site_name')}</h2>
+		<fieldset>
+		<form id="loginForm" method="post" onsubmit="return false" action="">
+			<input type="hidden" name="referer" value="{$referer}" id="referer">
+			<legend>{:C('site_name')}登录表单</legend>
+			<p><label for="mlsUser">账&nbsp;&nbsp;&nbsp;&nbsp;号：</label><input class="l_ipt" id="mlsUser" type="text" name="mlsUser" value=""/></p>
+			<p><label for="mlsPass">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input class="l_ipt" id="mlsPass" name="password" type="password" value="" /></p>
+			<div class="checkBox none_f" id="checkBox" style="display:block">
+				<label for="checkcode">验证码：</label>
+				<input class="l_ipt" id="checkcode" name="checkcode" type="text" value="" maxlength="4"  verify_post_action="{:get_url('verify_test','','user')}" />
+				<div class="checkImage"><span id="checkcodeImage"><img width="54" id="img_checkcode" height="22" isblank="true" src="{:get_url('verify','','user')}"  verify_action="{:get_url('verify','','user')}" url_model="{:C(url_model)}" ></span><span class="red_f" onclick="changeVerify()">换一张</span></div>
+			</div>
+			<div class="ml40_f">
+				<input type="checkbox" name="savestate" id="savestate" value="savestate" checked="checked">
+				<label for="savestate">记住我（下次自动登录）</label>
+			</div>
+			<div class="loginErrorMessage red_f"></div>
+			<div class="submitBox"><input class="loginBtn button left_f" loginBtn_post_action="{:get_url('loginAction','','user')}" loginBtn_post_location="{:get_url('index','','user')}" type="button" value="登&nbsp;&nbsp;&nbsp;录"/>
+			<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+			<a class="left_f red_f" href="/users/forgetPassword/" target="_BLANK" ></a></div>
+		</form>
+		</fieldset>
+	</div>
+	<div class="login_other">
+		<p class="f14_f">还没有{:C('site_name')}账号？&nbsp;<a class="red_f" href="{:get_url('register','','user')}" target="_BLANK">立即注册</a></p>
+		<p class="f16_f">你还可以用以下方式直接登录：</p>
+		<div>
+			<a class="l_sinaweibo" href="{:get_url('sinalogin','','user')}" target="_blank"></a>
+			<a class="l_qq" href="{:get_url('qqlogin','','user')}" target="_blank"></a>
+			<a class="l_taobao" href="{:get_url('taobaologin','','user')}" target="_blank"></a>
+		</div>
+	</div>
+	<div class="clear_f"></div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#checkcodeImage img").attr("verify_action");
+		var url_model=$("#checkcodeImage img").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		$("#checkcodeImage img").attr("src",src+nowTime);
+	}
+</script>

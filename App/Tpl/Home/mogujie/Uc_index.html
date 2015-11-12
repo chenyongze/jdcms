@@ -1,0 +1,78 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script> 
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/album.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+<include file="Public:ucInfo"/>
+<div class="clearfix" id="content_wrap">
+<if condition="(!$album_list) AND (!$items_list)">
+<div class="home_empty">
+	<img src="__TMPL__Public/img/dragon_icon_yaya.png">
+	<span class="des">
+	<if condition="$oUid">他<else/>你</if>的封面还无内容哦！<!--，去<a title="蘑菇达人" href="/daren" target="_blank">蘑菇达人</a>看看她们如何装饰自己的空间吧！ -->
+	</span>
+</div>
+<else/>
+<div class="content">
+<volist name="album_list" id="voAlbum">
+<div class="album_item col">
+    <div class="album_item_bd">
+        <ul>
+            <li class="big" >
+				<img class="big item_img" <if condition="($voAlbum['cover']['img'] eq '') and ($voAlbum['cover'])">src="__TMPL__Public/img/undefined.jpg"<else/>src="{$voAlbum.cover.img|get_img=###,210}"</if> width="225" />
+
+			</li>
+			<li class="small">
+			<volist name="voAlbum['items']" id="voItems" offset="0" length='4'>
+				<img class="item_img" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+			</volist>
+			</li>   
+      	</ul>  	      
+        <div class="album_author" >
+        	<a title="{$voAlbum.title}" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_title" target="_blank">{$voAlbum.title}</a>
+        </div>
+        <b class="mask" ></b>
+        <a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_link" ></a>
+    </div>
+    <div class="album_item_ft"></div>
+</div>
+</volist>
+<volist name="items_list" id="voItems">
+	<div class="col">
+		<div class="pic bgload">
+			<a target="_blank" href="{:get_url('index',$voItems['id'],'item')}" title="{$voItems.title}"><img class="item_img" alt="{$voItems.title}" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,210}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> width="225" /></a>
+			<a href="{:get_url('addAlbum',$voItems['id'],'album')}" target="_blank"><span class="add_to_album">加入专辑</span></a>
+			<span class="price item_pruce">￥{$voItems.price}</span>
+		</div>
+		<p class="btn">
+			<span class="favaImg"><em class="s1 <if condition="$likes[$voItems['id']] eq 1">favored</if>" item_id="{$voItems['id']}"><if condition="$likes[$voItems['id']] eq 1">已喜欢<else/>喜欢一下</if></em><a href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><i class="l" id="{$voItems['id']}">{$voItems.likes}</i><i class="r"></i></a></span>
+			<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+			<a class="creply" href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><em>评论</em>(<i>{$voItems.comments}</i>)</a>              
+		</p>
+		<p class="fava"> 
+			<span>
+				<a class="avt" target="_blank" href="{:get_url('index',$voItems['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['userimg'] neq ''">"/{:C('web_path')}Uploads/avatar_small/{$voItems.userimg}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['uid'],'user')}" class="name">{$voItems.username}</a>分享于{$voItems.add_time|date='Y年m月d日 H:i:s',###}</em>
+			</span>
+			<present name="voItems['ablum_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['ablum_info']['img'] neq ''">"/{:C('web_path')}Uploads/avatar_small/{$voItems.ablum_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}" class="name">{$voItems.ablum_info.uname}</a>加入<a href="{:get_url('detail',$voItems['ablum_info']['id'],'album')}" target="_blank" class="clrff8">{$voItems.ablum_info.title}</a></em></span>
+			</present>
+			<present name="voItems['commnets_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['commnets_info']['img'] neq ''">"/{:C('web_path')}Uploads/avatar_small/{$voItems.commnets_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}" class="name">{$voItems.commnets_info.name}：</a>{$voItems.commnets_info.info}</em></span>
+			</present>             
+		</p>
+		<i class="shadow"></i>		
+	</div>
+</volist>
+</div>
+
+</if>
+</div>
+</div>
+<include file="Public:footer" />

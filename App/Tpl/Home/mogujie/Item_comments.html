@@ -1,0 +1,19 @@
+
+<ul id="note_comment_list" class="c_l rb5">
+	<volist name="comments['list']" id="val">
+	<li class="c_f">
+        <a href="{:get_url('index',$val['uid'],'user')}" target="_blank"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$val['uimg'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$val.uimg}</if> class="avt icard" alt="{$val.uname}"></a>
+        <p class="sms"><a href="{:get_url('index',$val['uid'],'user')}" target="_blank" class="n icard">{$val.uname}</a></p>
+	    <p class="sms">{$val.info}<span>&nbsp;&nbsp;&nbsp;{$val.add_time|date='Y-m-d H:i:s',###}</span></p>
+		<if condition="$val['uid'] eq $uid">
+		<div>
+			<!--<a href="javascript:;" onclick="MOGU.Message_Report_Init('17xsdx8', '2')" class="rpl_report">举报</a>-->
+			<a href="javascript:void(0);" w="f" class="rpl comments_del" commDel_post_action="{:get_url('commDel','','item')}" comm_id="{$val.id}" web_path="{:C('web_path')}">删除</a>
+		</div>
+		</if>
+	</li>
+	</volist>
+</ul>
+<div class="page" id="comments_page" style="display:block">
+      {$comments.page}
+</div>

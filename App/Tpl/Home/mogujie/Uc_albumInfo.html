@@ -1,0 +1,99 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/newalbum.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd" />
+<div class="main">
+<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+		<div class="piece_bd">
+                <div id="content" style="width:960px;">
+                    <div class="album_create">
+	<h1 class="new_album">
+
+				<present name="aid">编辑<else />创建新</present>专辑
+				<input type="hidden" id="hiddenaid" class="btn_txt r5" style="width:350px" value='<present name="aid">{$aid}</present>'>
+        	</h1>
+<div class="album_box">
+	<dl class="pl30">
+		<dt>标题：</dt>
+		<dd>
+			<input class="album_title r3" id="albumTitle" type="text" value="<present name='album_title'>{$album_title}</present>" name="">
+			<span class="info_tip" style="display: none; ">最多30个字</span>
+			<img class="ok_icon" src="/img/ok_01.png" style="display: none; ">
+			<span id="createAlbumError" style="display: inline; "></span>
+		</dd>
+		<dt>所属分类：</dt>
+		<dd>
+			<select  id="albumCate" name="album_title" style="height:30px">
+			<option value="0">请选择...</option>
+			<volist name="album_cate" id="vo">
+				<option class="btn_txt r5" style="width:100px" value="{$vo.id}" <if condition="$vo['id'] eq $album_cate_id">selected</if>>{$vo.title}</option>
+			</volist>
+			</select>
+		</dd>
+		<input type="hidden" class="molishe_tag" name="molishe_tag" value="">
+		<input type="hidden" class="molishe_activity_id" name="molishe_activity_id" value="">
+				<dt style="clear:both;">专辑介绍：</dt>
+		<dd>
+			<div class="content">
+				<div class="album_s r3" style="margin:0">
+					<textarea class="album_all r3" id="albumInfo" type="text"><present name="aid">{$info}</present></textarea>
+					<!--<span class="fl text_count">还可以输入<span class="c" style="color: rgb(153, 153, 153); ">500</span>个字</span>-->
+				</div>
+			</div>
+		</dd>
+        
+	</dl>
+	<div class="next_btn">
+		<a class="next_button r3" href="javascript:void(0)" id="creat_btn" AlbumInfoBtn_post_action="{:get_url('albumInfoAction','','user')}" AlbumInfoBtn_post_location="{:get_url('album','','user')}">完成</a>
+		<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+	</div>
+
+</div>
+</div>
+
+                </div>
+            </div>	
+<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+<include file="Public:footer" />
+<script>
+$("#creat_btn").click(function(){
+	var albumCateId=$("#albumCate").val();
+	var albumTitle=$.trim($("#albumTitle").val());
+	var albumInfo=$("#albumInfo").val();
+	var hiddenaid=$("#hiddenaid").val();
+	var AlbumInfoBtn_post_action=$(this).attr("AlbumInfoBtn_post_action");
+	var AlbumInfoBtn_post_location=$(this).attr("AlbumInfoBtn_post_location");
+	if(albumTitle==''){
+		$("#createAlbumError").addClass("error_icon").html("专辑名不能为空");
+		return false;
+	}
+	if(albumCateId==0){
+		$("#createAlbumError").addClass("error_icon").html("请选择专辑分类");
+	}else{
+		$.post(AlbumInfoBtn_post_action,{albumCateId:albumCateId,albumTitle:albumTitle,albumInfo:albumInfo,hiddenaid:hiddenaid},function(data){
+			if(data=="successSave"){
+				$("#createAlbumError").removeClass("error_icon").html("");
+				location.href=AlbumInfoBtn_post_location;
+				$("#creat_btn").hide();
+				$("#loading").show();
+			}else if(data=="titleRepeat"){
+				$("#createAlbumError").addClass("error_icon").html("该专辑名称已存在！");
+			}else if(data=="noAccess"){
+				$("#createAlbumError").addClass("error_icon").html("您无权修改该专辑");
+			}else{
+				$("#createAlbumError").removeClass("error_icon").html("");
+				location.href=AlbumInfoBtn_post_location;
+				$("#creat_btn").hide();
+				$("#loading").show();
+			}
+		});
+	}
+})
+</script>

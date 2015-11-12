@@ -1,0 +1,139 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".preview").preview();
+	});
+	
+	function status(id,type){
+		$.get("{:u('Items/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src','__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<body>
+<div class="pad-10" >
+    <form name="searchform" action="{:U('Items/index')}" method="get" >
+    <input name="a" type="hidden" value="index">
+    <input name="m" type="hidden" value="Items">
+    <input name="g" type="hidden" value="Admin">
+    <table width="100%" cellspacing="0" class="search-form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain-col">
+            	发布时间：
+            	<input type="text" name="time_start" id="time_start" class="date" size="12" value="{$time_start}">
+				<script language="javascript" type="text/javascript">
+                    Calendar.setup({
+                        inputField     :    "time_start",
+                        ifFormat       :    "%Y-%m-%d",
+                        showsTime      :    'true',
+                        timeFormat     :    "24"
+                    });
+                </script>
+                -
+                <input type="text" name="time_end" id="time_end" class="date" size="12" value="{$time_end}">
+				<script language="javascript" type="text/javascript">
+                    Calendar.setup({
+                        inputField     :    "time_end",
+                        ifFormat       :    "%Y-%m-%d",
+                        showsTime      :    'true',
+                        timeFormat     :    "24"
+                    });
+                </script>
+            	&nbsp;商品分类：
+                <select name="cate_id">
+            	<option value="0">--选择分类--</option>
+                <volist name="cate_list['parent']" id="val">
+                  <option value="{$val.id}" <if condition="$cate_id eq $val['id']"> selected="selected" </if> >{$val.name}</option>
+                  <notempty name="cate_list['sub'][$val['id']]">
+                    <volist name="cate_list['sub'][$val['id']]" id="sval">
+                      <option value="{$sval.id}" <if condition="$cate_id eq $sval['id']"> selected="selected" </if> style="margin-left:20px;">{$sval.name}</option>
+                        <!-- <volist name="cate_list['sub'][$sval['id']]" id="ssval">
+                     		<option value="{$ssval.id}" <if condition="$cate_id eq $ssval['id']"> selected="selected" </if>style="margin-left:40px;">{$ssval.name}</option>
+                    	</volist> -->
+                    </volist>
+                  </notempty>
+                </volist>
+              	</select>
+                &nbsp;
+                <select name="is_index">
+            	<option value="-1">--首页显示--</option>
+                <option value="1" <if condition="$is_index eq 1"> selected="selected" </if> >>是</option>
+                <option value="0" <if condition="$is_index eq 0"> selected="selected" </if> >>否</option>
+                </select>
+				 &nbsp;
+                <select name="status">
+            	<option value="-1">--是否审核--</option>
+                <option value="1" <if condition="$status eq 1"> selected="selected" </if> >>已审核</option>
+                <option value="0" <if condition="$status eq 0"> selected="selected" </if> >>未审核</option>
+				<option value="2" <if condition="$status eq 2"> selected="selected" </if> >>已下架</option>
+                </select>
+                &nbsp;关键字 :
+                <input name="keyword" type="text" class="input-text" size="25" value="{$keyword}" />
+                <input type="submit" name="search" class="button" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+    <form id="myform" name="myform" action="{:u('Items/delete')}" method="post">
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="5%">序号</th>
+                <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                <th width=80>商品图片</th>
+                <th width=200 align="left">商品名称</th>
+                <th width=60>分类</th>
+                <th width=40>来源</th>
+                <th width=90><a href="{:U('Items/index')}&time_start={$time_start}&time_end={$time_end}&cate_id={$cate_id}&is_index={$is_index}&status={$status}&keyword={$keyword}&order=add_time&sort={$sort}" class="blue <if condition="$order eq 'add_time'">order_sort_<if condition="$sort eq 'desc'">1<else/>0</if></if>">发布时间</a></th>
+                <th width=60><a href="{:U('Items/index')}&time_start={$time_start}&time_end={$time_end}&cate_id={$cate_id}&is_index={$is_index}&status={$status}&keyword={$keyword}&order=price&sort={$sort}" class="blue <if condition="$order eq 'price'">order_sort_<if condition="$sort eq 'desc'">1<else/>0</if></if>">价格</a></th>
+                <th width=40><a href="{:U('Items/index')}&time_start={$time_start}&time_end={$time_end}&cate_id={$cate_id}&is_index={$is_index}&status={$status}&keyword={$keyword}&order=likes&sort={$sort}" class="blue <if condition="$order eq 'likes'">order_sort_<if condition="$sort eq 'desc'">1<else/>0</if></if>">喜欢</a></th>
+				<th width=40><a href="{:U('Items/index')}&time_start={$time_start}&time_end={$time_end}&cate_id={$cate_id}&is_index={$is_index}&status={$status}&keyword={$keyword}&order=hits&sort={$sort}" class="blue <if condition="$order eq 'hits'">order_sort_<if condition="$sort eq 'desc'">1<else/>0</if></if>">人气</a></th>				
+               	<th width=30>排序值</th>
+                <th width=30>首页显示</th>
+				<th width=30>审核</th>
+                <th width=30>操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="list" id="val" >
+        <tr>
+        	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="center"><img src="{$val.img|get_img=###,100}" width="40px" height="40px" class="preview" bimg="{$val.img|get_img=###,210}" title="<php>if(strpos($val['img'],'http') === false){echo '本地图片';}else{echo '远程图片';}</php>" /></td>
+            <td align="left"><a href="{:u('Items/edit', array('id'=>$val['id']))}">{$val.title}</a></td>
+            <td align="center"><b>{$val.cname}</b></td>
+            <td align="center"><img src="__PUBLIC__/statics/images/author/{$val.site_logo}" width="16" height="16" style="margin-right:5px;" /></td>
+            <td align="center">{$val.add_time|date="Y-m-d H:i:s",###}</td>
+            <td align="center"><em style="color:red;">￥{$val.price}</em></td>
+            <td align="center"><em style="color:red;">{$val.likes}</em></td>
+            <td align="center"><em style="color:green;">{$val.hits}</em></td>
+            <td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]" /></td>
+            <td align="center" onclick="status({$val.id},'is_index')" id="is_index_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.is_index}.gif" /></td>
+            <if condition="$val.status neq 2"><td align="center" onclick="status({$val.id},'status')" id="status_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.status}.gif" /></td><else/><td align="center">下架</td></if>
+            <td align="center"><a class="blue" href="{:u('Items/edit',array('id'=>$val['id']))}">编辑</a></td>
+        </tr>
+        </volist>
+    	</tbody>
+    </table>
+
+    <div class="btn">
+    	<label for="check_box" style="float:left;">全选/取消</label>
+    	<input type="submit" class="button" name="submit" value="删除" style="float:left;margin:0 10px 0 10px;" onclick="return check();"/>
+    	<input type="submit" class="button" name="order" onclick="document.myform.action='{:U('Items/order')}'" value="排序" style="float:left;margin:0 10px 0 0px;"/>
+    	<div id="pages">{$page}</div>
+    </div>
+
+    </div>
+    </form>
+</div>
+</body>
+</html>

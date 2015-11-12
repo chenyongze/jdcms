@@ -1,0 +1,42 @@
+<include file="Public:headeru" />
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/newalbum.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<include file="Public:headerdn" />
+<div class="clear"></div>
+<div class="main container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="album_create">
+				<h1><strong>加入专辑</strong><span class="info_tip"><a href="{:get_url('albumInfo','','user')}">创建新专辑</a></span></h1>
+					<form id="addtoalbum">
+						<input type="hidden" id="album_items_id" name="items_id" value="{$items_id}">
+						<fieldset>	
+							<label>专辑名称：</label>
+							<select id="album_items_title" name="album_title" style="height:30px">
+							<present name="album_list">
+							<volist name="album_list" id="vo">
+								<option class="btn_txt r5" style="width:100px" value="{$vo.id}">{$vo.title}</option>
+							</volist>
+							<else/>
+								<option class="btn_txt r5" style="width:100px" value="0">默认专辑</option>
+							</present>
+							</select>
+							<p>
+								<span class="error_icon"></span>
+							</p>
+						</fieldset>
+						<fieldset>	
+							<label>描述：</label>
+							<textarea class="album_all r3" id="album_items_info" type="text"></textarea>
+						</fieldset>
+						<a class="next_button r3 creat_btn" href="javascript:void(0);" id="creat_btn" albumBtn_post_action="{:get_url('addAlbumBtn','','album')}" albumBtn_post_location="{:get_url('album','','user')}">保存</a>
+					</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>

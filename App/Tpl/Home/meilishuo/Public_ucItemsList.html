@@ -1,0 +1,68 @@
+<!--单个商品列表-->
+	<volist name="items_list" id="voItems">
+	<div class="poster_grid poster_wall pins col" id="col">
+			<div class="new_poster">
+				<div class="np_pic hover_pic pic">
+					<div class="no"></div>
+					<a class="pic_load" href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><img class="goods_pic item_img" width="200" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,210}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> title="{$voItems.title}" alt="{$voItems.title}"></a>
+					<div class="like_merge" style="display: none; ">
+						<if condition="($oUid eq '') AND ($curpage neq 'album')"><a href=<if condition="$curPage eq uc_album">"{:get_url('albumItemsDel',$voItems['id'],'user',$voItems['aid'])}"<elseif condition="$curPage eq uc_like"/>"{:get_url('likeItemsDel',$voItems['id'],'user')}"<elseif condition="$curPage eq 'uc_share'"/>{:get_url('shareItemsDel',$voItems['id'],'user')}</if> class="right_f poster_del uc_items_del">
+						删除</a></if>
+						<a class="right_f poster_forward" href="{:get_url('addAlbum',$voItems['id'],'album')}" target="_blank"><em class="lm_shouji">&nbsp;</em>加入专辑</a>
+					</div>
+				</div>
+				<div class="comm_box twiiter_box">
+					<p class="posterContent">{$voItems.title}</p>
+					<p class="comm_num l20_f">
+						<a class="poster_comment pl" href="{:get_url('index',$voItems['id'],'item')}#comm">评论 <span class="poster_comment_num">{$voItems.comments}</span></a>
+						<a class="left_f poster_likes likes" href="javascript:;"> <b class="likes_status s1" item_id="{$voItems['id']}"><i class=<if condition="$likes[$voItems['id']] eq 1">""<else/>"lm_love2"</if> id="like_{$voItems['id']}">&nbsp;</i><span class="sl"><if condition="$likes[$voItems['id']] eq 1">已喜欢<else/>喜欢</if></span></b> <span class="red_f poster_like_num" id="{$voItems['id']}">{$voItems.likes}</span> </a>
+						<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+					</p>
+					<div class="clear_f"></div>
+				</div>
+				<div class="np_share comment_panel">
+					<a class="avatar32_f trans07 userInfoTips" href="{:get_url('index',$voItems['uid'],'user')}" target="_blank"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['userimg'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.userimg}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if>></a>
+					<p class="ml40_f commentHover">
+						<a class="fb_f" href="{:get_url('index',$voItems['uid'],'user')}" target="_blank">{$voItems.username}</a>
+						<span>分享于{$voItems.add_time|date='Y年m月d日 H:i:s',###}</span>
+					</p>
+					<div class="clear_f"></div>
+				</div>
+				<present name="voItems['ablum_info']">
+				<div class="np_share comment_panel">
+					<a class="avatar32_f trans07 userInfoTips" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}" target="_blank"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['ablum_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.ablum_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if>></a>
+					<p class="ml40_f commentHover">
+						<a class="fb_f" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}" target="_blank">{$voItems.ablum_info.uname}</a>
+						<span>分享到</span><a href="{:get_url('albumDetail',$voItems['ablum_info']['id'],'user')}" target="_blank">#{$voItems.ablum_info.title}#</a>
+					</p>
+					<div class="clear_f"></div>
+				</div>
+				</present>
+				<present name="voItems['commnets_info']">
+				<div class="comm_share commentHover">
+					<a class="avatar32_f trans07 userInfoTips" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}" target="_blank"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['commnets_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.commnets_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if>></a>
+					<p class="ml40_f">
+						<a class="fb_f" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}" target="_blank">{$voItems.commnets_info.name}</a>
+						<span class="gray_f">{$voItems.commnets_info.info}</span>
+					</p>
+					<div class="clear_f"></div>
+				</div>
+				</present>
+			</div>
+	</div>
+	</volist>
+<!--单个商品列表-->
+</div>
+	<div class="spinner botSpinner none_f"></div>
+	<div class="clear_f"></div>
+	
+<div class="paging_panel p_f">
+	<div class="pageNav bgcnt">
+	 	<div class="loading" style="width:32px;height:32px;margin:0 auto;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+		<div class="page" style="display: block; ">
+			{$page}
+		</div>
+	</div>
+</div>	
+	<div class="ads_banner ads_bottom none_f"></div>
+</div>

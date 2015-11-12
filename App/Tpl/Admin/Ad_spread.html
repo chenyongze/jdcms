@@ -1,0 +1,31 @@
+<include file="Public:header" />
+
+</head>
+<form id="myform" name="myform" action="{:U('Ad/spread')}" method="post">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">推广商品选项</li>
+      </ul>  
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="100">推广商品开关:</th>
+              <td>
+                <input type="radio" <if condition="C('spread_status') eq '1'">checked="checked"</if> onclick="" value="1" name="con[spread_status]"> 开启 &nbsp;&nbsp;
+                <input type="radio" <if condition="C('spread_status') eq '0'">checked="checked"</if> onclick="" value="0" name="con[spread_status]"> 关闭 &nbsp;&nbsp;
+              </td>
+            </tr>
+		   <tr>
+		   	  <th width="100">推广商品位置 :</th>
+              <td><input type="text" name="con[spread_position]" size="10" value="{:C('spread_position')}"> <span>选择推广位<b style="color:red;">1-20</b></span></td>
+           </tr>
+         </table>      
+      </div>
+      <div class="bk15"></div>
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+</form>
+</body>
+</html>

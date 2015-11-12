@@ -1,0 +1,289 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_left.css'>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('li').click(function(){
+			$('li').find('a').removeClass('cur');
+			$(this).find('a').addClass('cur');
+		})
+	});
+</script>
+
+</head>
+<body>
+<div class="menu">
+<if condition="$_GET['id'] eq 'config'">
+  <dl>
+    <dt><a onClick="showHide('#config');" href="#" target="_self">系统设置</a></dt>
+    <dd>
+      <ul id="config">
+      	<li><a class="cur" href="{:U('Config/base')}" target="main">网站信息设置</a></li>
+      	<li><a href="{:U('Config/url')}" target="main">访问路径设置</a></li>
+      	<li><a href="{:U('Config/cache')}" target="main">网站缓存设置</a></li>
+      	<li><a href="{:U('Config/appkey')}" target="main">AppKey设置</a></li>
+      	<li><a href="{:U('Config/attention')}" target="main">关注我们设置</a></li>
+      	<li><a href="{:U('Push/index')}" target="main">数据推送设置</a></li>
+      </ul>
+    </dd>
+  </dl>
+
+<elseif condition="$_GET['id'] eq 'detail'"/>
+  <dl>
+    <dt><a onClick="showHide('#items');" href="#" target="_self">商品管理</a></dt>
+    <dd>
+      <ul id="items">
+        <li><a class="cur" href="{:U('Items/index')}" target="main">商品列表</a></li>
+        <li><a href="{:U('Items/collect')}" target="main">添加商品</a></li>
+        <li><a href="{:U('Items/betchadd')}" target="main">批量采集</a></li>
+        <li><a href="{:U('Items/addbykey')}" target="main">关键字采集</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#items_cate');" href="#" target="_self">商品分类管理</a></dt>
+    <dd>
+      <ul id="items_cate">
+        <li><a href="{:U('ItemsCate/index')}" target="main">分类列表</a></li>
+        <li><a href="{:U('ItemsCate/add')}" target="main">添加分类</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#tags');" href="#" target="_self">标签管理</a></dt>
+    <dd>
+      <ul id="tags">
+        <li><a href="{:U('ItemsTags/index')}" target="main">标签列表</a></li>
+        <li><a href="{:U('ItemsTags/add')}" target="main">添加标签</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#album_cate');" href="#" target="_self">专辑管理</a></dt>
+    <dd>
+      <ul id="album_cate">
+      	<li><a href="{:U('Album/index')}" target="main">专辑列表</a></li>
+      	<li><a href="{:U('Album/add')}" target="main">添加专辑</a></li>
+        <li><a href="{:U('AlbumCate/index')}" target="main">专辑分类列表</a></li>
+        <li><a href="{:U('AlbumCate/add')}" target="main">添加专辑分类</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#comments');" href="#" target="_self">评论管理</a></dt>
+    <dd>
+      <ul id="comments">
+          <li><a href="{:U('Comment/index')}" target="main">评论列表</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+<elseif condition="$_GET['id'] eq 'shop'"/>
+  <dl>
+    <dt><a onClick="showHide('#shop');" href="#" target="_self">店铺管理</a></dt>
+    <dd>
+      <ul id="shop">
+        <li><a class="cur" href="{:U('Shop/index')}" target="main">店铺列表</a></li>
+        <li><a href="{:U('Shop/collect')}" target="main">添加店铺</a></li>     
+      </ul>
+    </dd>
+  </dl> 
+  
+<elseif condition="$_GET['id'] eq 'user'"/>
+  <dl>
+    <dt><a onClick="showHide('#user');" href="#" target="_self">用户管理</a></dt>
+    <dd>
+      <ul id="user">
+        <li><a class="cur" href="{:U('User/index')}" target="main">会员列表</a></li>
+        <li><a href="{:U('User/add')}" target="main">批量注册</a></li>  
+		<li><a href="{:U('User/uc')}" target="main">用户中心</a></li>    
+      </ul>
+    </dd>
+  </dl> 
+  <dl>
+    <dt><a onClick="showHide('#admin');" href="#" target="_self">管理员管理</a></dt>
+    <dd>
+      <ul id="admin">
+        <li><a href="{:U('Admin/index')}" target="main">管理员列表</a></li>
+        <li><a href="{:U('Admin/add')}" target="main">添加管理员</a></li>      
+      </ul>
+    </dd>
+  </dl> 
+
+<elseif condition="$_GET['id'] eq 'article'"/>
+  <dl>
+    <dt><a onClick="showHide('#article');" href="#" target="_self">文章管理</a></dt>
+    <dd>
+      <ul id="article">
+        <li><a class="cur" href="{:U('Article/index')}" target="main">文章列表</a></li>
+        <li><a href="{:U('Article/add')}" target="main">添加文章</a></li>
+        <li><a href="{:U('Article/linktag')}" target="main">文章内链</a></li>
+      </ul>
+    </dd>
+ </dl>
+ <dl>
+   <dt><a onClick="showHide('#article_cate');" href="#" target="_self">文章分类管理</a></dt>
+    <dd>
+      <ul id="article_cate">
+        <li><a href="{:U('ArticleCate/index')}" target="main">文章分类列表</a></li>
+        <li><a href="{:U('ArticleCate/add')}" target="main">添加文章分类</a></li>
+      </ul>
+    </dd>
+ </dl>
+  <dl>
+   <dt><a onClick="showHide('#article_node');" href="#" target="_self">文章采集管理</a></dt>
+    <dd>
+      <ul id="article_node">
+        <li><a href="{:U('ArticleCollect/index')}" target="main">采集节点列表</a></li>
+        <li><a href="{:U('ArticleCollect/add')}" target="main">添加采集节点</a></li>
+      </ul>
+    </dd>
+ </dl>
+ 
+<elseif condition="$_GET['id'] eq 'extend'"/>
+  <dl>
+    <dt><a onClick="showHide('#link');" href="#" target="_self">友情连接</a></dt>
+    <dd>
+      <ul id="link">
+        <li><a class="cur" href="{:U('Link/index')}" target="main">友情连接列表</a></li>
+        <li><a href="{:U('Link/add')}" target="main">添加友情连接</a></li>
+      </ul>
+    </dd>
+  </dl>
+ 
+
+  <dl>
+    <dt><a onClick="showHide('#ad');" href="#" target="_self">广告管理</a></dt>
+    <dd>
+      <ul id="ad">
+        <li><a href="{:U('Ad/index')}" target="main">广告列表</a></li>
+        <li><a href="{:U('Ad/add')}" target="main">添加广告</a></li>
+      </ul>
+    </dd>
+  </dl>
+    <dl>
+    <dt><a onClick="showHide('#spread');" href="#" target="_self">推广管理</a></dt>
+    <dd>
+      <ul id="spread">
+      	<li><a href="{:U('Ad/info')}" target="main">联盟api设置</a></li>
+        <li><a href="{:U('Ad/spread')}" target="main">推广设置</a></li>
+        <li><a href="{:U('Ad/cps')}" target="main">cps业务报表</a></li>
+      </ul>
+    </dd>
+  </dl>
+         
+
+  <dl>
+    <dt><a onClick="showHide('#html');" href="#" target="_self">静态网页生成</a></dt>
+    <dd>
+      <ul id="html">
+        <li><a href="{:U('Html/set')}" target="main">静态网页选项</a></li>
+      </ul>
+    </dd>
+  </dl> 
+
+
+  <dl>
+    <dt><a onClick="showHide('#database');" href="#" target="_self">数据库操作</a></dt>
+    <dd>
+      <ul id="database">
+        <li><a href="{:U('Data/index')}" target="main">数据库备份</a></li>
+        <li><a href="{:U('Data/show')}" target="main">数据库还原</a></li>     
+      </ul>
+    </dd>
+  </dl> 
+	 <dl>
+    <dt><a onClick="showHide('#plugin');" href="#" target="_self">插件管理</a></dt>
+    <dd>
+      <ul id="plugin">
+        <li><a href="{:U('Plugin/index')}" target="main">插件</a></li>
+		 <li><a href="{:U('Plugin/install')}" target="main">安装插件</a></li>
+      </ul>
+    </dd>
+  </dl> 
+<elseif condition="$_GET['id'] eq 'tpl'"/>
+  <dl>
+    <dt><a onClick="showHide('#template');" href="#" target="_self">模板管理</a></dt>
+    <dd>
+      <ul id="template">
+        <li><a class="cur" href="{:U('Theme/index')}" target="main">网站模板管理</a></li>
+      </ul>
+    </dd>
+  </dl>
+ 
+<else />
+
+  <dl>
+    <dt><a onClick="showHide('#items');" href="#" target=_self>商品管理</a></dt>
+    <dd>
+      <ul id="items">
+        <li><a href="{:U('Items/index')}" target="main">商品列表</a></li>
+        <li><a href="{:U('ItemsCate/index')}" target="main">分类列表</a></li>
+        <li><a href="{:U('ItemsTags/index')}" target="main">标签列表</a></li>
+        <li><a href="{:U('AlbumCate/index')}" target="main">专辑分类列表</a></li>
+		<li><a href="{:U('Comment/index')}" target="main">评论列表</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#shop');" href="#" target="_self">店铺管理</a></dt>
+    <dd>
+      <ul id="shop">
+        <li><a href="{:U('Shop/index')}" target="main">店铺列表</a></li> 
+      </ul>
+    </dd>
+  </dl> 
+  <dl>
+   <dt><a onClick="showHide('#article');" href="#" target="_self">文章管理</a></dt>
+    <dd>
+      <ul id="article">
+        <li><a href="{:U('Article/index')}" target="main">文章列表</a></li>
+      </ul>
+    </dd>
+ </dl>
+  <dl>
+    <dt><a onClick="showHide('#user');" href="#" target="_self">用户管理</a></dt>
+    <dd>
+      <ul id="user">
+        <li><a href="{:U('User/index')}" target="main">会员列表</a></li>
+        <li><a href="{:U('Admin/index')}" target="main">管理员列表</a></li>    
+      </ul>
+    </dd>
+  </dl> 
+  
+   <dl>
+    <dt><a onClick="showHide('#template');" href="#" target="_self">模板管理</a></dt>
+    <dd>
+      <ul id="template">
+        <li><a href="{:U('Theme/index')}" target="main">网站模板管理</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#link');" href="#" target="_self">友情连接</a></dt>
+    <dd>
+      <ul id="link">
+        <li><a href="{:U('Link/index')}" target="main">友情连接列表</a></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><a onClick="showHide('#ad');" href="#" target="_self">广告管理</a></dt>
+    <dd>
+      <ul id="ad">
+        <li><a href="{:U('Ad/index')}" target="main">广告列表</a></li>
+      </ul>
+    </dd>
+  </dl>
+</if>
+</div>
+</body>
+</html>

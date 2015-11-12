@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>{$seo.title}</title>
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<meta name="keywords" content="{$seo.keys}" />
+<meta name="description" content="{$seo.desc}" />
+<volist name="sty" id="styshow">
+	<link href="__TMPL__Public/css/{$styshow}.css" type="text/css" rel="stylesheet" />
+</volist>
+<script src="__PUBLIC__/statics/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/statics/js/ThinkAjax.js"></script>
+<script src="__TMPL__Public/js/index.js?1"></script>
+<style type="text/css">
+.op .in{display:none}
+.op .out{display:none}
+</style>
+
+<script>
+$(document).ready(function(){
+	//登录
+	var id = $.cookie('id');
+	var username =$.cookie('name');
+	if(id > 0){
+		$(".op .in").show();
+		if(username != ''){
+			$('#username').text(username);
+		}
+	}else{
+		$(".op .out").show();
+	}
+	//搜索
+	var web_path=$('#web_path').text();
+	<present name="album">
+		$('.search #album').addClass('cur').siblings().removeClass('cur');
+		$(".search form").attr('action',web_path+'index.php?a=album&m=Search&g=Home');
+		$('#a').val('album');
+	</present>
+	
+	$(".search li").click(function(){
+		$(this).addClass('cur').siblings().removeClass('cur');
+		var a = $(this).attr('id');
+		$(".search form").attr('action',web_path+'index.php?a='+a+'&m=Search&g=Home');
+		$('#a').val(a);
+	})
+
+	var key = $(".btn_txt").attr('placeholder');
+	
+	$(".search_btn_txt").focus(function(){
+		if($(".search_btn_txt").val() == key){
+			$(this).val('');
+		}
+	});
+	
+	$(".search_btn_txt").blur(function(){
+		if($(".search_btn_txt").val() == ''){
+			$(this).val(key);
+		}
+	});
+});
+$(function(){
+		var nav_top = $('.nav_offsetTop').offset().top; 
+		$show_nav = function() {
+		var st = $(document).scrollTop();
+		if(st > nav_top){
+			$("#header_fixed").show();
+		}else{
+			$("#header_fixed").hide();
+		}
+	};
+	$(window).bind("scroll", $show_nav);
+})
+$(function(){
+	var nav_top = $('.nav_offsetTop').offset().top; 
+	var st = $(document).scrollTop();
+	if(st > nav_top){
+		$("#header_fixed").show();
+	}else{
+		$("#header_fixed").hide();
+	}
+})
+</script>
+
+</head>
+<body>
+<div id="web_path" style="display:none;">{:C('web_path')}</div>
+  <div class="nav_main" id="header_fixed">
+    <div class="fm970">
+      <ul class="fl cl">
+        <li class=<if condition="'index' eq $curpage"> cur</if>><a href="{:C('site_domain')}">首页</a></li>
+		<li class=<if condition="'album' eq $curpage"> cur</if>><a href="{:get_url('index','','album')}">专辑</a></li>
+		<volist name="p_cate_list" id="vop">
+        <li class=<if condition="$vop['id'] eq $id"> cur</if>><a href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a></li>
+		</volist>
+      </ul>
+      <ul class="op">
+			<li class="out"><a href="{:get_url('register','','user')}"><b>注册</b></a>|<a href="{:get_url('login','','user')}"><b>登录</b></a></li>
+			<li class="out"><a class="t_sina" href="{:get_url('sinalogin','','user')}" target="_blank"><i>微博登录</i></a></li>
+			<li class="out"><a class="t_qz" href="{:get_url('qqlogin','','user')}" target="_blank"><i>QQ登录</i></a></li>
+			<li class="out"><a class="t_tb" href="{:get_url('taobaologin','','user')}" target="_blank"><i>淘宝登录</i></a></li>
+
+			<li class="in">欢迎您<a href="{:get_url('index','','user')}"><b id="username">{$nav_user_info.name}</b></a></li>
+			<li class="in"><a href="{:get_url('release','','user')}"><i>发布分享</i></a></li>
+	        <li class="in"><a href="{:get_url('account','','user')}">个人设置</a></li>
+			<li class="in" ><a href="{:get_url('logout','','user')}">退出</a></li>		
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+<div class="header">
+  <div class="info_bar">
+   <div class="fm970">
+       <h1 class="logo"></h1>
+      <div class="search">
+        <ul>
+          <li class="cur" id="index">单品</li>
+          <li class="" id="album">专辑</li>
+        </ul>
+        <div class="data s_item">
+		 <form action="{:get_url('index','','search')}" method="get">
+		 	<input id="a" name="a" type="hidden" value="index">
+			<input name="m" type="hidden" value="Search">
+			<input name="g" type="hidden" value="Home">
+			<input type="text" name="keywords" class="btn_txt search_btn_txt" id="keywd" value="<present name='keywords'>{$keywords}<else/>{:C('default_kw')}</present>" placeholder="{:C('default_kw')}" autoComplete= "Off"/>
+			<input type="image" src="__TMPL__Public/img/btn_search.gif"/>
+		 </form>
+        </div>
+      </div>
+      <div class="au_box">
+		<div class="nav_sina_fo_btn fl">
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="http://share.baidu.com/static/images/type-button-5.jpg" />
+		<a class="shareCount"></a>
+	</div>
+<script type="text/javascript" id="bdshare_js" data="type=button" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+         </div>
+	  </div>
+    </div>
+  </div>
+  <div class="nav_main nav_offsetTop">
+    <div class="fm970">
+      <ul class="fl cl">
+        <li class=<if condition="'index' eq $curpage"> cur</if>><a href="{:C('site_domain')}">首页</a></li>
+		<li class=<if condition="'album' eq $curpage"> cur</if>><a href="{:get_url('index','','album')}">专辑</a></li>
+		<volist name="p_cate_list" id="vop">
+        <li class=<if condition="$vop['id'] eq $id"> cur</if>><a href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a></li>
+		</volist>
+      </ul>
+      <ul class="op">
+			<li class="out"><a href="{:get_url('register','','user')}"><b>注册</b></a>|<a href="{:get_url('login','','user')}"><b>登录</b></a></li>
+			<li class="out"><a class="t_sina" href="{:get_url('sinalogin','','user')}" target="_blank"><i>微博登录</i></a></li>
+			<li class="out"><a class="t_qz" href="{:get_url('qqlogin','','user')}" target="_blank"><i>QQ登录</i></a></li>
+			<li class="out"><a class="t_tb" href="{:get_url('taobaologin','','user')}" target="_blank"><i>淘宝登录</i></a></li>
+
+			<li class="in">欢迎您<a href="{:get_url('index','','user')}"><b id="username">{$nav_user_info.name}</b></a></li>
+			<li class="in"><a href="{:get_url('release','','user')}"><i>发布分享</i></a></li>
+	        <li class="in"><a href="{:get_url('account','','user')}">个人设置</a></li>
+			<li class="in" ><a href="{:get_url('logout','','user')}">退出</a></li>		
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+

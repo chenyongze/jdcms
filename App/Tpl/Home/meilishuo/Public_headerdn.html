@@ -1,0 +1,104 @@
+</head>
+<body>
+<div id="web_path" style="display:none;">{:C('web_path')}</div>
+
+<div class="header_fixed" >
+<!---滚动条不在最顶部的时候 主导航固定，这个navbar的position值为fixed，top数值是计算后的结果，跟随滚动条据顶部距离变动-->
+	<div class="nheader">
+		<div class="header_b">
+			<span class="header_b_left"></span>
+			<span class="header_b_right"></span>
+			<ul class="nav_new">
+				<li><a class="<if condition="'index' eq $curpage">home_d<else/>home</if> f14_f fb_f" href="{:C('site_domain')}">首页<span class="shining none_f"></span></a></li>
+				<!--<li><a class="group f14_f fb_f" href="/magazine">翻杂志</a></li>-->
+				<li>
+					<a class="<if condition="'album' eq $curpage">group_d<else/>group</if> racks f14_f fb_f" href="{:get_url('index','','album')}">专辑</a>
+					<volist name="p_cate_list" id="vop">
+					<a class="<if condition="$vop['id'] eq $id">racks1_d<else/>racks1</if> f12_f" href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a>
+					</volist>
+				</li>
+			</ul>
+			<div class="nav_right" style="height:23px;width:210px;overflow:hidden"><!--{:C("site_name")}-->
+			<div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="http://share.baidu.com/static/images/type-button-5.jpg" />
+			<a class="shareCount"></a>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+  </div>
+
+
+<div class="header_top" style="margin-left:auto;margin-right:auto;width:948px;">
+<!---滚动条不在最顶部的时候 主导航固定，这个header_top加此样式style="margin-bottom: 44px; "-->
+	<a class="logo_new" href="{:C('site_domain')}">美丽说</a>
+	<ul class="menu_leo op">
+		<li class="in"><a id="shareMeiliDialog" class="h_share" href="{:get_url('release','','user')}"><b class="f14_f">+</b> 分享我喜欢的</a></li>
+		<li class="in" id="setting"> <a href="{:get_url('index','','user')}"> <span class="s_face"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$nav_user_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$nav_user_info.img}</if> /></span><b id="username">{$nav_user_info.name}</b><em class="redarrow"></em> </a>
+		
+		<!--光标悬浮用户名显示下拉列表-->
+		<ul id="moreConnectBox" class="add_menu_leo hw76 none_f" style="display: none;">
+			 <li><a target="" href="{:get_url('share','','user')}">我的分享</a></li>
+			 <li><a target="" href="{:get_url('like','','user')}">我的喜欢</a></li>
+			 <li class="b_line"><a target="" href="{:get_url('album','','user')}">我的专辑</a></li>
+			 <li class="b_line"><a target="" href="{:get_url('release','','user')}">发布分享</a></li>
+			 <li><a target="" href="{:get_url('account','','user')}">设置账号</a></li>
+		</ul>
+
+		</li>
+		<li class="in" id="message" style="border-right: none;"> <a class="msg" href="{:get_url('logout','','user')}">退出<b class="mgsTotalNum red_f"></b><!--<em class="redarrow"></em>--></a> </li>
+		<li class="out"><a href="{:get_url('sinalogin','','user')}"><em class="i_sina">&nbsp;</em>微博登录</a></li>
+		<li class="out"><a href="{:get_url('qqlogin','','user')}"><em class="i_QQ">&nbsp;</em> QQ登录</a></li>
+		<li class="out"><a href="{:get_url('taobaologin','','user')}"><em class="i_taobao">&nbsp;</em> 淘宝登录</a></li>
+		<li class="out"><a class="red_f tunder_f" href="{:get_url('login','','user')}">登录</a></li>
+		<li class="out" style="border-right:none;"><a class="red_f tunder_f" href="{:get_url('register','','user')}">注册</a></li>
+	</ul>
+	 <div class="ser_n">
+	 	<form class="searchBox" action="{:get_url('index','','search')}" method="get">
+		 	 <input id="a" name="a" type="hidden" value="index">
+			 <input name="m" type="hidden" value="Search">
+			 <input name="g" type="hidden" value="Home">
+			 <span class="ipt1">                    
+             	<input class="searchKey" name="keywords" type="text" value="<present name='keywords'>{$keywords}<else/>{:C('default_kw')}</present>" placeholder="{:C('default_kw')}" autoComplete= "Off">
+             </span>
+			 <span class="ipt2"><input type="submit" class="fm_hd_btm_shbx_bttn" value=""></span>			    	
+	 	</form>
+		<ul class="searchType none_f" style="display: none; ">
+			<li class="searchOtherKey soUser" id='index' style="border-top: 1px solid #ccc;" stype="user_nickname">搜<samp>"</samp><span class="input_words"></span><samp>"</samp>相关宝贝</li>
+			<li class="searchOtherKey" id='album' stype="magazine">搜<samp>"</samp><span class="input_words"></span><samp>"</samp>相关专辑</li>
+		</ul>
+	</div>
+ </div>
+
+
+<div class="clear"></div>
+<div id="navbar" class="nav_offsetTop" style="position:relative; top: 0px; height: auto; left: 0px; ">
+<!---滚动条不在最顶部的时候 主导航固定，这个navbar的position值为fixed，top数值是计算后的结果，跟随滚动条据顶部距离变动-->
+	<div class="nheader">
+		<div class="header_b">
+			<span class="header_b_left"></span>
+			<span class="header_b_right"></span>
+			<ul class="nav_new">
+				<li><a class="<if condition="'index' eq $curpage">home_d<else/>home</if> f14_f fb_f" href="{:C('site_domain')}">首页<span class="shining none_f"></span></a></li>
+				<!--<li><a class="group f14_f fb_f" href="/magazine">翻杂志</a></li>-->
+				<li>
+					<a class="<if condition="'album' eq $curpage">group_d<else/>group</if> racks f14_f fb_f" href="{:get_url('index','','album')}">专辑</a>
+					<volist name="p_cate_list" id="vop">
+					<a class="<if condition="$vop['id'] eq $id">racks1_d<else/>racks1</if> f12_f" href="{:get_url('index',$vop['id'],'cate')}">{$vop.name}</a>
+					</volist>
+				</li>
+			</ul>
+			<div class="nav_right" style="height:23px;width:210px;overflow:hidden"><!--{:C("site_name")}-->
+			<div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="http://share.baidu.com/static/images/type-button-5.jpg" />
+			<a class="shareCount"></a>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+  </div>
+ <script type="text/javascript" id="bdshare_js" data="type=button" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>

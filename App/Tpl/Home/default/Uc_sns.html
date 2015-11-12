@@ -1,0 +1,48 @@
+<include file="Public:header"/>
+<div class="managebox">
+  <h3 class="title_m">账户设置</h3>
+  <div class="managecontent clearfix">
+    <div class="fl">
+      <ul>
+		<li><a href="{:get_url('account','','user')}">基本信息</a></li>
+        <li><a href="{:get_url('img','','user')}">修改头像</a></li>
+        <li><a href="{:get_url('pwd','','user')}">修改密码</a></li>
+        <li class="cur"><a href="{:get_url('sns','','user')}">帐号绑定</a></li>
+      </ul>
+    </div>
+    <div class="fr">
+      <table cellpadding="0" cellspacing="0" class="tbl_zhanghao">
+        <tr>
+          <td align="right"><img src="__TMPL__Public/img/uc/zhh_qq.gif" /></td>
+          <if condition="$is_qq_bind">
+          	<td><span>您已经绑定QQ帐号</span></td>
+          <else />
+          	<td><span>您还没有绑定QQ帐号</span><a href="{:get_url('qqlogin','','user')}">绑定QQ帐号</a></td>
+          </if>
+        </tr>
+        <tr>    	 
+          <td align="right"><img src="__TMPL__Public/img/uc/zhh_sina.gif" /></td>
+          <if condition="$is_sina_bind">
+       		<td><span>您已经绑定新浪微博帐号</span></td>
+          <else />
+	     	<td><span>您还没有绑定新浪微博帐号</span><a href="{:get_url('sinalogin','','user')}">绑定新浪微博帐号</a></td>
+	      </if>
+        </tr>
+        <tr>
+          <td align="right"><img src="__TMPL__Public/img/uc/zhh_taobao.gif" /></td>
+          <if condition="$is_qq_bind">
+          	<td><span>您已经绑定淘宝帐号</span></td>
+          <else />
+          	<td><span>您还没有绑定淘宝帐号</span><a href="{:get_url('taobaologin','','user')}">绑定淘宝帐号</a></td>
+          </if>
+        </tr>
+        <tr>
+        <!--<tr>
+          <td align="right"><img src="__TMPL__Public/img/uc/zhh_renren.gif" /></td>
+          <td><span>您还没有绑定人人网帐号</span><a href="#">绑定人人网帐号</a></td>
+        </tr>-->
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

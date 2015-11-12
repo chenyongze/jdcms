@@ -1,0 +1,50 @@
+<include file="Public:header"/>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			var domain = $("#domain").val();
+			var name = $("#name").val();
+			var data = $("#data").val();
+		    $.post("{:get_url('push','','user')}", { domain: domain, name: name, data: data }, function(data){
+		    	var message = data.data;
+		    	$("#message b").empty().append(message);
+		    },"json");
+		    return false;
+		});
+	});
+</script>
+
+<div class="box_user">
+<div class="creat_qd_tit"><b>推送数据</b></div>
+<div class="creat_qd">
+<form method="post" action="{:U('Push/index')}" name="myform" id="myform">
+<table cellspacing="0" cellpadding="0">
+<tbody>		
+		<tr>
+			<td></td>
+			<td><div id="message"><b style="color:#5FAA92;"></b></div></td>
+		</tr>
+		<tr>
+			<td>网站域名</td>
+			<td><input type="text" name="domain" id="domain" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+		<tr>
+			<td>站长昵称</td>
+			<td><input type="text" name="name" id="name" class="btn_txt r5" style="width:350px;"></td>
+		</tr>
+		<tr>
+			<td>JSON数据</td>
+			<td><textarea name="data" id="data" class="btn_txt r5" style="height:200px;width:600px;"></textarea>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="submit" value="提交" class="but" id="submit"></td>
+		</tr>
+</tbody>
+</table>		
+</form> 
+</div>
+</div>
+</div>
+<include file="Public:footer"/>

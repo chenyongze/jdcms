@@ -1,0 +1,81 @@
+<include file="Public:header" />
+	
+</head>
+<form id="myform" name="myform" action="{:U('Push/index')}" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">数据选项</li>
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="100">选择分类 ：</th>
+              <td>
+              	<volist name="cate" id="val">
+					<input type="checkbox" name="cate[]" value="{$val.name}-{$val.id}" <php>if(in_array($val['name'].'-'.$val['id'].'-1',$push['cate']))echo checked;</php>/> {$val.name} &nbsp;&nbsp;
+    			</volist>
+              </td>
+            </tr>
+            <tr>
+              <th width="100">佣金比例 :</th>
+              <td> 
+               <select name="cps">
+                	<option value="0" <if condition="'0' eq $push['cps']">selected="select"</if>>全部</option>
+                    <option value="10%" <if condition="'10%' eq $push['cps']">selected="select"</if>>10%</option>
+                    <option value="20%" <if condition="'20%' eq $push['cps']">selected="select"</if>>20%</option>
+                    <option value="30%" <if condition="'30%' eq $push['cps']">selected="select"</if>>30%</option>
+                    <option value="40%" <if condition="'40%' eq $push['cps']">selected="select"</if>>40%</option>
+                    <option value="50%" <if condition="'50%' eq $push['cps']">selected="select"</if>>50%</option>
+                    <option value="more" <if condition="'more' eq $push['cps']">selected="select"</if>>更高</option>
+        		</select>
+    		   </td>
+            </tr>
+            <tr>
+              <th width="100">价格区间 :</th>
+              <td>
+            	<select name="price">
+                	<option value="0" <if condition="'0' eq $push['price']">selected="select"</if>>全部</option>
+                	<option value="100" <if condition="'100' eq $push['price']">selected="select"</if>>100</option>
+                	<option value="200" <if condition="'200' eq $push['price']">selected="select"</if>>200</option>
+                	<option value="500" <if condition="'500' eq $push['price']">selected="select"</if>>500</option>
+                	<option value="more" <if condition="'more' eq $push['price']">selected="select"</if>>更高</option>
+                    </for>
+        		</select>
+        	 </td>
+            </tr>
+            <tr>
+              <th width="100">商品数量 :</th>
+              <td>
+             	<select name="nums">
+    				<option value="100" <if condition="'100' eq $push['nums']">selected="select"</if>>100</option>
+    				<option value="200" <if condition="'200' eq $push['nums']">selected="select"</if>>200</option>
+    				<option value="300" <if condition="'300' eq $push['nums']">selected="select"</if>>300</option>
+    				<option value="400" <if condition="'400' eq $push['nums']">selected="select"</if>>400</option>
+    				<option value="500" <if condition="'500' eq $push['nums']">selected="select"</if>>500</option>
+    			</select>
+              </td>
+            </tr>      
+            <tr>
+              <th width="100">是否自动推送 :</th>
+              <td>
+                 <input type="radio" id="auto_push" name="auto_push" value="1" <if condition="1 eq $push['auto_push']">checked="checked"</if>/> 是 &nbsp;&nbsp;
+				 <input type="radio" id="auto_push" name="auto_push" value="0" <if condition="0 eq $push['auto_push']">checked="checked"</if>/> 否
+              </td>
+            </tr>
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+
+    </div>
+
+  </div>
+
+</form>
+</body>
+</html>

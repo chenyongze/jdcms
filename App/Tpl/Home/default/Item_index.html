@@ -1,0 +1,173 @@
+<include file="Public:header" />
+
+<div class="mt15">
+<present name="status">
+	<center>
+	<div>审核中。。。请稍后再试！</div>
+	</center>
+   <br>
+<else />
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+      <div class="sp_detail">
+        <div class="pic_show"> 
+          <div class="scroll">
+            <div class="detail_info">
+              <ul>
+                <li><div class="bgload"><a href="{:get_url('buy',$item['id'],'item')}"><if condition="$item['img'] neq ''"><img alt="{$item.title}" title="{$item.title}" src="{$item.img|get_img=###,350}"  /><else/><img title="{$item.title}" src="__TMPL__Public/img/bg.gif" width="350"></if></a></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="txt_show">
+          <h2>{$item.title}</h2>
+          <div class="meta">价格:<span class="price">￥{$item.price}</span>&nbsp;&nbsp;&nbsp;<strong class="tb"><a class="hc" href="{:get_url('addAlbum',$item['id'],'album')}">加入专辑</a></strong>　<strong class="tb"><a class="hc" href="{$item.url}"></a></strong></div>
+          <div class="op"><span class="like"><em class="s2 likes_num">{$item.likes}</em><strong>
+          	<a href="javascript:void(0);" class="likeItems" item_id="{$item.id}"><if condition="$like eq 1">已喜欢<else/>喜欢一下</if></a>
+          	<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+          </strong></span> 　<a id="comments_count" class="hc"  href="#comm">{$item.comments}人评价</a></div>
+          <div class="demol_sc">
+            <div class="tit">
+              <h3><a href="{:get_url('buy',$item['id'],'item')}" target="_blank" style="color:#FFF;font-weight:bold;font-size:16px;"><if condition="$item['status'] eq 2">已下架<else/>马上购买</if></a></h3>
+              <i></i></div>
+          </div>
+        </div>
+		
+		  <div class="tag">标签：
+		  <volist name="tags" id="val">
+			<a href="{:get_url('tag',$val['id'],'cate')}" title="{$val.name}">{$val.name}</a>
+          </volist>
+		  </div>
+      </div>
+	  <if condition="$item['info']">
+	  <div class="sp_detail"><div class="tag">
+	  <h2>宝贝详情</h2>
+	  {$item.info}</div></div>
+	  </if>
+	  <if condition="$items_list">
+      <div class="blockB">
+        <div class="tit_share">
+          <h3>相关宝贝推荐</h3>
+          <a class="goto" href="{:get_url('index',$cid,'cate')}">点击进入</a></div>
+        <div class="list_tuijian">
+          <ul>
+		  <volist name="items_list" id="vo1">
+            <li><div class="bgload"><a href="{:get_url('index',$vo1['id'],'item')}"><if condition="$vo1['img'] neq ''"><img src="{$vo1.img|get_img=###,100}" title="{$vo1.title}"/><else/><img  title="{$vo1.title}" src="__TMPL__Public/img/undefined.jpg"/></if></a></div>
+              <p><span class="s2">{$vo1.likes}</span><span>￥{$vo1.price}</span></p>
+            </li>
+		  </volist>
+          </ul>
+        </div>
+      </div>
+	  </if>
+	  <if condition="get_ad(7) neq ''">
+	  <br>
+	  <center> <div style="width:650px;height:90px;overflow:hidden">{:get_ad(7)}</div></center>
+	  </if>
+	  <if condition="$likes_list">
+      <div class="blockA">
+        <div class="tit_share">
+          <h3>猜你喜欢</h3>
+        </div>
+<volist name="likes_list" id="voItems">
+        <div class="demol_shop"> <a class="more" href="{:get_url('tag',$voItems['tagid'],'cate')}">查看全部</a>
+          <div class="title">
+            <h3><a href="{:get_url('tag',$voItems['tagid'],'cate')}">{$voItems.tagname}</a></h3>
+            <i></i></div>
+          <ul class="list_pic">
+		  <volist name="voItems['tagitem']" id="voItem"  offset="0" length="5">
+            <if condition="$voItem['item_id'] neq ''"><li><div class="bgload"><a href="{:get_url('index',$voItem['item_id'],'item')}" ><if condition="$voItem['img'] neq ''"><img src="{$voItem.img|get_img=###,100}" title="{$voItem.title}"/><else/><img src="__TMPL__Public/img/undefined.jpg" title="{$voItem.title}" width="100"/></if></a></div></li></if>
+		  </volist>
+          </ul>
+        </div>
+</volist>
+       
+      </div>
+	  </if>
+      <div class="note_comment">
+		
+		<div class="pub_box r5">
+		<a name="comm"></a>
+		<div id="commentsErrorNotice" style="color:red"></div>
+		  <form id="form1" method="post">
+			<input type="hidden" name="items_id" id="items_id" value="{$item.id}">
+			<textarea class="btn_txt fl rl5" id="info"></textarea>
+			<input type="button" id="commentbtn" class="pub_btn fl rr5" value="发表" commentbtn_post_action="{:get_url('add_comments','','item')}" commentbtn_post_locaction="{:get_url('login','','user')}"/>
+			<input type="hidden" name="" id="pager_post_action" value="{:get_url('index',$item['id'],'item',1)}">
+		  </form>
+		  <input type="hidden" name="" id="url_model" value="{:C('url_model')}">
+          <div class="pub_ext">
+          </div>
+		 <div id="comment_list">
+        <include file="comments"/>
+		</div>
+     </div>
+		
+	<div id="list"></div>
+      </div>
+    </div>
+    <div class="ihome_sub">
+	<if condition="($article_list) AND (C('article_show') eq '1')">
+	<div class="box">
+        <div class="title">
+          <a href="{:get_url('index','','article')}" target="_blank"><h3>{:C("site_name")}资讯</h3></a>
+        </div>
+        <ul class="list_txt">
+		<volist name="article_list" id="voal">
+          <li><a href=<if condition="$voal['url']">{$voal.url}<else/>"{:get_url('detail',$voal['id'],'article')}"</if> target="_blank">{$voal.title|msubstr=0,15,'utf-8',false}</a></li>
+		</volist>
+        </ul>
+      </div>
+      <div class="hr"></div>
+	</if>
+      <include file="Public:paiHang" />      
+    </div>
+  </div>
+</present>  
+</div>
+<script>
+	$(function(){
+		
+		var imgl = new Image();
+		imgl.src = 	$(".bgload img").attr('src');
+		
+		if(imgl.width > 0 && imgl.width < 350){
+			$(".bgload img").attr('width',imgl.width);
+		}
+	
+		   //点击喜欢
+		   $(".likeItems").bind('click',function() {			
+		   var like_post_location=$("#like_post_location").val();
+		   var like_post_action=$("#like_post_action").val();
+			   var logurl = like_post_location  ;
+			   var uid = $.cookie('id');
+			   var tt = $(this);
+			   var td = $(".likes_num");
+			   var val = $(this).html();
+			   if(uid){
+				   item_id = $(this).attr("item_id");
+				   if(item_id!=0){
+					    $.post(like_post_action, { items_id: item_id, val: val}, function(data){
+							if(data.status==-2){
+								location.href=logurl;			
+							}else if(data.status==1){
+								tt.html("已喜欢");
+								td.text(data.data);
+							}else if(data.status==-1){
+								tt.html("喜欢一下");
+								td.text(data.data);
+							}else{
+								alert(data.info);
+							}
+						},"json"); 
+				   }
+			   }else{
+					location.href=logurl;	   
+			   }
+			   return false;
+			 });
+	})
+</script>
+
+<include file="Public:footer" />

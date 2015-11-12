@@ -1,0 +1,41 @@
+<include file="Public:header"/>
+<div class="box_user">
+<div class="creat_qd_tit"><b><present name="aid">编辑<else />创建新</present>专辑</b>　　</div>
+<div class="creat_qd">
+
+<table cellspacing="0" cellpadding="0">
+	<tr>
+	<td><input type="hidden" id="hiddenaid" class="btn_txt r5" style="width:350px" value='<present name="aid">{$aid}</present>'></td>
+	<td><div id="createAlbumError"></div></td>
+	</tr>
+	<tbody><tr>
+	<td width="s0" align="right">专辑名称：</td>
+	<td><input type="text" id="albumTitle" class="btn_txt r5" style="width:350px" value='<present name="album_title">{$album_title}</present>'></td>
+	</tr>
+	<tr>
+	<td align="right">所属分类：</td>
+	<td>
+		<select id="albumCate">
+		<option value="0">请选择...</option>
+		<volist name="album_cate" id="vo">
+			<option class="btn_txt r5" style="width:100px" value="{$vo.id}" <if condition="$vo['id'] eq $album_cate_id">selected</if>>{$vo.title}</option>
+		</volist>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td align="right">专辑描述：</td>
+	<td><textarea id="albumInfo" style="width:350px; height:100px;"><present name="aid">{$info}</present></textarea></td>
+	</tr>
+	
+    <tr>
+	</tr>
+	<tr>
+	<td></td>
+	<td><input type="button" id="AlbumInfoBtn" style="cursor: pointer;" value="确定" class="btn_up" AlbumInfoBtn_post_action="{:get_url('albumInfoAction','','user')}" AlbumInfoBtn_post_location="{:get_url('album','','user')}">
+	<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div></td></td>
+	</tr>
+	</tbody></table>
+</div>
+</div>
+<include file="Public:footer"/>

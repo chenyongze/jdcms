@@ -1,0 +1,12 @@
+<div class='comments_loading'></div>
+<ul class="list" id="twitter_comment_list">
+<volist name="comments['list']" id="val">
+	<li> <a class="avatar32_f userInfoTips" user_id="8401824" href="{:get_url('index',$val['uid'],'user')}" target="_blank"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$val['uimg'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$val.uimg}</if>></a> <p> <span class="date">发表于：{$val.add_time|date='Y-m-d H:i',###}<a class="reply twitter_comment_reply"  commDel_post_action="{:get_url('commDel','','item')}" comm_id="{$val.id}" web_path="{:C('web_path')}"><if condition="$uid eq $val['uid']">删除</if></a></span> <a class="red_f twitter_comment_name" target="_blank" href="{:get_url('index',$val['uid'],'user')}">{$val.uname}</a> </p> <p>{$val.info}</p> </li>
+</volist>
+</ul>
+<!--<div class="pagination page" id="comments_page">
+      {$comments.page}
+</div> -->
+<div class="page pageNav" id="comments_page" style="color: #FF6699;font-size: 14px;font-weight:bold">
+     {$comments.page}
+</div> 

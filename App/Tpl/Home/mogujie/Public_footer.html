@@ -1,0 +1,103 @@
+<div class="footerWrap">
+		<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+<div id="footer">
+	<div class="fl">
+		<dl style="margin-left:30px;">
+			<dt>网站</dt>
+			<dd>
+				<ul>
+				<volist name="p_cate_list" id="cval">
+				<li>·<a href="{:get_url('index',$cval['id'],'cate')}" target="_blank">{$cval.name}</a></li>
+				</volist>
+				</ul>
+			</dd>
+		</dl>
+		<dl>
+			<dt>网站相关</dt>
+			<dd style="margin-bottom: 18px;">
+				<ul>
+				<dd><a href="__PUBLIC__/statics/sitemap.html" target="_blank">网站地图</a></dd>
+    			<dd><a href="__PUBLIC__/statics/sitemap.xml" target="_blank">sitemap</a></dd>
+				<dd><php>echo strclean(C('site_icp'));</php></dd>
+				<dd><php>echo strclean(C('statistics_code'));</php></dd>
+				</ul>
+			</dd>
+			
+		</dl>
+		
+	</div>
+	<div class="fr">     
+		<dl class="followus">
+			<dt>关注我们</dt>
+			<dd>
+				<ul>
+				<dd><php>echo strclean(C('follow_us'));</php></dd>
+				<dd><php>echo strclean(C('follow_us2'));</php></dd>
+				<dd><php>echo strclean(C('follow_us3'));</php></dd>
+				<dd><php>echo strclean(C('follow_us4'));</php></dd>
+				<dd><php>echo strclean(C('follow_us5'));</php></dd>
+				<dd><php>echo strclean(C('follow_us6'));</php></dd>
+				</ul>
+			</dd>
+		</dl>
+		
+		<dl>
+			<dt>友情链接</dt>
+			<dd>
+				<ul>
+				<volist name="linkList" id="val">
+				<li>·<a href="{$val.url}" target="_blank">{$val.name}</a></li>
+				</volist>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+
+<p class="cr"><php>echo strclean(C('record'));</php></p>
+</div>
+		<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+
+<div class="back2top"><a href="javascript:;" title="返回顶部"></a></div>
+</body>
+</html>
+<script>
+/*返回顶部*/
+$(function() {
+		$(".back2top").click(function() {
+			$("html, body").animate({ scrollTop: 0 }, 120);
+	}), $backToTopFun = function() {
+		var st = $(document).scrollTop(), winh = $(window).height();
+		(st > 0)? $(".back2top").show(): $(".back2top").hide();    
+		//IE6下的定位
+		if (!window.XMLHttpRequest) {
+			$(".back2top").css("top", st + winh - 166);    
+		}
+	};
+	$(window).bind("scroll", $backToTopFun);
+	$(function() { $backToTopFun(); });
+});
+$(function(){
+	$(".info_show .uname").hover(function(){
+		$(".info_show .uname p").show();
+	},function(){
+		$(".info_show .uname p").hide();
+	})
+	$(".info_show .msg_notice").hover(function(){
+		$(".info_show .msg_notice p").show();
+	},function(){
+		$(".info_show .msg_notice p").hide();
+	})
+/*	$("#searchBar .selectbox").hover(function(){
+		$("#searchBar .selectbox ol").show();
+	},function(){
+		$("#searchBar .selectbox ol").hide();
+	})*/
+})
+</script>

@@ -1,0 +1,42 @@
+<include file="Public:header" />
+
+</head>
+<div class="pad-10" >
+    <form id="myform" name="myform" action="{:U('AlbumCate/delete')}" method="post">
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr class="one">
+            	<th width="5%">序号</th>
+                <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+              	<th width=150>专辑分类名称</th>
+              	<th width=150>SEO Title</th>  
+                <th width=150>排序值</th>                      
+              	<th width=50>操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="list" id='val'>
+        <tr>
+        	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="center"><a href="{:U('AlbumCate/edit', array('id'=>$val['id']))}">{$val.title}</a></td>
+			<td align="left">{$val.seo_title}</td>
+			<td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]"  id="listorders[{$val.id}]" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+            <td align="center"><a class="blue" href="{:U('AlbumCate/edit',array('id'=>$val['id']))}">编辑</a></td>
+        </tr>
+        </volist>
+    	</tbody>
+    </table>
+    
+    <div class="btn">
+    <label for="check_box" style="float:left;">全选/取消</label>
+    <input type="submit" class="button" name="delete" value="删除" onclick="return check();" style="float:left;margin:0 10px 0 10px;"/>
+    <input type="submit" class="button" name="order" onclick="document.myform.action='{:U('AlbumCate/order')}'" value="排序" style="float:left;margin:0 10px 0 0px;"/>
+    <div id="pages">{$page}</div>
+    </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>

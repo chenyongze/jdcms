@@ -1,0 +1,51 @@
+<include file="Public:headeru"/>
+<script src="__TMPL__Public/js/masonry.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/list.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/profile.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/album.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+<include file="Public:ucInfo"/>
+<div class="clearfix" id="content_wrap"> 
+<if condition="$album_list"> 
+<div style="padding-bottom:10px;" class="zone_toolbar">
+<a class="fl new_btn" href="{:get_url('albumInfo','','user')}" title="创建新专辑">创建新专辑</a>
+</div>
+<div class="content">
+<volist name="album_list" id="voAlbum">
+<div class="album_item col">
+    <div class="album_item_bd">
+        <ul>
+            <li class="big" >
+				<img class="big item_img" <if condition="($voAlbum['cover']['img'] eq '') and ($voAlbum['cover'])">src="__TMPL__Public/img/undefined.jpg"<else/>src="{$voAlbum.cover.img|get_img=###,210}"</if> width="225" />
+			</li>
+			<li class="small">
+			<volist name="voAlbum['items']" id="voItems" offset="0" length='4'>
+				<img class="item_img" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+			</volist>
+			</li>      
+      	</ul>  	      
+        <div class="album_author" >
+        	<a title="{$voAlbum.title}" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_title" target="_blank">{$voAlbum.title}</a>
+        </div>
+        <b class="mask" ></b>
+        <a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="album_link" ></a>
+    </div>
+    <div class="album_item_ft"></div>
+</div>
+</volist>
+</div>
+	  <div class="page">{$page}</div>
+<else/>
+<div class="home_empty">
+	<img src="__TMPL__Public/img/dragon_icon_yaya.png">
+	<if condition="$oUid"><span class="des">
+	该用户还没有创建专辑哦！</span><else/><span class="des">
+	你还木有专辑哦，赶紧创建一个</span>
+	<a class="new_album" target="_blank" href="{:get_url('albumInfo','','user')}">创建新专辑</a></if>
+</div>
+</if>
+</div>
+<include file="Public:footer" />

@@ -1,0 +1,39 @@
+<include file="Public:header" />
+
+</head>
+<form id="myform" name="myform" action="{:U('User/uc')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">基本信息</li>
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="100">用户中心 :</th>
+              <td>
+                <input type="radio" <if condition="C('home.uc_status') eq '1'">checked="checked"</if> onclick="" value="1" name="con[uc_status]"> 开启 &nbsp;&nbsp;
+                <input type="radio" <if condition="C('home.uc_status') eq '0'">checked="checked"</if> onclick="" value="0" name="con[uc_status]"> 关闭 &nbsp;&nbsp;
+                uc配置为空时默认关闭
+              </td>
+            </tr>		  
+            <tr>
+              <th width="100">uc配置 :</th>
+              <td><textarea style="width:500px;height:300px;" rows="3" cols="80" name="uc_config" id="statistics_code">{$uc_config}</textarea></td>
+            </tr>
+        </table>
+      </div>
+
+      <div class="bk15"></div>
+
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+
+    </div>
+
+  </div>
+
+</form>
+</body>
+</html>

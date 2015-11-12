@@ -1,0 +1,58 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/index.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="fm960 clearfix" id="body">
+<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+			<div class="piece piece_w960">
+				<div class="piece_bd clearfix">
+					<!-- 头部 -->
+										<div id="content_top">
+						
+
+					</div>
+					<!-- 内容 -->
+					<div class="clearfix pb40">
+						<div id="content_body" class="fl">
+    <div class="gr_detail">
+	<a class="article_path"  href="{:get_url('index','','article')}">{:C("site_name")}资讯</a> &gt;&gt; <a class="article_path"  href="{:get_url('index',$article_info['cid'],'article')}">{$article_info.name|msubstr=0,10,'utf-8',false}</a> &gt;&gt; <a class="article_path" href="javascript:void(0);">{$article_info.title|msubstr=0,15,'utf-8',false}</a>
+	</div>
+	<h1 style="text-align:center;font-size:25px;line-height:30px;">{$article_info.title} </h1>
+	{$article_info.info}
+	
+<!--/div-->						</div>
+
+						<div id="right_side" class="fr">
+<div class="gr_left_box gr_left_del_box">
+		<h3>按分类浏览</h3>
+		<ul class="other_topic_list">
+		<volist name="article_cate_list" id="voACate">
+			<li>
+				<a href="{:get_url('index',$voACate['id'],'article')}">{$voACate.name|msubstr=0,10,'utf-8',false}({$voACate.article_nums})</a>
+			</li>	   
+		</volist>
+		</ul>
+	</div>
+<div class="gr_left_box gr_left_del_box">
+		<h3>推荐文章</h3>
+		<ul class="other_topic_list">
+		<volist name="article_tuijian" id="votj">
+			<li>
+				<a href=<if condition="$votj['url']">{$votj.url}<else/>"{:get_url('detail',$votj['id'],'article')}"</if>>{$votj.title|msubstr=0,15,'utf-8',false}</a>
+			</li>	   
+		</volist>
+		</ul>
+</div><br>
+						</div>
+					</div>
+				</div>
+				<div class="radius-bottom">
+					<span class="hl"></span>
+					<span class="hr"></span>
+				</div>
+			</div>
+		</div>
+<include file="Public:footer" />

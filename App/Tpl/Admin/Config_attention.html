@@ -1,0 +1,38 @@
+<include file="Public:header" />
+
+</head>
+<form id="myform" name="myform" action="{:U('Config/attention')}" method="post">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">关注我们</li>
+      </ul>  
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+           <tr>
+              <td><input type="text" name="con[follow_us]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us')));</php>"></td>
+           </tr>
+		   <tr>
+              <td><input type="text" name="con[follow_us2]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us2')));</php>"></td>
+           </tr>
+		   <tr>
+              <td><input type="text" name="con[follow_us3]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us3')));</php>"></td>
+           </tr>
+		   <tr>
+              <td><input type="text" name="con[follow_us4]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us4')));</php>"></td>
+           </tr>
+		   <tr>
+              <td><input type="text" name="con[follow_us5]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us5')));</php>"></td>
+           </tr>
+		   <tr>
+              <td><input type="text" name="con[follow_us6]" size="80" value="<php>echo strclean(str_replace("\"","\'",C('follow_us6')));</php>"></td>
+           </tr>
+         </table>      
+      </div>
+      <div class="bk15"></div>
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+</form>
+</body>
+</html>

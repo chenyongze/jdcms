@@ -1,0 +1,100 @@
+<include file="Public:header" />
+<style>
+.contentList div {margin:10px auto;}
+span {width:150px;display:block;margin:0 10px;float:left;}
+</style>
+<script>
+$(function(){
+	 $('#manual').click(function(){
+		 $('#auto_set_url').hide();
+	 })
+	 $('#auto').click(function(){
+		 $('#auto_set_url').show();
+	 })
+});
+</script>
+</head>
+<form id="myform" name="myform" action="{:U('ArticleCollect/edit')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">新增采集节点：第一步设置基本信息及网址索引页规则</li>
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr id="set_url">
+              <th width="15%">节点名称 :</th>
+              <td width="35%"><input type="text" name="name" class="input-text" size="30" value="{$info.name}"></td>
+              <th width="15%">目标页面编码 :</th>
+              <td width="35%">
+              	<input type="radio" name="char_code" <if condition="$info.char_code eq 'gb2312'">checked="checked"</if> value="gb2312" checked="checked">&nbsp;&nbsp;GB2312&nbsp;&nbsp;&nbsp;&nbsp;
+              	<input type="radio" name="char_code" <if condition="$info.char_code eq 'utf-8'">checked="checked"</if> value="utf-8">&nbsp;&nbsp;UTF-8&nbsp;&nbsp;&nbsp;&nbsp;
+              	<input type="radio" name="char_code" <if condition="$info.char_code eq 'big5'">checked="checked"</if> value="big5">&nbsp;&nbsp;BIG5
+              </td>
+            </tr>
+            
+            <tr id="set_url">
+              <th width="15%">所属分类:</th>
+              <td width="35%" colspan="3">
+                <select name="cate_id">
+                	<option value="0">--随机分类--</option>
+	                <volist name="cate_info" id="val">
+	                <option value="{$val.id}" <if condition="$info.cate_id eq $val['id']">selected="selected"</if>>--{$val.name}--</option>
+	                </volist>
+				</select>
+              </td>
+            </tr>
+            
+            <tr id="set_url">
+              <th width="15%">来源属性 :</th>
+              <td width="35%" colspan="3">
+              	<input type="radio" id="auto" name="s_url" <if condition="$info.s_url eq 'auto'">checked="checked"</if> value="auto" checked="checked">&nbsp;&nbsp;批量生成列表网址&nbsp;&nbsp;&nbsp;&nbsp;
+              	<input type="radio" id="manual" name="s_url" <if condition="$info.s_url eq 'manual'">checked="checked"</if> value="manual">&nbsp;&nbsp;手工指定列表网址
+              </td>
+            </tr>
+            
+            <tr id="auto_set_url">
+              <th width="15%">批量生成地址设置 :</th>
+              <td colspan="3">
+ 				<div>匹配网址 : <input type="text" id="match_urls" name="match_urls" class="input-text" size="50" value="{$info.match_urls}"></div>
+ 				<div>(如：http://www.jdcms.com/html/test/list_(*).html，如果不能匹配所有网址，可以在手工指定网址的地方输入要追加的网址)</div>
+ 				<div>(*) 从 <input type="text" id="start_match_nums" name="start_match_nums" class="input-text" size="3" value="{$info.start_match_nums}">到 <input type="text" id="end_match_nums" name="end_match_nums" class="input-text" size="3" value="{$info.end_match_nums}"> (页码或规律数字)  每页递增：<input type="text" id="inc_nums" name="inc_nums" class="input-text" size="3" value="{$info.inc_nums}"></div> 
+              </td>
+             </tr>
+             
+             <tr id="manual_set_url">
+              <th width="15%">手工指定网址 :</th>
+              <td width="35%" colspan="3">
+				<textarea id="urls" name="urls" rows="5" cols="100">{$info.urls}</textarea>
+              </td>
+             </tr>
+            
+            <tr>
+              <th width="15%">包含有文章网址的区域设置 :</th>
+              <td width="35%" colspan="3">
+				<div><span>区域开始的HTML : </span><textarea id="start_html" name="start_html" rows="3" cols="60">{$info.start_html}</textarea></div>				
+				<div><span>区域结束的HTML : </span><textarea id="end_html" name="end_html" rows="3" cols="60">{$info.end_html}</textarea></div>
+				<div>
+					<span>对区域网址进行再次筛选：(使用正则表达式) </span>
+					<div>
+						<div>必须包含 : <input type="text" id="include" name="include" class="input-text" size="30" value="{$info.include}"> (优先级高于后者)</div>
+						<div>不能包含 : <input type="text" id="no_include" name="no_include" class="input-text" size="30" value="{$info.no_include}"></div>
+					</div>
+				</div>
+              </td>
+            </tr>
+            
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+	  <input type="hidden" name="id" id="id" value="{$info.id}" />
+      <div class="btn"><input type="submit" value="保存信息并进入下一步设置" name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+
+</form>
+</body>
+</html>

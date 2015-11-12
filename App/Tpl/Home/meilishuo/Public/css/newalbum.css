@@ -1,0 +1,46 @@
+/*创建专辑和发布公用 针对发布*/
+.album_create h1{height:27px;background:url(../img/line.gif) repeat-x bottom;line-height:26px;padding-top:5px;width:100%}
+.album_create h1 strong{height:26px;cursor:pointer;font-size:14px;float:left;padding:0 10px;margin-left:5px;display:inline;background:#F0F2F2;border:1px solid #DDD;border-bottom:none;color:#F69;font-weight:bold}
+.album_create p.ps{ margin:20px 0}
+
+.album_create form#myform fieldset{ clear:both;margin-bottom:5px;margin-bottom:10px}
+.album_create form#myform fieldset input.txt,.album_create form#myform fieldset textarea{border:1px solid #CDCDCD;font-size:12px;line-height:22px;padding:3px 5px;width:260px;height:23px;color:#666;margin:0 5px 0 0;float:left}
+.album_create form#myform fieldset input.txt,.album_create form#myform fieldset p{float:left}
+.album_create form#myform fieldset label{font-size:14px;height:30px;line-height:30px;text-align:right;white-space:nowrap;width:98px;float:left;display:block}
+.album_create form#myform select{ border-color:#cdcdcd;float:left;margin-right:5px}
+.album_create form#myform p{ height:30px;line-height:30px}
+.album_create form#myform p span{ float:left;background-position:3px 7px}
+.album_create form#myform textarea#info{ width:400px;height:160px}
+
+#upload_img img{ display:block;margin-bottom:20px;background:#f4f4f4;float:left}
+#upload_img p{position:relative;margin-left:98px;clear:both;overflow:hidden;display:block; padding:0; float:left; display:inline}
+#upload_img .gray_text{width:244px;height:24px;margin:0 2px 0 0;vertical-align:middle;line-height:26px;border:1px solid #cdcdcd;float:left}
+#upload_img .gray_button{width:65px;height:28px;color:#333;font-size:16px;cursor:pointer;text-align:center;isplay:inline-block;vertical-align:middle;font-weight:bold;border:none;float:left}
+#upload_img .tfile{position:absolute;height:26px;right:0;top:0;width:317px;filter:alpha(opacity=0);opacity:0;clear:both;display:block}
+
+
+.album_create #collect_item,.album_create #submit{ background:url(../img/confirm1.gif);width:97px;height:28px;display:block;color:#fff;font-size:14px;text-decoration:none;font-weight:600;text-align:center;line-height:27px}
+.album_create #submit{margin-left:98px;border:none;cursor:pointer}
+
+.error_icon{display:none;color:#ff89a7;line-height:30px;background:url(../img/error_01.png) 0 -1px no-repeat;padding-left:22px}
+
+/*专门针对创建专辑页面*/
+.main{ width:960px;margin:0 auto}
+#addtoalbum{ margin:20px}
+#addtoalbum fieldset{ clear:both;margin-bottom:5px;margin-bottom:10px}
+#addtoalbum select,#addtoalbum textarea{border-color:#cdcdcd;float:left;margin-right:5px}
+#addtoalbum p{ height:30px;line-height:30px;float:left}
+#addtoalbum label{font-size:14px;height:30px;line-height:30px;text-align:right;white-space:nowrap;width:98px;float:left;display:block}
+
+#addtoalbum .info_tip{ float:right;color:#FF89A7!important;font-size:12px;text-decoration:underline;font-weight:normal}
+#addtoalbum textarea{width:400px;height:160px}
+
+#addtoalbum .next_button{background:url(../img/confirm1.gif);width:97px;height:28px;display:block;color:#fff;font-size:14px;text-decoration:none;font-weight:600;text-align:center;line-height:27px;margin-left:98px}
+
+/*加入专辑*/
+.newalbum{ margin:20px}
+.newalbum .info_tip{float:right}
+.newalbum .album_title{border:1px solid #CDCDCD;font-size:12px;line-height:22px;padding:3px 5px;width:260px;height:23px;color:#666}
+.newalbum select{ height:28px}
+.info_tip a{color:#FF89A7;font-size:12px;text-decoration:underline;font-weight:normal;float:right}
+

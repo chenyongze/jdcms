@@ -1,0 +1,137 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#collect_shop").click(function(){
+			var url = $("#collect_url").val();
+		    $.post("{:u('Shop/collect')}", { url: url }, function(data){
+		    	$("#error_msg").val('该店铺不存在').hide();
+		    	if(data.data == false){
+		    		$("#error_msg").val('该店铺不存在').show();
+		    	}else{
+		    		$("#name").val(data.data.name);
+		    		$("#img").val(data.data.img);
+					$("#url").val(data.data.url);
+					$("#shop_id").val(data.data.shop_id);
+					$("#seller_id").val(data.data.seller_id);
+					$("#cid").val(data.data.cid);
+					if(data.data.img){
+						$("#img_show").attr('src', data.data.img).show();
+					}
+		    	}			
+		    },"json");
+		});	
+		
+		$("#loading").ajaxStart(function(){
+			$(this).show();
+			$("#collect_shop").hide();
+			$("#submit").hide();
+		});
+	
+		$("#loading").ajaxStop(function(){
+			$(this).hide();
+			$("#collect_shop").show();
+			$("#submit").show();
+		});
+		
+		$("#collect_url").change(function(){
+			var url = $(this).val();
+			$("#url").val(url);
+		});
+		
+		$("#submit").click(function(){
+		
+			if($("#name").val()==0){
+			  	alert('请填写商品名称');
+			   	return false;
+			}
+			if($("#url").val()==0){
+			  	alert('请填写链接地址');
+			   	return false;
+			}
+		});	
+	});
+</script>
+
+</head>
+<body>
+<form action="{:U('Shop/add')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+        <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+		<table width="95%" cellspacing="0" class="search-form" align="center">
+			<tbody>
+				<tr>
+				<td>
+				<div class="explain-col">
+					&nbsp;&nbsp;&nbsp;&nbsp;注：只需要输入店铺链接地址即可,如：<font color=red><b>http://eral.tmall.com/shop/view_shop.htm?spm=a220m.1000862.1000730.2.DxVRgW&user_number_id=752960909</b></font>
+				</div>
+				</td>
+				</tr>
+			</tbody>
+		</table>
+		<div name="error_msg" id="error_msg" style="margin:0px 300px;color:red;display:none;"><b>该店铺不存在</b></div>
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th width="100">店铺网址 :</th>
+            <td>
+            	<input type="text" name="collect_url" id="collect_url" class="input-text" size="60" />
+                <input type="button" name="collect_shop" value="获取" class="button" id="collect_shop" />
+                <img id="loading" src="__PUBLIC__/statics/images/ajax_loading.gif" style="display:none;"/>
+            </td>
+          </tr>
+          <tbody id="shop_body">
+          <tr>
+            <th width="100">店铺名称 :</th>
+            <td><input type="text" name="name" id="name" class="input-text not_null" maxlength="140" size="60" /><b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+          <tr>
+	      	<th>店铺图片</th>
+	      	<td>
+			
+	            <img id="img_show" src="" style="width:50px;height:50px;border: 1px solid #999999;padding:1px;" /><br /><br />
+	            <input type="file" name="upload_img" id="upload_img" class="input-text" size=21 />建议图片尺寸50x50
+	        </td>
+      	  </tr>
+          <tr>
+          	<th>店铺网址 :</th>
+            <td><input type="text" name="url" id="url" class="input-text" size="60" /><b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+     <div id="div_setting_2" class="contentList pad-10 hidden">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">Title :</th>
+        <td><input type="text" name="seo_title" id="seo_title" class="input-text" size="60" value=""></td>
+      </tr>
+      <tr>
+        <th>Keywords :</th>
+        <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" size="60" value=""></td>
+      </tr>
+      <tr>
+        <th>Description :</th>
+        <td><textarea name="seo_desc" id="seo_desc" cols="80" rows="8"></textarea></td>
+      </tr>
+    </table>
+    
+    </div>  
+      </div>
+   
+      <div class="bk15">
+      <input type="hidden" name="img" id="img" value="" />
+      <input type="hidden" name="shop_id" id="shop_id" value="" />
+      <input type="hidden" name="seller_id" id="seller_id" value="" />
+      <input type="hidden" name="cid" id="cid" value="" />
+      </div>
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+    </div>
+ 
+</form>
+
+</body></html>

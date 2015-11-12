@@ -1,0 +1,74 @@
+﻿#reg{background:url(../img/reg_bg.jpg) no-repeat center 0;height:1000px}
+#reg .logo a{height:47px;width:146px;margin:20px 0 39px;display:block;overflow:hidden;text-indent:-999em;background:url(../img/logo.png) no-repeat 0 0}
+#reg .content {height:564px}
+#reg #register_left {width:590px;padding-left:55px;height:574px;float:left}
+#register_left h1 {margin:30px 0 0;font-size:26px;color:#768263;font-weight:normal;font-family:'Microsoft Yahei'}
+#register_left form{width:578px}
+#register_left fieldset{ border:none;padding:0;margin-top:16px;overflow:hidden;line-height:30px;clear:both}
+#register_left fieldset.ipt_sex{ margin-top:5px}
+#register_left fieldset label.tit{width:83px;float:left;text-align:right;color:#333;font-size:14px;display:block}
+#register_left fieldset #male{ margin-left:10px}
+#register_left fieldset input[type="radio"] {margin-top:-3px;background:none}
+#register_left form .text {border:1px solid #CFCFCF;float:left;width:254px;height:30px;margin-left:5px;line-height:30px;background:none;border-radius:3px}
+#register_left form .text:focus,.focusBorderColor{border-color:#83b900!important}
+#register_left fieldset.ipt_check .text{ width:114px}
+#register_left .ipt_check #img_checkcode {float:left;width:100px;height:35px;float:left;margin-left:4px;vertical-align:middle;text-align:center}
+#register_left .ipt_check a {color:#87B32E;float:left;margin-left:6px}
+#register_left .ipt_box {margin-left:91px;margin-top:20px;overflow:hidden}
+#register_left .ipt_box .box {margin-right:2px;background:none}
+#register_left .ipt_box label{font-size:12px;margin-top:0;display:inline;line-height:12px;line-height:14px;color:#999}
+#register_left .ipt_box label a:link,.ipt_box label a:hover{color:#999}
+#register_left .ipt_box label a:hover{ text-decoration:underline}
+#register_left .ipt_sub{padding-left:92px}
+#register_left .ipt_sub .sub {border:0;background:url(../img/login_reg_icon.png) no-repeat right -100px;width:131px;height:35px;display:block;cursor:pointer}
+#register_left .ipt_sub #loading{ display:block;padding-left:50px}
+
+#register_left fieldset p{font-size:12px;color:#999;width:198px;float:left;height:30px;line-height:30px;margin:0}
+
+fieldset p.normal{background:none;padding-left:5px}
+fieldset p.error{padding-left:25px;background:url(../img/error1.png) no-repeat 5px 7px;color:#FF89A7!important}
+fieldset p.correct{padding-left:25px;background:url(../img/ok_icon.png) no-repeat 5px 7px}
+#login fieldset p{display:none;background-position:5px 9px}
+
+#register_right{float:left;width:250px;border-left:1px solid #E5E5E5;margin-top:40px;height:480px}
+#register_right h2{margin-left:32px;margin-top:38px;font-size:12px;font-weight:normal}
+#register_right h2 span {color:#999}
+#register_right h2 a {width:81px;height:29px;display:block;margin-top:12px;background:url(../img/login_reg_icon.png) no-repeat  right -150px;overflow:hidden;text-indent:-9999px}
+
+#register_right .other_login {margin-top:65px;margin-left:32px}
+#register_right .other_login h3 {color:#999;margin-bottom:2px;font-size:12px;font-weight:normal}
+#register_right .other_login a{height:16px;line-height:16px;display:block;padding-left:20px;margin-top:12px;padding-top:2px;width:100px;padding-top:5px	9;_padding-top:7px}
+
+.copyright {text-align:center;margin:40px 0 0 0;color:#999}
+
+#login{background:url(../img/login_bg.jpg) no-repeat center 0;height:1000px}
+#login .logo a{height:47px;width:146px;margin:20px 0 39px;display:block;overflow:hidden;text-indent:-999em;background:url(../img/logo.png) no-repeat 0 0}
+#login .content {height:454px}
+#login .lg_left {width:670px;float:left;padding-left:55px;overflow:hidden}
+#login .lg_left h1 {margin:30px 0 0;font-size:26px;color:#768263;font-weight:normal;font-family:'Microsoft Yahei'}
+#login .lg_left  form{ margin:12px 0 0 0;clear:both}
+#login .lg_left fieldset{ border:none;padding:0;margin-top:20px;clear:both}
+#login .lg_left fieldset label{width:83px;float:left;text-align:right;color:#333;font-size:14px;display:block;line-height:30px}
+#login .lg_left  form .text {border:1px solid #CFCFCF;float:left;width:254px;height:30px;margin-left:5px;line-height:30px;background:none;border-radius:3px;color:#999}
+#login .lg_left  form input#verification_login{width:114px}
+
+#login .lg_left fieldset p{ont-size:12px;color:#999;width:288px;float:left;line-height:30px;margin:0; height:34px; line-height:34px}
+
+#login .lg_left fieldset.lg_chk #img_checkcode {float:left;width:100px;height:35px;float:left;margin-left:4px;vertical-align:middle;text-align:center}
+#login .lg_left fieldset.lg_chk a{ line-height:35px;margin-left:5px;color:#09E;display:inlin-block;float:left}
+#login .lg_left fieldset.lg_remember{margin-left:91px;margin-top:20px;overflow:hidden;width:142px;display:block}
+#login .lg_left fieldset.lg_remember .check {margin-right:2px;background:none;float:left}
+#login .lg_left fieldset.lg_remember label{font-size:12px;display:inline;color:#999;width:auto;line-height:22px;float:right}
+
+#login .lg_login {margin-top:15px;margin-left:60px}
+#login .lg_login .sub {border:0;background:url(../img/login_reg_icon.png) no-repeat right 0;width:84px;height:29px;cursor:pointer}
+#login .lg_login a {color:#666;text-decoration:underline;margin-left:12px}
+#login .ot_login {margin-left:60px;margin-top:40px}
+#login .ot_login h2{color:#999;font-size:12px;font-weight:normal}
+#login .ot_btn {margin-top:15px}
+#login .ot_btn a {margin-left:3px;float:left}
+
+#login .lg_right {width:230px;float:right;margin-top:30px;border-left:1px solid #E5E5E5;height:370px}
+#login .lg_right h2 {font-size:22px;font-family:'Microsoft Yahei';font-weight:normal;color:#768263;margin-left:40px;margin-bottom:36px}
+#login .lg_right span, .lg_right p {margin-top:36px;margin-left:40px;color:#333;font-size:14px}
+#login .lg_right .reg {width:111px;height:29px;text-indent:-9999px;overflow:hidden;display:block;margin-top:10px;background:url(../img/login_reg_icon.png) no-repeat right -50px}

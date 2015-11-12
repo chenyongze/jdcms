@@ -1,0 +1,42 @@
+<div class="content">
+<volist name="items_list" id="voItems">
+	<div class="col">
+		<div class="pic bgload">
+			<a class="item_url" target="_blank" href="{:get_url('index',$voItems['id'],'item')}" title="{$voItems.title}"><img class="item_img" alt="{$voItems.title}" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,210}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> width="225" /></a>
+			<a class="add_to_album" href="{:get_url('addAlbum',$voItems['id'],'album')}" target="_blank"  style="display:none"><span class="add_to_album" style="display:inline">加入专辑</span></a>
+
+				<if condition="($curPage eq uc_album) AND ($oUid eq '')"><!--判断是否为当前用户设为专辑详细页-->
+				<a class="add_to_album" href="javascript:void(0);"  style="display:none;">
+					<span class='cover <if condition="$voItems['is_cover'] eq 0">setCover<elseif condition="$voItems['is_cover'] eq 1"/>clearCover</if>' id="cover_{$voItems.id}" setCover_post_action="{:get_url('setAlbumCover','','user')}" style="display:inline;right:100px;" items_id="{$voItems.id}" aid="{$voItems.aid}"><if condition="$voItems['is_cover'] eq 0">设为封面<elseif condition="$voItems['is_cover'] eq 1"/>专辑封面</if></span>
+				</a>
+				</if>
+
+			<if condition="($oUid eq '') AND ($curpage neq 'album') and (!$item)">
+			<a class="delete_form_album" href=<if condition="$curPage eq uc_album">"{:get_url('albumItemsDel',$voItems['id'],'user',$voItems['aid'])}"<elseif condition="$curPage eq uc_like"/>"{:get_url('likeItemsDel',$voItems['id'],'user')}"<elseif condition="$curPage eq 'uc_share'"/>{:get_url('shareItemsDel',$voItems['id'],'user')}</if> style="display:none" target="">从专辑中删除</a>
+			</if>
+			<span class="price item_price">￥{$voItems.price}</span>
+		</div>
+		<p class="btn">
+			<span class="favaImg"><em class="s1 <if condition="$likes[$voItems['id']] eq 1">favored</if>" item_id="{$voItems['id']}"><if condition="$likes[$voItems['id']] eq 1">已喜欢<else/>喜欢一下</if></em><a href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><i class="l" id="{$voItems['id']}">{$voItems.likes}</i><i class="r"></i></a></span>
+			<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+			<a class="creply" href="{:get_url('index',$voItems['id'],'item')}#comm" target="_blank"><em>评论</em>(<i>{$voItems.comments}</i>)</a>              
+		</p>
+		<p class="fava"> 
+			<span>
+				<a class="avt" target="_blank" href="{:get_url('index',$voItems['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['userimg'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.userimg}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['uid'],'user')}" class="name">{$voItems.username}</a>分享于{$voItems.add_time|date='Y年m月d日 H:i:s',###}</em>
+			</span>
+			<present name="voItems['ablum_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['ablum_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.ablum_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}" class="name">{$voItems.ablum_info.uname}</a>加入<a href="{:get_url('albumDetail',$voItems['ablum_info']['id'],'user')}" target="_blank" class="clrff8">{$voItems.ablum_info.title}</a></em></span>
+			</present>
+			<present name="voItems['commnets_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['commnets_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.commnets_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}" class="name">{$voItems.commnets_info.name}：</a>{$voItems.commnets_info.info}</em></span>
+			</present>             
+		</p>
+		<i class="shadow"></i>		
+	</div>
+</volist>
+</div>
+	  <div class="page">{$page}</div>

@@ -1,0 +1,107 @@
+﻿#list #nav_sub ul{border:1px solid #E9EaE8;border-top:none;background:#fff}
+#list #head_bottom{width:100%;clear:both;background:url(../img/nav_bottom_bg_v3.png) repeat-x;height:35px}
+
+#list .main .con_banner{border-radius:10px}
+list .main .con_banner{padding:0 20px 0 185px;background:#fff;clear:both;overflow:hidden}
+
+.con_banner .cate_cont_show {width:760px;overflow:hidden;background:#fff;padding:10px 0 15px 200px;height:258px}
+.con_banner .cate_cont_show li{height:100px;padding-top:25px;margin-right:10px;float:left;width:230px;height:109px}
+.con_banner .cate_cont_show h2{float:left;display:inline;width:80px;margin:0}
+.con_banner .cate_cont_show h2 strong{background:#FFF1F6;color:#FF6EA7;font-size:14px;display:inline-block;line-height:24px;padding:0 8px;border-radius:3px;font-weight:bold;margin-bottom:11px}
+.con_banner .cate_cont_show h2 img{width:62px;height:62px}
+.con_banner .cate_cont_show p{margin:3px 0 0;height:120px;overflow:hidden;float:right;width:150px}
+.con_banner .cate_cont_show p a {color:#666;margin:0 3px 4px 0;display:inline-block;white-space:nowrap;padding:0 2px;line-height:20px}
+.con_banner .cate_cont_show p a:hover {background-color:#FFD4E4;border-radius:3px}
+.con_banner .cate_cont_show p a.h {color:#FF85B4}
+.con_banner .cate_cont_show p a.c{background:#FF70A7;border-radius:3px;color:white;padding:0 2px}
+
+.cate_tit{width:940px;margin:0 10px;height:60px;padding-top:10px;clear:both}
+.cate_tit h1{font-size:30px;color:#690;float:left;line-height:48px;height:48px;margin:0}
+.cate_tit ul{float:left;display:inline}
+.cate_tit li{ float:left;margin:15px 0 0 16px;display:inline;width:auto}
+.cate_tit li span{font-size:12px;color:#666;line-height:23px;display:block;float:left}
+.cate_tit li p{margin:0;overflow:hidden;height:23px;display:inline}
+.cate_tit li p a{background:url(../img/sort_bg.png) no-repeat;display:block;float:left;height:23px;line-height:23px;color:#888;white-space:nowrap}
+.cate_tit li.sort p a.l{padding:0 4px 0 10px;border-right:1px solid #ccc;background-position:left bottom}
+.cate_tit li.sort p a.m{ padding:0 6px;background-position:center bottom;border-right:1px solid #ccc}
+.cate_tit li.sort p a.r{padding:0 10px 0 4px;border-left:1px solid #ccc;background-position:right bottom;margin-left:-1px}
+.cate_tit li.sort p a.curr{color:#FF70A7;background-image:url(../img/sort_bg_curr.png);border-color:#FFC2D9!important;font-weight:bold}
+
+.cate_tit li.sort_color p a.l span,.cate_tit li.sort_color p a.r span{width:22px;*width:16px}
+.cate_tit li.sort_color p a.l{padding:0 4px 0 8px;*padding-left:10px;border-right:1px solid #ccc;background-position:left bottom}
+.cate_tit li.sort_color p a.m{ padding:0 6px;background-position:center bottom;border-right:1px solid #ccc;text-align:center}
+.cate_tit li.sort_color p a span{width:16px;height:15px;margin:4px 0;display:block;overflow:hidden;text-indent:-9999px}
+.cate_tit li.sort_color p a.r{padding:0 8px 0 4px;*padding-right:10px;border-left:1px solid #ccc;background-position:right bottom;margin-left:-1px}
+
+.contentWrap{width:960px;margin:0 auto}
+.content{clear:both}
+.content .col{width:225px;padding-right:3px;_padding-right:1px;margin:0 5px 20px 5px;*margin-bottom:15px;background:url(../img/wall_bg_shadow.png) repeat-y;border-radius:5px 10px 10px 10px}
+.content .col.vacant{ padding-top:300px;background:#E3E3E3}
+.content .col i.shadow{ height:10px;width:225px;*width:228px;display:block;background:#f7f7f7;border-radius:0 0 5px 5px;-webkit-box-shadow:2px 3px 4px #ddd;*background:#f2f2f2 url(../img/feed_ft_228x7_ie.png) no-repeat}
+
+.content .col .pic{width:225px;height:225px;margin:0 auto;position:relative;overflow:hidden}
+.content .col .bgload{background:url(../img/loading_d.gif) no-repeat 50% 50%}
+.content .col .pic img{border-radius:5px 5px 0 0}
+.content .col cite.taobao_tuan_price{width:56px;height:58px;display:block;text-indent:-9999em;cursor:pointer;position:absolute;left:-1px;top:-1px;z-index:999;background:url(../img/be-tuan-start.png) no-repeat}
+.content .col span.add_to_album{ display:none;position:absolute;background:url(../img/add_to_album_v4.png) no-repeat;width:77px;height:22px;text-indent:-9999em;overflow:hidden;right:8px;top:7px;z-index:888;cursor:pointer}
+.content .col span.cover{ display:none;position:absolute;width:77px;height:22px;text-indent:-9999em;overflow:hidden;right:8px;top:7px;z-index:888;cursor:pointer}
+.content .col span.setCover{background:url(../img/sfengmian.png) no-repeat;}
+.content .col span.clearCover{background:url(../img/fengmian.png) no-repeat;}
+.delete_form_album{display:block;background:url(../img/del-btn-19x19.png) no-repeat;width:19px;height:19px;overflow:hidden;text-indent:-99999em;position:absolute;top:6px;left:7px;z-index:9999}
+
+.content .col p{ display:block;clear:both;width:225px;margin:0;overflow:hidden;margin-top:-4px}
+.content .col p.btn{height:32px;padding-top:9px;background:#fff}
+.content .col .price{ position:absolute;display:block}
+.content .col .price{background-color:rgba(0, 0, 0, 0.2);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#33000000,endcolorstr=#33000000);_background-color:#555;font:12px 'MicroSoft Yahei',tahoma;color:white;height:16px;
+padding:0 4px;line-height:16px;bottom:0;right:0}
+.content .col p.btn span.favaImg,.content .col p a.creply{display:block;float:left}
+.content .col p.btn span.favaImg{padding-left:11px;width:125px}
+.content .col p.btn span.favaImg em{height:23px;width:58px;display:block;float:left;background:url(../img/icon-big-v4.png) -200px -80px no-repeat;text-indent:-9999em;overflow:hidden;cursor:pointer}
+.content .col p.btn span.favaImg em.favored{ background-position:0 -139px}
+.content .col p.btn span.favaImg a i.r{width:5px;height:23px;float:left;background:#fff url(../img/icon-big-v4.png) -397px -80px no-repeat;display:inline-block}
+.content .col p.btn span.favaImg a i.l{height:23px;float:left;line-height:23px;padding-left:5px;margin-left:5px;display:inline-block;background:#fff url(../img/icon-big-v4.png) -320px -80px no-repeat;color:#FF76AC;font-size:12px;font-weight:bold;font-style:normal}
+.content .col p.btn a.creply{ padding-right:9px;width:80px;line-height:18px;color:#FF86B6;text-align:right}
+.content .col p.btn a.creply em{ margin-right:2px;font-style:normal;color:#FF86B6}
+.content .col p.btn a.creply i{ font-style:normal;text-decoration:underline;color:#FF86B6}
+
+.content .col p.fava{background:#F7F7F7;padding:12px 0 3px 0;border-top:1px solid #F4F4F4}
+.content .col p.fava span{ display:block;padding:0 9px 12px 11px;max-height:65px;line-height:20px;overflow:hidden;clear:both}
+.content .col p.fava span a.avt{float:left;width:20px;height:20px;margin:1px 6px 4px 0;display:block}
+.content .col p.fava span a.avt img{ width:20px;height:20px}
+.content .col p.fava span em{float:left;width:175px;font-style:normal;color:#AAA}
+.content .col p.fava span em a{line-height:20px;color:#666}
+.content .col p.fava span em a:hover{ text-decoration:underline;color:#FF86B6}
+.content .col p.fava span em a.name{color:#FF86B6;margin-right:2px}
+.content .col p.fava span a.name:hover{ text-decoration:none}
+
+
+#ad_bottom{ margin:20px 0}
+
+.page{color:#FF66A0;clear:both;text-align:center;height:44px;line-height:44px;font-weight:bold}
+.page a{border:1px solid #FF66A0;min-width:20px;height:30px;line-height:30px;display:inline-block;margin:0 1px;white-space:nowrap;min-width:20px;_width:12px;color:white;background-color:#FF74A9;text-align:center;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:0 5px}
+.page a:hover{color:white;background-color:#FF74A9}
+.page a.current{background:none;border:none;color:#FF66A0}
+.page span{color:#FF66A0}
+
+.brands_wrap {
+    /*height: 80px;*/
+    padding: 0;
+    width: 200px;
+	margin:0px 5px 15px 20px;
+}
+.brands_wrap li {
+    border: 1px solid #FFD8E7;
+    display: inline;
+    float: left;
+    height: 50px;
+    margin: 0 4px 8px;
+    overflow: hidden;
+    padding: 2px;
+    width: 50px;
+}
+.brands_wrap li img {
+    width: 50px;
+}
+
+.dianpuh2{color: #666666;font-size: 20px;font-weight: normal;height: 40px;line-height: 40px; margin: 0 0 0 10px;}
+.demol_danpin dl{padding:8px 6px;border-bottom:0}

@@ -1,0 +1,33 @@
+<div class="groups">
+	<div class="title">
+	  <h3>周人气榜</h3>
+	</div>
+	<div class="ihuodong">
+	  <volist name="items_by_likes" id="voByL">
+	  <dl>
+		<dt class="bgload"><a href="{:get_url('index',$voByL['id'],'item')}"><if condition="$voByL['img'] neq ''"><img src="{$voByL.img|get_img=###,100}" title="{$voByL.title}"/><else/><img title="{$voByL.title}" src="__TMPL__Public/img/undefined.jpg" width="60"/></if></a></dt>
+		<dd><a class="hc" href="{:get_url('index',$voByL['id'],'item')}">{$voByL.title|msubstr=0,5,'utf-8',false}</a></dd>
+	  </dl>
+	  </volist>
+	</div>
+</div>
+<div class="hr"></div>
+<div class="groups">
+	<div class="title">
+	  <h3>周排行榜</h3>
+	</div>
+	<div class="ihuodong">
+	<volist name="items_by_comments" id="voByC">
+	  <dl>
+		<dt class="bgload"><a href="{:get_url('index',$voByC['id'],'item')}"><if condition="$voByC['img'] neq ''"><img src="{$voByC.img|get_img=###,100}" title="{$voByC.title}"/><else/><img title="{$voByC.title}" src="__TMPL__Public/img/undefined.jpg" width="60"/></if></a></dt>
+		<dd><a class="hc" href="{:get_url('index',$voByC['id'],'item')}">{$voByC.title|msubstr=0,5,'utf-8',false}</a></dd>
+	  </dl>
+	  </volist>
+	</div>
+</div>
+<present name="item_id">
+<if condition="get_ad(8) neq ''">
+<div class="hr"></div>
+<center> <div style="width:250px;height:250px;overflow:hidden">{:get_ad(8)}</div></center>
+</if>
+</present>

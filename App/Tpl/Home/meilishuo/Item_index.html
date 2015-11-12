@@ -1,0 +1,189 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/detail.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link href="__TMPL__Public/css/page_guang.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerdn"/>
+<div class="content">
+	<div class="single"> <div class="twitter" twitter_id="569011979" twitter_author_uid="20609809"> <div class="twitter_top"> <a class="avatar32_f" href="{:get_url('index',$user_share_info['id'],'user')}" target="_blank">
+	<!--分享该商品的用户-->
+	<img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$user_share_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$user_share_info.img}</if>></a> <p> <span class="date">{$item.add_time|date='Y年m月d日 H:i:s',###}</span> <a class="f14_f" href="{:get_url('index',$user_share_info['id'],'user')}" target="_blank">{$user_share_info.name}</a> <span class="gray_f">分享</span>
+	<!--<span><a class="red f12" href="/group/16342274" target="_blank">#复古系美搭#</a></span> -->
+	</p> 
+	</div>  
+	
+	<div class="code_pic"> 
+	<!--单品信息及操作-->
+	<a href="{:get_url('buy',$item['id'],'item')}"><img class="twitter_pic" title="{$item.title}" src=<if condition="$item['img'] neq ''">{$item.img|get_img=###,350}<else/>__TMPL__Public/img/undefined.jpg</if>></a> 
+	</div> <div class="goods_info">  <h4 class="goods_title"><a href="{:get_url('buy',$item['id'],'item')}">{$item.title}
+	<!--<span class="i_taobao">&nbsp;</span>--></a></h4> <!--下架--> 
+	<a class="price_go" href="{:get_url('buy',$item['id'],'item')}" target="_blank"><span class="price">{$item.price}</span><span class="go">
+	<if condition="$item['status'] eq 2">已下架<else/>去购买</if></span></a>
+	<p class="tui_heart twiiter_box"> <a class="t_collect twitter_forward" href="{:get_url('addAlbum',$item['id'],'album')}"><span><em class="lm_shouji">&nbsp;</em>加入专辑</span></a>
+	<a class="t_like twitter_like"> <span class="likes_status s1" item_id="{$item['id']}"><em class=<if condition="$like eq 1">""<else/>"lm_love2"</if> id="like_{$item['id']}">&nbsp;</em><b class="sl"><if condition="$like eq 1">已喜欢<else/>喜欢</if></b></span><span class="likeNum poster_like_num" id="{$item['id']}">{$item.likes}</span></a></p> 
+	<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">				
+	</div>
+	 <if condition="$item['info']">
+	<div class="twitter_top"> <p style="margin-left:5px"> <h3>宝贝详情</h3><br>
+	</p>
+	{$item.info}
+	
+	</div>  
+	</if>
+	<div class="clear_f"></div> 
+	
+	<div class="tags_info">
+	<!--评论信息-->
+	<div class="tags_r"><div class="s_info">
+	<a name="comm"></a>
+	<a href="javascript:void(0);"><b class="red_f twitter_comment_num">{$item.comments}</b> 评论</a>  </div> <!-- Baidu wangpan BEGIN --> <div id="svBDCloud" class="left_f"></div> <!-- Baidu wangpan END -->  </div> </div> <div class="clear_f"></div>
+	
+	<div id="commentsErrorNotice" style="color:red"></div>
+	<div class="comments"> 
+	<input type="hidden" name="" id="pager_post_action" value="{:get_url('index',$item['id'],'item',1)}">
+	<input type="hidden" name="items_id" id="items_id" value="{$item.id}">
+<div class="meili_note_comment">
+	<include file="Item:comments"/>
+</div>
+	<script type="text/html" id="twitter_comment"> <? item && $.each(item.reverse() , function(key , data){?> <li> <a class="avatar32_f userInfoTips" user_id="<?= data.uinfo.user_id?>" href="/person/u/<?= data.uinfo.user_id?>" target="_blank"><img src="<?= data.uinfo.avatar_c?>" /></a> <p> <span class="date"><?= data.twitter_create_time?></span> <a class="red_f twitter_comment_name" target="_blank" href="/person/u/<?= data.uinfo.user_id?>"><?= data.uinfo.nickname?></a> </p> <p><?= data.twitter_content?><a class="reply twitter_comment_reply">回复</a></p> </li> <?});?> </script> 
+	
+	<div class="clear_f"></div> <div id="showPagingNav"> </div> <div class="clear_f"></div>
+	<div class="reply_box"> 
+	<textarea class="pl_area comment_textarea"></textarea> <p class="review"> <a class="btn comment_btn" commentbtn_post_action="{:get_url('add_comments','','item')}" commentbtn_post_locaction="{:get_url('login','','user')}">评 论</a> 
+	<!--<a class="share_smileys">表情</a>--> </p> </div> <div class="clear_f"></div> </div>  <div class="tobuy"> 
+	
+	<!--购买该商品-->
+	<span class="left_f">可以在这里买到：</span> <a href="{:get_url('buy',$item['id'],'item')}" target="_blank"> <img class="avatar48_f" src=<if condition="$item['img'] neq ''">{$item.img|get_img=###,100}<else/>__TMPL__Public/img/undefined.jpg</if>> <span class="tb_t">{$item.title}</span> <!--<span class="i_taobao">&nbsp;</span>-->  <span class="price">{$item.price}</span>  <span class="red_follow"><if condition="$item['status'] eq 2">已下架<else/>去购买</if></span> </a> </div>  
+	
+	<div class="clear_f"></div> </div>  
+	<if condition="$items_list">
+		<h3 class="t_tle">也许你还喜欢</h3>  
+		 <volist name="items_list" id="vo1" offset="0" length="9">
+		<div class="poster_grid"> <div class="new_poster"> <div class="np_pic"> <a href="{:get_url('index',$vo1['id'],'item')}"> <img title="{$vo1.title}"  width="200" src=<if condition="$vo1['img'] neq ''">{$vo1.img|get_img=###,210}<else/>__TMPL__Public/img/undefined.jpg</if>> </a> </div> <div class="share_b"> <p><a href="{:get_url('index',$vo1['uid'],'user')}">{$vo1.username}</a><span class="gray_f">   <if condition="$vo1['info'] neq ''">:{$vo1.info}</if></span></p> </div> </div> </div>
+		</volist>
+	</if>
+	
+	<div class="clear_f"> </div>  
+	<if condition="$likes_list">
+		<h3 class="t_tle">猜你喜欢</h3>
+		<volist name="likes_list" id="voItems">
+		<div class="groupBox"> 
+		<div class="groupCon"> 
+		<div class="gc_title"> 
+		<h4><a href="{:get_url('tag',$voItems['tagid'],'cate')}">{$voItems.tagname}</a></h4>
+		</div>
+		<div class="imgBox">
+		<volist name="voItems['tagitem']" id="voItem" offset="0" length="9" key="key"> 
+			 <if condition="$voItem['item_id'] neq ''">
+			 <a href="{:get_url('index',$voItem['item_id'],'item')}">  
+				<img title="{$voItem.title}" class="<if condition="$key%3 eq '0'">r</if>" src="<if condition="$voItem['img'] neq ''">{$voItem.img|get_img=###,100}<else/>__TMPL__Public/img/undefined.jpg</if>" />
+			 </a>
+			 </if> 
+		</volist>
+		 <div class="clear_f"></div>
+		</div>
+		<div class="lookBox"> 
+		<a class="btn" href="{:get_url('tag',$voItems['tagid'],'cate')}" target="_blank">去看看</a> 
+		</div> 
+		</div>
+		</div>
+		</volist>
+	</if>
+	
+
+	<div class="clear_f"></div> 
+
+	<div class="space"> <a class="more" href="{:get_url('share',$user_share_info['id'],'user')}">去她的美丽空间查看更多分享<samp>&gt;&gt;</samp></a> <span class="hua"></span> </div> </div>
+
+ <div class="corner_stamp">
+   <h2 class="f16_f">
+
+</h2>
+<!--文章列表-->
+<if condition="($article_list) AND (C('article_show') eq '1')">
+<div class="groupBox">
+ <div class="groupCon">
+ <div class="gc_title">
+ <h4>
+<a href="{:get_url('index','','article')}" target="_blank">{:C("site_name")}资讯</a>
+</h4>
+ </div>
+<ul class="list_txt">
+<volist name="article_list" id="voal">
+	<li><a href=<if condition="$voal['url']">{$voal.url}<else/>"{:get_url('detail',$voal['id'],'article')}"</if>  target="_blank">{$voal.title|msubstr=0,15,'utf-8',false}</a></li>
+</volist>
+</ul>
+ </div>
+</div>
+</if>
+<!--文章列表end-->
+ <div class="groupBox">
+ <div class="groupCon">
+ <div class="gc_title">
+ <h4>
+<a href="javascript:;">
+周排行榜</a>
+</h4>
+ </div>
+
+ <div class="imgBox">
+  <volist name="items_by_comments" id="voByC" offset="0" length="9" key="key">
+  	<a href="{:get_url('index',$voByC['id'],'item')}"><img class="<if condition="$key%3 eq '0'">r</if>" src="<if condition="$voByC['img'] neq ''">{$voByC.img|get_img=###,100}<else/>__TMPL__Public/img/undefined.jpg</if>" /></a>
+  </volist>
+  <div class="clear_f"></div>
+ </div>
+
+ <div class="infoBox c_f">
+ <div class="clear_f"></div>
+ </div>
+ </div>
+</div>
+ <div class="groupBox">
+ <div class="groupCon">
+ <div class="gc_title">
+ <h4>
+<a href="javascript:;">
+周人气排行</a>
+</h4>
+ </div>
+
+ <div class="imgBox">
+  <volist name="items_by_likes" id="voByL" offset="0" length="9" key="key">
+  	<a href="{:get_url('index',$voByL['id'],'item')}"><img class="<if condition="$key%3 eq '0'">r</if>" src="<if condition="$voByL['img'] neq ''">{$voByL.img|get_img=###,100}<else/>__TMPL__Public/img/undefined.jpg</if>" /></a>
+  </volist>
+  <div class="clear_f"></div>
+ </div>
+
+ <div class="infoBox c_f">
+ <div class="clear_f"></div>
+ </div>
+ </div>
+
+</div>
+<!--排行榜end-->
+ <div class="clear_f"></div>
+<if condition="get_ad(16) neq ''">
+<div class="hr"></div>
+<center> <div style="width:226px;height:226px;overflow:hidden">{:get_ad(16)}</div></center>
+</if>
+ </div>
+ <div class="clear_f">
+</div>
+ <div>
+<div class="boxImg">
+<if condition="get_ad(15) neq ''">
+  <center> <div style="width:950px;height:90px;overflow:hidden;">{:get_ad(15)}</div></center>
+</if>
+</div>
+</div>
+<div class="clear_f"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var imgl = new Image();
+	imgl.src = 	$(".twitter_pic").attr('src');
+	
+	if(imgl.width > 0 && imgl.width < 350){
+		$(".twitter_pic").attr('width',imgl.width);
+	}
+})
+</script>
+<include file="Public:footern"/>

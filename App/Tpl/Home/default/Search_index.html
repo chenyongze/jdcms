@@ -1,0 +1,34 @@
+<include file="Public:header"/>
+
+<!--
+{:u('Search/index',array('sortby'=>'likes','keywords'=>$keywords))}
+{:u('Search/index',array('sortby'=>'time','keywords'=>$keywords))}
+-->
+{/*-----------------------------------------------------------------------------*/}
+<div class="wrap">
+  <if condition="get_ad(3) neq ''">
+  <center> <div style="width:970px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(3)}</div></center>
+  </if>
+<div id="search_name" style="display:none;">{$keywords}</div>
+	<div class="sortA clearfix">  
+		<div class="sortr">
+<center>
+<present name="nokey">
+	<div><h3>暂无搜索结果！<h3></div>
+<else/>
+		<div class="fr">
+            <a href="{:get_url('index',$keywords,'search','likes')}" <if condition="$sortby eq 'likes'">class="red"</if>>按喜欢排序</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{:get_url('index',$keywords,'search','time')}"  <if condition="$sortby eq 'time'">class="red"</if>>按时间排序</a>
+        </div>
+</center>
+    	</div>
+	</div>
+<div class="boxA">
+<include file="Public:itemsList"/>
+</present>
+</div>
+<if condition="get_ad(4) neq ''">
+	<center><div style="width:960px;height:90px;overflow:hidden;margin-top:15px;">{:get_ad(4)}</div></center>
+</if>
+<div id='url' style="display:none;">{:C('web_path')}index.php?a=search&m=Public&g=Home&keywords={$Think.get.keywords|htmlspecialchars}&sortby={$Think.request.sortby}</div>
+</div>
+<include file="Public:footer"/>

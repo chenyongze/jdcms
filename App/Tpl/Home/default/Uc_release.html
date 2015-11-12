@@ -1,0 +1,206 @@
+<include file="Public:header"/>
+<script language="javascript">
+
+$(document).ready(function(){
+	
+	$("#collect_item").click(function(){
+	$("#error_msg").hide();
+	$("#error_msg1").hide();
+	$("#existedItem").hide();
+		var url = $("#collect_url").val();
+	    $.post("{:get_url('release','','user')}", { url: url }, function(data){
+	    	if(data.data == false){
+	    		$("#error_msg").show();
+	    	}else if(data.info=="itemExist"){
+				var html="<a href="+data.data+">[点击查看]</a>"
+				$("#error_msg1").show();
+				$("#existedItem").html(html).show();
+			}else if(data.info=="itemCheck"){
+				$("#error_msg1").show();
+			}else{
+				$("#seller_id").val(data.data.seller_id);
+	    		$("#title").val(data.data.title);
+				$("#url").val(data.data.url);
+				$("#tags").val(data.data.tags);
+				$("#price").val(data.data.price);
+				$("#item_key").val(data.data.item_key);
+				$("#img").val(data.data.img);
+				$("#author").val(data.data.alias);
+				$("#sid option[alias='"+data.data.alias+"']").attr('selected',true);
+				$("#img_show").attr('src', data.data.img).show();
+	    	}			
+	    },"json");
+	});	
+	
+	$("#submit").click(function(){
+		
+		if($("#title").val()==0){
+			$("#title_err").show();
+		   	return false;
+		}else{
+			$("#title_err").hide();
+		}
+		
+		if($("#cid").val()==0){
+			$("#cid_err").show();
+		   	return false;
+		}
+		else{
+			$("#cid_err").hide();
+		}
+		
+		if($("#url").val()==0){
+			$("#url_err").show();
+		   	return false;
+		}else{
+			$("#url_err").hide();
+		}	
+		
+		if($("#price").val()==0){
+			$("#price_err").show();
+		   	return false;
+		}else{
+			$("#price_err").hide();
+		}
+		
+		if ($("#info").val().length > 140) {
+			$("#info_err").show();
+		   	return false;
+		}else{
+			$("#info_err").hide();
+		}
+	});	
+	
+	$("#loading").ajaxStart(function(){
+		$(this).show();
+		$("#collect_item").hide();
+		$("#submit").hide();
+	});
+
+	$("#loading").ajaxStop(function(){
+		$(this).hide();
+		$("#collect_item").show();
+		$("#submit").show();
+	});
+	
+	$("#collect_url").change(function(){
+		var url = $(this).val();
+		$("#url").val(url);
+	});
+
+});
+
+</script>
+<div class="box_user">
+<div class="creat_qd_tit"><b>分享宝贝</b></div>
+<div class="creat_qd">
+<form method="post" action="{:get_url('add','','user')}" name="myform" id="myform"  enctype="multipart/form-data">
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr><td></td><td>&nbsp;注：只需要输入商品的详细链接地址即可,如：<br><font><b>http://detail.tmall.com/item.htm?id=13045523063</b></font></td></tr>
+<tr></tr>
+			<tr>
+				<td>商品地址：</td>
+				<td><input type="text" name="collect_url" value="{$url}" id="collect_url" class="btn_txt r5" style="width:350px;">
+				<input type="button" style="cursor: pointer;" name="collect_item" value="获取" id="collect_item" class="btn_up"  >
+				<img id="loading" style="display:none;" src="__PUBLIC__/statics/images/loading_d.gif"></td>
+				<td><span style="padding-left:10px;color:red;display:none;" id="error_msg">该商品不存在</span><span style="padding-left:10px;color:red;display:none;" id="error_msg1">该商品已存在</span><span style="padding-left:10px;display:none;" id="existedItem"></span></td>
+			</tr>
+			<tr>
+				<td>商品名称：</td>
+				<td><input type="text" name="title" id="title" class="btn_txt r5" maxlength="140" style="width:350px;"><span style="padding-left:10px;color:red;display:none;" id="title_err">请填写商品名称</span></td>
+			</tr>
+			<tr>
+				<td>所属分类：</td>
+				<td><select name="cid" id="cid" class="btn_txt r5" style="width:225px;" onchange="return check_cate(this);">
+	            	<option value="0">--选择分类--</option>
+	                <volist name="cate_list['parent']" id="val">
+	                <option value="{$val.id}" pid="0" >{$val.name}</option>
+	                </volist>
+	                </select>
+	            <span style="padding-left:10px;color:red;display:none;" id="cid_err">请选择所属分类</span>
+                </td>
+			</tr>
+			<tr>
+				<td>商品图片：</td>
+				<td>
+					<img id="img_show" src="" width="210px" height="210px"/><br /><br />
+					<input type="file" name="upload_img" size="21 ">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>来源：</td>
+				<td>
+	            <select name="sid" id="sid" class="btn_txt r5" style="width:225px;">
+	            	<option value="0" selected="selected">--选择来源--</option>
+	            	<volist name="site_list" id="val">
+	                <option value="{$val.id}" alias="{$val.alias}">{$val.name}</option>
+	                </volist>
+	            </select>
+            	</td>
+			</tr>
+			<tr>
+				<td>链接地址：</td>
+				<td><input type="text" name="url" value="{$url}" id="url" class="btn_txt r5" style="width:350px;"><span style="padding-left:10px;color:red;display:none;" id="url_err">请填写链接地址</span></td>
+			</tr>
+			<tr>
+				<td>标签：</td>
+				<td><input type="text" name="tags" id="tags" class="btn_txt r5" style="width:350px;"></td>
+			</tr>
+			<tr>
+				<td>价格：</td>
+				<td><input type="text" name="price" id="price" class="btn_txt r5" style="width:70px;"><span style="padding-left:10px;color:red;display:none;" id="price_err">请填写商品价格</span></td>
+			</tr>
+			<tr>
+		        <td>分享介绍 :</td>
+		        <td>
+        		<textarea style="width:300px;height:100px;" id="info" class="btn_txt r5" name="info">{$items.info}</textarea>
+            	<span style="padding-left:10px;color:red;display:none;" id="info_err">长度不得大于140个字符</span>
+            	</td>
+      	  	</tr> 
+			 <div class="bk15">
+			  <input type="hidden" name="shop_id" id="shop_id" value="" />
+		      <input type="hidden" name="item_key" id="item_key" value="" />
+		      <input type="hidden" name="img" id="img" value="" />
+		      <input type="hidden" name="alias" id="alias" value="" />
+		      </div>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="submit" value="提交" class="btn_up" id="submit"></td>
+			</tr>
+			</tbody></table>		
+		</form> 
+	<!-- <tbody><tr>
+	<td width="s0" align="right">专辑名称：</td>
+	<td><input type="text" id="albumTitle" class="btn_txt r5" style="width:350px" value='<present name="album_title">{$album_title}</present>'></td>
+	</tr>
+	<tr>
+	<td align="right">所属分类：</td>
+	<td>
+		<select id="albumCate" value="美容">
+		<volist name="album_cate" id="vo">
+			<option class="btn_txt r5" style="width:100px" <if condition="$vo['title'] eq $album_cate_name">selected</if>>{$vo.title}</option>
+		</volist>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td align="right">专辑描述：</td>
+	<td><textarea id="albumRemark" style="width:350px; height:100px;"><present name="aid">{$remark}</present></textarea></td>
+	</tr>
+	
+	    <tr>
+	</tr>
+	<tr>
+	<td></td>
+	<td><input type="button" id="AlbumInfoBtn" value="确定" class="but"></td>
+	</tr>
+	</tbody></table> -->
+</div>
+</div>
+</div>
+<include file="Public:footer"/>

@@ -1,0 +1,86 @@
+<if condition="$plugins_index">
+<include file="Public:header" />
+<script type="text/javascript">
+	$(function(){
+		$(".plugin_status").click(function(){
+			var id=$(this).attr('id');
+			var is_active=$(this).attr('is_active');
+			var plugin=$(this).attr('plugin');
+			var setId=$
+			$.get("{:U('Plugin/pluginStatus')}", { plugin: plugin ,is_active:is_active}, function(data){
+				if(data.info=='y'){
+					$("#"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif');
+					$("#"+id).attr('is_active',data.data);
+					if(data.data==1){
+						if($("#setButton_"+id)){
+							var setPageUrl=$("#setButton_"+id).attr('setPageUrl');
+							var setHtml="<a href='"+setPageUrl+"'><em class='blue'>设置</em></a>";
+							$("#setButton_"+id).html(setHtml);
+						}
+					}else if(data.data==0){
+						if($("#setButton_"+id)){
+							$("#setButton_"+id+" .blue").hide();
+						}
+					}
+				}else if(data.info=='n'){
+					alert(data.data);
+				}
+				
+			},"json"); 
+		})
+	})
+</script>
+
+</head>
+{:doAction('admin_head');}
+{:doAction('admin_main_top');}
+<div class="pad-lr-10" >
+    <form id="myform" name="myform" action="{:U('Plugin/del')}" method="post" >
+	
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+				<th width="6%">序号</th>
+                <th width="5%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+              	<th width="100" align="left">名称</th>
+                <th width="200" align="left">描述</th>               
+              	<th width="80">适用版本</th>    
+                <th width="60">状态(启用/禁止)</th>
+                <th width="60">作者</th>
+				<th width="60">操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="plugins_list" id='vopg'>
+		<input type="hidden" name="" id="setPage" value="{:U('Admin/Plugin/index',array('plugin'=>$vopg['url']))}">
+        <tr>
+			<td align="center" width=100>{$i}</td>
+            <td align="center"><input type="checkbox" value="{$vopg.key}" name="id[]"></td>
+            <td align="left">{$vopg.name}</td>
+            <td align="left">{$vopg.description}</td>
+			<td align="center"><em style="color:red;">{$vopg.jdcms_version}</em></td>
+			<td class="plugin_status" align="center" id="{$vopg.key}" is_active="{$vopg.is_active}" plugin="{$vopg.key}/{$vopg.key}.php">
+				<img src="__PUBLIC__/statics/images/status_{$vopg.is_active}.gif"/>
+			</td>
+
+            <td align="center">{$vopg.author}</td>
+			<td align="center" id=<if condition="$vopg['url']">"setButton_{$vopg.key}"</if> setPageUrl="{:U('Admin/Plugin/index',array('plugin'=>$vopg['key']))}"><if condition="($vopg['url']) AND ($vopg['is_active'] eq 1)"><a href="{:U('Admin/Plugin/index',array('plugin'=>$vopg['key']))}"><em class="blue">设置</em></a></if></td>
+        </tr>
+        </volist>
+    	</tbody>
+    </table>
+
+   <div class="btn">
+    <label for="check_box">全选/取消</label>
+    <input type="submit" class="button" name="submit" value="删除" style="margin:0px 10px;" onclick="return check();"/>
+	<input type="button" class="button" value="安装插件" style="margin:0px 10px;" onclick="javascript:location.href='{:U('Plugin/install')}'"/>
+    </div>
+
+    </div>
+    </form>
+</div>
+
+</body>
+</html>
+</if>

@@ -1,0 +1,98 @@
+<include file="Public:headeru"/>
+
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/profile.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ur.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<include file="Public:headerdn"/>
+<div class="clear"></div>
+
+<div class="main container_12" >
+	<div class="grid_9" style="_overflow: hidden;">
+		<div class="box_shadow p13 mt14">
+			<div id="ur_follow_warp">
+		<div id="follow_name">{$user_info.name}关注的人 ({$user_info.follow_num})</div>
+		<div style="clear: both;"></div>
+<if condition="$user_list neq ''">
+<volist name="user_list" id="vo">		
+			<div class="user_list">
+				<div class="follow_avatar" >	
+					<a href="{:get_url('index',$vo['id'],'user')}"><img title="{$vo.name}" onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src=<if condition="$vo['img'] eq ''">__PUBLIC__/statics/images/avatar.png<else/>{:C('web_path')}Uploads/avatar_small/{$vo.img}</if> width="64" height="64"></a>
+				</div>
+				<div id="user_info">
+					<div class="follow_user_name">
+												<a href="{:get_url('index',$vo['id'],'user')}">{$vo.name}</a>
+																	</div>
+					<div class="follow_user_info">
+						<span>关注：<a href="{:get_url('follow',$vo['id'],'user')}" target="_blank">{$vo.follow_num}</a>|</span>
+						<span>粉丝：<a href="{:get_url('fans',$vo['id'],'user')}" target="_blank">{$vo.fans_num}</a>|</span>
+						<span>分享：<a href="{:get_url('share',$vo['id'],'user')}" target="_blank">{$vo.share_num}</a>|</span>
+						<span><a class="heart_pic" href="{:get_url('like',$oUid,'user')}" target="_blank" >&nbsp;</a>：<a href="{:get_url('like',$vo['id'],'user')}" target="_blank">{$vo.likes_num}</a></span>
+					</div>
+					<div class="follow_user_info">
+													{$vo.address}
+											</div>
+					<div class="follow_user_info"> {$vo.info} </div>
+				</div>
+							</div>
+</volist>
+<else/>
+<div style="width:620px;font-weight:bold;font-size:14px; margin: 20px 10px;"><if condition="$oUid eq ''">我<else/>他</if>还没有关注的人</div>
+</if>
+						<div style="clear: both;"></div>
+		<div class="c"><div id='pageNav'>{$page}</div></div>
+
+	</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+<div class="corner_notic col">
+			<div class="userinfo">
+				<div class="clear_f"></div>
+                <div class="avatar showChangeHead " style="overflow:hidden">
+                	<a href="{:get_url('index',$user_info['id'],'user')}" target="_blank">
+                    	<img onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src=<if condition="$user_info['img'] eq ''">__PUBLIC__/statics/images/avatar.png<else/>{:C('web_path')}Uploads/avatar_big/{$user_info.img}</if>>
+                    </a>
+					<if condition="$oUid eq ''"><a class=" change" href="{:get_url('img',$user_info['id'],'user')}" target="_blank" style="display: none;"></a></if>
+                </div>
+                <div class="nickname">
+                	<a class="notonline" target="_blank" href="{:get_url('index',$user_info['id'],'user')}">{$user_info.name}</a>
+                </div>
+                <ul class="status big">
+                	<li>
+	                	<a href="{:get_url('follow',$oUid,'user')}" target="_blank">
+		                    <span>关注</span>
+		                    <span class="nums">{$user_info.follow_num}</span>
+	                    </a>
+                    </li>
+                    <li>
+	                    <a href="{:get_url('fans',$oUid,'user')}" target="_blank">
+	                    	<span>粉丝</span>
+	                        <span class="nums" id="fans_num">{$user_info.fans_num}</span>
+	                    </a>
+                    </li>
+                    <li class="last">
+	                    <a href="{:get_url('like',$oUid,'user')}" target="_blank">
+		                    <span><img style=" margin-top: 2px;" alt="红心" src="__TMPL__Public/img/ILikeit.gif"/></span>
+		                    <span class="nums">{$user_info.likes_num}</span>
+	                    </a>
+                    </li>
+                </ul>
+                <div class="clear_f"></div>
+				<present name="oUid">
+                <div class="flw_msg" login_location="{:get_url('login','','user')}">
+                	<span class=<if condition='$followed eq 1'>"removeUserFollow pink_follow"<else/>"red_follow addUserFollow"</if> follow_post_action="{:get_url('add_follow',$oUid,'user')}"><if condition='$followed eq 1'>已关注<else/>+ 加关注</if></span>
+                </div>
+				</present>
+                <div class="clear_f"></div>
+          	</div>
+		</div>
+		<div class="mt10"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="clear_f"></div>
+<include file="Public:footern"/>

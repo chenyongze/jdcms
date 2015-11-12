@@ -1,0 +1,32 @@
+<include file="Public:header" />
+
+<div class="subnav">
+	<h1 class="title-2 line-x">模板中心</h1>
+</div>
+<form id="myform" name="myform" action="{:U('Theme/index')}" method="post">
+<div class="pad-10">
+	<volist name="theme_list" id="val">
+	<div class="table_block" style="width:400px;">
+    	<div class="pad-10">
+    	<table>
+        	<tr>
+              <td><img src="{:C('web_path')}App/Tpl/Home/{$val.dirname}/Public/{$val.dirname}.jpg" width="120" height="160" style="border:1px #E4E4E4 solid;" /></td>
+              <td valign="top">
+                	<table>
+                    	<tr><th align="right"><input type="radio" name="con[default_theme]" value="{$val.dirname}" <if condition="C('home.default_theme') eq $val['dirname']">checked="checked"</if> />&nbsp;&nbsp;</th><td width="160"><if condition="C('home.default_theme') eq $val['dirname']"><span class="red">默认</span><else/><span class="red">设为默认</span></if></td></tr>
+                    	<tr><th align="right">模板文件夹：</th><td>/App/Tpl/Home/{$val.dirname}</td></tr>
+                    	<tr><th align="right">模板名称：</th><td>{$val.dirname}</td></tr>
+                        <tr><th align="right">模板作者：</th><td>{:C('site_name')}</td></tr>
+                    </table>
+              </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    </volist>
+	<div class="bk15"></div>
+	<div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+</div>
+</form>
+</body>
+</html>

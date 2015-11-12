@@ -1,0 +1,53 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	function status(id,type){
+	    $.get("{:U('ArticleCate/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<div class="pad-lr-10" >
+    <form id="myform" name="myform" action="{:U('ArticleCate/delete')}" method="post" >
+    <div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="5%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+              	<th width="100">分类名称</th>
+                <th width="200">SEO Title</th>               
+              	<th width="80">资讯数</th>    
+              	<th width="60">排序值</th>
+                <th width="60">审核</th>
+                <th width="60">操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+        <volist name="article_cate" id='val'>
+        <tr>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="center">{$val.name}</td>
+            <td align="left">{$val.seo_title}</td>
+			<td align="center"><em style="color:red;">{$val.article_nums}</em></td>
+            <td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]"></td>
+            <td align="center" onclick="status({$val.id},'status')" id="status_{$val.id}"><img src="__PUBLIC__/statics/images/status_{$val.status}.gif"</td>
+            <td align="center"><a class="blue" href="{:U('ArticleCate/edit',array('id'=>$val['id']))}">编辑</a></td>
+        </tr>
+        </volist>
+    	</tbody>
+    </table>
+
+    <div class="btn">
+    <label for="check_box">全选/取消</label>
+    <input type="submit" class="button" name="submit" value="删除" style="margin:0px 10px;" onclick="return check();"/>
+    <input type="submit" class="button" name="order" onclick="document.myform.action='{:U('ArticleCate/order')}'" value="排序" />
+    </div>
+
+    </div>
+    </form>
+</div>
+
+</body>
+</html>

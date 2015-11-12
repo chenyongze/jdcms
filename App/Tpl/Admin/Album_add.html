@@ -1,0 +1,51 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#down").click(function(){
+			if(confirm('消耗资源较多，请在网络环境良好时进行该操作!')){
+				$("#down").hide();
+				$("#loading").show();
+			}else{
+				return false;
+			}
+		});
+	});
+</script>
+	
+</head>
+<form id="myform" name="myform" action="{:U('Album/add')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">添加专辑</li>
+
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="100">专辑名称: </th>
+              <td><input type="text" name="title" class="input-text" size="20" value=""></td>
+            </tr>
+            <tr>
+              <th width="100">专辑描述: </th>
+              <td><input type="text" name="info" class="input-text" size="20" value=""></td>
+            </tr>
+        </table>
+      </div>
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+
+    </div>
+
+  </div>
+
+</form>
+</body>
+</html>

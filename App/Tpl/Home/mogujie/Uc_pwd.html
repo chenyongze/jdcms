@@ -1,0 +1,79 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/personal.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+	<div class="piece_hd"></div>
+	<div id="content">
+		<div class="fl " id="setting_bar">
+			<h1>帐号设置</h1>
+			<div class="base_info">
+				<a href="{:get_url('account','','user')}" class="">基本信息</a><br>
+				<a href="{:get_url('img','','user')}" class="">修改头像</a><br>
+				<a href="{:get_url('pwd','','user')}" class="c">修改密码</a><br>
+				<a href="{:get_url('sns','','user')}" class="">帐号绑定</a><br>
+			</div>
+		</div>
+		<div id="setting_box" class="fl">
+	<!--修改密码-->
+	<div id="setting_form" class="setting_password">
+				      <form id="resetpassword" action="/usersecurity/ajaxmodifypwd" method="post">
+			      		  <div class="settings_title">
+					    	<span>修改密码</span>
+					      </div>
+			              <dl>
+		                      <dd>现在的密码：</dd>
+		                      <dt class="clearfix"><input id="oldPwd" name="oldPwd" class="gray_text r5" type="password" value="">
+							  <span id="pwdNotice" class="tip" style=""></span>
+							  </dt>
+		                      <dd>新的密码：</dd>
+		                      <dt class="clearfix">
+							  <!--data-succssed="if(formaajax_catchdata.result.level){var d = parseInt(formaajax_catchdata.result.level) - 1; $('.level').show();$('.level span').removeClass('current');$('.level span').eq(d).addClass('current');}" data-ajax="{ &quot;url&quot; : &quot;/usersecurity/ajaxcheckpwdlevel&quot; , &quot;type&quot; : &quot;POST&quot; , &quot;dataname&quot; : &quot;pwd&quot; , &quot;max&quot; : 18 , &quot;min&quot; : 6 }" data-errormsg="密码长度应为6~16个字符"-->
+                                <input id="password" name="newPwd" class="gray_text r5" type="password">
+
+                                <span id="newPwdNotice" class="tip" style=""></span>
+		                      	<div class="level" style="display:none">
+		                             <div class="l01 li"><span class="ls current">弱</span></div>
+		                             <div class="l02 li"><span class="ls">中</span></div>
+		                             <div class="l03 li"><span class="ls">强</span></div>
+		                        </div>
+		                      </dt>
+		                      <dd>确认新的密码：</dd>
+		                      <dt class="clearfix"><input id="newPwdSure" data-type="repassed" data-passed="password" name="newPwd2" class="gray_text r5" type="password" value="">
+							  <span id="newPwdSureNotice" class="tip" style=""></span>
+							  </dt>
+		                      <dd>验证码：</dd>
+		                      <dt class="clearfix">
+		                      	<input type="text" id="verification_changepwd" maxlength="4" class="gray_text checekcode r3" name="validCode">
+		                      	<img src="{:get_url('verify','','user')}" url_model="{:C(url_model)}" verify_action="{:get_url('verify','','user')}" id="img_checkcode" alt="验证码">
+		                      	<a href="javascript:void(0);" onclick="changeVerify();return false;" id="checkcode_change">换一张</a>
+								<span id="verifyNotice" class="tip" style=""></span>
+		                      </dt>
+		                      <dd>&nbsp;</dd>
+		                      <dt class="clearfix subbox"><input class="submit r3" id="pwdBtn" type="button" value="确认修改" pwdBtn_post_action="{:get_url('pwdAction','','user')}" verify_post_action="{:get_url('verify_test','','user')}"> <!--<span class="reset">取消</span>-->
+							  
+							  </dt>
+			              </dl>
+				      </form>
+				 </div>
+		</div>
+
+    </div>	
+	<div class="piece_ft"></div>
+</div>
+</div>
+
+<include file="Public:footer"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#img_checkcode").attr("verify_action");
+		var url_model=$("#img_checkcode").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		$("#img_checkcode").attr("src",src+nowTime);
+	}
+</script>

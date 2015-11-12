@@ -1,0 +1,255 @@
+<include file="Public:headeru"/>
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/index.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd"/>
+<div class="main">
+		
+	<div class="con_bannerWrap">
+		<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+		<div class="con_banner clearfix">
+
+		<div id="slide_img">
+			<ul class="bgload">
+			<volist name="index_share_item" id="valsi">
+				<li style="display:block"><!--style="display:block"-->
+					<a target="_blank" href="{:get_url('index',$valsi['id'],'item')}" title="{$valsi.title}"><img src=<if condition="$valsi['remark1'] neq ''">"{$valsi.remark1}"<else/>"{$valsi.img|get_img=###,500}"</if>/></a>
+                </li>
+			</volist>
+			</ul>
+			<ol>
+			<volist name="index_share_item" id="valsi">
+				<li>
+					<a target="_blank" href="{:get_url('index',$valsi['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$valsi['uimg'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$valsi.uimg}</if>  alt="{$valsi.name}"/><span>{$valsi.name}</span></a>
+                </li>
+			</volist>
+			</ol>
+		</div>
+		<div id="user_active">
+			
+			
+			<!-- 登录后 -->
+			<present name="uid">
+			<div class="user_info">
+                        <a class="avatar" href="{:get_url('index','','user')}" target="_blank"><img class="r3" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$nav_user_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$nav_user_info.img}</if> alt="{$nav_user_info.name}"/></a>
+                        <p>
+							<a class="username" href="{:get_url('index','','user')}" target="_blank">{$nav_user_info.name}</a>
+							<span class="feed_link">{$nav_user_info.address}<!--<a href="/molishe/me?f=cn20121018modouSY" target="_blank" class="modou pr5">0</a>--></span>
+							<span class="feed_link">欢迎回来{:C("site_name")}<if condition="$nav_user_info['img'] eq ''">，先<a href="{:get_url('img','','user')}" target="_blank">设置个漂亮头像</a>吧。</if></span>
+						</p>
+             </div>
+			 <ul class="user_record">
+				<li class="clearfix">
+					<a href="{:get_url('index','','user')}" target="_blank" class="top_active_btn"><em>我的首页</em></a>
+				</li>
+				<li class="clearfix">
+        			<a href="{:get_url('share','','user')}" target="_blank" class="top_active_btn"><em>我的分享</em></a>
+				</li>
+				<li class="clearfix">
+					<a href="{:get_url('like','','user')}" target="_blank" class="top_active_btn"><em>我的喜欢</em></a>
+				</li>
+				<li class="clearfix">
+					<a href="{:get_url('album','','user')}" target="_blank" class="top_active_btn"><em>我的专辑</em></a>
+				</li>
+			</ul>
+			<else/>
+			<!-- 登录前 -->
+			<div class="user_login">
+				<a href="{:get_url('register','','user')}" class="register_btn" title="立即注册">立即注册</a>
+				<a href="{:get_url('sinalogin','','user')}" class="login_sina_btn" title="使用sina微博登录">使用sina微博登录</a>
+				<a href="{:get_url('qqlogin','','user')}" class="login_qq_btn" title="使用qq登录">使用qq登录</a>
+				<a href="{:get_url('taobaologin','','user')}" class="login_taobao_btn" title="使用淘宝登录">使用淘宝登录</a>
+			</div>
+			<if condition="($article_list) AND (C('article_show') eq '1')">
+			<ul class="article">
+			<volist name="article_list" id="voArt">
+				<li class="clearfix">
+					<a class="img" href=<if condition="$voArt['url']">{$voArt.url}<else/>"{:get_url('detail',$voArt['id'],'article')}"</if> target="_blank">
+					{$voArt.title|msubstr=0,15,'utf-8',false}</a>
+					<span class="top_active_btn">[{$voArt.add_time|date='Y-m-d',###}]</span>
+				</li>
+			</volist>
+			</ul>
+			<else/>
+			<form id="index_login">		
+				<fieldset class="l">
+					<input  type="text" value="请输入用户名" placeholder="请输入用户名" class="txt" id="indexUname"/>
+					<input type="password" class="txt" id="indexPwd"/>
+				</fieldset>
+				<fieldset class="r">
+					<p class="sub"><input type="button" id="indexlLoginBtn" style="cursor:pointer" loginBtn_post_action="{:get_url('loginAction','','user')}" loginBtn_post_location="{:get_url('index','','user')}" location_login="{:get_url('index','','user')}"/>
+					</p>
+					<label for="remember">记住我</label><input id="remember" type="checkbox"/>
+				</fieldset>
+				<p class="tips">
+					我们每天都在为您精挑细选
+				</p>	
+			</form>
+			</if>
+			
+		</present>
+		<if condition="get_ad(25) neq ''">
+			{:get_ad(25)}
+  		</if>	
+		</div>
+	</div>
+		<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+	</div>
+<if condition="get_ad(17) neq ''">
+  <div class="ad_banner">{:get_ad(17)}</div>
+</if>
+<div class="showWrap">
+<present name="album_list">
+		<div class="radius-top">
+							<span class="hl"></span>
+							<span class="hr"></span>
+		</div>
+	<div id="show">
+		<h2 class="clearfix"><strong>菇凉们的专辑</strong><span><a href="{:get_url('index','','album')}" target="_blank">全部专辑</a></span></h2>
+        <ul class="clearfix">
+			<li class="comm">
+			<volist name="album_list" id="voAlbum" offset="0" length='4'>
+				<p class="bgload">
+					<a href="{:get_url('albumDetail',$voAlbum['id'],'user')}" target="_blank" title="{$voAlbum.title}"><img style="margin-left:-30px;" class="dr" src=<if condition="$voAlbum['items_img'] neq ''">"{$voAlbum.items_img|get_img=###,210}"<else/>__TMPL__Public/img/undefined.jpg</if> alt="{$voAlbum.title}"/></a>
+					<span><a class="n" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" target="_blank">{$voAlbum.title|msubstr=0,10,'utf-8',false}</a></span>				</p>
+			</volist>
+			</li>
+			<li class="big">
+			<volist name="album_list" id="voAlbum" offset="4" length='1'>
+				<p class="bgload">
+					<a href="{:get_url('albumDetail',$voAlbum['id'],'user')}" target="_blank"><img src=<if condition="$voAlbum['items_img'] neq ''">"{$voAlbum.items_img|get_img=###,350}"<else/>__TMPL__Public/img/undefined.jpg</if> alt="{$voAlbum.title}"/></a>
+					<span><a class="n" target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" title="{$voAlbum.title}">{$voAlbum.title|msubstr=0,10,'utf-8',false}</a></span>                 </p>
+			</volist>
+			</li>
+			<li class="comm">
+			<volist name="album_list" id="voAlbum" offset="5" length='4'>
+				<p class="bgload">
+					<a href="{:get_url('albumDetail',$voAlbum['id'],'user')}" target="_blank" title="{$voAlbum.title}"><img style="margin-left:-30px;" src=<if condition="$voAlbum['items_img'] neq ''">"{$voAlbum.items_img|get_img=###,210}"<else/>__TMPL__Public/img/undefined.jpg</if> alt="{$voAlbum.title}"/></a>
+					<span><a class="n" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" target="_blank">{$voAlbum.title|msubstr=0,10,'utf-8',false}</a></span>                 </p>
+			</volist>
+			</li>
+		</ul>
+		</div>
+		<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+	
+	</present>
+</div>
+<volist name="index_group_cates" id="val">
+	<div class="piece_bdWrap">
+		<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+
+	<div class="piece_bd clearfix">
+		<h2><strong>菇凉们喜欢的<a href="{:get_url('index',$val['id'],'cate')}">{$val.name}</a></strong></h2>
+		<ul class="goods_list clear_in">
+		<volist name="val['s_items']" id="vo_s_items"  offset="0"  length='6'>
+        	<li  style="width:150px;height:170px;overflow:hidden" class="bgload">
+			<volist name="vo_s_items['t_items']" id="vo_t_items" offset="0" length='1'>
+				<a target="_blank" href="{:get_url('tag',$vo_t_items['tid'],'cate')}" title="{$vo_t_items.name}"><img style="margin-left:-30px;" src=<if condition="$vo_t_items['img'] neq ''">"{$vo_t_items.img|get_img=###,210}"<else/>"__TMPL__Public/img/undefined.jpg"</if> alt="{$vo_t_items.title}" /><span>{$vo_t_items.name|msubstr=0,6,'utf-8',false}</span></a>
+			</volist>
+			</li>
+		</volist>					
+		</ul>
+	
+	<div class="more_goods">
+		<volist name="val['scate']" id="voScate">
+		<dl class="clear_in">
+			<dt><a href="javascript:void(0)">{$voScate.name|msubstr=0,2,'utf-8',false}</a></dt>
+			<dd <if condition="$voScate['key'] eq '0'">style="width:216px"</if>> 
+			<volist name="voScate['scate_tags']" id="voSt">
+				<a href="{:get_url('tag',$voSt['id'],'cate')}" class="{$voSt.class}"  target="_blank">
+				{$voSt.name}</a>
+			</volist>
+			</dd>
+	    </dl>
+		</volist>
+		<a class="more_goods_all" href="{:get_url('index',$val['id'],'cate')}" target="_blank">全部...</a>
+		
+	</div>
+	</div>
+
+		<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+	</div>
+</volist>
+<if condition="$shop_list">
+<div class="piece_bdWrap"><!--店铺信息-->
+				<div class="radius-top">
+					<span class="hl"></span>
+					<span class="hr"></span>
+				</div>
+                <div style="padding-right:0px;" class="piece_bd clearfix ">
+					<h2><strong>菇凉们喜欢的<a href="javascript:void(0)">店铺</a></strong></h2>
+					 <div class="brand_list">
+                        <ol class="brands_wrap">
+						<volist name="shop_list" id="voShop" offset='0' length="18">
+                        	<li class="magic_brand_list">
+							    <a title="{$voShop.name}" href="{:get_url('index',$voShop['id'],'shop')}">
+							        <img alt="{$voShop.name}" data-lazyload="{$voShop.img}" src=<if condition="$voShop['img']">"{$voShop.img}"<else/>__TMPL__Public/img/undefined.jpg</if>>
+							    </a>
+							</li>
+						</volist>
+                        </ol>
+
+					</div>                     
+				</div>
+				<div class="radius-bottom">
+					<span class="hl"></span>
+					<span class="hr"></span>
+				</div>
+</div>
+</if>
+</div>
+<if condition="get_ad(18) neq ''">
+  <div  class="ad_banner">{:get_ad(18)}</div>
+</if>
+<script>
+$(document).ready(function(){
+	$.getJSON("{:C('official_website')}push/pv?path={:C('web_path')}&callback=?");
+});
+</script>
+<script>
+(function(){
+$("#slide_img ol li:eq(0)").addClass("cur");
+	var currentindex=0;
+	var timerID = null;
+	function changeflash(i) {	
+			currentindex=i;
+			$("#slide_img ul li:eq("+i+")").fadeIn("fast").siblings().hide();
+			$("#slide_img ol li:eq("+i+")").addClass("cur").siblings().removeClass("cur");
+	}
+	function startAm(){
+		if(timerID){
+			return;
+		}
+		timerID = setInterval(timer_tick,3000);
+	}
+	function stopAm(){
+		if(timerID){
+			clearInterval(timerID);
+			timerID = null;
+		}
+	}
+	function timer_tick(){
+		var totalNum=$("#slide_img ol li").length;
+		currentindex=currentindex<totalNum ? currentindex+1 : 0;
+		changeflash(currentindex);
+	}
+	startAm();
+	$("#slide_img ol>li").hover(function(){stopAm();},function(){startAm();});
+	$("#slide_img li").hover(function(){var num=$(this).index();changeflash(num);stopAm();},function(){startAm();})
+})()
+</script>
+<include file="Public:footer" />

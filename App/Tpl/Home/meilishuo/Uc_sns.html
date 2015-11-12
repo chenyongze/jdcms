@@ -1,0 +1,90 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/register.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/myTickets.css"/>	
+
+<include file="Public:headerdn"/>
+<div class="clear"></div>
+<div class="main" class="container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="hp_tab">
+				<ul class="hp_lt">
+					<li class="active red">个人设置</li>
+				</ul>
+			</div>
+			<div class="c_sub_tab" style="margin: 28px 0px 0px 30px;">
+				<a href="{:get_url('account','','user')}" class="c_sub_tab_btn">个人信息</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('img','','user')}" class="c_sub_tab_btn">修改头像</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('pwd','','user')}" class="c_sub_tab_btn">修改密码</a>
+				<span class="separator">|</span>
+				<a href="{:get_url('sns','','user')}" class="c_sub_tab_btn_current">同步绑定</a>
+			</div>
+		
+		<div class="settings-page-wraper">
+			<div class="sync_box">
+				<h2 class="mt10 f18 mb14">绑定同步消息</h2>
+				<p>把你在美丽说的动向，轻松同步到新浪微博和QQ，让那里的朋友也能同步分享你的美丽生活！</p>
+				<div id="bind">
+					<h3 class="f14 mb14">同步到：</h3>
+					<div class="sina_left">
+						<a class="logo logo_weibo"></a>
+						<if condition="$is_sina_bind">
+							<div class="connect_map">
+								<img src="__TMPL__Public/img/mlspic.gif" style="width:18px;height:18px;float:left;">
+								<img src="__TMPL__Public/img/towhat.gif" style="margin-left:6px;width:34px;height:19px;float:left;">
+								<img src="__TMPL__Public/img/sinasmall.png" style="margin-left:7px;width:14px;height:14px;float:left;">
+							</div>
+						<else/>
+							<input class="bindsinarenren" type="button" value="" onclick="javascript:location.href='{:get_url('sinalogin','','user')}';">
+						</if>
+					</div>
+
+
+					<div class="qzone_right">
+						<a class="logo logo_qzone"></a>
+						<if condition="$is_sina_bind">
+							<div class="connect_map">
+								<img src="__TMPL__Public/img/mlspic.gif" style="width:18px;height:18px;float:left;">
+								<img src="__TMPL__Public/img/towhat.gif" style="margin-left:6px;width:34px;height:19px;float:left;">
+								<img src="__TMPL__Public/img/qqsmall.png" style="margin-left:7px;width:14px;height:14px;float:left;">
+							</div>
+						<else/>
+							<input class="bindsinarenren" type="button" value="" onclick="javascript:location.href='{:get_url('qqlogin','','user')}';">
+						</if>
+					</div>
+					
+					<div class="taobao_right">
+						<a class="logo logo_taobao"></a>
+						<if condition="$is_taobao_bind">
+							<div class="connect_map">
+								<img src="__TMPL__Public/img/mlspic.gif" style="width:18px;height:18px;float:left;">
+								<img src="__TMPL__Public/img/towhat.gif" style="margin-left:6px;width:34px;height:19px;float:left;">
+								<img src="__TMPL__Public/img/taobaosmall.png" style="margin-left:7px;width:14px;height:14px;float:left;">
+							</div>
+						<else/>
+							<input class="bindsinarenren" type="button" value="" onclick="javascript:location.href='{:get_url('taobaologin','','user')}';">
+						</if>
+					</div>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$("#img_checkcode").attr("src");
+		var nowTime=new Date().getTime();
+		$("#img_checkcode").attr("src",src+"&nowTime="+nowTime);
+	}
+</script>

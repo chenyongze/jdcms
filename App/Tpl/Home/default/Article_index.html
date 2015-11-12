@@ -1,0 +1,62 @@
+<include file="Public:header" />
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+	<dl class="user_jj"><dt></dt><dd>
+	<if condition="$cate_info">
+		<a href="{:get_url('index','','article')}">{:C("site_name")}资讯</a> &gt;&gt; <em>{$cate_info.name|msubstr=0,10,'utf-8',false}</em>
+	<else/>
+	<em>{:C("site_name")}资讯 </em>
+	</if>
+	</dd></dl>
+	<if condition="$article_list">
+	<div class="uc_sixin">
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tbody>
+		  <volist name="article_list" id="voal">
+		  <tr>
+            <td width="15%"><img src="__PUBLIC__/statics/images/note-ico.png" width="45" height="40"></td>
+           <!--<td width="20%"><a href="{:get_url('index',$voal['cid'],'article')}" class="name">{$voal.name}</a></td>--> 
+            <td><a href=<if condition="$voal['url']">{$voal.url}<else/>"{:get_url('detail',$voal['id'],'article')}"</if> class="tit">{$voal.title|msubstr=0,15,'utf-8',false}</a>
+            </td>
+			<notpresent name="cate_info">
+			<td width="20%"><a href="{:get_url('index',$voal['cid'],'article')}" class="name">{$voal.name|msubstr=0,10,'utf-8',false}</a></td>
+			</notpresent>
+           <td width="15%"><span class="time">{$voal.add_time|date='Y-m-d',###}</span></td>
+          </tr>
+		   </volist>
+        </tbody></table>
+		<div class="op"><span class="right"></span></div>
+          <div class="page">{$page}</div>
+      </div>
+	  </if>
+    </div>
+    <div class="ihome_sub">
+	<div class="box">
+        <div class="title">
+          <h3>按分类浏览</h3>
+        </div>
+        <ul class="isort">
+		 <volist name="article_cate_list" id="voACate">
+          <li><a href="{:get_url('index',$voACate['id'],'article')}">{$voACate.name|msubstr=0,10,'utf-8',false}(<em>{$voACate.article_nums}</em>)</a></li>
+		  </volist>
+        </ul>
+      </div>
+ <div class="hr"></div>
+
+	<div class="box">
+        <div class="title">
+          <h3>推荐文章</h3>
+        </div>
+        <ul class="list_txt">
+		<volist name="article_tuijian" id="votj">
+          <li><a href=<if condition="$votj['url']">{$votj.url}<else/>"{:get_url('detail',$votj['id'],'article')}"</if>>{$votj.title|msubstr=0,15,'utf-8',false}</a></li>
+		</volist>
+        </ul>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<include file="Public:footer" />

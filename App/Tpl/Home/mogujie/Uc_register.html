@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$seo.title}</title>
+<meta name="keywords" content="{$seo.keys}" />
+<meta name="description" content="{$seo.desc}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/reg-login.css" type="text/css" rel="stylesheet"/>
+<script src="__PUBLIC__/statics/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="__TMPL__Public/js/common.js"></script>
+<script src="__PUBLIC__/statics/js/ThinkAjax.js"></script>
+</head>
+<body id="reg">
+<div class="main">
+	<div class="logo" ><a href="{:C('site_domain')}" title="{:C("site_name")}" >{:C("site_name")}</a></div>
+    <div class="content">
+		<div id="register_left">
+			<h1>新用户注册</h1>
+				<form action="/register" method="post">
+						<input type="hidden" id="check_post_action" value="{:get_url('check_uname_email','','user')}">
+						<fieldset class="ipt_ulike">
+							<label class="tit">用户名：</label>
+							<input maxlength="36" id="uname" type="text" name="register_ulike" class="text" value="" />
+							<p class="err_ulike normal">4-20位字符,可以是中英文或数字</p>
+						</fieldset>
+						<fieldset class="ipt_password">
+							<label class="tit">密码：</label>
+							<input maxlength="36" id="pwd" type="password" name="register_password" class="text" />
+							<p class="err_password  normal">6-16位字符，可以由英文和数字组成</p>
+						</fieldset>
+						<fieldset class="ipt_respassword">
+							<label class="tit">确认密码：</label>
+							<input type="password" id="pwdSure" maxlength="36" name="register_respassword" class="text" />
+							<p class="err_rstpassword normal">这里要重复输入一下你的密码</p>
+						</fieldset>
+						<fieldset class="ipt_mail">
+							<label class="tit">电子邮箱：</label>
+							<input type="text" id="email" maxlength="36" name="register_mail" class="text" value="" />
+							<p class="err_email normal">请填写邮箱,如：example@163.com</p>
+						</fieldset>
+						<fieldset class="ipt_sex">
+							<label class="tit">年龄：</label>
+							<input type="radio" name="age" value="80" checked="checked" id=""/><label for="famale">80后</label><input type="radio" name="age" value="90"  id=""/><label for="male">90后</label><input type="radio" name="age" value="70"  id=""/><label for="male">70后</label>
+						</fieldset>
+						<fieldset class="ipt_sex">
+							<label class="tit">性别：</label>
+							<input type="radio" name="sex" value="0" checked="checked" id=""/><label for="famale">女</label><input type="radio" name="sex" value="1"  id=""/><label for="male">男</label>
+							</fieldset>
+						
+						<fieldset class="ipt_check">
+							<label class="tit">验证码：</label>
+							<input type="text" id="verification" verify_post_action="{:get_url('verify_test','','user')}" name="register_check" maxlength="10" class="text" /><img isblank="true" src="{:get_url('verify','','user')}" verify_action="{:get_url('verify','','user')}"  url_model="{:C(url_model)}" id="img_checkcode" alt="验证码" />
+							<a href="javascript:;" onclick="changeVerify();return false;" id="checkcode_change">换一张</a>
+							<!--<span  onclick="changeVerify()" class="red_f">换一张</span>-->
+						<p class="err_check normal">请输入图片中的字符</p>
+						</fieldset>
+						<fieldset class="ipt_box">
+							<input class="box" name="register_agreement" type="checkbox" checked="checked" id="checkbox" /><label>我已看过并同意<a href="{:get_url('protocol','','user')}" target="_blank">《{:C("site_name")}网络服务使用协议》</a></label>
+						</fieldset>
+						<fieldset class="ipt_sub">
+							<input type="button" class="sub" id="registerbtn" value=" " registerbtn_post_action="{:get_url('registerAction','','user')}" registerbtn_post_location="{:get_url('index','','user')}"/>
+							<div id="loading" style="display:none"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+	                    </fieldset>
+					</form>
+		</div>
+<div id="register_right">
+			<h2><span>已经有帐号？请直接登录</span><a href="{:get_url('login','','user')}"></a></h2>
+			<div class="other_login">
+				<h3>您也可以用以下方式登录：</h3>
+				<a href="{:get_url('sinalogin','','user')}" style="background:url(__TMPL__Public/img/icon_sina.png) no-repeat left center">新浪微博</a>
+				<a href="{:get_url('qqlogin','','user')}" style="background:url(__TMPL__Public/img/icon_qq_qq.png) no-repeat left center;">QQ 帐号</a>
+				<a href="{:get_url('taobaologin','','user')}" style="background:url(__TMPL__Public/img/tao.png) no-repeat left center;">淘宝</a>
+			</div>
+		</div>
+</div>
+	<p class="copyright">&copy;Copyright 2010-<php>echo date('Y');</php> <a href="{:C('site_domain')}">{:C("site_name")}</a>  (备案：{:C('site_icp')})</p>
+</div>
+<div class="back2top"><a href="javascript:;" title="返回顶部"></a></div>
+<script>
+	//刷新验证码
+	function changeVerify(){
+		var src=$(".ipt_check img").attr("verify_action");
+		var url_model=$(".ipt_check img").attr("url_model");
+		if(url_model==0){
+			var nowTime="&nowTime="+new Date().getTime();
+		}else if(url_model==2){
+			var nowTime="?nowTime="+new Date().getTime();
+		}
+		$(".ipt_check img").attr("src",src+nowTime);
+	}
+</script>
+</body>
+</html>

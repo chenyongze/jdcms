@@ -1,0 +1,17 @@
+<include file="Public:header"/>
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+	<present name="cookieId">
+     <include file="Public:share"/>
+	 </present>
+      <div class="tit_share tit_share_uc"> <strong>专辑<em>{$album_info['title']}</em><i class="num">(<present name="count">{$count}<else/>0</present>)</i></strong></div>
+      <div class="uc_like">
+	  <include file="Public:ucItemsList"/>
+      </div>
+	   <div class="page">{$page}</div>
+    </div>
+<include file="Public:ucRight"/>
+  </div>
+</div>
+<include file="Public:footer"/>

@@ -1,0 +1,36 @@
+<include file="Public:header" />
+	
+</head>
+<form id="myform" name="myform" action="{:U('Config/linktag')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">文章标签内链</li>
+
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="15%">每篇文章链接标签个数 :</th>
+              <td><input type="text" name="con[article_tags_totle]" class="input-text" size="10" value="{:C('article_tags_totle')}"></td>
+            </tr>
+            <tr>
+              <th width="15%">每篇文章标签链接次数 :</th>
+              <td><input type="text" name="con[article_tags_limit]" class="input-text" size="10" value="{:C('article_tags_limit')}"></td>
+            </tr>
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+
+      <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+
+    </div>
+
+  </div>
+
+</form>
+</body>
+</html>

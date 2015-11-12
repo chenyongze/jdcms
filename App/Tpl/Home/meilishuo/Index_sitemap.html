@@ -1,0 +1,96 @@
+<include file="Public:headeru"/>
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png">
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css">
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/index.css">
+<include file="Public:headerdn"/>
+
+<style type="text/css" media="screen">
+section,article,aside,header,footer,nav,figure{display:block}
+body,h1,h2,h3,h4,h5,h6,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,figure{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 arial}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+s{text-decoration:none}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+table{border-collapse:collapse;border-spacing:0}
+body{color:#333;background-color:#fff}
+.pp-header a,.pp-footer a,a{color:#666}
+.pp-header a:hover,.pp-footer a:hover,a:hover{color:#c00}
+.wrapper {
+	margin:15px auto 0;
+	width:960px;
+}
+h3 {
+	font-size:12px;
+	color:#666666;
+	font-weight:bold;
+}
+.m_location {
+	width:960px;
+	text-align:left;
+	line-height:20px;
+	text-indent:10px;
+}
+.m_mapbody {
+	width:960px;
+	overflow:hidden;
+	margin:0px;
+}
+.m_b_1 ul {
+	float:left;
+	width:934px;
+	padding:10px 0;
+	border-bottom:1px #ccc dotted;
+}
+.m_b_1 li {
+	float:left;
+	font-size:12px;
+	margin:4px 0 0 12px;
+	padding-right:10px;
+	border-right:1px #ccc solid;
+	height:15px;
+	color:#666666;
+}
+.m_b_1 {
+	float:left;
+	padding:20px 0 0 8px;
+	line-height: 15px;
+}
+#m_b_n1 {
+	background:url(../Public/img/bg.jpg) no-repeat;
+	width:77px;
+	height:25px;
+	padding:5px 3px 0 13px;
+	margin:0px;
+	border:0px;
+	line-height: 15px;
+}
+</style>
+
+<div class="wrapper">
+  <div class="m_location">当前位置：<strong>网站地图</strong></div>
+  <div class="m_mapbody">
+    <div class="m_b_1">
+		<volist name="cate_list" id="val">
+        <ul>
+          <li id="m_b_n1">
+            <h3>{$val.name}</h3>
+          </li>
+            <volist name="tags_list[$val['id']]" id="sval">
+         	  <li><a href="{:get_url('tag',$sval['id'],'cate')}" target="_blank">{$sval.name}</a></li>
+            </volist>
+        </ul>
+		</volist>
+    </div>
+  </div>
+</div>
+
+<include file="Public:footern"/>

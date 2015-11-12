@@ -1,0 +1,82 @@
+<include file="Public:header" />
+
+</head>
+<body >
+<div id='installbox'>
+<div class='msgtitle'>{:C('cms_name')} 安装向导</div>
+<table width="573" height="23" border="0" cellpadding="0" cellspacing="0" class="intable3">
+  <tr>
+    <td style="color:#666; text-align:center"><span style="display:block; float:left; width:20%; font-size:12px;">1. 许可协议</span><span style="display:block;float:left;width:25%;font-size:12px;">2. 环境检测</span><span style="display:block; float:left; width:25%; font-size:12px; color: #FFF;">3. 数据库设置</span><span style="display:block;float:left;width:25%;font-size:12px;">4. 安装完成</span></td>
+  </tr>
+</table>
+<h3>安装设置：</h3>
+<form  method="post" action="{:U('Index/setconf')}" name="conf" id="gxform" style="margin:0; padding:0;">
+<table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" class="tableoutline" style="font-size:12px; color:#666;">
+  <tr bgcolor="#F4faff" bgcolor="firstalt">
+    <td width="48%" valign="top"><b>安装目录</b><br><font color="#666666">自动检测一般不需要修改,结尾必需加斜杆 '/'</font></td>
+ 	<td><input type="text" name="web_path" id="web_path" value="{:get_base_path('index.php')}" maxlength="50" style="width:250px;" > *</td>
+  </tr>
+  <tr class="firstalt">
+    <td width="48%" valign="top"><b>服务器地址</b><br>
+      <font>一般为localhost</font></td>
+    <td><input type="text" name="db_host" id="db_host" value="{$db_host}" maxlength="50" style="width:250px;" > *</td>
+  </tr>
+  <tr bgcolor="#F4faff" class="firstalt">
+    <td width="48%"><b>数据库端口</b><br><font color="#666666">请填写MYSQL数据库使用的端口</font><br></td>
+    <td><input type="text" name="db_port" id="db_port" value="{$db_port}" maxlength="50" style="width:250px;" > *</td>
+  </tr>                   
+  <tr class="firstalt">
+    <td width="48%"><b>数据库用户名</b><br><font color="#666666">一般为root</font><br></td>
+    <td><input type="text" name="db_user" id="db_user" value="{$db_user}" maxlength="50" style="width:250px;"> *</td>
+  </tr>
+  <tr bgcolor="#F4faff" class="firstalt">
+    <td width="48%"><b>数据库密码</b><br>密码尽量不要设为空<br></td>
+    <td><input type="password" name="db_pwd" value="{$db_pwd}" id="db_pwd" maxlength="50" style="width:250px;" ></td>
+  </tr>
+  <tr class="firstalt">
+    <td width="48%"><b>数据库名称</b><br><font color="#666666">请填写已存在的数据库名</font><br></td>
+    <td><input type="text" name="db_name" id="db_name" value="{$db_name}" maxlength="50" style="width:250px;"> *</td>
+  </tr>  
+  <tr bgcolor="#F4faff" class="firstalt">
+    <td width="48%"><p><b>数据库表前缀</b><br><font color="#666666">一般不用修改</font><br></p></td>
+    <td><input type="text" name="db_prefix" id="db_prefix" value="{$db_prefix}"  maxlength="50"  valid="required"  style="width:250px;" > *</td>
+  </tr>
+	</table>
+	<h3>后台设置：</h3>
+	<table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" class="tableoutline" style="font-size:12px; color:#666;">
+  <tr bgcolor="#F4faff" class="firstalt">
+    <td width="48%"><p><b>管理员帐号</b><br><font color="#666666">一般不用修改</font><br></p></td>
+    <td><input type="text" name="user_name" id="user_name" value="{$user_name}"  maxlength="50"  valid="required"  style="width:250px;" > *</td>
+  </tr>
+  <tr class="firstalt">
+    <td width="48%"><p><b>密码</b></p></td>
+    <td><input type="password" name="password" id="password" value="{$password}"  maxlength="50"  valid="required"  style="width:250px;" > *</td>
+  </tr>
+  <tr bgcolor="#F4faff" class="firstalt">
+    <td width="48%"><p><b>确认密码</b></p></td>
+    <td><input type="password" name="repassword" id="repassword" value="{$repassword}"  maxlength="50"  valid="required"  style="width:250px;" > *</td>
+  </tr>
+  <tr class="firstalt">
+    <td width="48%"><p><b>邮箱</b></p></td>
+    <td><input type="text" name="email" id="email" value="{$email}"  maxlength="50"  valid="required"  style="width:250px;" > *</td>
+  </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr class="firstalt" style="height:10px">
+        <td height="70" colspan="2" align="center">
+        <div style="color:#FF0000;font-size:12px;">{$error_msg}</div>
+        <input style="width:120px; height:30px;" type="button" class="btn"  value="上一步" onClick="history.back();"/> 
+        <input style="width:120px; height:30px;" type="submit" name="edit" value="下一步" class="btn" id="submit"> 
+        <span id="loading" style="font-size:13px;color:#FF0000;display:none"><font color="#0066CC">请稍等...正在与MYSQL数据库进行连接。</font>
+        </span>
+        </td>
+    </tr>
+      <tr class="firstalt" style="height:10px">
+        <td colspan="2" align="center"><div id='msgbottom'>Powered By {:C('cms_name')} </div></td>
+      </tr>
+  </table>
+</form>
+  </div>
+</div>
+</body>
+</html>

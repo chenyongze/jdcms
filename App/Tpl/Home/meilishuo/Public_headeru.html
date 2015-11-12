@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$seo.title}</title>
+<meta name="keywords" content="{$seo.keys}">
+<meta name="description" content="{$seo.desc}">
+<meta http-equiv="x-ua-compatible" content="ie=7">
+<script src="__PUBLIC__/statics/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/statics/js/ThinkAjax.js"></script>
+<script src="__TMPL__Public/js/common.js?1"></script>
+<style type="text/css">
+.op .in {
+	display:none;
+}
+.op .out {
+	display:none;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	//登录
+	var id = $.cookie('id');
+	var username =$.cookie('name');
+	if(id > 0){
+		$(".op .in").show();
+		if(username != ''){
+			$('#username').text(username.substr(0,4)+'..');
+		}
+	}else{
+		$(".op .out").show();
+	}
+	//搜索
+	var web_path=$('#web_path').text();
+	<present name="album">
+		$(".searchBox").attr('action',web_path+'index.php?a=album&m=Search&g=Home');
+		$('#a').val('album');
+	</present>
+	
+	var key = $(".searchKey").attr('placeholder');
+	
+	$(".searchKey").focus(function(){
+		if($(".searchKey").val() == key){
+			$(this).val('');
+		}
+	});
+	
+	$(".searchKey").blur(function(){
+		if($(".searchKey").val() == ''){
+			$(this).val(key);
+		}
+	});
+	
+	$(".searchKey").keyup(function(){
+		var keywords = $(this).val();
+		if(keywords != ''){
+			$(".searchType").show();
+		}else{
+			$(".searchType").hide();
+		}
+		$(this).attr('value',keywords);
+		if(keywords.length <= 6){
+			$(".input_words").text(keywords);
+			$(".input_words").text(keywords);
+		}else{
+			keywords = keywords.substr(0,6)+'...';
+			$(".input_words").text(keywords);
+			$(".input_words").text(keywords);
+		}
+	});
+	
+	$(".searchOtherKey").click(function(){
+		var a = $(this).attr('id');
+		$(".searchBox").attr('action',web_path+'index.php?a='+a+'&m=Search&g=Home');
+		$('#a').val(a);
+		$("form.searchBox").submit();
+	})
+	//返回顶部
+	$("#goTop").click(function() {
+			$("html, body").animate({ scrollTop: 0 }, 120);
+	}), $backToTopFun = function() {
+		var st = $(document).scrollTop(), winh = $(window).height();
+		(st > 0)? $("#goTop").show(): $("#goTop").hide();    
+		//IE6下的定位
+		if (!window.XMLHttpRequest) {
+			$("#goTop").css("top", st + winh - 166);    
+		}
+	};
+	$(window).bind("scroll", $backToTopFun);
+	$(function() { $backToTopFun(); });
+	//光标悬浮用户名显示下拉列表
+	$("#setting").hover(function(){
+		$("#moreConnectBox").show();
+	},function(){
+		$("#moreConnectBox").hide();
+	})
+});
+$(function(){
+		var nav_top = $('.nav_offsetTop').offset().top; 
+		$show_nav = function() {
+		var st = $(document).scrollTop();
+		if(st > nav_top){
+			$(".header_fixed").show();
+		}else{
+			$(".header_fixed").hide();
+		}
+	};
+	$(window).bind("scroll", $show_nav);
+})
+$(function(){
+	var nav_top = $('.nav_offsetTop').offset().top; 
+	var st = $(document).scrollTop();
+	if(st > nav_top){
+		$(".header_fixed").show();
+	}else{
+		$(".header_fixed").hide();
+	}
+})
+</script>

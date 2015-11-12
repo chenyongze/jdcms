@@ -1,0 +1,193 @@
+<include file="Public:headeru" />
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/newalbum.css"/>
+<script language="javascript">
+$(document).ready(function(){
+	$("#collect_item").click(function(){
+	$("#error_msg").hide();
+	$("#error_msg1").hide();
+	$("#existedItem").hide();
+		var url = $("#collect_url").val();
+	    $.post("{:get_url('release','','user')}", { url: url }, function(data){
+	    	if(data.data == false){
+	    		$("#error_msg").show();
+	    	}else if(data.info=="itemExist"){
+				var html="<a href="+data.data+">[点击查看]</a>"
+				$("#error_msg1").show();
+				$("#existedItem").html(html).show();
+			}else if(data.info=="itemCheck"){
+				$("#error_msg1").show();
+			}else{
+				$("#seller_id").val(data.data.seller_id);
+	    		$("#title").val(data.data.title);
+				$("#url").val(data.data.url);
+				$("#tags").val(data.data.tags);
+				$("#price").val(data.data.price);
+				$("#item_key").val(data.data.item_key);
+				$("#img").val(data.data.img);
+				$("#author").val(data.data.alias);
+				$("#sid option[alias='"+data.data.alias+"']").attr('selected',true);
+				$("#img_show").attr('src', data.data.img).show();
+	    	}			
+	    },"json");
+	});	
+	
+	$("#submit").click(function(){
+		
+		if($("#title").val()==0){
+			$("#title_err").show();
+		   	return false;
+		}else{
+			$("#title_err").hide();
+		}
+		
+		if($("#cid").val()==0){
+			$("#cid_err").show();
+		   	return false;
+		}
+		else{
+			$("#cid_err").hide();
+		}
+		
+		if($("#url").val()==0){
+			$("#url_err").show();
+		   	return false;
+		}else{
+			$("#url_err").hide();
+		}	
+		
+		if($("#price").val()==0){
+			$("#price_err").show();
+		   	return false;
+		}else{
+			$("#price_err").hide();
+		}
+		
+		if ($("#info").val().length > 140) {
+			$("#info_err").show();
+		   	return false;
+		}else{
+			$("#info_err").hide();
+		}
+	});	
+	
+	$("#loading").ajaxStart(function(){
+		$(this).show();
+		$("#collect_item").hide();
+		$("#submit").hide();
+	});
+
+	$("#loading").ajaxStop(function(){
+		$(this).hide();
+		$("#collect_item").show();
+		$("#submit").show();
+	});
+	
+	$("#collect_url").change(function(){
+		var url = $(this).val();
+		$("#url").val(url);
+	});
+
+});
+</script>
+<include file="Public:headerdn" />
+<div class="clear"></div>
+<div class="main container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="album_create">
+				<h1><strong>发布分享</strong></h1>
+				<p class="ps">&nbsp;&nbsp;注：只需要输入商品的详细链接地址即可,如：http://detail.tmall.com/item.htm?id=13045523063</p>
+				<div class="album_box">
+				<form method="post" action="{:get_url('add','','user')}" name="myform" id="myform"  enctype="multipart/form-data">
+					<fieldset>	
+						<label>商品地址：</label>
+						<input class="album_title r3 txt" type="text" class="txt" name="collect_url" value="{$url}" id="collect_url"/>
+						<p>
+							<span class="getBtn"><a href="javascript:void(0);" id="collect_item">获取</a></span>
+							<span id="loading" style="display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></span>
+							<span class="error_icon"  style="display:none;" id="error_msg">该商品不存在!</span>
+							<span class="error_icon"  style="display:none;" id="error_msg1">该商品已存在!</span>
+							<span class=""  style="display:none;" id="existedItem"></span>
+						</p>
+					</fieldset>
+					<fieldset>	
+						<label>商品名称：</label>
+						<input class="album_title r3 txt" type="text" name="title" id="title" value="">
+						<p>
+							<span class="error_icon" id="title_err" style="display:none;">请填写商品名称</span>
+						</dd>
+					</fieldset>
+					<fieldset>	
+						<label>所属分类：</label>
+						<select name="cid" id="cid" class="btn_txt r5" style="width:225px;height:30px" onchange="return check_cate(this);">
+						<option value="0">--选择分类--</option>
+						<volist name="cate_list['parent']" id="val">
+						<option value="{$val.id}" pid="0" >{$val.name}</option>
+						</volist>
+						</select>
+						<p>
+							<span class="error_icon" id="cid_err" style="display:none;">请选择所属分类</span>
+						</p>
+					</fieldset>
+					<fieldset id="upload_img">	
+						<label>商品图片：</label>
+						<img id="img_show" src="" width="210px" height="210px"/>
+						<p>
+							<input type="text" id="viewAvartar" readonly="readonly" class="gray_text">
+							<input type="button" class="gray_button" value="浏览...">
+							<input type="file" class="tfile" onchange="document.getElementById('viewAvartar').value=this.value;" name="upload_img" size="34" style="position:absolute; left:0;top:1px; cursor:pointer">
+						</p>
+					</fieldset>
+					<fieldset>	
+						<label>来源：</label>
+						<select name="sid" id="sid" class="btn_txt r5" style="width:225px;height:30px">
+							<option value="0" selected="selected">--选择来源--</option>
+							<volist name="site_list" id="val">
+							<option value="{$val.id}" alias="{$val.alias}">{$val.name}</option>
+							</volist>
+						</select>
+					</fieldset>
+					<fieldset>	
+						<label>链接地址：</label>
+						<input class="album_title r3 txt" type="text" name="url" value="{$url}" id="url">
+						<p>
+							<span class="error_icon" style="display:none;" id="url_err">请填写链接地址</span>
+						</p>
+					</fieldset>
+					<fieldset>	
+						<label>标签：</label>
+						<input class="album_title r3 txt" type="text" name="tags" id="tags">
+					</fieldset>
+					<fieldset>	
+						<label>价格：</label>
+						<input class="album_title r3 txt" type="text"  name="price" id="price">
+						<p>
+						<span class="error_icon"  style="display:none;" id="price_err">请填写商品价格</span>
+						</p>
+					</fieldset>
+					<fieldset>	
+						<label>分享介绍：</label>
+						<textarea class="album_all r3" type="text" id="info" name="info"></textarea>
+						<p class="album_s r3">
+							<span class="error_icon"  id="info_err" style="display:none;">长度不得大于140个字符</span>
+						</p>
+					</fieldset>
+					<fieldset>
+					<input type="hidden" name="shop_id" id="shop_id" value="" />	
+					<input type="hidden" name="item_key" id="item_key" value="" />
+				    <input type="hidden" name="img" id="img" value="" />
+				    <input type="hidden" name="alias" id="alias" value="" />
+					<input type="submit" name="submit" value="提交" id="submit">
+					</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear_f"></div>
+
+<include file="Public:footern" />

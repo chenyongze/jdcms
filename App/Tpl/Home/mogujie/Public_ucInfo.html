@@ -1,0 +1,82 @@
+<div id="content_top">
+								
+   <div class="home_top_box mb20 r5">
+		<div class="home_top_bg rt5"  style="background-image:url(__TMPL__Public/img/bgimg.jpg);">
+			<div class="home_top_all">
+				<span class="h_t_bg png_bg"></span>
+				<div class="top_avatar"> 
+				   <img alt="{$user_info.name}" onerror="this.src='__PUBLIC__/statics/images/avatar.png'" src=<if condition="$user_info['img'] eq ''">__PUBLIC__/statics/images/avatar.png<else/>{:C('web_path')}Uploads/avatar_big/{$user_info.img}</if> class="r5 u_i">
+													<ul class="record">
+						<li class="fans">
+						<a title="关注" href="{:get_url('follow',$oUid,'user')}">
+								<span class="ft18" <if condition="$curPage eq uc_follow">style="color:#ff6fa6"</if>>{$user_info.follow_num}</span>
+								<span>关注</span>
+							</a>
+						</li>
+						
+						<li class="popular">
+							<a title="粉丝" href="{:get_url('fans',$oUid,'user')}">
+								<span class="ft18" id="fans_num" <if condition="$curPage eq uc_fans">style="color:#ff6fa6"</if>>{$user_info.fans_num}</span>
+								<span>粉丝</span>
+							</a>
+						</li>
+						
+						<li class="liked">
+							<div>
+								 <a title="喜欢" href="{:get_url('like',$oUid,'user')}">
+								<span class="ft18" <if condition="$curPage eq uc_like">style="color:#ff6fa6"</if>>{$user_info.likes_num}</span>
+								<span class="t" >喜欢</span>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div> 
+
+				<div class="home_top_user">
+					<div class="name_fav" follow_post_action="{:get_url('add_follow',$oUid,'user')}"  login_location="{:get_url('login','','user')}">
+						<h1 class="fl"><a href="{:get_url('index',$oUid,'user')}" title="{$user_info.name}" >{$user_info.name}</a></h1>
+						<present name="oUid">
+						<div type="all" uid="1ebdl2" class="followdiv fl" id="addfollow" style=<if condition='$followed eq 1'>"display:none"<else/>"display:block"</if>>
+							<a href="javascript:;" class="addfo"></a>
+						</div>
+						<div type="all" uid="15tgbg" class="followdiv fl" id="delfollow" style=<if condition='$followed eq 1'>"display:block"<else/>"display:none"</if>><span class="add_ok">已关注</span><a href="javascript:void(0);" class="unfollow">取消</a></div>
+						</present>																														<!--<div class="u_i_b fl">
+							<a title="发私信" toid="1ebdl2" class="send_message" href="javascript:;">发私信</a>
+							<a style="color:#999;" toid="1ebdl2" class="add_blacklist" href="javascript:;">加入黑名单</a>                 
+						</div>-->
+														</div>
+					<p class="home_top_p">
+														   {$user_info.info}                                                                           <!--<a href="/u/1ebdl2/settingdetail" target="_blank" class="pl10">查看更多<span>&gt;&gt;</span></a>--> 
+					</p>
+					<p class="home_top_x">
+														 <!--<span>星座/摩羯座</span> -->   
+																								<span><if condition="$user_info['sex'] eq 0">女<else/>男</if></span>        
+																								<span><if condition="$user_info['age'] eq 80">80后<elseif condition="$user_info['age'] eq 90"/>90后<else/>70后</if></span> 
+																								<span>{$user_info.address}</span> 
+														</p>
+				   <!-- <p class="home_top_x user_label">标签：
+																<span>十七岁</span>
+																<span>漫长。夏。</span>
+															</p>-->
+				</div>
+										</div>
+							</div>
+	   <div class="home_top_nav rb5">
+			<ul class="home_nav">
+				<li <if condition="ACTION_NAME eq 'index'">class='c'</if>>
+					<a href="{:get_url('index',$oUid,'user')}" title="首页" >封面</a>
+				</li>
+				<li <if condition="ACTION_NAME eq 'share'">class='c'</if>>
+					<a href="{:get_url('share',$oUid,'user')}" title="分享" >分享</a>
+				</li>
+				<li <if condition="ACTION_NAME eq 'like'">class='c'</if>>
+					<a href="{:get_url('like',$oUid,'user')}" title="喜欢" >喜欢</a>
+				</li>
+				<li <if condition="(ACTION_NAME eq 'album') or (ACTION_NAME eq 'albumDetail')">class='c'</if>>
+					<a href="{:get_url('album',$oUid,'user')}" title="专辑" >专辑</a>
+				</li>
+			</ul>
+	   </div>
+   </div>
+
+</div>

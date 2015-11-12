@@ -1,0 +1,145 @@
+<include file="Public:header" />
+<script>
+//编辑器
+KE.show({
+	id : 'info',
+	imageUploadJson : '__PUBLIC__/statics/js/kindeditor/php/upload_json.php',
+	fileManagerJson : '__PUBLIC__/statics/js/kindeditor/php/file_manager_json.php',
+	allowFileManager : true,
+	afterCreate : function(id) {
+		KE.event.ctrl(document, 13, function() {
+			KE.util.setData(id);
+			document.forms['myform'].submit();
+		});
+		KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+			KE.util.setData(id);
+			document.forms['myform'].submit();
+		});
+	}
+});
+</script>
+</head>
+<body>
+<form action="{:u('Items/edit')}" method="POST" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+  <div class="col-tab">
+  <ul class="tabBut cu-li">
+    <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',3,1);">基本信息</li>
+    <li id="tab_setting_2" onclick="SwapTab('setting','on','',3,2);">SEO设置</li>
+     <li id="tab_setting_3" onclick="SwapTab('setting','on','',3,3);">其他信息</li>
+  </ul>
+  <div id="div_setting_1" class="contentList pad-10">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+
+      <tr>
+        <th width="100">商品名称 :</th>
+        <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$items.title}"></td>
+        <td><input type="hidden" name="id" value="{$items.id}"></td>
+      </tr>
+      <tr>
+        <th>所属分类 :</th>
+        <td><select name="cid" onchange="return check_cate(this);">
+        	<option value="0">--选择分类--</option>
+            <volist name="cate_list['parent']" id="val">
+              <option pid="0" value="{$val.id}" <if condition="$items['cid'] eq $val['id']"> selected="selected" </if>>{$val.name}</option>
+            </volist>
+          </select></td>
+      </tr>
+      <tr>
+      	<th>商品图片</th>
+      	<td>
+            <img src="{$items.img|get_img=###,210}" style="width:210px;height:210px;border: 1px solid #999999;padding:1px;" />&nbsp;&nbsp;<php>if(strpos($items['img'],'http') !== false){echo '<a href='.u('Down/item',array('id'=>$items['id'])).'>下载图片到本地</a>';}</php><br /><br />
+            <input type="file" name="upload_img" id="upload_img" class="input-text" size=21 />
+        </td>
+      </tr>
+      <tr>
+        <th>来源 :</th>
+        <td>
+        	<select name="sid" id="sid">
+            	<option value="0" selected="selected">--选择来源--</option>
+            	<volist name="site_list" id="val">
+                <option value="{$val.id}" alias="{$val.alias}" <if condition="$items['sid'] eq $val['id']">selected="selected"</if>>{$val.name}</option>
+                </volist>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <th>链接地址 :</th>
+        <td><input type="text" name="url" id="url" class="input-text" value="{$items.url}" size="60"></td>
+      </tr>
+      <tr>
+        <th>标签 :</th>
+        <td><input type="text" name="tags" id="tags" class="input-text" value="{$items.tags}" size="60"></td>
+      </tr>
+      <tr>
+        <th>价格 :</th>
+        <td><input type="text" name="price" id="price" class="input-text" value="{$items.price}" size="20">元</td>
+      </tr>
+     
+      <tr><td><input type="hidden" name="id" value="{$items.id}" id="items_id"/></td></tr>
+    </table>
+  </div>
+
+  <div id="div_setting_2" class="contentList pad-10 hidden">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">Title :</th>
+        <td><input type="text" name="seo_title" id="seo_title" class="input-text" size="60" value="{$items.seo_title}"></td>
+      </tr>
+      <tr>
+        <th>Keywords :</th>
+        <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" size="60" value="{$items.seo_keys}"></td>
+      </tr>
+      <tr>
+        <th>Description :</th>
+        <td><textarea name="seo_desc" id="seo_desc" cols="80" rows="8">{$items.seo_desc}</textarea></td>
+      </tr>
+    </table>
+    
+    </div>
+ 	  <div id="div_setting_3" class="contentList pad-10 hidden">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+		  <if condition="$items.uid gt 0">
+		  <tr>
+			<th>分享介绍 :</th>
+			<td>
+				<textarea style="width:70%;height:200px;visibility:hidden;" class="input-text" name="info">{$items.info}</textarea>
+			</td>
+		  </tr>  
+		  </if>   
+          <tr>
+            <th width="100">点击 :</th>
+            <td><input type="text" name="hits" id="hits" class="input-text" size="10" value="{$items.hits}"></td>
+          </tr>
+          <tr>
+            <th>喜欢 :</th>
+            <td><input type="text" name="likes" id="likes" class="input-text" size="10" value="{$items.likes}"></td>
+          </tr>
+          <tr>
+            <th>是否焦点 :</th>
+             <td>
+             	<input type="radio" name="is_focus" id="is_focus" class="radio_style" value="1" <if condition="$items['is_focus'] eq '1'">checked="checked"</if>> &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_focus" id="is_focus" class="radio_style" value="0" <if condition="$items['is_focus'] eq '0'">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+	      <tr>
+	      	<th>商品焦点图片</th>
+	      	<td>
+	            <img src="{$items.remark1}" style="border: 1px solid #999999;padding:1px;" />&nbsp;&nbsp;<br /><br />
+	            <input type="file" name="focus_img" id="focus_img" class="input-text" size=21 />与商品图片不可同时上传，建议图片尺寸<if condition="C('home.default_theme') eq 'default'">348x238<elseif condition="C('home.default_theme') eq 'meilishuo'" />640x240<else />440x250</if>
+	        </td>
+	      </tr>
+        </table>
+      </div>
+  
+  <div class="bk15"></div>
+  <div class="btn">
+    <input type="submit" value="提交" name="submit" class="button" id="submit">
+  </div>
+
+</div>
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/newalbum.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerd" />
+<div class="main">
+<div class="radius-top">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+		<div class="piece_bd">
+                <div id="content" style="width:960px;">
+                    <div class="album_create">
+	<h1 class="new_album">加入专辑<a class="creat" href="{:get_url('albumInfo','','user')}">创建新专辑</a></h1>
+<div class="album_box">
+				<input type="hidden" id="hiddenaid" class="btn_txt r5" style="width:350px" value='<present name="aid">{$aid}</present>'>
+				<input type="hidden" id="album_items_id" name="items_id" value="{$items_id}">
+	<dl class="pl30">
+		<dt>专辑名称：</dt>
+		<dd>
+			<select id="album_items_title" name="album_title" style="height:30px">
+		<present name="album_list">
+		<volist name="album_list" id="vo">
+			<option class="btn_txt r5" style="width:100px" value="{$vo.id}">{$vo.title}</option>
+		</volist>
+		<else/>
+			<option class="btn_txt r5" style="width:100px" value="0">默认专辑</option>
+		</present>
+		</select>
+		
+			<span id="addError" style="display: inline; "></span>
+		</dd>
+		<input type="hidden" class="molishe_tag" name="molishe_tag" value="">
+		<input type="hidden" class="molishe_activity_id" name="molishe_activity_id" value="">
+				<dt style="clear:both;">介绍：</dt>
+		<dd>
+			<div class="content">
+				<div class="album_s r3" style="margin:0">
+					<textarea class="album_all r3" id="album_items_info" type="text"></textarea>
+					<!--<span class="fl text_count">还可以输入<span class="c" style="color: rgb(153, 153, 153); ">500</span>个字</span>-->
+				</div>
+			</div>
+		</dd>
+        
+	</dl>
+	<div class="next_btn">
+		<a class="next_button r3 " href="javascript:void(0)" id="creat_btn" albumBtn_post_action="{:get_url('addAlbumBtn','','album')}" albumBtn_post_location="{:get_url('album','','user')}">完成</a>
+		<div id="loading" style="margin-left:30px;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif" style=""></div>
+	</div>
+
+</div>
+</div>
+
+                </div>
+            </div>	
+<div class="radius-bottom">
+			<span class="hl"></span>
+			<span class="hr"></span>
+		</div>
+</div>
+<include file="Public:footer" />
+<script>
+$("#creat_btn").click(function(){
+		var items_id=$("#album_items_id").val();
+		var album_id=$("#album_items_title").val();
+		var info=$("#album_items_info").val();
+		var albumBtn_post_action=$(this).attr("albumBtn_post_action");
+		var albumBtn_post_location=$(this).attr("albumBtn_post_location");
+		$.post(albumBtn_post_action,{items_id:items_id,album_id:album_id,info:info},function(data){
+			if(data=="添加成功"){
+				location.href=albumBtn_post_location;
+				$("#creat_btn").hide();
+				$("#loading").show();
+			}else{
+				$("#addError").addClass("error_icon").css('color','#ff89a7').html(data);
+			}
+		});
+})
+</script>

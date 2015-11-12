@@ -1,0 +1,54 @@
+<include file="Public:headeru" />
+<link href="__TMPL__Public/css/meta.css" type="text/css" rel="stylesheet"/>
+<link href="__TMPL__Public/css/page_group.css" type="text/css" rel="stylesheet"/>
+<include file="Public:headerdn" />
+<if condition="get_ad(13) neq ''">
+  <center> <div style="width:950px;height:90px;overflow:hidden;margin-top:15px;">{:get_ad(13)}</div></center>
+</if>
+<notpresent name="keywords">
+<div class="group_tab">
+  <a class=<if condition="$albumCid eq ''">"mt_rjd"<else/>"mt_rj"</if> href="{:get_url('index','','album')}">全部</a>
+  <volist name="album_cate_list" id="voAlbumCate">
+  	<a class=<if condition="$voAlbumCate['id'] eq $albumCid">"mt_rjd"<else/>"mt_rj"</if> href="{:get_url('index',$voAlbumCate['id'],'album')}">{$voAlbumCate.title}</a>
+  </volist>
+</div>
+</notpresent>
+
+<div class="goodsTJ">
+<volist name="album_list" id="voAlbum">
+	<div class="groupBox">
+		<div class="groupCon">
+			<div class="gc_title">
+				<h4><a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}">{$voAlbum.title}</a></h4>
+				<p>{$voAlbum.items_count}</p>
+			</div>
+			<a target="_blank" href="{:get_url('albumDetail',$voAlbum['id'],'user')}" class="imgBox">
+				<img class='' <if condition="$voAlbum['cover']['img'] neq ''">src="{$voAlbum.cover.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+
+				<volist name="voAlbum['items']" id="voItems" offset="0" length="8" key="key">
+				<!--<if condition="$key%3 eq '0'">r</if>-->
+					<img class="<if condition="($key+1)%3 eq '0'">r</if>" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,100}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> />
+				</volist>
+				<div class="clear_f"></div>
+			</a>
+			<div class="lookBox"></div>
+		</div>
+	</div>
+</volist>
+</div>
+
+	<div class="spinner botSpinner none_f"></div>
+	<div class="clear_f"></div>
+	
+<div class="paging_panel p_f">
+	<div class="pageNav bgcnt">
+	 	<div class="loading" style="width:32px;height:32px;margin:0 auto;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+		<div class="page" style="display: block; ">
+			{$page}
+		</div>
+	</div>
+</div>
+<if condition="get_ad(6) neq ''">
+  <center> <div style="width:950px;height:90px;overflow:hidden;">{:get_ad(14)}</div></center>
+</if>
+<include file="Public:footern"/>

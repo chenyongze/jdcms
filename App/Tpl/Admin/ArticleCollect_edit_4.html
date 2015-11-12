@@ -1,0 +1,39 @@
+<include file="Public:header" />
+<style>
+.contentList div {margin:10px auto;}
+span {display:block;margin:0 10px;float:left;}
+</style>
+</head>
+<form id="myform" name="myform" action="{:U('ArticleCollect/edit')}" enctype="multipart/form-data" method="post">
+
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',1,1);">新增采集节点：测试内容字段设置</li>
+      </ul>
+      
+      <div id="div_setting_1" class="contentList pad-10">
+          <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+              <th width="15%">预览网址 :</th>
+              <td width="85%" colspan="3">{$test_article_url} (测试时不会下载远程图片)</td>
+            </tr>
+            <tr>
+              <th width="15%">预览文章 :</th>
+              <td width="85%" colspan="3">
+				<textarea style="width:100%;height:400px">{$article_info}</textarea>
+              </td>
+             </tr>
+         </table>      
+      </div>
+
+      <div class="bk15"></div>
+	  <input type="hidden" name="id" id="id" value="{$info.id}" />
+	  <input type="hidden" name="step" id="step" value="{$step}" />
+      <div class="btn"><input type="button" value="返回上一步进行修改" name="submit" class="button" onClick="history.back();"><input type="submit" value="返回采集节点列表" name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+
+</form>
+</body>
+</html>

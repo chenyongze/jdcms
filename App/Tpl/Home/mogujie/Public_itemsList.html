@@ -1,0 +1,238 @@
+<style>
+#spread div p a{
+	color: #AAAAAA;
+    font-style: normal;
+    width: 175px;
+}
+</style>
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery.masonry.min.js"></script>  
+<script type="text/javascript">
+$(document).ready(function(){
+	/**
+	 *推广商品替换
+	 */
+	//容器
+	var $container = $('.content');
+	//当前页数
+	var nowPage = parseInt($(".nowPage").text());
+	//获取推广状态
+	var spread_status=$("#spread_status").text();
+	//推广标识
+	var sign = true;
+	//不是第一页不推广
+	if(nowPage > '1' || spread_status == '0'){
+		sign = false;
+	}
+	if(sign == true){
+
+		//获取图片高度
+		$.each($(".pic"),function(){
+			var imgl = new Image();
+			imgl.src = $(this).find(".item_img").attr('src');
+
+			var heightl;
+			heightl = (225/imgl.width)*imgl.height;
+			
+			$(this).css('height',heightl);
+			$(this).find('.item_img').attr('height',heightl);
+		});
+		
+		//执行超时检查
+        setTimeout(function(){
+            checkajax();
+        },100);
+
+		//获取位置
+		var spread_position=$("#spread_position").text();
+		//插入推广商品
+		var itemHTML='<div class="col co xiayijian" id="spread"></div>';
+		if(nowPage){
+			var s='.co:eq('+(spread_position-1)+')';
+			var t=$(s);
+			if(t[0]){
+				$(s).before(itemHTML);
+			}else{
+				$container.append(itemHTML);
+			}
+		}else{
+			$container.append(itemHTML);
+		}
+		var item_info=$("#spread_info").html();
+		if(item_info.match('div') || item_info.match('DIV')){
+			document.getElementById("spread").innerHTML=item_info;
+		}else{
+			$(".xiayijian").remove();
+		}
+
+		function checkajax(){
+			//瀑布流布局	
+			$container.masonry({
+				itemSelector : '.col',
+				columnWidth : 120
+			});
+        }
+	}else{
+		//获取图片高度
+		$.each($(".pic"),function(){
+			var imgl = new Image();
+			imgl.src = $(this).find(".item_img").attr('src');
+
+			var heightl;
+			heightl = (225/imgl.width)*imgl.height;
+
+			$(this).css('height',heightl);
+			$(this).find('.item_img').attr('height',heightl);
+		}); 
+		//瀑布流布局
+		$container.masonry({
+			itemSelector : '.col',
+			columnWidth : 120
+		});
+	}
+
+	/**
+	 *加载数据
+	 */
+	//锁定标识
+	var key = true;
+	//加载计数
+	var i= 1;	
+	//窗口绑定滚动事件
+	$(window).bind("scroll",function() {
+		//高度参数
+		var l=$(document).scrollTop() + $(window).height();
+		var h=$(document).height();
+	    //判断窗口的滚动条是否接近页面底部，自定义500
+	    if (l > h - 500 && l < h && key==true) {
+	        key = false;
+			//获取url
+			var url = $("#url").text();
+			if(!url){
+				return false;
+			}
+			//获取id
+			var id = $("#id").text();
+			//获取排序
+			var sortby = $(".t_sort .curr").attr('name');
+			//获取价格
+			var price = $(".t_price .curr").attr('name');
+			//请求页数
+			var p = (nowPage-1)*5+i+1;
+			//总记录数
+			var totalRows = parseInt($(".totalRows").text());
+			if(totalRows <= ((nowPage-1)*100)+20 || !p){
+				return false;
+			}
+	  		if (i < 5) {
+	  			//显示加载图标，隐藏分页
+				$(".loading").show();
+				$(".page").hide();
+	  			//如果存在的话，用ajax获取数据
+	  			$.ajax({
+	  				type: "get",
+	  				url: url,
+	  				data: {id:id, sortby:sortby, price:price, p:p},
+	  				success: function(data) {
+	  					//隐藏加载图标，显示分页
+	  					$(".loading").hide();
+	  					$(".page").show();
+	  					key = true;
+	  					//重新加载js
+	  					$.ajax({
+	  						url: "__TMPL__Public/js/common.js",
+	  						dataType: "script",
+	  						global: false
+	  					});  					
+	  					//获取总页数
+	  					var totalPages = $(data).find(".totalPages").text();
+	  					//将返回的数据进行处理，挑选出class是co的内容块
+	  					var $res = $(data).find(".co");
+	  					//获取图片高度
+	  					$.each($res.find(".pic"),function(){
+	  						var imgl = new Image();
+	  						imgl.src = $(this).find(".item_img").attr('src');
+
+	  						var heightl;
+	  						heightl = (225/imgl.width)*imgl.height;
+
+	  						$(this).css('height',heightl);
+	  						$(this).find('.item_img').attr('height',heightl);
+	  					});
+						//替换图片src								
+	  					$.each($res.find(".item_img"),function(){
+		  					$(this).attr('src1',$(this).attr('src'));
+		  					$(this).removeAttr('src');
+	  					})	
+	  					//结合masonry插件，将内容append进ID是content的内容块中
+	  					$container.append($res.fadeIn()).masonry('appended', $res);
+	  					//加载图片
+	  					$.each($res.find(".item_img"),function(){
+	  						$(this).attr('src',$(this).attr('src1'));
+	  						$(this).removeAttr('src1');
+	  					})
+	  					//加载4页后显示分页
+	  					if (((nowPage-1)*5+i+1) < totalPages) {
+	  						i++;
+	  					} else {
+	  						i=5;
+	  					}
+	  				}
+	  			})
+	  		}
+	    }
+	});
+});
+</script>
+
+  <div id="spread_status" style="display:none;">{:C('spread_status')}</div>
+  <div id="spread_position" style="display:none;">{:C('spread_position')}</div>
+  <div id="spread_info" style="display:none;">{$spread_info}</div>
+<div class="content">
+<if condition="(MODULE_NAME neq 'Search') AND (MODULE_NAME neq 'Shop')">
+<if condition="$shop_list">
+<div class="col" style="background:white">
+<h2 class="dianpuh2">推荐店铺</h2>
+<ol class="brands_wrap">
+<volist name="shop_list" id="voShop" offset="0" length="12">
+	<li class="magic_brand_list">
+		<a title="{$voShop.name}" href="{:get_url('index',$voShop['id'],'shop')}">
+			<img alt="{$voShop.name}" data-lazyload="{$voShop.img}" src=<if condition="$voShop['img']">"{$voShop.img}"<else/>__TMPL__Public/img/undefined.jpg</if>>
+		</a>
+	</li>
+</volist>
+</ol>
+</div>
+</if>
+</if>
+<volist name="items_list" id="voItems">
+	<div class="col co">
+		<div class="pic bgload">
+			<a class="item_url" target="_blank" href="{:get_url('index',$voItems['id'],'item')}" title="{$voItems.title}"><img class="item_img" alt="{$voItems.title}" <if condition="$voItems['img'] neq ''">src="{$voItems.img|get_img=###,210}"<else/>src="__TMPL__Public/img/undefined.jpg"</if> width="225" /></a>
+			<a class="add_to_album" href="{:get_url('addAlbum',$voItems['id'],'album')}" target="_blank"><span class="add_to_album">加入专辑</span></a>
+			<span class="price item_price">￥{$voItems.price}</span>
+		</div>
+		<p class="btn">
+			<span class="favaImg"><em class="s1 <if condition="$likes[$voItems['id']] eq 1">favored</if>" item_id="{$voItems['id']}"><if condition="$likes[$voItems['id']] eq 1">已喜欢<else/>喜欢一下</if></em><a href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><i class="l" id="{$voItems['id']}">{$voItems.likes}</i><i class="r"></i></a></span>
+			<input type="hidden" name="" id="like_post_action" value="{:get_url('createlike','','user')}"><input type="hidden" name="" id="like_post_location" value="{:get_url('login','','user')}">
+			<a class="creply" href="{:get_url('index',$voItems['id'],'item')}" target="_blank"><em>评论</em>(<i>{$voItems.comments}</i>)</a>              
+		</p>
+		<p class="fava"> 
+			<span>
+				<a class="avt" target="_blank" href="{:get_url('index',$voItems['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['userimg'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.userimg}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['uid'],'user')}" class="name">{$voItems.username}</a>分享于{$voItems.add_time|date='Y年m月d日 H:i:s',###}</em>
+			</span>
+			<present name="voItems['ablum_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['ablum_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.ablum_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['ablum_info']['uid'],'user')}" class="name">{$voItems.ablum_info.uname}</a>加入<a href="{:get_url('albumDetail',$voItems['ablum_info']['id'],'user')}" target="_blank" class="clrff8">{$voItems.ablum_info.title}</a></em></span>
+			</present>
+			<present name="voItems['commnets_info']">
+				<span><a class="avt" target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}"><img onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$voItems['commnets_info']['img'] neq ''">"{:C('web_path')}Uploads/avatar_small/{$voItems.commnets_info.img}"<else/>"__PUBLIC__/statics/images/avatar-60.png"</if> style="width:24px;height:24px;"/></a>
+				<em><a target="_blank" href="{:get_url('index',$voItems['commnets_info']['uid'],'user')}" class="name">{$voItems.commnets_info.name}：</a>{$voItems.commnets_info.info}</em></span>
+			</present>             
+		</p>
+		<i class="shadow"></i>		
+	</div>
+</volist>
+</div>
+  <div class="loading" style="width:32px;height:32px;margin:0 auto;display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+  <div class="page">{$page}</div>

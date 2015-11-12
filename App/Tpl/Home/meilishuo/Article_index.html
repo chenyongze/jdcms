@@ -1,0 +1,101 @@
+<include file="Public:headeru"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/detail.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link href="__TMPL__Public/css/page_guang.css" type="text/css" rel="stylesheet"/>
+<style>
+.uc_sixin{padding:0 20px;}
+.uc_sixin table{border-top:solid 1px #dbdcda;}
+.uc_sixin td{border-bottom:solid 1px #dbdcda; padding:8px 5px; color:#666;}
+.uc_sixin .time{display:block;}
+.uc_sixin .op{padding:10px;}
+.uc_sixin .op .right{float:right;}
+</style>
+<include file="Public:headerdn"/>
+<div class="content">
+	<div class="single"> <div twitter_author_uid="20609809" twitter_id="569011979" class="twitter"> <div class="twitter_top">
+	<!--<a target="_blank" href="/index.php?a=index&amp;m=Uc&amp;g=Home&amp;id=354" class="avatar32_f">
+	<img src="/Uploads/avatar_small/1355125199.jpg" onerror="this.src='/Public/statics/images/avatar-60.png'"></a>-->  
+	<p style="margin-left:5px"> <!--<span class="date">2012年11月22日 17:16:58</span>--> 
+	
+	<a href="{:get_url('index','','article')}" class="red f12">{:C("site_name")}资讯</a> 
+	<if condition="$cate_info">
+	<span class="gray_f"> &gt;&gt; </span>
+	<span><a class="red f12" href="javascript:void(0);">{$cate_info.name|msubstr=0,10,'utf-8',false}</a></span>
+	</if>
+	</p> 
+	<!--<p class="f14_f twitter_context">分享达人商品</p>-->	</div>   
+	<br>
+	<if condition="$article_list">
+	<div class="uc_sixin">
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tbody>
+		  <volist name="article_list" id="voal">
+		  <tr>
+            <td width="15%"><img src="__PUBLIC__/statics/images/note-ico.png" width="30" height="30"></td>
+           <!--<td width="20%"><a href="{:get_url('index',$voal['cid'],'article')}" class="name">{$voal.name}</a></td>--> 
+            <td><a href=<if condition="$voal['url']">{$voal.url}<else/>"{:get_url('detail',$voal['id'],'article')}"</if> class="tit">{$voal.title|msubstr=0,15,'utf-8',false}</a>
+            </td>
+			<notpresent name="cate_info">
+			<td width="20%"><a href="{:get_url('index',$voal['cid'],'article')}" class="name">{$voal.name|msubstr=0,10,'utf-8',false}</a></td>
+			</notpresent>
+           <td width="15%"><span class="time" style="color: #B3B3B3;">{$voal.add_time|date='Y-m-d',###}</span></td>
+          </tr>
+		   </volist>
+        </tbody></table>
+		<div class="op"><span class="right"></span></div>
+          <div class="page pageNav">{$page}</div>
+      </div>
+</if>
+
+	<!--<div class="clear_f"></div> --></div>  
+
+	 </div>
+
+ <div class="corner_stamp">
+   <h2 class="f16_f">
+
+</h2>
+<!--文章列表-->
+<div class="groupBox">
+ <div class="groupCon">
+ <div class="gc_title">
+ <h4>
+<a href="javascript:void(0);">
+按分类浏览</a>
+</h4>
+ </div>
+<ul class="list_txt">
+ <volist name="article_cate_list" id="voACate">
+<li><a href="{:get_url('index',$voACate['id'],'article')}">{$voACate.name|msubstr=0,10,'utf-8',false}</a></li>
+ </volist>
+</ul>
+ </div>
+</div><!--文章列表end-->
+
+<div class="groupBox">
+ <div class="groupCon">
+ <div class="gc_title">
+ <h4>
+<a href="javascript:void(0);">
+推荐文章</a>
+</h4>
+ </div>
+<ul class="list_txt">
+<volist name="article_tuijian" id="votj">
+<li><a href=<if condition="$votj['url']">{$votj.url}<else/>"{:get_url('detail',$votj['id'],'article')}"</if>>{$votj.title|msubstr=0,15,'utf-8',false}</a></li>
+</volist>
+</ul>
+ </div>
+</div>
+
+
+ <div class="clear_f"></div>
+<div class="hr"></div>
+ </div>
+ <div class="clear_f">
+</div>
+
+<div class="clear_f"></div>
+
+</div>
+<include file="Public:footern"/>

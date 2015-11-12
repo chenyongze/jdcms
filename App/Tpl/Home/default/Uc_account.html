@@ -1,0 +1,67 @@
+<include file="Public:header"/>
+<div class="managebox">
+  <h3 class="title_m">账户设置</h3>
+  <div class="managecontent clearfix">
+    <div class="fl">
+      <ul>
+        <li class="cur"><a href="{:get_url('account','','user')}">基本信息</a></li>
+        <li><a href="{:get_url('img','','user')}">修改头像</a></li>
+        <li><a href="{:get_url('pwd','','user')}">修改密码</a></li>
+        <li><a href="{:get_url('sns','','user')}">帐号绑定</a></li>
+      </ul>
+    </div>
+    <div class="fr">
+	<input type="hidden" id="hdProvince" value="{$province}">
+	<input type="hidden" id="hdCity" value="{$city}">
+	<input type="hidden" id="hdCounty" value="{$county}">
+      <table cellpadding="0" cellspacing="0" width="100%">
+	   <tr>
+          <td align="right" valign="top"></td>
+		  
+          <td><div id="updateNotice"> <div></td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">昵称:</td>
+		  
+          <td><input type="hidden" id="hiddenId" value="{$user_info.id}"><input style="background:none repeat scroll 0 0 #EDEDED" disabled="disabled" class="btn_txt" id="basicName" type="text" value="{$user_info.name}"/>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">性别:</td>
+          <td><input type="radio" name="sex" value="0" <if condition="$user_info['sex'] eq 0">checked</if> />
+            女　
+            <input type="radio" name="sex" value="1" <if condition="$user_info['sex'] eq 1">checked</if>/>
+            男</td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">现居住地:</td>
+          <td>
+		   <select id="s_province" name="s_province"></select>&nbsp;&nbsp;
+			<select id="s_city" name="s_city" ></select>&nbsp;&nbsp;
+			<select id="s_county" name="s_county"></select>
+			<script type="text/javascript" src="__TMPL__Public/js/area.js?1"></script>
+			<script type="text/javascript">_init_area();</script>
+		  </td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">年龄:</td>
+          <td><input type="radio" name="age" value="80" <if condition="$user_info['age'] eq '80'">checked</if>/>
+            80后　
+            <input type="radio" name="age" value="90" <if condition="$user_info['age'] eq '90'">checked</if> />
+            90后　
+            <input type="radio" name="age" value="70" <if condition="$user_info['age'] eq '70'">checked</if> />
+            70后</td>
+        </tr>
+        <tr>
+          <td align="right" valign="top" >个人介绍:</td>
+          <td><textarea cols="30" rows="3" id="selfInfo">{$user_info.info}</textarea></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="button" class="btn_up" id="btn_up" value="确认提交" btn_up_post_action="{:get_url('accountAction','','user')}" /></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

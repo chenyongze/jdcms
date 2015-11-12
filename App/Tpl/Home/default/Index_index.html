@@ -1,0 +1,194 @@
+<include file="Public:header"/>
+
+<div class="wrap">
+    <div class="welcome">
+     <ul>
+      <li class="fx"><strong>发现时尚，与惊喜不期而遇</strong><br><em>　Discover&Recommend </em></li>
+      <li class="sc"><strong>收集宝贝，建立购物档案</strong><br><em>　collection lovely things </em></li>
+      <li class="sh"><strong>分享美丽，认识趣味相投的朋友</strong><br><em>　share your style & get friends</em></li>
+    </ul>
+    <a class="close" href="javascript:void(0);"><img src="{:C('web_path')}App/Tpl/Home/default/Public/img/close.gif" /></a> </div> 
+<div class="buynews clearfix">
+    <div class="fl">
+      <div class="gw_daren">
+        <div class="box">
+          <div class="inner">
+            <ul>
+              <li>
+                <div class="ds">
+                  <ul class="focus" focusid="{$focus.id}">
+                    <li class="bgload"><a href="{:get_url('index',$focus['id'],'item')}"><if condition="$focus['remark1'] neq ''"><img src="{$focus.remark1}" alt="{$focus.title}" /><else/><img src="{$focus.img|get_img=###,350}" /></if></a>
+                      <div class="ds">
+                        <p><a href="{:get_url('index',$focus['id'],'item')}" title="{$focus.title}">{$focus.title|msubstr=0,28,'utf-8',false}</a></p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="gw_shuo">
+        <ul>
+          <volist name="index_share_item" id="valsi">
+          <li class="focus_li" id="{$valsi.id}" focus_title="{$valsi.title|msubstr=0,28,'utf-8',false}" focus_link="{:get_url('index',$valsi['id'],'item')}" <if condition="$valsi['remark1'] neq ''">focus_img="{$valsi.remark1}"<else/>focus_img="{$valsi.img|get_img=###,350}"</if>>
+           <a href="{:get_url('index',$valsi['uid'],'user')}"><img class="avt r3" width="35" alt="{$valsi.title}" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$valsi['uimg'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$valsi.uimg}</if> /></a>
+            <div class="tk"><a href="{:get_url('index',$valsi['uid'],'user')}"><em>{$valsi.name}</em></a> 刚刚分享：
+              <p><a href="{:get_url('index',$valsi['id'],'item')}" class='share_item_title' title="{$valsi.title}">{$valsi.title}</a></p>
+            </div>
+          </li>
+          </volist>
+        </ul>
+      </div>
+    </div>
+    <div class="fr">
+      <div class="loginbox">
+		<present name="uid">
+			<div class="aur_info">
+			  <dl>
+			    <dt><a href="{:get_url('index','','user')}"><img width="64" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$nav_user_info['img'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$nav_user_info.img}</if> /></a></dt>
+			    <dd><em><a href="{:get_url('index','','user')}" class="hc">{$nav_user_info.name}</a></em> <em><if condition="$nav_user_info['sex'] eq 0">女<else/>男</if> 
+				<if condition="$nav_user_info['age'] eq 80">80后<elseif condition="$nav_user_info['age'] eq 70"/>70后<else/>60后</if></em> <em>{$nav_user_info.address}</em></dd>
+			  </dl>
+			</div>		
+			<div class="uc_nav">
+				<ul>
+				  <li><a class="s1" href="{:get_url('index','','user')}">我的首页</a></li>
+				  <li><a class="s2" href="{:get_url('share','','user')}">我的分享</a></li>
+				  <li><a class="s5" href="{:get_url('like','','user')}">我的喜欢</a></li>
+				  <li><a class="s6" href="{:get_url('album','','user')}">我的专辑</a></li>
+				</ul>
+			</div>
+		<else/>
+		    <div class="logo"> <img src="{:C('web_path')}App/Tpl/Home/default/Public/img/log1.gif" /></div>
+        	<div class="nextprice">" {:C("site_name")} " 有效单品统计： <strong><em>{$itemCount}</em></strong> <span class="gx">我们每天都在为您精挑细选</span></div>
+			<div class="login_info">
+			<div id="loginError"></div>
+			 <table cellpadding="0" cellspacing="0" width="250">
+				<if condition="($article_list) AND (C('article_show') eq '1')">
+				<tr>
+					<td>
+						<ul>
+							<volist name="article_list" id="voArt"><!--{:get_url('index',$voArt['id'],'article')}-->
+							<li><span style="float:right;color:#ccc">[{$voArt.add_time|date='Y-m-d',###}]</span><a href=<if condition="$voArt['url']">{$voArt.url}<else/>"{:get_url('detail',$voArt['id'],'article')}"</if> target="_blank">{$voArt.title|msubstr=0,12,'utf-8',false}</a></li>
+							</volist>
+						</ul>
+					</td>
+				</tr>
+				<else/>
+				<tr>
+	              <td><label>
+	                <input style="border: solid 1px #DBDCDA;" type="text" class="btn_txt" id="uname" value="输入用户名" />
+	                </label>
+	                <label>
+	                <input style="border: solid 1px #DBDCDA;" type="password" class="btn_txt" id="pwd"/>
+	                </label>
+	              </td>
+	              <td align="center"><input class="sub" type="button" id="indexLoginBtn" name="submit" value="登录" style="cursor:pointer" loginBtn_post_action="{:get_url('loginAction','','user')}" loginBtn_post_location="{:get_url('index','','user')}" location_login="{:get_url('index','','user')}"/>
+	              <div id="loading" style="display:none;"><img src="__PUBLIC__/statics/images/loading_d.gif"></div>
+	                <label>
+	                <input type="checkbox" id="autologin_checkBox" />
+	                记住我</label></td>
+	            </tr>
+				</if>
+	          </table>
+			  
+			  </div> 
+			
+		</present>
+      </div>
+    </div>
+  </div>
+  <if condition="get_ad(1) neq ''">
+  <center> <div style="width:970px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(1)}</div></center>
+  </if>
+<div class="wrap_bt">
+	<volist name="index_group_cates" id="val">
+    <div class="box1" <if condition="($key eq $index_gropu_count) and (!$shop_list)">style="border:0px"</if>>
+      <div class="tit_share"> <strong>发现<em>{$val.name}</em></strong><span class="key">
+	  <volist name="val['s']" id="vals"  offset='0' length='10'>
+	  	<a href="{:get_url('tag',$vals['id'],'cate')}" title="{$vals.name}">{$vals.name}</a>
+	  </volist>
+	  <a href="{:get_url('index',$val['id'],'cate')}" title="{$val.name}">全部</a></span></div>
+      <div class="share_items" style="height:302px; overflow:hidden;">
+		<volist name="val['s_items']" id="vo_s_items">
+		<div class="{$vo_s_items.class} bgload" style="{$vo_s_items.style}">
+		<volist name="vo_s_items['t_items']" id="vo_t_items" offset="0" length='1'>
+		<a class="au" href="{:get_url('tag',$vo_t_items['tid'],'cate')}" title="{$vo_t_items['name']}">
+			<if condition="$vo_t_items['img'] neq ''"><if condition="$vo_s_items['class'] eq t1"><img src="{$vo_t_items.img|get_img=###,100}" width="100" alt="{$vo_t_items['name']}"><else /><img src="{$vo_t_items.img|get_img=###,210}" width="200" alt="{$vo_t_items['name']}"></if><else /><img src="__TMPL__Public/img/undefined.jpg" /></if>
+			 <div class="ds"><div class="<if condition="$vo_t_items['name'] neq ''">au</if>"><span>{$vo_t_items.name|msubstr=0,6,'utf-8',false}</span><i></i></div></div></a>
+		</a>
+		</volist>
+		</div>
+		</volist>
+      </div>
+      <div class="share_who">她们在分享{$val.name} :
+	      <volist name="val['user']" id="valu">
+	      	<a href="{:get_url('index',$valu['uid'],'user')}"><if condition="$valu['uimg'] neq ''"><img alt="{$valu.name}" width="45" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src="{:C('web_path')}Uploads/avatar_small/{$valu.uimg}"/></if> </a>
+	      </volist>
+      </div>
+    </div>
+	</volist>
+	<if condition="$shop_list">
+    <div class="box1" style="border:0px">
+      <div class="tit_share"> <strong>发现<em>店铺</em></strong></div>
+      <div class="groups">
+	  <volist name="shop_list" id="voShop" offset='0' length="11">
+        <dl>
+          <dt><a href="{:get_url('index',$voShop['id'],'shop')}"><img title="{$voShop.name}" src=<if condition="$voShop['img']">"{$voShop.img}"<else/>__TMPL__Public/img/undefined.jpg</if> title="{$voShop.name}" alt="{$voShop.name}" /></a></dt>
+        </dl>
+	</volist>
+      </div>
+    </div>
+	</if>
+</div>
+</div>
+<if condition="get_ad(2) neq ''">
+  <center> <div class="ad" style="width:970px;height:90px;overflow:hidden;margin-bottom:15px;">{:get_ad(2)}</div></center>
+</if>
+<script>
+$(document).ready(function(){
+	$.getJSON("{:C('official_website')}push/pv?path={:C('web_path')}&callback=?");
+});
+</script>
+<script>
+	$(function(){
+		//首页焦点图
+		var f_id=$(".focus").attr("focusid");
+		$(".gw_shuo #"+f_id).css("background-color","#E6E6E6");
+		var currentindex=0;
+		var timerID = null;
+		function changeflash(i) {	
+			currentindex=i;
+			$(".gw_shuo ul li:eq("+i+")").css("background-color","#E6E6E6").siblings().css("background-color","#FFFFFF");
+			var focus_img=$(".gw_shuo ul li:eq("+i+")").attr("focus_img");
+			var focus_title=$(".gw_shuo ul li:eq("+i+")").attr("focus_title");
+			var focus_link=$(".gw_shuo ul li:eq("+i+")").attr("focus_link");
+			$(".focus p a").html(focus_title);
+			$(".focus a").attr("href",focus_link);
+			$(".focus img").attr("src",focus_img);
+		}
+		function startAm(){
+			if(timerID){
+				return;
+			}
+		timerID = setInterval(timer_tick,3000);
+		}
+		function stopAm(){
+			if(timerID){
+				clearInterval(timerID);
+				timerID = null;
+			}
+		}
+		function timer_tick(){
+			var totalNum=$(".gw_shuo ul li").length;
+			currentindex=currentindex<totalNum ? currentindex+1 : 0;
+			changeflash(currentindex);
+		}
+		startAm();
+		$(".gw_shuo ul>li").hover(function(){stopAm();},function(){startAm();});
+		$(".gw_shuo li").hover(function(){var num=$(this).index();changeflash(num);stopAm();},function(){startAm();});
+	})
+</script>
+<include file="Public:footer"/>

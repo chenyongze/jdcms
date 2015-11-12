@@ -1,0 +1,100 @@
+<include file="Public:header" />
+
+<script type="text/javascript" src="__PUBLIC__/statics/js/common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			if($("#name").val()==0){
+			   alert('请填写分类名称');
+			   return false;
+			}
+		});
+	});
+</script>
+
+</head>
+<form action="{:U('ItemsCate/edit')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+        <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th></th>
+            <td><input type="hidden" name="id" class="input-text" value="{$cate.id}"></td>
+          </tr>
+          <tr>
+            <th>上级分类：</th>
+            <!--<td>
+            <select name="pid" style="width:150px;">
+                  <option value="0" <if condition="$cate.pid eq 0">selected="selected"</if>>--顶级分类--</option>
+                  <volist name="cates_list['parent']" id="val">
+                  <option value="{$val.id}" <if condition="$cate.pid eq $val['id']">selected="selected"</if>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.name}</option>
+                  	<volist name="cates_list['sub'][$val['id']]" id="sval">
+                  	<option value="{$sval.id}" <if condition="$cate.pid eq $sval['id']">selected="selected"</if>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sval.name}</option>
+                  	</volist>
+                  </volist>
+            </select>
+            </td>-->
+            <td>
+            <select name="pid" style="width:150px;">
+            <option value="{$cate.pid}" selected="selected"><if condition="$cate.pid eq 0">--顶级分类--<else />{$cate.pname}</if></option>
+            </select>
+            </td>
+          </tr>
+          <tr>
+            <th width="100">分类名称 :</th>
+            <td><input type="text" name="name" id="name" class="input-text" value="{$cate.name}"></td>
+          </tr>
+          <tr>
+          	<th>分类图片 :</th>
+            <td>
+				<img src="<php>echo C('web_path').ltrim($cate['img'],'/');</php>" style="width:50px;height:50px;border: 1px solid #999999;padding:1px;" /><br /><br />
+            	<input type="file" name="img" id="img" class="input-text" size=21 style="height:25px;"/>
+            </td>
+          </tr>            
+          <tr>
+            <th width="100">排序值 :</th>
+            <td><input type="text" name="ord" id="ord" class="input-text" size="4" value="{$cate.ord}" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+          </tr>
+          <tr>
+            <th>首页显示 :</th>
+             <td>
+             	<input type="radio" name="is_index" id="is_index" class="radio_style" value="1" <if condition="$cate['is_index'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_index" id="is_index" class="radio_style" value="0" <if condition="$cate['is_index'] eq '0'">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+		  <tr>
+            <th>是否删除 :</th>
+             <td>
+             	<input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$cate['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="$cate['is_del'] eq '0'">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+        </table>
+      </div>
+      <div id="div_setting_2" class="contentList pad-10 hidden">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th width="100">Title :</th>
+            <td><input type="text" name="seo_title" id="seo_title" class="input-text" value="{$cate.seo_title}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">Keywords :</th>
+            <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" value="{$cate.seo_keys}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">Description :</th>
+            <td><textarea name="seo_desc" cols="47" rows="4">{$cate.seo_desc}</textarea></td>
+          </tr>
+        </table>
+      </div>
+      <div class="bk15"></div>
+      <div class="btn"><input type="submit" value="提交"  name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+</form>
+</body></html>

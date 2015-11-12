@@ -1,0 +1,42 @@
+<include file="Public:header"/>
+<div class="wrap">
+  <div class="ihome clearfix r5">
+    <div class="ihome_main">
+	<present name="cookieId">
+     <include file="Public:share"/>
+	 </present>
+	  <div class="blockB">
+        <div class="tit_share"> <strong><present name="oUid">{$user_info.name}<else/>我</present>的<em>宝贝</em><i class="num">({$count})</i></strong> <a class="goto"  href="<present name='oUid'>{:get_url('share',$oUid,'user')}<else/>{:get_url('share','','user')}</present>">点击进入</a></div>
+        <div class="list_tuijian">
+          <ul>
+			<volist name="items_list" id="voItems">
+            <li><div class="bgload"><a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img src="{$voItems.img|get_img=###,100}" width="100"/><else/><img src="__TMPL__Public/img/undefined.jpg" width="100"/></if></a></div>
+              <p><span class="s2">{$voItems.likes}</span><span>￥{$voItems.price}</span></p>
+            </li>
+		  </volist>
+          </ul>
+        </div>
+      </div>
+      <div class="blockA">
+	  <div class="tit_share"> <strong><present name="oUid">{$user_info.name}<else/>我</present>的<em>专辑</em><i class="num">({$aublm_count})</i></strong> <a class="goto" href="<present name='oUid'>{:get_url('album',$oUid,'user')}<else/>{:get_url('album','','user')}</present>">点击进入</a></div>
+	  <volist name="album_list" id="voAlbum">
+        <div class="demol_shop"> <a class="more" href="{:get_url('albumDetail',$voAlbum['id'],'user')}">查看全部</a>
+          <div class="title">
+            <h3><strong>{$voAlbum.title}</strong></h3>
+            <i></i></div>
+          <ul class="list_pic">
+
+		  <li class="bgload"><a href="{:get_url('index',$voItems['id'],'item')}"><if condition="($voAlbum['cover']['img'] eq '') and ($voA['cover'])"><img src="__TMPL__Public/img/undefined.jpg" width="100"/><else/><img src="{$voAlbum.cover.img|get_img=###,100}" width="100"/></if></a></li>
+
+		  <volist name="voAlbum['items']" id="voItems" offset="0" length="4">
+            <li class="bgload"><a href="{:get_url('index',$voItems['id'],'item')}"><if condition="$voItems['img'] neq ''"><img src="{$voItems.img|get_img=###,100}" width="100"/><else/><img src="__TMPL__Public/img/undefined.jpg" width="100" height="100"/></if></a></li>
+		  </volist>
+          </ul>
+        </div>
+	 </volist>
+      </div>
+    </div>
+   <include file="Public:ucRight"/>
+  </div>
+</div>
+<include file="Public:footer"/>

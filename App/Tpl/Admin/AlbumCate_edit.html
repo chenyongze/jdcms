@@ -1,0 +1,71 @@
+<include file="Public:header" />
+
+<script type="text/javascript" src="__PUBLIC__/statics/js/common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			if($("#name").val()==0){
+			   alert('请填写专辑分类名称');
+			   return false;
+			}
+		});
+	});
+</script>
+
+</head>
+<form action="{:U('AlbumCate/edit')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+        <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th></th>
+            <td><input type="hidden" name="id" class="input-text" value="{$albumcate.id}"></td>
+          </tr>
+         
+          <tr>
+            <th width="100">专辑分类名称 :</th>
+            <td><input type="text" name="title" id="title" class="input-text" value="{$albumcate.title}"></td>
+          </tr>
+             
+          <tr>
+            <th width="100">排序值 :</th>
+            <td><input type="text" name="ord" id="ord" class="input-text" size="4" value="{$albumcate.ord}" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+          </tr>
+         
+		  <tr>
+            <th>是否删除 :</th>
+             <td>
+             	<input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$albumcate['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+        		<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="($albumcate['is_del'] eq '0') OR ($albumcate['is_del'] eq '')">checked="checked"</if>> &nbsp;否
+             </td>
+          </tr>
+        </table>
+      </div>
+      <div id="div_setting_2" class="contentList pad-10 hidden">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th width="100">Title :</th>
+            <td><input type="text" name="seo_title" id="seo_title" class="input-text" value="{$albumcate.seo_title}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">Keywords :</th>
+            <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" value="{$albumcate.seo_keys}" size="50"></td>
+          </tr>
+          <tr>
+            <th width="100">Description :</th>
+            <td><textarea name="seo_desc" cols="47" rows="4">{$albumcate.seo_desc}</textarea></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="bk15"></div>
+      <div class="btn"><input type="submit" value="提交"  name="submit" class="button" id="submit"></div>
+    </div>
+  </div>
+</form>
+</body></html>

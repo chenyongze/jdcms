@@ -1,0 +1,49 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#submit").click(function(){
+			if($("#cate_id").val()==0){
+			   alert('请选择链接分类');
+			   return false;
+			}
+		});
+	});
+</script>
+
+</head>
+<div class="pad_10">
+    <form action="{:U('Link/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" >
+        <input type="hidden" name="id" value="{$link.id}" />
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+            <tr>
+                <th width="60">链接名称 :</th>
+                <td><input type="text" name="name" id="name" size="25" value="{$link.name}" ></td>
+            </tr>
+            <tr>
+                <th>链接网址 :</th>
+                <td><input type="text" name="url" id="url" size="25" value="<if condition="$link['url'] neq ''">{$link.url}<else/>http://</if>" /></td>
+            </tr> 
+            <tr>
+                <th>排序值 :</th>
+                <td><input type="text" name="ord" id="ord" class="input-text" value="{$link.ord}" size=8></td>
+            </tr>
+            <tr>
+                <th>审核状态 :</th>
+                <td><input type="radio" name="status" value="1" <if condition="$link['status'] eq '1' OR $link['status'] eq ''"> checked="checked"</if>
+                    >&nbsp;已审核&nbsp;&nbsp;&nbsp;
+                     <input type="radio" name="status" value="0" <if condition="$link['status'] eq '0'"> checked="checked"</if>
+                    >&nbsp;未审核</td>
+            </tr>  
+	        <tr>
+	        	<th>是否删除 :</th>
+	        	<td>
+	            	<input type="radio" name="is_del" id="is_del" class="radio_style" value="1" <if condition="$link['is_del'] eq '1'">checked="checked"</if> > &nbsp;是&nbsp;&nbsp;&nbsp;
+	        		<input type="radio" name="is_del" id="is_del" class="radio_style" value="0" <if condition="$link['is_del'] eq '0' OR $link['is_del'] eq ''">checked="checked"</if>> &nbsp;否
+	        	</td>
+	    	</tr>            
+        </table>
+        			<input type="submit" value="提交" onclick="return submitFrom();" name="submit" class="button" id="submit">
+    </form>
+</div>
+</body></html>

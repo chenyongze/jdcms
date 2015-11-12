@@ -1,0 +1,54 @@
+<include file="Public:header" />
+
+</head>
+<body>
+<form action="{:U('Shop/edit')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+    <div class="col-tab">
+      <ul class="tabBut cu-li">
+        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">基本信息</li>
+        <li id="tab_setting_2" onclick="SwapTab('setting','on','',2,2);">SEO设置</li>
+      </ul>
+      <div id="div_setting_1" class="contentList pad-10">
+        <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+          <tr>
+            <th width="100">店铺名称 :</th>
+            <td><input type="text" name="name" id="name" value="{$shop.name}" class="input-text not_null" maxlength="140" size="60" /><b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+          <tr>
+	      	<th>店铺图片</th>
+	      	<td>
+	            <img src="{$shop.img}" style="width:50px;height:50px;border: 1px solid #999999;padding:1px;" /><br /><br />
+	            <input type="file" name="upload_img" id="upload_img" class="input-text" size=21 />建议图片尺寸50x50
+	        </td>
+      	  </tr>
+          <tr>
+          	<th>店铺网址 :</th>
+            <td><input type="text" name="url" id="url" value="{$shop.url}" class="input-text" size="60" /><b style="padding-left:10px;color:red;">*</b></td>
+          </tr>
+          <tr><td><input type="hidden" name="id" id="id" value="{$shop.id}" /></td></tr>
+        </table>
+      </div>
+        <div id="div_setting_2" class="contentList pad-10 hidden">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">Title :</th>
+        <td><input type="text" name="seo_title" id="seo_title" class="input-text" size="60" value="{$shop.seo_title}"></td>
+      </tr>
+      <tr>
+        <th>Keywords :</th>
+        <td><input type="text" name="seo_keys" id="seo_keys" class="input-text" size="60" value="{$shop.seo_keys}"></td>
+      </tr>
+      <tr>
+        <th>Description :</th>
+        <td><textarea name="seo_desc" id="seo_desc" cols="80" rows="8">{$shop.seo_desc}</textarea></td>
+      </tr>
+    </table>
+    
+    </div>
+    </div>
+    <div class="btn"><input type="submit" value="提交" name="submit" class="button" id="submit"></div>
+  </div>
+</form>
+
+</body></html>

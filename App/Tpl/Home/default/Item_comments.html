@@ -1,0 +1,11 @@
+<ul class="note_comment_list">
+<div class='comments_loading'></div>
+<volist name="comments['list']" id="val">
+	<li><a href="{:get_url('index',$val['uid'],'user')}"><img class="aup" style="width:24px;" onerror="this.src='__PUBLIC__/statics/images/avatar-60.png'" src=<if condition="$val['uimg'] eq ''">__PUBLIC__/statics/images/avatar-60.png<else/>{:C('web_path')}Uploads/avatar_small/{$val.uimg}</if> /></a>
+	<p><a class="hc" href="{:get_url('index',$val['uid'],'user')}">{$val.uname}</a>：{$val.info}<span>({$val.add_time|date='Y-m-d H:i:s',###})</span><em style="float:right"><a
+	href="javascript:void(0);" class="comments_del" commDel_post_action="{:get_url('commDel','','item')}" comm_id="{$val.id}" web_path="{:C('web_path')}"><if condition="$uid eq $val['uid']">删除</if></a></em></p></li>
+</volist>
+</ul>
+<if condition="strlen(trim($comments['page'])) neq 0">   
+<div class="page" id="comments_page">{$comments.count}条记录&nbsp;&nbsp;{$comments.page}</div>
+</if> 

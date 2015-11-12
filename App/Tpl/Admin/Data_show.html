@@ -1,0 +1,36 @@
+<include file="Public:top" />
+
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/statics/css/admin_style.css'>
+
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table" onsubmit="return check();">
+<form action="{:U('Data/del')}" method="post">
+<tr class="table_title"><td colspan="6">数据库分卷还原</td></tr>
+<tr class="list_head ct">
+<td width="60">编号</td>
+<td >文件名</td>
+<td width="50">卷号</td>
+<td width="60">文件大小</td>
+<td width="150">备份时间</td>
+<td width="120">操作</td>
+</tr><volist name="list_backup" id="vo">
+<tr class="tr">
+  <td class="lt"><input type="checkbox" name="id[]" value="{$vo.filename}" class="noborder">{$i}</td>
+  <td class="lt">{$vo.filename}</td>
+  <td class="td ct">{$vo.number}</td>
+  <td class="td ct">{$vo.filesize} M</td>
+  <td class="td ct">{$vo.maketime}</td>
+  <td class="td ct"><a href="{:U('Data/backin',array('id'=>$vo['pre']))}" onClick="return confirm('导入数据会删除现在数据库的所有信息,请确定是否导入?')">导入</a> | <a href="{:U('Data/backdown',array('id'=>$vo['filename']))}">下载</a> | <a href="{:U('Data/backdel',array('id'=>$vo['filename']))}" onClick="return confirm('确定删除?')">删除</a> </td>
+</tr></volist>
+<tr class="tr">
+<td colspan="6">说明:导入时只需要点导入任意一个文件,程序会自动导入剩余文件!</td>
+</tr>
+<tr>
+<td colspan="6" class="tr"><input type="button" class="bginput" id="checkall" value="全选/取消" style="*padding-top:2px;"> 
+<input type="submit" class="bginput" value="批量删除"/></td>
+</tr>
+</form>
+</table>
+</body>
+</html>

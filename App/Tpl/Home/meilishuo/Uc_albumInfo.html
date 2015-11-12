@@ -1,0 +1,44 @@
+<include file="Public:headeru" />
+<link rel="apple-touch-icon-precomposed" href="__TMPL__Public/img/custom_icon_precomposed.png"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/meta.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/newalbum.css"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/settings.css"/>
+<include file="Public:headerdn" />
+
+<div class="main container_12" >
+	<div class="grid_12">
+		<div class="box_shadow mt14 p13">
+			<div class="album_create">
+				<h1><strong><present name="aid">编辑<else />创建新</present>专辑</strong></h1>
+				<div class="album_box">
+					<form  class="newalbum" id="addtoalbum">
+						<fieldset>	
+							<label>专辑名称：</label>
+							<input type="hidden" id="hiddenaid" class="btn_txt r5" style="width:350px" value='<present name="aid">{$aid}</present>'>
+							<input class="album_title r3" id="albumTitle" type="text" value="<present name='album_title'>{$album_title}</present>" name="">
+							<span class="" id="createAlbumError"></span>
+						</fieldset>
+						<fieldset>	
+							<label>所属分类：</label>
+							<select id="albumCate">
+							<option value="0">请选择...</option>
+							<volist name="album_cate" id="vo">
+								<option class="btn_txt r5" style="width:100px" value="{$vo.id}" <if condition="$vo['id'] eq $album_cate_id">selected</if>>{$vo.title}</option>
+							</volist>
+							</select>
+							<span class="error_icon" id="cate_error" style="color:#ff89a7;display:none">请选择专辑分类</span>
+						</fieldset>
+						<fieldset>	
+							<label>专辑介绍：</label>
+							<textarea class="album_all r3" id="albumInfo" type="text"><present name="aid">{$info}</present></textarea>
+						</fieldset>	
+						<a class="next_button r3 AlbumInfoBtn" href="javascript:void(0);" id="creat_btn" AlbumInfoBtn_post_action="{:get_url('albumInfoAction','','user')}" AlbumInfoBtn_post_location="{:get_url('album','','user')}">保存</a>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="clear_f"></div>
+<include file="Public:footern"/>

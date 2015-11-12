@@ -1,0 +1,52 @@
+<include file="Public:header" />
+
+<script type="text/javascript">
+	function status(id,type){
+	    $.get("{:U('Ad/status')}", { id: id, type: type }, function(data){
+			$("#"+type+"_"+id+" img").attr('src', '__PUBLIC__/statics/images/status_'+data.data+'.gif')
+		},"json"); 
+	}
+</script>
+
+</head>
+<div class="pad-lr-10">
+  <form id="myform" name="myform" action="{:U('Ad/delete')}" method="post">
+    <div class="table-list">
+      <table width="100%" cellspacing="0">
+        <thead>
+          <tr>
+          	<th width="5%">序号</th>
+            <th width="1%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+            <th width=150>广告名称</th>
+            <th width=150>广告尺寸</th>
+            <th width=150>引用模板</th>
+            <th width=50>排序</th>
+            <th width=50>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <volist name="ad_list" id="val" >
+          <tr>
+          	<td align="center">{$val.key}</td>
+            <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
+            <td align="center">{$val.name}</td>
+            <td align="center">{$val.size}</td>
+            <td align="center"><literal>{:</literal>get_ad('{$val.id}')}</td>
+            <td align="center"><input type="text" class="input-text-c input-text" value="{$val.ord}" size="4" name="orders[{$val.id}]" /></td>
+            <td align="center"><a class="blue" href="{:U('Ad/edit',array('id'=>$val['id']))}">编辑</a></td>
+          </tr>
+          </volist>
+        </tbody>
+      </table>
+<div class="btn">
+    <label for="check_box" style="float:left;">全选/取消</label>
+    <input type="submit" class="button" name="submit" value="删除" style="float:left;margin:0 10px 0 10px;" onclick="return check();"/>
+    <input type="submit" class="button" name="order" onclick="document.myform.action='{:U("Ad/order")}'" value="排序" style="float:left;margin:0 10px 0 0;"/>
+    <div id="pages">{$page}</div>
+    </div>
+      
+    </div>
+  </form>
+</div>
+</body>
+</html>
